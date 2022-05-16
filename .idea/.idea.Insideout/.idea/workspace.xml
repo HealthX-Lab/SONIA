@@ -2,33 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Brain.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Brain.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Node Constructor.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Node Constructor.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Nodes.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Nodes.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Node.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Node.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/aal_MNI_info.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/aal_MNI_info.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Connectivity.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Connectivity.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/NodeConstructor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/NodeConstructor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Emissive.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Emissive.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Post-Processing.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Post-Processing/Bloom.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Post-Processing/Bloom.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Fireflies.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Fireflies.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brain (FBX).prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brain (FBX).prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brain (OBJ).prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brain (OBJ).prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Other.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Other.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/BubblingVertices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/BubblingVertices.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/BubblingVertices.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/BubblingVertices.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fireflies.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fireflies.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pathway.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pathway.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Connectivity.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Connectivity.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Narrative.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Narrative.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Particles.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Particles.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Pathway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Pathway.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,7 @@
       <workItem from="1652130839152" duration="919000" />
       <workItem from="1652187882332" duration="16652000" />
       <workItem from="1652292534234" duration="6334000" />
-      <workItem from="1652706962426" duration="5104000" />
+      <workItem from="1652706962426" duration="11177000" />
     </task>
     <servers />
   </component>

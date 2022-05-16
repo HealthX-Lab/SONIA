@@ -7,6 +7,8 @@ public class Pathway : MonoBehaviour
 {
     [Tooltip("The nodes to be connected together in a path")]
     public GameObject[] nodes;
+    [Tooltip("Whether the pathway should flow both ways (doubles frame cost)")]
+    [SerializeField] bool bidirectional = false;
 
     Bounds[] meshBounds; // Mesh bounds of each GameObject
 
@@ -21,7 +23,6 @@ public class Pathway : MonoBehaviour
         }
         
         GameObject pathwayTemp = Resources.Load<GameObject>("Pathway");
-        GameObject firefliesTemp = Resources.Load<GameObject>("Fireflies");
 
         for (int j = 0; j < nodes.Length; j++)
         {
@@ -30,16 +31,23 @@ public class Pathway : MonoBehaviour
             if (j + 1 < nodes.Length)
             {
                 Vector3 temp2 = nodes[j+1].transform.TransformPoint(meshBounds[j+1].center); // Getting the next GameObject's local bound centre position
-                
-                particleAttractorLinear attractor = Instantiate(pathwayTemp, temp1, Quaternion.identity).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
-                attractor.target = temp2; // Setting the pathway target to the next node in the array
-                attractor.transform.SetParent(nodes[j].transform);
+
+                particleAttractorLinear attractor1 = Instantiate(pathwayTemp, temp1, Quaternion.identity).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
+                attractor1.target = temp2; // Setting the pathway target to the next node in the array
+                attractor1.transform.SetParent(nodes[j].transform);
+
+                if (bidirectional)
+                {
+                    particleAttractorLinear attractor2 = Instantiate(pathwayTemp, temp2, Quaternion.identity).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
+                    attractor2.target = temp1; // Setting the pathway target to the next node in the array
+                    attractor2.transform.SetParent(nodes[j+1].transform);   
+                }
+                else
+                {
+                    var temp = attractor1.GetComponent<ParticleSystem>().emission;
+                    temp.rateOverTime = 3;
+                }
             }
-            
-            // Adding fireflies to each GameObject, and setting their size proportional to the bounds size
-            GameObject flies = Instantiate(firefliesTemp, temp1, Quaternion.identity);
-            flies.transform.localScale = Vector3.one * meshBounds[j].size.magnitude * 0.02f;
-            flies.transform.SetParent(nodes[j].transform);
         }
     }
 }
