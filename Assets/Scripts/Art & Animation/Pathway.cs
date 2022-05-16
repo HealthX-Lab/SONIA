@@ -6,7 +6,7 @@ using UnityEngine;
 public class Pathway : MonoBehaviour
 {
     [Tooltip("The nodes to be connected together in a path")]
-    [SerializeField] GameObject[] nodes;
+    public GameObject[] nodes;
 
     Bounds[] meshBounds; // Mesh bounds of each GameObject
 

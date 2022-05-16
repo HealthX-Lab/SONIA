@@ -26,7 +26,7 @@ Transform:
   m_LocalRotation: {x: -0.8337411, y: -0.07643743, z: 0.028252155, w: 0.5461089}
   m_LocalPosition: {x: -0.02, y: 0.1, z: -0.3}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5605513892410463569}
   - {fileID: 4106044726246225138}
@@ -1952,7 +1952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4106044726193757606}
   m_Layer: 0
-  m_Name: Brain (OBJ)
+  m_Name: Brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2000,7 +2000,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4106044724799895323}
   - {fileID: 4106044725721945299}
@@ -2136,7 +2136,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3963471841422006557}
   - {fileID: 3963471839656900245}
