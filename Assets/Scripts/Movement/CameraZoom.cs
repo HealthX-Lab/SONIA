@@ -21,9 +21,9 @@ public class CameraZoom : MonoBehaviour
         if (lastTarget != target)
         {
             // Getting the target's mesh's bounds, and using them to calculate the targetPosition and stopping minDistance
-            Bounds temp = target.GetComponent<MeshFilter>().mesh.bounds;
-            targetPosition = target.transform.TransformPoint(temp.center);
-            minDistance = target.transform.TransformPoint(temp.size).magnitude * 0.35f;
+            BoundsInfo temp = new BoundsInfo(gameObject);
+            targetPosition = temp.LocalCentre;
+            minDistance = temp.Magnitude * 0.35f;
 
             hasArrived = false;
             

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9136278559798797955}
   - component: {fileID: 9136278559798797952}
   m_Layer: 0
-  m_Name: Pathway
+  m_Name: Pathway Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

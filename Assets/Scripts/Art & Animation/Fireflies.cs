@@ -7,13 +7,11 @@ public class Fireflies : MonoBehaviour
 {
     void Start()
     {
-        Bounds meshBounds = GetComponent<MeshFilter>().mesh.bounds;
-        
-        GameObject firefliesTemp = Resources.Load<GameObject>("Fireflies");
+        BoundsInfo temp = new BoundsInfo(gameObject);
         
         // Adding fireflies to each GameObject, and setting their size proportional to the bounds size
-        GameObject flies = Instantiate(firefliesTemp, transform.TransformPoint(meshBounds.center), Quaternion.identity);
-        flies.transform.localScale = Vector3.one * meshBounds.size.magnitude * 0.02f;
+        GameObject flies = Instantiate(Resources.Load<GameObject>("Fireflies"), temp.LocalCentre, Quaternion.identity);
+        flies.transform.localScale = Vector3.one * temp.Magnitude * 0.01f;
         flies.transform.SetParent(gameObject.transform);
     }
 }

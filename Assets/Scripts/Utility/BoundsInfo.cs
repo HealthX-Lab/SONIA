@@ -1,0 +1,48 @@
+using UnityEngine;
+
+/// <summary>
+/// Class used to easily get position and size information from a mesh
+/// </summary>
+public class BoundsInfo
+{
+    /// <summary>
+    /// The absolute centre of the mesh bounds, local to the GameObject
+    /// </summary>
+    public Vector3 LocalCentre { get; }
+    
+    /// <summary>
+    /// The spherical size of the mesh
+    /// </summary>
+    public float Magnitude { get; }
+
+    /// <summary>
+    /// Default constructor
+    /// </summary>
+    /// <param name="obj">Given GameObject with the mesh to be extracted</param>
+    public BoundsInfo(GameObject obj)
+    {
+        MeshFilter[] childFilters = obj.GetComponentsInChildren<MeshFilter>();
+        Vector3 tempCentre = Vector3.zero;
+        float tempMagnitude = 0;
+
+        foreach (MeshFilter i in childFilters)
+        {
+            Bounds tempBounds = i.mesh.bounds;
+            
+            tempCentre += i.gameObject.transform.TransformPoint(tempBounds.center);
+            tempMagnitude += tempBounds.size.magnitude * i.gameObject.transform.lossyScale.magnitude;
+        }
+        
+        Transform tempTransform = obj.transform;
+            
+        while (tempTransform.parent != null)
+        {
+            tempMagnitude *= tempTransform.lossyScale.magnitude;
+                
+            tempTransform = tempTransform.parent;
+        }
+        
+        LocalCentre = tempCentre / childFilters.Length; // Getting the local absolute centre
+        Magnitude = tempMagnitude / childFilters.Length; // Getting the magnitude
+    }
+}
