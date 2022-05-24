@@ -10,9 +10,11 @@ public class StructureUIController : MonoBehaviour
     [SerializeField] string name;
     [Tooltip("Description name of the structure")]
     [SerializeField] string description;
+    [Tooltip("The layer on which to raycast (so it goes through other structures)")]
+    [SerializeField] LayerMask layer;
+    [SerializeField] bool scaleDownIfTooFar;
 
-    GameObject canvas; // The canvas to be instantiated
-    bool hasCreatedCanvas;
+    bool hasCreatedCanvas; // Whether the structure UI canvas has been created yet
     Transform cameraTransform, canvasTransform; // The camera and canvas Transforms, respectively
     BoundsInfo bounds; // The mesh bounds info of the structure
     TMP_Text nameText, descriptionText; // The name and description TMP text
@@ -33,10 +35,25 @@ public class StructureUIController : MonoBehaviour
     {
         if (hasCreatedCanvas)
         {
+            RaycastHit hit;
+            if (Physics.Raycast(cameraTransform.position, bounds.GlobalCentre, out hit, Single.PositiveInfinity, layer))
+            {
+                canvasTransform.position = hit.point + (cameraTransform.position - bounds.GlobalCentre).normalized;
+                //Debug.DrawLine(cameraTransform.position, bounds.GlobalCentre, Color.red);
+            }
+
             // Pointing the structure UI towards the user at all times
-            canvasTransform.position = (cameraTransform.position - transform.position).normalized * (bounds.Magnitude * 0.4f);
-            canvasTransform.localPosition = new Vector3(canvasTransform.position.x, 0, canvasTransform.position.z);
-            canvas.transform.LookAt(cameraTransform);
+            float temp = Vector3.Distance(transform.position, hit.point);
+            //print(temp);
+            canvasTransform.localScale = Vector3.one *
+                                         (Mathf.Pow(1.15f, temp - 20f) + 0.5f);
+
+            if (scaleDownIfTooFar && canvasTransform.localScale.x > (temp / 10f))
+            {
+                canvasTransform.localScale = Vector3.one * (temp / 10f);
+            }
+            
+            canvasTransform.LookAt(cameraTransform);
         }
     }
 
@@ -47,11 +64,10 @@ public class StructureUIController : MonoBehaviour
     {
         if (!hasCreatedCanvas)
         {
-            canvas = Instantiate(Resources.Load<GameObject>("Structure Canvas"), transform);
-            canvasTransform = canvas.transform;
+            canvasTransform = Instantiate(Resources.Load<GameObject>("Structure Canvas"), transform).transform;
 
             // Getting the TMP text Components in the children
-            TMP_Text[] temp = canvas.GetComponentsInChildren<TMP_Text>();
+            TMP_Text[] temp = canvasTransform.GetComponentsInChildren<TMP_Text>();
             nameText = temp[0];
             descriptionText = temp[1];
 

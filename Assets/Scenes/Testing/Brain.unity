@@ -170,7 +170,7 @@ MonoBehaviour:
   nodes:
   - {fileID: 262990313}
   - {fileID: 262990314}
-  - {fileID: 262990312}
+  - {fileID: 761029079}
   bidirectional: 1
   isController: 0
 --- !u!1 &181318007
@@ -213,35 +213,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 198676122769919720, guid: 0361710428a3b8548a507162a4cbc7e5,
+    - target: {fileID: 198676122772115496, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198676123260395217, guid: 0361710428a3b8548a507162a4cbc7e5,
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 198676123262582801, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198676123585080268, guid: 0361710428a3b8548a507162a4cbc7e5,
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 198676123582821644, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198676123735257250, guid: 0361710428a3b8548a507162a4cbc7e5,
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 198676123737255522, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198676124251305016, guid: 0361710428a3b8548a507162a4cbc7e5,
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 198676124253498104, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198676124587330919, guid: 0361710428a3b8548a507162a4cbc7e5,
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 198676124585399207, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 901774884643554451, guid: 0361710428a3b8548a507162a4cbc7e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 2164878898289575336, guid: 0361710428a3b8548a507162a4cbc7e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 2204603307985566577, guid: 0361710428a3b8548a507162a4cbc7e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3765562680681249666, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
@@ -318,26 +333,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brain
       objectReference: {fileID: 0}
-    - target: {fileID: 6474057294200024564, guid: 0361710428a3b8548a507162a4cbc7e5,
+    - target: {fileID: 5425437544361609098, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6481061371855877776, guid: 0361710428a3b8548a507162a4cbc7e5,
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
+    - target: {fileID: 8394041832700548346, guid: 0361710428a3b8548a507162a4cbc7e5,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322219409742547195, guid: 0361710428a3b8548a507162a4cbc7e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13bfa11fa5ce93d40b96aa78d05fd36d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0361710428a3b8548a507162a4cbc7e5, type: 3}
 --- !u!1 &262990312 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2743543076882812477, guid: 0361710428a3b8548a507162a4cbc7e5,
+  m_CorrespondingSourceObject: {fileID: 4026629912685966981, guid: 0361710428a3b8548a507162a4cbc7e5,
     type: 3}
   m_PrefabInstance: {fileID: 262990311}
   m_PrefabAsset: {fileID: 0}
@@ -355,11 +365,65 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &262990315 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 765948276622971444, guid: 0361710428a3b8548a507162a4cbc7e5,
+  m_CorrespondingSourceObject: {fileID: 2204603307985566577, guid: 0361710428a3b8548a507162a4cbc7e5,
     type: 3}
   m_PrefabInstance: {fileID: 262990311}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &427544932
+--- !u!114 &262990316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262990315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268882131588e44db729fa9ae1f3603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Bed Nucleus of the Stria Terminalis <i>(BNST)</i> (Right)
+  description: '[description goes here]'
+  layer:
+    serializedVersion: 2
+    m_Bits: 2048
+  scaleDownIfTooFar: 0
+--- !u!114 &262990322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262990314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268882131588e44db729fa9ae1f3603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Hippocampus (Right)
+  description: '[description goes here]'
+  layer:
+    serializedVersion: 2
+    m_Bits: 128
+  scaleDownIfTooFar: 1
+--- !u!114 &262990324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262990313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268882131588e44db729fa9ae1f3603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Amygdala (Right)
+  description: '[description goes here]'
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
+  scaleDownIfTooFar: 1
+--- !u!43 &279570574
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,6 +587,47 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &414634132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 159396, guid: 48e736fba915e1648bd546ab491202ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 707202692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &414634135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414634132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9947b1d66a7975646b734f1889c5ae86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068, type: 2}
+  lineWidth: 0.01
+  nullDistance: 0.5
+  raycastTags:
+  - Pathway Option
+  hitObject: {fileID: 0}
+--- !u!114 &414634138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414634132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 76252a84844c44443a8ae22c7bc20906, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &494496729
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494496730}
+  - component: {fileID: 494496731}
   m_Layer: 0
   m_Name: Pathways
   m_TagString: Untagged
@@ -559,6 +665,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &494496731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494496729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71f1128341f3cd4995d596b51903f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathways:
+  - {fileID: 1590626213}
+  - {fileID: 828933585}
+  - {fileID: 181318007}
+  - {fileID: 1898392744}
+  - {fileID: 107172034}
+  leftHand: {fileID: 1021435736}
 --- !u!1 &533696145
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,14 +723,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533696145}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 262990313}
-  - {fileID: 262990313}
+  - {fileID: 262990315}
   bidirectional: 0
   isController: 0
 --- !u!1 &653690088
@@ -653,8 +778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 262990312}
-  - {fileID: 262990313}
+  - {fileID: 761029079}
+  - {fileID: 262990315}
   bidirectional: 0
   isController: 0
 --- !u!1001 &707202692
@@ -667,6 +792,14 @@ PrefabInstance:
     - target: {fileID: 146900, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
       propertyPath: m_Name
       value: SteamVR CameraRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 159396, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 192944, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
       propertyPath: m_RootOrder
@@ -715,13 +848,61 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 830079042}
+      objectReference: {fileID: 1109819479}
     - target: {fileID: 3380982, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 427544932}
+      objectReference: {fileID: 279570574}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
+--- !u!1 &761029079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8104667364213914775, guid: 0361710428a3b8548a507162a4cbc7e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 262990311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &761029081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761029079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268882131588e44db729fa9ae1f3603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
+  description: '[description goes here]'
+  layer:
+    serializedVersion: 2
+    m_Bits: 1024
+  scaleDownIfTooFar: 0
+--- !u!1 &802397183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 198676122776096918, guid: 0361710428a3b8548a507162a4cbc7e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 262990311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &802397187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802397183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268882131588e44db729fa9ae1f3603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Thalamus (Right)
+  description: '[description goes here]'
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
+  scaleDownIfTooFar: 1
 --- !u!1 &828933585
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,10 +950,34 @@ MonoBehaviour:
   nodes:
   - {fileID: 262990313}
   - {fileID: 262990314}
-  - {fileID: 262990312}
+  - {fileID: 761029079}
   bidirectional: 1
   isController: 0
---- !u!21 &830079042
+--- !u!114 &904918665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262990312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268882131588e44db729fa9ae1f3603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Striatum (Right)
+  description: '[description goes here]'
+  layer:
+    serializedVersion: 2
+    m_Bits: 512
+  scaleDownIfTooFar: 1
+--- !u!4 &1021435736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 458974, guid: 48e736fba915e1648bd546ab491202ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 707202692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!21 &1109819479
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -855,7 +1060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 262990313}
-  - {fileID: 262990312}
+  - {fileID: 761029079}
   bidirectional: 1
   isController: 0
 --- !u!1 &1898392744
@@ -904,8 +1109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 262990313}
-  - {fileID: 262990315}
   - {fileID: 262990312}
+  - {fileID: 761029079}
   bidirectional: 1
   isController: 0
 --- !u!1 &2089327009

@@ -6,9 +6,9 @@ using UnityEngine;
 public class BoundsInfo
 {
     /// <summary>
-    /// The absolute centre of the mesh bounds, local to the GameObject
+    /// The absolute centre of the mesh bounds
     /// </summary>
-    public Vector3 LocalCentre { get; }
+    public Vector3 GlobalCentre { get; }
     
     /// <summary>
     /// The spherical size of the mesh
@@ -42,7 +42,7 @@ public class BoundsInfo
             tempTransform = tempTransform.parent;
         }
         
-        LocalCentre = tempCentre / childFilters.Length; // Getting the local absolute centre
+        GlobalCentre = tempCentre / childFilters.Length; // Getting the local absolute centre
         Magnitude = tempMagnitude / childFilters.Length; // Getting the magnitude
     }
 }

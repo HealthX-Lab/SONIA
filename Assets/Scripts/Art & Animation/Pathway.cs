@@ -71,7 +71,7 @@ public class Pathway : MonoBehaviour
                     // If the target doesn't have a mesh, just use its position
                     if (tempBounds != null)
                     {
-                        tempPosition = meshBounds[j].LocalCentre;
+                        tempPosition = meshBounds[j].GlobalCentre;
                     }
                     else
                     {
@@ -79,16 +79,17 @@ public class Pathway : MonoBehaviour
                     }
                     
                     // Adding the new edge's particles
-                    particleAttractorLinear attractor1 = Instantiate(newEdge, tempPosition, Quaternion.identity).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
-                    attractor1.target = meshBounds[j+1].LocalCentre; // Setting the pathway target to the next node in the array
-                    attractor1.transform.SetParent(nodes[j].transform);
+                    particleAttractorLinear attractor1 = Instantiate(newEdge, transform).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
+                    attractor1.transform.position = tempPosition;
+                    attractor1.target = meshBounds[j+1].GlobalCentre; // Setting the pathway target to the next node in the array
                     attractor1.speed = speed;
 
                     if (bidirectional && !isController)
                     {
                         // Adding backwards particles if its bidirectional
-                        particleAttractorLinear attractor2 = Instantiate(newEdge, meshBounds[j+1].LocalCentre, Quaternion.identity).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
-                        attractor2.target = meshBounds[j].LocalCentre; // Setting the pathway target to the next node in the array
+                        particleAttractorLinear attractor2 = Instantiate(newEdge, transform).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
+                        attractor2.transform.position = meshBounds[j+1].GlobalCentre;
+                        attractor2.target = meshBounds[j].GlobalCentre; // Setting the pathway target to the next node in the array
                         attractor2.transform.SetParent(nodes[j+1].transform); 
                         attractor2.speed = speed;  
                     }
@@ -114,7 +115,7 @@ public class Pathway : MonoBehaviour
         // If the target doesn't have a mesh, just use its position
         if (to.GetComponentsInChildren<MeshFilter>() != null)
         {
-            tempPosition = new BoundsInfo(to).LocalCentre;
+            tempPosition = new BoundsInfo(to).GlobalCentre;
         }
         else
         {
