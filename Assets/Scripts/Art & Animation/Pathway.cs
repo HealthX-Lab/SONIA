@@ -23,7 +23,7 @@ public class Pathway : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets a pathways nodes dynamically, recalculating everything each time
+    /// Sets the Pathway's nodes dynamically, recalculating everything each time
     /// </summary>
     /// <param name="n">New nodes for the pathway</param>
     /// <param name="isStart">Whether the method is being called from the Start method</param>
@@ -59,6 +59,7 @@ public class Pathway : MonoBehaviour
             }
         
             GameObject newEdge = Resources.Load<GameObject>("Pathway Edge"); // Getting the edge object
+            GameObject newEdgeDescription = Resources.Load<GameObject>("Edge Description Canvas");
 
             for (int j = 0; j < nodes.Length; j++)
             {
@@ -84,14 +85,21 @@ public class Pathway : MonoBehaviour
                     attractor1.target = meshBounds[j+1].GlobalCentre; // Setting the pathway target to the next node in the array
                     attractor1.speed = speed;
 
+                    // Adding an edge description
+                    EdgeDescriptionController description1 = Instantiate(newEdgeDescription, attractor1.transform).GetComponent<EdgeDescriptionController>();
+                    description1.SetAlignment();
+
                     if (bidirectional && !isController)
                     {
                         // Adding backwards particles if its bidirectional
-                        particleAttractorLinear attractor2 = Instantiate(newEdge, transform).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
+                        particleAttractorLinear attractor2 = Instantiate(newEdge, transform).GetComponent<particleAttractorLinear>();
                         attractor2.transform.position = meshBounds[j+1].GlobalCentre;
-                        attractor2.target = meshBounds[j].GlobalCentre; // Setting the pathway target to the next node in the array
-                        attractor2.transform.SetParent(nodes[j+1].transform); 
-                        attractor2.speed = speed;  
+                        attractor2.target = tempPosition;
+                        attractor2.speed = speed;
+                        
+                        // Adding an edge description
+                        EdgeDescriptionController description2 = Instantiate(newEdgeDescription, attractor2.transform).GetComponent<EdgeDescriptionController>();
+                        description2.SetAlignment();
                     }
                     else
                     {

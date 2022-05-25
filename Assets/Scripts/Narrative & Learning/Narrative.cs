@@ -8,24 +8,22 @@ public class Narrative
     /// <summary>
     /// The name of the narrative
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; }
     
     /// <summary>
     /// The initial node from which the narrative begins
     /// </summary>
     public NarrativeNode Start { get; set; }
-    
-    NarrativeNode current;
+
     /// <summary>
     /// The current node that the narrative has progressed to
     /// </summary>
-    public NarrativeNode Current => current;
+    public NarrativeNode Current { get; private set; }
 
-    List<NarrativeNode> path;
     /// <summary>
     /// The path of all nodes visited by the user throughout the narrative
     /// </summary>
-    public List<NarrativeNode> Path => path;
+    public List<NarrativeNode> Path { get; }
 
     /// <summary>
     /// Default constructor
@@ -34,8 +32,8 @@ public class Narrative
     {
         Name = "";
         Start = null;
-        current = Start;
-        path = new List<NarrativeNode>();
+        Current = Start;
+        Path = new List<NarrativeNode>();
     }
     
     /// <summary>
@@ -46,8 +44,8 @@ public class Narrative
     {
         Name = name;
         Start = null;
-        current = Start;
-        path = new List<NarrativeNode>();
+        Current = Start;
+        Path = new List<NarrativeNode>();
     }
     
     /// <summary>
@@ -59,8 +57,8 @@ public class Narrative
     {
         Name = name;
         Start = start;
-        current = Start;
-        path = new List<NarrativeNode> {current};
+        Current = Start;
+        Path = new List<NarrativeNode> { Current };
     }
 
     /// <summary>
@@ -69,10 +67,10 @@ public class Narrative
     /// <param name="index">Index of the next node among the array of possible next nodes</param>
     public void GoToNext(int index)
     {
-        if (current.Next != null && index < current.Next.Length)
+        if (Current.Next != null && index < Current.Next.Length)
         {
-            current = current.Next[index];
-            path.Add(current);
+            Current = Current.Next[index];
+            Path.Add(Current);
         }
     }
 
@@ -81,10 +79,10 @@ public class Narrative
     /// </summary>
     public void GoToPrevious()
     {
-        if (current.Previous != null)
+        if (Current.Previous != null)
         {
-            current = current.Previous;
-            path.Add(current);
+            Current = Current.Previous;
+            Path.Add(Current);
         }
     }
 }

@@ -8,28 +8,32 @@ public class NarrativeNode
     /// <summary>
     /// The name of the structure at which the node resides
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; }
     
     /// <summary>
     /// The information text regarding the structure/functions of the node
     /// </summary>
-    public string Description { get; set; }
+    public string Description { get; }
     
     /// <summary>
     /// The structure that the node is associated with
     /// </summary>
-    public GameObject Object { get; set; }
+    public GameObject Object { get; }
 
-    NarrativeNode[] next;
     /// <summary>
     /// Array of possible next nodes to progress to
     /// </summary>
-    public NarrativeNode[] Next => next;
+    public NarrativeNode[] Next { get; private set; }
+    
+    /// <summary>
+    /// The descriptions corresponding the the Pathway edges connecting this node to the next ones
+    /// </summary>
+    public string[] EdgeDescriptions { get; private set; }
 
     /// <summary>
     /// The last set node to be regressed to
     /// </summary>
-    public NarrativeNode Previous { get; set; }
+    public NarrativeNode Previous { get; private set; }
 
     /// <summary>
     /// Default constructor
@@ -39,7 +43,8 @@ public class NarrativeNode
         Name = "";
         Description = "";
         Object = null;
-        next = null;
+        Next = null;
+        EdgeDescriptions = null;
         Previous = null;
     }
     
@@ -52,7 +57,8 @@ public class NarrativeNode
         Name = name;
         Description = "";
         Object = null;
-        next = null;
+        Next = null;
+        EdgeDescriptions = null;
         Previous = null;
     }
     
@@ -66,7 +72,8 @@ public class NarrativeNode
         Name = name;
         Description = description;
         Object = null;
-        next = null;
+        Next = null;
+        EdgeDescriptions = null;
         Previous = null;
     }
     
@@ -81,7 +88,8 @@ public class NarrativeNode
         Name = name;
         Description = description;
         Object = obj;
-        next = null;
+        Next = null;
+        EdgeDescriptions = null;
         Previous = null;
     }
 
@@ -89,9 +97,11 @@ public class NarrativeNode
     /// Sets this node's Next value, and automatically sets those nodes' Previous values to this node
     /// </summary>
     /// <param name="next">Array of possible next nodes to progress to</param>
-    public void SetNext(NarrativeNode[] next)
+    public void SetNext(NarrativeNode[] next, string[] descriptions)
     {
-        this.next = next;
+        EdgeDescriptions = descriptions;
+        
+        Next = next;
 
         foreach (NarrativeNode i in next)
         {

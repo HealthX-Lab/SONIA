@@ -2,145 +2,236 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow (Dark).mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow (Dark).mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow (Light).mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow (Light).mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00001.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00001.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00002.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00002.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00003.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00003.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00004.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00004.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00005.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00005.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00006.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00006.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00007.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00007.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00008.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00008.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00009.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00009.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00010.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00010.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00011.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00011.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00012.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00012.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00013.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00013.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00014.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00014.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00015.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00015.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00016.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00016.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00017.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00017.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00018.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00018.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00019.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00019.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00020.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00020.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00021.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00021.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00022.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00022.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00023.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00023.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00024.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00024.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00001.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00001.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00002.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00002.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00003.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00003.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00004.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00004.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00005.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00005.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00006.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00006.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00007.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00007.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00008.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00008.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00009.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00009.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00010.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00010.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00011.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00011.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00012.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00012.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00013.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00013.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00014.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00014.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00015.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00015.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00016.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00016.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00017.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00017.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00018.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00018.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00019.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00019.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00020.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00020.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00021.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00021.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00022.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00022.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00023.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00023.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00024.stl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/STL/Basal_Ganglia00024.stl.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Pathway Option.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Pathway Option.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Pathway canvas.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Pathway canvas.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/ControllerLaser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/ControllerLaser.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Edge Description Canvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Edge Description Canvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Test.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Test.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ControllerLaser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ControllerLaser.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EdgeDescriptionController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EdgeDescriptionController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureUIController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureUIController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/SteamVR_Input/ActionSetClasses/SteamVR_Input_ActionSet_htc_viu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/SteamVR_Input/ActionSetClasses/SteamVR_Input_ActionSet_htc_viu.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_knuckles_ev1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_knuckles_ev1.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_focus3_tracker.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_focus3_tracker.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_chest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_chest.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_handed.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_handed.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_keyboard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_keyboard.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_left_foot.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_left_foot.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_left_shoulder.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_left_shoulder.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_right_foot.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_right_foot.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_right_shoulder.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_right_shoulder.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_waist.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_tracker_waist.json.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Brainmask.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Brainmask.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Emissive.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Emissive.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00023.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00023.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00024.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00024.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00025.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00025.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00026.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00026.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00027.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00027.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00028.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00028.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Glow (Light).mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Glow (Light).mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00001.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00001.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00002.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00002.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00003.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00003.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00004.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00004.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00005.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00005.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00006.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00006.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00007.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00007.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00008.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00008.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00009.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00009.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00010.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00010.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00011.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00011.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00012.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00012.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00013.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00013.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00014.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00014.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00015.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00015.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00016.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00016.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00017.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00017.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00018.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00018.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00019.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00019.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00020.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00020.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00021.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00021.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00022.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00022.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00023.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00023.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00024.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00024.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00025.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00025.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00026.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00026.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00027.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00027.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00028.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00028.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00029.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00029.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00030.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00030.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00031.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00031.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00032.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00032.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00033.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00033.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00034.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00034.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00035.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00035.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00036.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00036.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00037.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00037.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00038.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00038.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00039.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00039.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00040.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00040.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00041.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00041.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00042.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00042.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00043.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00043.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00044.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00044.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00045.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00045.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00046.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00046.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00047.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00047.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00048.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00048.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00049.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00049.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00050.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00050.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00051.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00051.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00052.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00052.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00053.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00053.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00054.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00054.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00055.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00055.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00056.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00056.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00057.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00057.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00058.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00058.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00059.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00059.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00060.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00060.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00061.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00061.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00062.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00062.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00063.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00063.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00064.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00064.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00065.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00065.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00066.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00066.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00067.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00067.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00068.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00068.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00069.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00069.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00070.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00070.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00071.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00071.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00072.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00072.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00073.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00073.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00074.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00074.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00075.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00075.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00076.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00076.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00077.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00077.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00078.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00078.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00079.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00079.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00080.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00080.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00081.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00081.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00082.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00082.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00083.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00083.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00084.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00084.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00085.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00085.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00086.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00086.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00087.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00087.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00088.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00088.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00089.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00089.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00090.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00090.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00091.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00091.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00092.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00092.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00093.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00093.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00094.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00094.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00095.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00095.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00096.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00096.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00097.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00097.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00098.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00098.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00099.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00099.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00100.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00100.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00101.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00101.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00102.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00102.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00103.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00103.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00104.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00104.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00105.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00105.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00106.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00106.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00107.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00107.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00108.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00108.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00109.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00109.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00110.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00110.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00111.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00111.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00112.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00112.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00113.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00113.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00114.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00114.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00115.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00115.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00116.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL00116.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL_brainmesh00001.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL_brainmesh00001.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00001.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00001.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00002.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00002.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00003.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00003.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00004.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00004.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00005.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00005.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00006.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00006.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00007.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00007.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00008.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00008.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00009.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00009.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00010.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00010.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00011.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00011.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00012.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00012.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00013.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00013.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00014.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00014.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00015.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00015.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00016.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00016.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00017.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00017.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00018.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00018.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00019.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00019.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00020.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00020.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00021.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00021.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00022.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00022.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00023.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00023.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00023.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00023.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00024.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00024.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00024.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Basal Ganglia/FBX/Basal_Ganglia00024.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/STN/FBX/Blood vessels.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/STN/FBX/Blood vessels.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/STN/FBX/Brainmask.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/STN/FBX/Brainmask.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/STN/FBX/Sulci.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/STN/FBX/Sulci.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/STN/FBX/Ventricles.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/STN/FBX/Ventricles.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Post-Processing/Bloom.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Post-Processing/Bloom.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Basal Ganglia.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Basal Ganglia.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Brain (AAL).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Brain (AAL).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/mPFC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/mPFC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Subtitle canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Subtitle canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Brain.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Brain.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SteamVR CameraRig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SteamVR CameraRig.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pathway Edge.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pathway Edge.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pathway Option.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pathway Option.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pathway canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pathway canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Particles.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Particles.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Fireflies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Fireflies.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Pathway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Pathway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/CameraZoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/CameraZoom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/StructureUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/StructureUIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/BoundsInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/BoundsInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/CameraZoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/CameraZoom.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/ControllerLaser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/ControllerLaser.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Narrative.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Narrative.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/NarrativeNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/NarrativeNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/StructureUIController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/StructureUIController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NarrativeTesting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/NarrativeTesting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NodePathTesting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/NodePathTesting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SteamVR_Input/SteamVR_Input_ActionSets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SteamVR_Input/SteamVR_Input_ActionSets.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SteamVR_Input/SteamVR_Input_Actions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SteamVR_Input/SteamVR_Input_Actions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/actions.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/actions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_holographic_hmd.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_holographic_hmd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_index_hmd.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_index_hmd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_rift.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_rift.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_vive.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_vive.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_vive_cosmos.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_vive_cosmos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_vive_pro.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_vive_pro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_vive_tracker_camera.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/binding_vive_tracker_camera.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_holographic_controller.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_holographic_controller.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_knuckles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_knuckles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_logitech_stylus.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_logitech_stylus.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_oculus_touch.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_oculus_touch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_controller.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_controller.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_cosmos_controller.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/SteamVR/bindings_vive_cosmos_controller.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Glow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Glow.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VIUSettings.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VIUSettings/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VIUSettings/Editor/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VIUSettings/Editor/Resources/VIUProjectSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VIUSettings/Editor/Resources/VIUProjectSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
@@ -151,11 +242,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Pathway.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement/CameraZoom.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/ControllerLaser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/NarrativeNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/StructureUIController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/ApplyCSVNames.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/BubblingVertices.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/NodeConstructor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -181,7 +270,7 @@
     "WebServerToolWindowFactoryState": "false",
     "nodejs_package_manager_path": "npm",
     "rider.run.widget.enabled.cache": "false",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -231,6 +320,7 @@
       <workItem from="1652809731363" duration="2544000" />
       <workItem from="1652884222187" duration="20424000" />
       <workItem from="1653401520306" duration="13921000" />
+      <workItem from="1653484137513" duration="24948000" />
     </task>
     <servers />
   </component>

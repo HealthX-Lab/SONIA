@@ -14,7 +14,7 @@ public class ControllerLaser : MonoBehaviour
     [SerializeField] float nullDistance = 0.5f;
     [Tooltip("The only tags that the laser can hit")]
     [SerializeField] string[] raycastTags;
-
+    
     LineRenderer line; // The LineRenderer representing the laser
     bool hasReset; // Whether the laser has been reset to its null position
     [HideInInspector] public GameObject hitObject; // The object that the laser is hitting (null if not hitting anything)

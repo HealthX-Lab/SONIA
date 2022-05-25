@@ -9,11 +9,11 @@ public class NodePathTesting : MonoBehaviour
     [SerializeField] float timeBetweenTransitions = 10;
 
     Narrative narrative;
-    CameraZoom zoom;
+    StructureZoom zoom;
 
     void Start()
     {
-        zoom = GetComponent<CameraZoom>();
+        zoom = GetComponent<StructureZoom>();
         
         NarrativeNode last = null;
         
@@ -23,7 +23,7 @@ public class NodePathTesting : MonoBehaviour
 
             if (last != null)
             {
-                temp.SetNext(new []{ last });
+                temp.SetNext(new []{ last }, new []{"PATHWAY DESCRIPTION"});
             }
 
             last = temp;

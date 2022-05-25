@@ -7,15 +7,15 @@ using UnityEngine;
 public class StructureUIController : MonoBehaviour
 {
     [Tooltip("Display name of the structure")]
-    [SerializeField] string name;
+    [SerializeField] new string name;
     [Tooltip("Description name of the structure")]
     [SerializeField] string description;
     [Tooltip("The layer on which to raycast (so it goes through other structures)")]
     [SerializeField] LayerMask layer;
-    [SerializeField] bool scaleDownIfTooFar;
-
+    
     bool hasCreatedCanvas; // Whether the structure UI canvas has been created yet
-    Transform cameraTransform, canvasTransform; // The camera and canvas Transforms, respectively
+    [HideInInspector] public Transform canvasTransform; // The UI canvas Transform
+    Transform cameraTransform; // The camera Transform
     BoundsInfo bounds; // The mesh bounds info of the structure
     TMP_Text nameText, descriptionText; // The name and description TMP text
 
@@ -42,17 +42,17 @@ public class StructureUIController : MonoBehaviour
                 //Debug.DrawLine(cameraTransform.position, bounds.GlobalCentre, Color.red);
             }
 
-            // Pointing the structure UI towards the user at all times
+            // Scaling the UI text based on its distance from the user
             float temp = Vector3.Distance(transform.position, hit.point);
-            //print(temp);
             canvasTransform.localScale = Vector3.one *
                                          (Mathf.Pow(1.15f, temp - 20f) + 0.5f);
 
-            if (scaleDownIfTooFar && canvasTransform.localScale.x > (temp / 10f))
+            if (canvasTransform.localScale.x > (temp / 10f))
             {
                 canvasTransform.localScale = Vector3.one * (temp / 10f);
             }
             
+            // Pointing the structure UI towards the user at all times
             canvasTransform.LookAt(cameraTransform);
         }
     }
@@ -78,14 +78,14 @@ public class StructureUIController : MonoBehaviour
     /// <summary>
     /// Method to set the UI of the canvas at any time
     /// </summary>
-    /// <param name="n">New name text</param>
-    /// <param name="d">New description text</param>
-    public void SetUI(string n, string d)
+    /// <param name="structureName">New name text</param>
+    /// <param name="structureDescription">New description text</param>
+    public void SetUI(string structureName, string structureDescription)
     {
         CheckCanvas(); // Checking to make sure a canvas has been created first
         
         // Setting the values
-        nameText.text = n;
-        descriptionText.text = d;
+        nameText.text = structureName;
+        descriptionText.text = structureDescription;
     }
 }
