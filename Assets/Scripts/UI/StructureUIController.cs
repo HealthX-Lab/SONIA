@@ -7,11 +7,15 @@ using UnityEngine;
 public class StructureUIController : MonoBehaviour
 {
     [Tooltip("Display name of the structure")]
-    [SerializeField] new string name;
+    public new string name;
     [Tooltip("Description name of the structure")]
-    [SerializeField] string description;
+    public string description;
     [Tooltip("The layer on which to raycast (so it goes through other structures)")]
     [SerializeField] LayerMask layer;
+    [Tooltip("Whether to scale the UI based on distance or not")]
+    [SerializeField] bool fixedScale = true;
+    [Tooltip("The unscaled Ui size")]
+    [SerializeField] float scale = 8;
     
     bool hasCreatedCanvas; // Whether the structure UI canvas has been created yet
     [HideInInspector] public Transform canvasTransform; // The UI canvas Transform
@@ -42,14 +46,21 @@ public class StructureUIController : MonoBehaviour
                 //Debug.DrawLine(cameraTransform.position, bounds.GlobalCentre, Color.red);
             }
 
-            // Scaling the UI text based on its distance from the user
-            float temp = Vector3.Distance(transform.position, hit.point);
-            canvasTransform.localScale = Vector3.one *
-                                         (Mathf.Pow(1.15f, temp - 20f) + 0.5f);
-
-            if (canvasTransform.localScale.x > (temp / 10f))
+            if (fixedScale)
             {
-                canvasTransform.localScale = Vector3.one * (temp / 10f);
+                canvasTransform.localScale = Vector3.one * scale;
+            }
+            else
+            {
+                // Scaling the UI text based on its distance from the user
+                float temp = Vector3.Distance(transform.position, hit.point);
+                canvasTransform.localScale = Vector3.one *
+                                             (Mathf.Pow(1.15f, temp - 20f) + 0.5f);
+            
+                if (canvasTransform.localScale.x > (temp / 10f))
+                {
+                    canvasTransform.localScale = Vector3.one * (temp / 10f);
+                }
             }
             
             // Pointing the structure UI towards the user at all times

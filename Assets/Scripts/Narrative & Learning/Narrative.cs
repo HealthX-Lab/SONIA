@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// Class that represents a branching narrative tree
@@ -84,5 +85,34 @@ public class Narrative
             Current = Current.Previous;
             Path.Add(Current);
         }
+    }
+
+    /// <summary>
+    /// Recursive method to find a NarrativeNode in the Narrative with a corresponding name
+    /// </summary>
+    /// <param name="name">Name of the NarrativeNode to be found</param>
+    /// <param name="node">The NarrativeNode currently being checked</param>
+    /// <returns>The retrieved NarrativeNode (null if not found)</returns>
+    public NarrativeNode FindNode(string name, NarrativeNode node)
+    {
+        if (node.Name.Equals(name))
+        {
+            return node;
+        }
+
+        if (node.Next != null)
+        {
+            foreach (NarrativeNode i in node.Next)
+            {
+                NarrativeNode temp = FindNode(name, i);
+
+                if (temp != null)
+                {
+                    return temp;
+                }
+            }
+        }
+
+        return null;
     }
 }

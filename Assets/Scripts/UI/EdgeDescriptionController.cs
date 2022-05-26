@@ -6,15 +6,22 @@ using UnityEngine;
 
 public class EdgeDescriptionController : MonoBehaviour
 {
-    Transform cameraTransform;
+    [Tooltip("Description of the Pathway edge")]
+    public string description;
+    
+    [HideInInspector] public GameObject source; // The starting GameObject of the edge
+    
+    Transform cameraTransform; // The main Camera's Transform
     
     void FixedUpdate()
     {
         transform.LookAt(cameraTransform);
     }
 
-    public void SetAlignment()
+    public void SetAlignment(GameObject src)
     {
+        source = src;
+        
         cameraTransform = Camera.main.transform;
                 
         // Scaling the UI text based on its distance from the user
@@ -34,6 +41,10 @@ public class EdgeDescriptionController : MonoBehaviour
         transform.position += Vector3.up * transform.localScale.x / 2f;
     }
 
+    /// <summary>
+    /// Set's this edge's text description
+    /// </summary>
+    /// <param name="edgeDescription">The new description to be set</param>
     public void SetUI(string edgeDescription)
     {
         GetComponentInChildren<TMP_Text>().text = edgeDescription;
