@@ -2,39 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Pathway Brain.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Pathway Brain.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Pathway.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Pathway.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Connectivity.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Connectivity.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/T1-connectivity-AAL118.csv.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Brain.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Brain.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/DisplayConnectivity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/FollowByDistance.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PathwaySelectionManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Particle Attractor by Moonflower Carnivore/Materials/particle trail additive intensify.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Particle Attractor by Moonflower Carnivore/Materials/particle trail additive intensify.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SteamVR CameraRig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SteamVR CameraRig.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Brain.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Brain.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Node Constructor.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Node Constructor.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Nodes.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Nodes.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Pathway Brain.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Pathway Brain.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Edge Description Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Edge Description Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Node.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Node.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pathway Option.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pathway Option.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Pathway canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pathway canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/aal_MNI_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/aal_MNI_info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Brain.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Nodes.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Nodes.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Particles.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Particles.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Test.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Test.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/ControllerParticles.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/ControllerParticles.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/UI.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/UI.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Pathway.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Pathway.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Narrative.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Narrative.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EdgeDescriptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EdgeDescriptionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/ApplyCSVNames.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/ApplyCSVNames.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/FollowByDistance.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NarrativeTesting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/NarrativeTesting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NodeConstructor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NodeConstructor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NodePathTesting.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NodePathTesting.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PathwaySelectionManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EdgeDescriptionController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EdgeDescriptionController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/DisplayConnectivity.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Pathway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Pathway.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureUIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Glow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Glow.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +61,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/NarrativeNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/ApplyCSVNames.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/BubblingVertices.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/NodeConstructor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/NodePathTesting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -122,6 +135,7 @@
       <workItem from="1653401520306" duration="13921000" />
       <workItem from="1653484137513" duration="24948000" />
       <workItem from="1653570089083" duration="22118000" />
+      <workItem from="1653916538020" duration="18554000" />
     </task>
     <servers />
   </component>

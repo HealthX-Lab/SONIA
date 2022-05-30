@@ -13,7 +13,8 @@ public class PathwayController : MonoBehaviour
     
     public Dictionary<GameObject, Pathway> pathwayDict; // The dictionary to quickly access the Pathways for each respective UI option
     
-    UIManager manager; // The UI manager script that houses the pathways
+    PathwaySelectionManager manager; // The UI manager script that houses and manipulates the pathways
+    bool hasGeneratedPathwayOptions; // Whether the Pathway selection options have been generated yet in the UI
     
     void Start()
     {
@@ -22,7 +23,7 @@ public class PathwayController : MonoBehaviour
             pathwayDict = new Dictionary<GameObject, Pathway>();
         }
 
-        manager = FindObjectOfType<UIManager>();
+        manager = FindObjectOfType<PathwaySelectionManager>();
 
         Invoke(nameof(HideAllPathways), 0.1f); // Hiding all pathways at the beginning
     }
@@ -68,27 +69,8 @@ public class PathwayController : MonoBehaviour
             
             tempStructureUI.canvasTransform.gameObject.SetActive(activeValue); // Setting the structures' names too
 
-            // Setting the UI text for the structure and its connections
-            if (activeValue)
-            {
-                tempStructureUI.SetUI(tempStructureUI.name, tempStructureUI.description); // TODO: this should be set from the Narrative instead
-
-                if (path.edges[i] != null)
-                {
-                    for (int k = 0; k < path.edges[i].Count; k++)
-                    {
-                        EdgeDescriptionController tempEdgeController = path.edges[i][k];
-                    
-                        if (tempEdgeController.source.Equals(path.nodes[i]))
-                        {
-                            tempEdgeController.SetUI(tempEdgeController.description); // TODO: this should be set from the Narrative instead
-                        
-                            //NarrativeNode test = path.narrative.FindNode(tempStructureUI.name, path.narrative.Start);
-                            //path.edges[i][k].SetUI(test.EdgeDescriptions[k]);
-                        }
-                    }
-                }
-            }
+            NarrativeNode tempNode = path.narrativeNodes[i];
+            tempStructureUI.SetUI(tempNode.Name, tempNode.Description);
         }
     }
 
@@ -100,6 +82,13 @@ public class PathwayController : MonoBehaviour
         foreach (Pathway i in manager.pathways)
         {
             SetPathway(i, false);
+        }
+
+        // Making sure to generate the Pathway selection UI options after the Pathways have been generated
+        if (!hasGeneratedPathwayOptions)
+        {
+            manager.GeneratePathwayOptions();
+            hasGeneratedPathwayOptions = true;
         }
     }
     

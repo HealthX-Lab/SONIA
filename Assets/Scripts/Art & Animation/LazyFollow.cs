@@ -6,7 +6,7 @@ using UnityEngine;
 public class LazyFollow : MonoBehaviour
 {
     [Tooltip("The target that the object if drifting towards")]
-    [SerializeField] Transform target;
+    public Transform target;
     [Tooltip("The speed at which it is drifting")]
     [SerializeField] float speed = 0.1f;
     [Tooltip("The minimum global height that the object can rest at")]

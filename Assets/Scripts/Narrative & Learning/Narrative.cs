@@ -7,22 +7,27 @@ using UnityEngine;
 public class Narrative
 {
     /// <summary>
-    /// The name of the narrative
+    /// The name of the Narrative
     /// </summary>
     public string Name { get; }
     
     /// <summary>
-    /// The initial node from which the narrative begins
+    /// The description of the Narrative
+    /// </summary>
+    public string Description { get; }
+    
+    /// <summary>
+    /// The initial node from which the Narrative begins
     /// </summary>
     public NarrativeNode Start { get; set; }
 
     /// <summary>
-    /// The current node that the narrative has progressed to
+    /// The current node that the Narrative has progressed to
     /// </summary>
     public NarrativeNode Current { get; private set; }
 
     /// <summary>
-    /// The path of all nodes visited by the user throughout the narrative
+    /// The path of all nodes visited by the user throughout the Narrative
     /// </summary>
     public List<NarrativeNode> Path { get; }
 
@@ -32,6 +37,7 @@ public class Narrative
     public Narrative()
     {
         Name = "";
+        Description = "";
         Start = null;
         Current = Start;
         Path = new List<NarrativeNode>();
@@ -40,10 +46,25 @@ public class Narrative
     /// <summary>
     /// Name parameterized constructor
     /// </summary>
-    /// <param name="name">The name of the narrative</param>
+    /// <param name="name">The name of the Narrative</param>
     public Narrative(string name)
     {
         Name = name;
+        Description = "";
+        Start = null;
+        Current = Start;
+        Path = new List<NarrativeNode>();
+    }
+    
+    /// <summary>
+    /// Name and description parameterized constructor
+    /// </summary>
+    /// <param name="name">The name of the Narrative</param>
+    /// <param name="description">The description of the Narrative</param>
+    public Narrative(string name, string description)
+    {
+        Name = name;
+        Description = description;
         Start = null;
         Current = Start;
         Path = new List<NarrativeNode>();
@@ -52,18 +73,20 @@ public class Narrative
     /// <summary>
     /// Name and start parameterized constructor
     /// </summary>
-    /// <param name="name">The name of the narrative</param>
-    /// <param name="start">the initial node from which the narrative begins</param>
-    public Narrative(string name, NarrativeNode start)
+    /// <param name="name">The name of the Narrative</param>
+    /// <param name="description">The description of the Narrative</param>
+    /// <param name="start">the initial node from which the Narrative begins</param>
+    public Narrative(string name, string description, NarrativeNode start)
     {
         Name = name;
+        Description = description;
         Start = start;
         Current = Start;
         Path = new List<NarrativeNode> { Current };
     }
 
     /// <summary>
-    /// Method to progress the narrative to one of the next possible nodes
+    /// Method to progress the Narrative to one of the next possible nodes
     /// </summary>
     /// <param name="index">Index of the next node among the array of possible next nodes</param>
     public void GoToNext(int index)
@@ -76,7 +99,7 @@ public class Narrative
     }
 
     /// <summary>
-    /// Method to regress the narrative to the previous node
+    /// Method to regress the Narrative to the previous node
     /// </summary>
     public void GoToPrevious()
     {

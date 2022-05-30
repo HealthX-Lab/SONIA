@@ -16,6 +16,8 @@ public class StructureUIController : MonoBehaviour
     [SerializeField] bool fixedScale = true;
     [Tooltip("The unscaled Ui size")]
     [SerializeField] float scale = 8;
+    [Tooltip("The amount that the structure UI should float off of the surface")]
+    [SerializeField] float offsetAmount = 1;
     
     bool hasCreatedCanvas; // Whether the structure UI canvas has been created yet
     [HideInInspector] public Transform canvasTransform; // The UI canvas Transform
@@ -39,11 +41,9 @@ public class StructureUIController : MonoBehaviour
     {
         if (hasCreatedCanvas)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(cameraTransform.position, bounds.GlobalCentre, out hit, Single.PositiveInfinity, layer))
+            if (Physics.Raycast(cameraTransform.position, bounds.GlobalCentre, out RaycastHit hit, Single.PositiveInfinity, layer))
             {
-                canvasTransform.position = hit.point + (cameraTransform.position - bounds.GlobalCentre).normalized;
-                //Debug.DrawLine(cameraTransform.position, bounds.GlobalCentre, Color.red);
+                canvasTransform.position = hit.point + ((cameraTransform.position - bounds.GlobalCentre).normalized * offsetAmount);
             }
 
             if (fixedScale)

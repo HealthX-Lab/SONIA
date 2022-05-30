@@ -7,29 +7,30 @@ public class Pathway : MonoBehaviour
 {
     [Header("Non-Narrative Pathways")]
     [Tooltip("Whether the pathway is associated with a Narrative")]
-    [SerializeField] bool isNarrativePathway = true;
+    public bool isNarrativePathway = true;
     [Tooltip("The material to be applied to non-Narrative pathway")]
-    [SerializeField] Material nonNarrativePathwayMaterial;
+    public Material nonNarrativePathwayMaterial;
     [Tooltip("The width of the non-Narrative pathway")]
-    [SerializeField] float nonNarrativePathwayWidth = 0.01f;
+    public float nonNarrativePathwayWidth = 0.01f;
     
     [Header("Nodes")]
     [Tooltip("The nodes to be connected together in a path")]
     public GameObject[] nodes;
     [Tooltip("Whether the pathway should flow both ways (doubles frame cost)")]
     [SerializeField] bool bidirectional;
+    
+    BoundsInfo[] meshBounds; // Mesh bounds of each GameObject
 
     public List<particleAttractorLinear>[] particles; // The edge Pathway particles associated with each node
-    public List<EdgeDescriptionController>[] edges; // The edge descriptions associated with each node
-
+    
     public Narrative narrative; // The Narrative class object associated with this Pathway
-    BoundsInfo[] meshBounds; // Mesh bounds of each GameObject
+    public NarrativeNode[] narrativeNodes; // The specific NarrativeNodes corresponding to the GameObject nodes in the scene
 
     void Start()
     {
         particles = new List<particleAttractorLinear>[nodes.Length];
-        edges = new List<EdgeDescriptionController>[nodes.Length];
-            
+        narrativeNodes = new NarrativeNode[nodes.Length];
+                    
         SetNodes(nodes, true, 0.5f);
 
         if (isNarrativePathway)
@@ -38,15 +39,15 @@ public class Pathway : MonoBehaviour
             NarrativeNode first = null;
 
             // Creating new Narratives from the supplied Pathways
-            foreach (GameObject i in nodes)
+            for (int i = 0; i < nodes.Length; i++)
             {
                 // TODO: this Narrative stuff will need to be replaced with reading from a file
-                NarrativeNode temp = new NarrativeNode(i.GetComponent<StructureUIController>().name, "[DESCRIPTION]", i);
+                NarrativeNode temp = new NarrativeNode(nodes[i].GetComponent<StructureUIController>().name, "[DESCRIPTION]", nodes[i]);
+                narrativeNodes[i] = temp;
                 
                 // Chaining them all together
                 if (previous != null)
                 {
-                    // TODO: this may still need to be optimized
                     // If it's bidirectional, make the next options non-linear
                     if (bidirectional && previous.Previous != null)
                     {
@@ -65,7 +66,7 @@ public class Pathway : MonoBehaviour
                 previous = temp;
             }
             
-            narrative = new Narrative(name, first);   
+            narrative = new Narrative(name, "[NARRATIVE DESCRIPTION]",first);   
         }
     }
 
@@ -122,8 +123,6 @@ public class Pathway : MonoBehaviour
                         attractor1.transform.position = tempPosition;
                         attractor1.target = meshBounds[j+1].GlobalCentre; // Setting the pathway target to the next node in the array
                         attractor1.speed = speed;
-
-                        attractor1.GetComponent<ParticleSystemRenderer>().trailMaterial = nonNarrativePathwayMaterial;
                     
                         if (particles[j] == null)
                         {
@@ -131,20 +130,6 @@ public class Pathway : MonoBehaviour
                         }
                     
                         particles[j].Add(attractor1);
-                        
-                        /*
-                        // Adding an edge description
-                        EdgeDescriptionController description1 = Instantiate(newEdgeDescription, attractor1.transform).GetComponent<EdgeDescriptionController>();
-                        description1.decription = "[edge description goes here]"; // TODO: this will be removed later
-                        description1.SetAlignment(attractor1.gameObject);
-                        
-                        if (edges[j] == null)
-                        {
-                            edges[j] = new List<EdgeDescriptionController>();
-                        }
-                        
-                        edges[j].Add(description1);
-                        */
                         
                         if (bidirectional)
                         {
@@ -154,28 +139,12 @@ public class Pathway : MonoBehaviour
                             attractor2.target = tempPosition;
                             attractor2.speed = speed;
                         
-                            attractor2.GetComponent<ParticleSystemRenderer>().trailMaterial = nonNarrativePathwayMaterial;
-                        
                             if (particles[j+1] == null)
                             {
                                 particles[j+1] = new List<particleAttractorLinear>();
                             }
                     
                             particles[j+1].Add(attractor2);
-                        
-                            /*
-                            // Adding an edge description
-                            EdgeDescriptionController description2 = Instantiate(newEdgeDescription, attractor2.transform).GetComponent<EdgeDescriptionController>();
-                            description2.decription = "[edge description goes here]"; // TODO: this will be removed later
-                            description2.SetAlignment(attractor2.gameObject);
-                            
-                            if (edges[j+1] == null)
-                            {
-                                edges[j+1] = new List<EdgeDescriptionController>();
-                            }
-                        
-                            edges[j+1].Add(description2);
-                            */
                         }
                         else
                         {

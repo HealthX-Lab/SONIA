@@ -9,14 +9,10 @@ public class MiniatureBrainController : MonoBehaviour
     [SerializeField] GameObject brain;
     [Tooltip("Any other objects to be created in the mini brain")]
     [SerializeField] GameObject[] additionalObjects;
-    [Tooltip("The new scale of the mini brain")]
-    [SerializeField] float scale = 1;
-
-    [HideInInspector] public GameObject miniBrain; // The publicly-accessible mini brain
 
     void Start()
     {
-        miniBrain = CreateMiniObject(brain);
+        CreateMiniObject(brain);
 
         // Looping through, creating any of the extra objects
         foreach (GameObject i in additionalObjects)
@@ -33,7 +29,6 @@ public class MiniatureBrainController : MonoBehaviour
     GameObject CreateMiniObject(GameObject obj)
     {
         GameObject temp = Instantiate(obj, transform);
-        temp.transform.localScale = Vector3.one * scale;
         return temp;
     }
 }

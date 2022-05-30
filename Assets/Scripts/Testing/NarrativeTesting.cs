@@ -23,7 +23,7 @@ public class NarrativeTesting : MonoBehaviour
         n1.SetNext(new []{ n2, n3 }, new []{"PATHWAY DESCRIPTION", "PATHWAY DESCRIPTION"});
         n3.SetNext(new []{ n4, n5 }, new []{"PATHWAY DESCRIPTION", "PATHWAY DESCRIPTION"});
         
-        narrative = new Narrative("Narrative 1", n1);
+        narrative = new Narrative("Narrative 1", "NARRATIVE DESCRIPTION", n1);
         
         SetFields();
     }

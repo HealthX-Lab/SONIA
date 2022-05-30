@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294961664
-  m_fontColor: {r: 0, g: 0.9187336, b: 1, a: 1}
+    rgba: 4294914816
+  m_fontColor: {r: 0, g: 0.2, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 4094329427586369826}
   - component: {fileID: 8339419308465405069}
   - component: {fileID: 4412335796578295446}
-  - component: {fileID: 435363989982753118}
   m_Layer: 5
   m_Name: Edge Description Canvas
   m_TagString: Untagged
@@ -237,17 +236,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &435363989982753118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8317014184813053777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff625c5322202f4c9e2e2006bf4bf6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decription: 
-  source: {fileID: 0}
