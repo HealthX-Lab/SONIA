@@ -8,6 +8,8 @@ public class Pathway : MonoBehaviour
     [Header("Non-Narrative Pathways")]
     [Tooltip("Whether the pathway is associated with a Narrative")]
     public bool isNarrativePathway = true;
+    [Tooltip("Whether to display the attractor particles, even if the Pathway is non-Narrative")]
+    [SerializeField] bool attractParticlesAnyway;
     [Tooltip("The material to be applied to non-Narrative pathway")]
     public Material nonNarrativePathwayMaterial;
     [Tooltip("The width of the non-Narrative pathway")]
@@ -51,11 +53,11 @@ public class Pathway : MonoBehaviour
                     // If it's bidirectional, make the next options non-linear
                     if (bidirectional && previous.Previous != null)
                     {
-                        previous.SetNext(new []{ previous.Previous, temp }, new []{"[EDGE DESCRIPTION]", "[EDGE DESCRIPTION]"});
+                        previous.SetNext(new []{ previous.Previous, temp }, new []{"[EDGE DESCRIPTION]", "[EDGE DESCRIPTION]"}, new []{"EDGE DESCRIPTION", "EDGE DESCRIPTION"});
                     }
                     else
                     {
-                        previous.SetNext(new []{temp}, new []{"[EDGE DESCRIPTION]"});
+                        previous.SetNext(new []{temp}, new []{"[EDGE DESCRIPTION]"}, new []{"[EDGE DESCRIPTION]"});
                     }
                 }
                 else
@@ -116,7 +118,7 @@ public class Pathway : MonoBehaviour
                         tempPosition = nodes[j].transform.position;
                     }
 
-                    if (isNarrativePathway)
+                    if (isNarrativePathway || (!isNarrativePathway && attractParticlesAnyway))
                     {
                         // Adding the new edge's particles
                         particleAttractorLinear attractor1 = Instantiate(newEdge, transform).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
@@ -150,6 +152,23 @@ public class Pathway : MonoBehaviour
                         {
                             var temp = attractor1.GetComponent<ParticleSystem>().emission;
                             temp.rateOverTime = 3; // Setting the appropriate rate over time if its unidirectional
+                        }
+
+                        // Modifying the particle values if the particles are non-narrative
+                        if (!isNarrativePathway && attractParticlesAnyway)
+                        {
+                            ParticleSystem system = attractor1.GetComponent<ParticleSystem>();
+
+                            var temp = system.velocityOverLifetime;
+                            temp.enabled = false; // Making it so the particles don't curve out at all
+
+                            var temp1 = system.emission;
+                            temp1.rateOverTime = 5; // Turning the rate up
+                            
+                            // Slimming the trails down
+                            var temp2 = system.trails;
+                            temp2.ratio = 0.5f;
+                            temp2.sizeAffectsWidth = false;
                         }
                     }
                     // Skipping over a lot if the pathway isn't associated with a Narrative

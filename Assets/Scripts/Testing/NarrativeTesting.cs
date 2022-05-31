@@ -20,8 +20,8 @@ public class NarrativeTesting : MonoBehaviour
         NarrativeNode n4 = new NarrativeNode("Node 4", "Node 4's description", null);
         NarrativeNode n5 = new NarrativeNode("Node 5", "Node 5's description", null);
         
-        n1.SetNext(new []{ n2, n3 }, new []{"PATHWAY DESCRIPTION", "PATHWAY DESCRIPTION"});
-        n3.SetNext(new []{ n4, n5 }, new []{"PATHWAY DESCRIPTION", "PATHWAY DESCRIPTION"});
+        n1.SetNext(new []{ n2, n3 }, new []{"PATHWAY DESCRIPTION", "PATHWAY DESCRIPTION"}, new []{"PATHWAY DESCRIPTION", "PATHWAY DESCRIPTION"});
+        n3.SetNext(new []{ n4, n5 }, new []{"PATHWAY DESCRIPTION", "PATHWAY DESCRIPTION"}, new []{"PATHWAY DESCRIPTION", "PATHWAY DESCRIPTION"});
         
         narrative = new Narrative("Narrative 1", "NARRATIVE DESCRIPTION", n1);
         

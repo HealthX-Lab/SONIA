@@ -27,7 +27,7 @@ public class FollowByDistance : MonoBehaviour
         {
             follow.target = handTarget;
         }
-        // Otherwise, it floats back to teh default position
+        // Otherwise, it floats back to the default position
         else
         {
             follow.target = defaultTarget;

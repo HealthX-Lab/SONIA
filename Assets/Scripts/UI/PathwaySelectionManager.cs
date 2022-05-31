@@ -90,20 +90,6 @@ public class PathwaySelectionManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Triggers when given action starts on the given controller
-    /// </summary>
-    /// <param name="fromAction">Action to be anticipated</param>
-    /// <param name="fromSource">Controller/hand that performs the action</param>
-    void OnTriggerDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
-    {
-        // Setting the current Pathway UI option's corresponding one
-        if (laser.hitObject != null)
-        {
-            SetCurrentPathway(pathwayController.pathwayDict[lastHitObject]);
-        }
-    }
-
-    /// <summary>
     /// Method to generate the pathway selection UI after the Pathways have all been created
     /// </summary>
     public void GeneratePathwayOptions()
@@ -135,6 +121,19 @@ public class PathwaySelectionManager : MonoBehaviour
     void SetCurrentPathway(Pathway path)
     {
         currentPathway = path;
+
+        SetCurrentStructure();
+
+        pathwayController.SetCurrentPathway(currentPathway);
+        
+        manager.GoToStructureUI();
+    }
+
+    /// <summary>
+    /// Method to visualize which structure is the current one, in both the big and miniature brains
+    /// </summary>
+    public void SetCurrentStructure()
+    {
         GameObject tempStructure = currentPathway.narrative.Current.Object;
         //zoom.target = tempStructure; // Setting the view zoom target
         
@@ -192,10 +191,19 @@ public class PathwaySelectionManager : MonoBehaviour
                 break;
             }
         }
-        
-        //currentPathway.narrative.GoToNext(0); // Automatically goes to the next structure
-        manager.TogglePathwayManager();
-        
-        pathwayController.SetCurrentPathway(currentPathway);
+    }
+    
+    /// <summary>
+    /// Triggers when given action starts on the given controller
+    /// </summary>
+    /// <param name="fromAction">Action to be anticipated</param>
+    /// <param name="fromSource">Controller/hand that performs the action</param>
+    void OnTriggerDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        // Setting the current Pathway UI option's corresponding one
+        if (laser.hitObject != null && laser.hitObject.CompareTag("Pathway Option"))
+        {
+            SetCurrentPathway(pathwayController.pathwayDict[lastHitObject]);
+        }
     }
 }

@@ -1,0 +1,26 @@
+[NARRATIVE]
+Narrative Name
+Narrative Description
+Start Node Name
+[NODE]
+Start Node Name
+Start Node Description
+Next Node Name
+Next Node Edge Description
+Previous Node Name
+Previous Node Edge Description
+[NODE]
+Next Node Name
+Next Node Description
+
+
+Start Node Name
+Start Node Edge Description
+[NODE]
+Previous Node Name
+Previous Node Description
+Start Node Name
+Start Node Description
+
+
+[END]

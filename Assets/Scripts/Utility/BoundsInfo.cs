@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Class used to easily get position and size information from a mesh
+/// Class used to easily get exact position and size information from a mesh
 /// </summary>
 public class BoundsInfo
 {

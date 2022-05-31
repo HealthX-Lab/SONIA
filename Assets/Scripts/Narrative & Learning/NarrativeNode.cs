@@ -34,6 +34,11 @@ public class NarrativeNode
     /// The last set node to be regressed to
     /// </summary>
     public NarrativeNode Previous { get; private set; }
+    
+    /// <summary>
+    /// The descriptions corresponding the the Pathway edges connecting the previous node to this one
+    /// </summary>
+    public string PreviousEdgeDescription { get; private set; }
 
     /// <summary>
     /// Default constructor
@@ -46,6 +51,7 @@ public class NarrativeNode
         Next = null;
         EdgeDescriptions = null;
         Previous = null;
+        PreviousEdgeDescription = "";
     }
     
     /// <summary>
@@ -60,6 +66,7 @@ public class NarrativeNode
         Next = null;
         EdgeDescriptions = null;
         Previous = null;
+        PreviousEdgeDescription = "";
     }
     
     /// <summary>
@@ -75,6 +82,7 @@ public class NarrativeNode
         Next = null;
         EdgeDescriptions = null;
         Previous = null;
+        PreviousEdgeDescription = "";
     }
     
     /// <summary>
@@ -91,21 +99,23 @@ public class NarrativeNode
         Next = null;
         EdgeDescriptions = null;
         Previous = null;
+        PreviousEdgeDescription = "";
     }
 
     /// <summary>
     /// Sets this node's Next value, and automatically sets those nodes' Previous values to this node
     /// </summary>
     /// <param name="next">Array of possible next nodes to progress to</param>
-    public void SetNext(NarrativeNode[] next, string[] descriptions)
+    public void SetNext(NarrativeNode[] next, string[] descriptions, string[] previousDescriptions)
     {
         EdgeDescriptions = descriptions;
         
         Next = next;
 
-        foreach (NarrativeNode i in next)
+        for (int i = 0; i < next.Length; i++)
         {
-            i.Previous = this;
+            next[i].Previous = this;
+            next[i].PreviousEdgeDescription = previousDescriptions[i];
         }
     }
 }
