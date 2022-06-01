@@ -71,7 +71,7 @@ public class StructureUIController : MonoBehaviour
     /// <summary>
     /// Checks to see if the structure canvas has been created, and if not, it creates it
     /// </summary>
-    void CheckCanvas()
+    public void CheckCanvas()
     {
         if (!hasCreatedCanvas)
         {

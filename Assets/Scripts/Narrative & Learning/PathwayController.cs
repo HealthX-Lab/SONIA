@@ -7,13 +7,13 @@ using UnityEngine;
 public class PathwayController : MonoBehaviour
 {
     [Tooltip("The default material for each structure")]
-    [SerializeField] Material defaultMaterial;
+    public Material defaultMaterial;
     [Tooltip("The material when the structure is occluding")]
-    [SerializeField] Material occlusionMaterial;
+    public Material occlusionMaterial;
     
     public Dictionary<GameObject, Pathway> pathwayDict; // The dictionary to quickly access the Pathways for each respective UI option
     
-    PathwaySelectionManager manager; // The UI manager script that houses and manipulates the pathways
+    [HideInInspector] public PathwaySelectionManager manager; // The UI manager script that houses and manipulates the pathways
     bool hasGeneratedPathwayOptions; // Whether the Pathway selection options have been generated yet in the UI
     
     void Start()
@@ -23,7 +23,10 @@ public class PathwayController : MonoBehaviour
             pathwayDict = new Dictionary<GameObject, Pathway>();
         }
 
-        manager = FindObjectOfType<PathwaySelectionManager>();
+        if (manager == null)
+        {
+            manager = FindObjectOfType<PathwaySelectionManager>();
+        }
 
         Invoke(nameof(HideAllPathways), 0.1f); // Hiding all pathways at the beginning
     }
@@ -47,31 +50,36 @@ public class PathwayController : MonoBehaviour
     {
         path.gameObject.SetActive(activeValue); // Setting the pathway visibility
 
+        for (int i = 0; i < path.nodes.Length; i++)
+        {
+            SetStructure(path.nodes[i], activeValue);
+            
+            NarrativeNode tempNode = path.narrativeNodes[i];
+            path.nodes[i].GetComponent<StructureUIController>().SetUI(tempNode.Name, tempNode.Description);
+        }
+    }
+
+    public void SetStructure(GameObject structure, bool activeValue)
+    {
         Material tempMaterial = defaultMaterial;
 
         if (!activeValue)
         {
             tempMaterial = occlusionMaterial;
         }
+        
+        MeshRenderer[] tempRenderers = structure.GetComponentsInChildren<MeshRenderer>();
 
-        for (int i = 0; i < path.nodes.Length; i++)
+        // Setting the Pathways' structures to the appropriate material and setting their colliders
+        foreach (MeshRenderer j in tempRenderers)
         {
-            MeshRenderer[] tempRenderers = path.nodes[i].GetComponentsInChildren<MeshRenderer>();
-
-            // Setting the Pathways' structures to the appropriate material and setting their colliders
-            foreach (MeshRenderer j in tempRenderers)
-            {
-                j.material = tempMaterial;
-                j.GetComponent<MeshCollider>().enabled = activeValue;
-            }
-            
-            StructureUIController tempStructureUI = path.nodes[i].GetComponent<StructureUIController>();
-            
-            tempStructureUI.canvasTransform.gameObject.SetActive(activeValue); // Setting the structures' names too
-
-            NarrativeNode tempNode = path.narrativeNodes[i];
-            tempStructureUI.SetUI(tempNode.Name, tempNode.Description);
+            j.material = tempMaterial;
+            j.GetComponent<MeshCollider>().enabled = activeValue;
         }
+           
+        StructureUIController tempStructureUI = structure.GetComponent<StructureUIController>();
+        tempStructureUI.CheckCanvas();
+        tempStructureUI.canvasTransform.gameObject.SetActive(activeValue);
     }
 
     /// <summary>

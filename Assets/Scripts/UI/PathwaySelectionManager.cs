@@ -155,6 +155,8 @@ public class PathwaySelectionManager : MonoBehaviour
             Outline newOutline = tempStructure.AddComponent<Outline>();
             newOutline.OutlineWidth = 10;
             newOutline.OutlineColor = outlineColour;
+
+            tempStructure.AddComponent<AnimateOutline>();
         }
 
         lastOutlineStructure = tempStructure;
@@ -184,6 +186,8 @@ public class PathwaySelectionManager : MonoBehaviour
                     Outline newMiniOutline = i.AddComponent<Outline>();
                     newMiniOutline.OutlineWidth = 5;
                     newMiniOutline.OutlineColor = miniOutlineColour;
+                    
+                    i.AddComponent<AnimateOutline>();
                 }
 
                 lastMiniOutlineStructure = i;

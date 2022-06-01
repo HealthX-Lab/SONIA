@@ -1,0 +1,20 @@
+﻿<Cognitive Control description>
+Amygdala (Right)
+
+[NODE]
+Amygdala (Right)
+<Amygdala description>
+Amygdala
+[NEXT]
+Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
+<mPFC edge description>
+[PREVIOUS]
+
+[NODE]
+Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
+<mPFC description>
+mPFC
+[NEXT]
+[PREVIOUS]
+Amygdala (Right)
+<Amygdala edge description>

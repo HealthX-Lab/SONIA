@@ -19,7 +19,7 @@ public class Pathway : MonoBehaviour
     [Tooltip("The nodes to be connected together in a path")]
     public GameObject[] nodes;
     [Tooltip("Whether the pathway should flow both ways (doubles frame cost)")]
-    [SerializeField] bool bidirectional;
+    public bool bidirectional;
     
     BoundsInfo[] meshBounds; // Mesh bounds of each GameObject
 
@@ -31,10 +31,10 @@ public class Pathway : MonoBehaviour
     void Start()
     {
         particles = new List<particleAttractorLinear>[nodes.Length];
-        narrativeNodes = new NarrativeNode[nodes.Length];
                     
         SetNodes(nodes, true, 0.5f);
 
+        /*
         if (isNarrativePathway)
         {
             NarrativeNode previous = null;
@@ -43,7 +43,6 @@ public class Pathway : MonoBehaviour
             // Creating new Narratives from the supplied Pathways
             for (int i = 0; i < nodes.Length; i++)
             {
-                // TODO: this Narrative stuff will need to be replaced with reading from a file
                 NarrativeNode temp = new NarrativeNode(nodes[i].GetComponent<StructureUIController>().name, "[DESCRIPTION]", nodes[i]);
                 narrativeNodes[i] = temp;
                 
@@ -70,6 +69,7 @@ public class Pathway : MonoBehaviour
             
             narrative = new Narrative(name, "[NARRATIVE DESCRIPTION]",first);   
         }
+        */
     }
 
     /// <summary>

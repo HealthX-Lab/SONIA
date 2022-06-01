@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
 /// <summary>
 /// Class that represents a branching narrative tree
@@ -19,7 +18,7 @@ public class Narrative
     /// <summary>
     /// The initial node from which the Narrative begins
     /// </summary>
-    public NarrativeNode Start { get; set; }
+    NarrativeNode Start { get; }
 
     /// <summary>
     /// The current node that the Narrative has progressed to
@@ -91,7 +90,7 @@ public class Narrative
     /// <param name="index">Index of the next node among the array of possible next nodes</param>
     public void GoToNext(int index)
     {
-        if (Current.Next != null && index < Current.Next.Length)
+        if (Current.Next != null && index < Current.Next.Count)
         {
             Current = Current.Next[index];
             Path.Add(Current);

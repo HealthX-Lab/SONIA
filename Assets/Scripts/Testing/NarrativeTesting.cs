@@ -47,7 +47,7 @@ public class NarrativeTesting : MonoBehaviour
         if (narrative.Current.Next != null)
         {
             nextButton.transform.parent.gameObject.SetActive(true);
-            nextButton.text = "Next (" + narrative.Current.Next.Length + " options(s) available)";
+            nextButton.text = "Next (" + narrative.Current.Next.Count + " options(s) available)";
             nextIndex.gameObject.SetActive(true);
         }
         else

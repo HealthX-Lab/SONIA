@@ -42,30 +42,28 @@ public class UIManager : MonoBehaviour
         structureManager.isLeftPrevious = false;
 
         // If the current node has next nodes
-        if (temp.Next != null)
+        if (temp.Next.Count > 0)
         {
-            if (temp.Next.Length > 0)
-            {
-                // Setting the right values if they exist
-                next1 = temp.Next[0].Name;
-                edge1 = temp.EdgeDescriptions[0];
-                structure1 = temp.Next[0].Object;
+            // Setting the right values if they exist
+            next1 = temp.Next[0].Name;
+            edge1 = temp.EdgeDescriptions[0];
+            structure1 = temp.Next[0].Object;
             
-                if (temp.Next.Length > 1)
-                {
-                    // Setting the left values if they exist
-                    next2 = temp.Next[1].Name;
-                    edge2 = temp.EdgeDescriptions[1];
-                    structure2 = temp.Next[1].Object;
-                }
+            if (temp.Next.Count > 1)
+            {
+                // Setting the left values if they exist
+                next2 = temp.Next[1].Name;
+                edge2 = temp.EdgeDescriptions[1];
+                structure2 = temp.Next[1].Object;
             }
         }
-        // If the Pathway ends here
-        else
+        
+        // If there are no next nodes or only one
+        if (temp.Next.Count < 2)
         {
             if (temp.Previous != null)
             {
-                // Setting the previous values in the left if they exist
+                // Setting the previous values on the left side if they do exist
                 next2 = temp.Previous.Name;
                 edge2 = temp.PreviousEdgeDescription;
                 structure2 = temp.Previous.Object;
