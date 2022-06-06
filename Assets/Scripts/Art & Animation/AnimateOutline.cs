@@ -37,4 +37,12 @@ public class AnimateOutline : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Public method to quickly reset the outline's width
+    /// </summary>
+    public void Reset()
+    {
+        outline.OutlineWidth = 5;
+    }
 }

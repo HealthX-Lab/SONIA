@@ -52,6 +52,8 @@ public class GeneratePathways : MonoBehaviour
             
             // Creating the new Pathway and setting its variables
             Pathway newPathway = newNarrative.AddComponent<Pathway>();
+            newPathway.name = narratives[i].Name;
+            newPathway.hideVisualization = true;
             newPathway.isNarrativePathway = true;
             newPathway.bidirectional = true;
 

@@ -1065,7 +1065,7 @@ GameObject:
   - component: {fileID: 1066998875819449064}
   - component: {fileID: 1066998875819449065}
   m_Layer: 0
-  m_Name: Amyg <-> BNST <-> mPFC
+  m_Name: Uncertainty Anticipation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1098,7 +1098,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1118,7 +1121,7 @@ GameObject:
   - component: {fileID: 1066998875942576257}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Right
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1154,7 +1157,7 @@ GameObject:
   - component: {fileID: 1066998875957576727}
   - component: {fileID: 1066998875957576720}
   m_Layer: 0
-  m_Name: Amyg <-> Hypo <-> mPFC
+  m_Name: Stress Regulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1187,7 +1190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1207,7 +1213,7 @@ GameObject:
   - component: {fileID: 1066998875989192642}
   - component: {fileID: 1066998875989192643}
   m_Layer: 0
-  m_Name: Amyg <-> Stri <-> mPFC
+  m_Name: Motivation Processing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1240,7 +1246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1260,7 +1269,7 @@ GameObject:
   - component: {fileID: 1066998876269726461}
   - component: {fileID: 1066998876269726462}
   m_Layer: 0
-  m_Name: Amyg <-> mPFC
+  m_Name: Cognitive Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,7 +1302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1312,7 +1324,7 @@ GameObject:
   - component: {fileID: 1066998876541678506}
   - component: {fileID: 1066998876541678507}
   m_Layer: 0
-  m_Name: Amyg <-> BNST <-> mPFC
+  m_Name: Uncertainty Anticipation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1345,7 +1357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1365,7 +1380,7 @@ GameObject:
   - component: {fileID: 1066998876594813259}
   - component: {fileID: 1066998876594813252}
   m_Layer: 0
-  m_Name: Amyg <-> Hipp <-> mPFC
+  m_Name: Fear Conditioning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1398,7 +1413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1451,7 +1469,7 @@ GameObject:
   - component: {fileID: 1066998877198806866}
   - component: {fileID: 1066998877198806867}
   m_Layer: 0
-  m_Name: Amyg <-> Stri <-> mPFC
+  m_Name: Motivation Processing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1484,7 +1502,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1504,7 +1525,7 @@ GameObject:
   - component: {fileID: 1066998877277175873}
   - component: {fileID: 1066998877277175874}
   m_Layer: 0
-  m_Name: Amyg <-> mPFC
+  m_Name: Cognitive Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1537,7 +1558,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1556,7 +1580,7 @@ GameObject:
   - component: {fileID: 1066998877580426074}
   - component: {fileID: 1066998877580426075}
   m_Layer: 0
-  m_Name: Amyg <-> Hypo <-> mPFC
+  m_Name: Stress Regulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1589,7 +1613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -1609,7 +1636,7 @@ GameObject:
   - component: {fileID: 1066998877735444034}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: Left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1645,7 +1672,7 @@ GameObject:
   - component: {fileID: 1066998877794454863}
   - component: {fileID: 1066998877794454856}
   m_Layer: 0
-  m_Name: Amyg <-> Hipp <-> mPFC
+  m_Name: Fear Conditioning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1678,7 +1705,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c05a37e52b4e54fa43371c77eddc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  hideVisualization: 0
   isNarrativePathway: 0
+  attractParticlesAnyway: 0
   nonNarrativePathwayMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068,
     type: 2}
   nonNarrativePathwayWidth: 0.001
@@ -10001,7 +10031,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 3927175910667279451, guid: 5ddfbd39ac3ea4240ba87aca9f3d9611,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10011,7 +10041,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 3927175910941337926, guid: 5ddfbd39ac3ea4240ba87aca9f3d9611,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10021,12 +10051,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 3927175911459481345, guid: 5ddfbd39ac3ea4240ba87aca9f3d9611,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 3927175911461484993, guid: 5ddfbd39ac3ea4240ba87aca9f3d9611,
         type: 3}
       propertyPath: m_TagString
@@ -10111,7 +10141,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 3927175912133559215, guid: 5ddfbd39ac3ea4240ba87aca9f3d9611,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10126,7 +10156,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 3927175912633648949, guid: 5ddfbd39ac3ea4240ba87aca9f3d9611,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10141,7 +10171,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 4064351679331564296, guid: 5ddfbd39ac3ea4240ba87aca9f3d9611,
         type: 3}
       propertyPath: m_Enabled
@@ -10335,7 +10365,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 880574168996165569, guid: f6ea72c3121107d4f88dd5020a46fb5f,
         type: 3}
       propertyPath: m_Enabled
@@ -10370,7 +10400,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 4992941324991919393, guid: f6ea72c3121107d4f88dd5020a46fb5f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10380,7 +10410,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9acd7744971984e4e8e0a4eaec08aa96, type: 2}
     - target: {fileID: 6323884248294274074, guid: f6ea72c3121107d4f88dd5020a46fb5f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

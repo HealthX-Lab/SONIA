@@ -7,6 +7,8 @@ TagManager:
   - Pathway Option
   - Structure Option
   - Structure Node
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX

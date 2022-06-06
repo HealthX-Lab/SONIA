@@ -6,6 +6,11 @@ using UnityEngine;
 public class BoundsInfo
 {
     /// <summary>
+    /// The Transform component of the associated GameObject
+    /// </summary>
+    public Transform Transform { get; }
+    
+    /// <summary>
     /// The absolute centre of the mesh bounds
     /// </summary>
     public Vector3 GlobalCentre { get; }
@@ -21,6 +26,8 @@ public class BoundsInfo
     /// <param name="obj">Given GameObject with the mesh to be extracted</param>
     public BoundsInfo(GameObject obj)
     {
+        Transform = obj.transform;
+        
         MeshFilter[] childFilters = obj.GetComponentsInChildren<MeshFilter>();
         Vector3 tempCentre = Vector3.zero;
         float tempMagnitude = 0;

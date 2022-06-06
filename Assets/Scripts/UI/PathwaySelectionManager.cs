@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +32,7 @@ public class PathwaySelectionManager : MonoBehaviour
 
     ControllerLaser laser; // The right hand's laser script
     GameObject lastHitObject; // The last object hit with the laser script
-    GameObject lastMiniOutlineStructure, lastOutlineStructure; // The last selected miniature and large structures, respectively
+    GameObject lastOutlineStructure; // The last selected miniature and large structures, respectively
 
     //StructureZoom zoom; // The script to zoom the view around
     
@@ -122,9 +123,9 @@ public class PathwaySelectionManager : MonoBehaviour
     {
         currentPathway = path;
 
-        SetCurrentStructure();
-
+        //SetCurrentStructure();
         pathwayController.SetCurrentPathway(currentPathway);
+        miniBrain.SetCurrentPathway(currentPathway);
         
         manager.GoToStructureUI();
     }
@@ -161,38 +162,53 @@ public class PathwaySelectionManager : MonoBehaviour
 
         lastOutlineStructure = tempStructure;
 
-        // Making sure the last mini outline is hidden
-        if (lastMiniOutlineStructure != null)
-        {
-            lastMiniOutlineStructure.GetComponent<Outline>().enabled = false;
-        }
-
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Structure Node");
 
         foreach (GameObject i in temp)
         {
-            // Finding the corresponding mini structure to the current node
-            if (i.transform.IsChildOf(miniBrain.transform) && i.name.Equals(tempStructure.name) && i.layer.Equals(tempStructure.layer))
+            // Finding the corresponding mini structure to the current node and Pathway
+            if (i.transform.IsChildOf(miniBrain.transform))
             {
                 Outline tempMiniOutline = i.GetComponent<Outline>();
-
-                // Adding/enabling the large outline for the current node
+                
                 if (tempMiniOutline != null)
                 {
-                    tempMiniOutline.enabled = true;
+                    tempMiniOutline.enabled = false;
                 }
-                else
+
+                AnimateOutline tempMiniAnimator = i.GetComponent<AnimateOutline>();
+                
+                if (tempMiniAnimator != null)
                 {
-                    Outline newMiniOutline = i.AddComponent<Outline>();
-                    newMiniOutline.OutlineWidth = 5;
-                    newMiniOutline.OutlineColor = miniOutlineColour;
-                    
-                    i.AddComponent<AnimateOutline>();
+                    tempMiniAnimator.Reset();
+                    tempMiniAnimator.enabled = false;
                 }
-
-                lastMiniOutlineStructure = i;
-
-                break;
+                
+                if (currentPathway.DoesContain(i.name, i.layer))
+                {
+                    if (tempMiniOutline != null)
+                    {
+                        tempMiniOutline.enabled = true;
+                    }
+                    else
+                    {
+                        Outline newMiniOutline = i.AddComponent<Outline>();
+                        newMiniOutline.OutlineWidth = 5;
+                        newMiniOutline.OutlineColor = miniOutlineColour;
+                    }
+                
+                    if (i.name.Equals(tempStructure.name) && i.layer.Equals(tempStructure.layer))
+                    {
+                        if (tempMiniAnimator != null)
+                        {
+                            tempMiniAnimator.enabled = true;
+                        }
+                        else
+                        {
+                            i.AddComponent<AnimateOutline>();
+                        }
+                    }
+                }
             }
         }
     }

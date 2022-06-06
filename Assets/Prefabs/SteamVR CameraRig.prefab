@@ -391,11 +391,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7117052877445583984, guid: 1bf4965bec47ffe4eb0e4d9ea021bd54,
         type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117052877445583984, guid: 1bf4965bec47ffe4eb0e4d9ea021bd54,
-        type: 3}
       propertyPath: near clip plane
       value: 0.1
       objectReference: {fileID: 0}
@@ -496,21 +491,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5627867742118218111, guid: 3d297d37e7bf60e4d8e03d0406afad3c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5627867742118218111, guid: 3d297d37e7bf60e4d8e03d0406afad3c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5627867742118218111, guid: 3d297d37e7bf60e4d8e03d0406afad3c,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5627867742118218111, guid: 3d297d37e7bf60e4d8e03d0406afad3c,
         type: 3}

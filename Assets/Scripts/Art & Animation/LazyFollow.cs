@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LazyFollow : MonoBehaviour
 {
+    [Tooltip("Whether or not to actually follow the target (the rotation is still fixed though, if checked)")]
+    [SerializeField] bool doNotFollow;
     [Tooltip("The target that the object if drifting towards")]
     public Transform target;
     [Tooltip("The speed at which it is drifting")]
@@ -16,17 +18,20 @@ public class LazyFollow : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, target.position); // Getting teh distance from this object to its target
-        
-        // Stopping at a minimum distance from the target
-        if (distance > speed / 10f)
+        if (!doNotFollow)
         {
-            transform.position += (target.position - transform.position).normalized * ((speed * distance) * Time.deltaTime); // Moving the object towards the target
-
-            // Making sure that the object is above teh minimum height
-            if (transform.position.y < minHeight)
+            float distance = Vector3.Distance(transform.position, target.position); // Getting the distance from this object to its target
+        
+            // Stopping at a minimum distance from the target
+            if (distance > speed / 10f)
             {
-                transform.position = new Vector3(transform.position.x, minHeight, transform.position.z);
+                transform.position += (target.position - transform.position).normalized * ((speed * distance) * Time.deltaTime); // Moving the object towards the target
+
+                // Making sure that the object is above the minimum height
+                if (transform.position.y < minHeight)
+                {
+                    transform.position = new Vector3(transform.position.x, minHeight, transform.position.z);
+                }
             }
         }
         

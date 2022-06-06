@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Pathway : MonoBehaviour
 {
+    public string name;
+    public bool hideVisualization;
+    
     [Header("Non-Narrative Pathways")]
     [Tooltip("Whether the pathway is associated with a Narrative")]
     public bool isNarrativePathway = true;
     [Tooltip("Whether to display the attractor particles, even if the Pathway is non-Narrative")]
-    [SerializeField] bool attractParticlesAnyway;
+    public bool attractParticlesAnyway;
     [Tooltip("The material to be applied to non-Narrative pathway")]
     public Material nonNarrativePathwayMaterial;
     [Tooltip("The width of the non-Narrative pathway")]
@@ -31,57 +34,25 @@ public class Pathway : MonoBehaviour
     void Start()
     {
         particles = new List<particleAttractorLinear>[nodes.Length];
-                    
-        SetNodes(nodes, true, 0.5f);
 
-        /*
-        if (isNarrativePathway)
+        if (!hideVisualization)
         {
-            NarrativeNode previous = null;
-            NarrativeNode first = null;
-
-            // Creating new Narratives from the supplied Pathways
-            for (int i = 0; i < nodes.Length; i++)
-            {
-                NarrativeNode temp = new NarrativeNode(nodes[i].GetComponent<StructureUIController>().name, "[DESCRIPTION]", nodes[i]);
-                narrativeNodes[i] = temp;
-                
-                // Chaining them all together
-                if (previous != null)
-                {
-                    // If it's bidirectional, make the next options non-linear
-                    if (bidirectional && previous.Previous != null)
-                    {
-                        previous.SetNext(new []{ previous.Previous, temp }, new []{"[EDGE DESCRIPTION]", "[EDGE DESCRIPTION]"}, new []{"EDGE DESCRIPTION", "EDGE DESCRIPTION"});
-                    }
-                    else
-                    {
-                        previous.SetNext(new []{temp}, new []{"[EDGE DESCRIPTION]"}, new []{"[EDGE DESCRIPTION]"});
-                    }
-                }
-                else
-                {
-                    first = temp;
-                }
-
-                previous = temp;
-            }
-            
-            narrative = new Narrative(name, "[NARRATIVE DESCRIPTION]",first);   
+            SetNodes(nodes, true, 0.5f);
         }
-        */
+
+        name = gameObject.name;
     }
 
     /// <summary>
     /// Sets the Pathway's nodes dynamically, recalculating everything each time
     /// </summary>
     /// <param name="n">New nodes for the pathway</param>
-    /// <param name="isStart">Whether the method is being called from the Start method</param>
+    /// <param name="forceSet">Whether the method is forced set the Pathway (in some cases it may be skipped, and this bypasses that)</param>
     /// <param name="speed">The new speed for the particles</param>
-    public void SetNodes(GameObject[] n, bool isStart, float speed)
+    public void SetNodes(GameObject[] n, bool forceSet, float speed)
     {
         // Skipping this step if the given nodes are the same as the last
-        if (isStart || n != nodes)
+        if (forceSet || n != nodes)
         {
             nodes = n;
         
@@ -102,7 +73,7 @@ public class Pathway : MonoBehaviour
 
             for (int j = 0; j < nodes.Length; j++)
             {
-                // making sure not to go over the length of the array
+                // Making sure not to go over the length of the array
                 if (j + 1 < nodes.Length)
                 {
                     BoundsInfo tempBounds = meshBounds[j];
@@ -123,7 +94,8 @@ public class Pathway : MonoBehaviour
                         // Adding the new edge's particles
                         particleAttractorLinear attractor1 = Instantiate(newEdge, transform).GetComponent<particleAttractorLinear>(); // Creating a pathway at each node
                         attractor1.transform.position = tempPosition;
-                        attractor1.target = meshBounds[j+1].GlobalCentre; // Setting the pathway target to the next node in the array
+                        attractor1.target = meshBounds[j+1].Transform.InverseTransformPoint(meshBounds[j+1].GlobalCentre); // Setting the pathway target to the next node in the array
+                        attractor1.transformParent = meshBounds[j+1].Transform;
                         attractor1.speed = speed;
                     
                         if (particles[j] == null)
@@ -138,7 +110,8 @@ public class Pathway : MonoBehaviour
                             // Adding backwards particles if its bidirectional
                             particleAttractorLinear attractor2 = Instantiate(newEdge, transform).GetComponent<particleAttractorLinear>();
                             attractor2.transform.position = meshBounds[j+1].GlobalCentre;
-                            attractor2.target = tempPosition;
+                            attractor2.target = meshBounds[j].Transform.InverseTransformPoint(tempPosition);
+                            attractor2.transformParent = meshBounds[j].Transform;
                             attractor2.speed = speed;
                         
                             if (particles[j+1] == null)
@@ -186,6 +159,25 @@ public class Pathway : MonoBehaviour
                 }
             }   
         }
+    }
+
+    /// <summary>
+    /// Whether the Pathway contains a node with the given name and layer
+    /// </summary>
+    /// <param name="name">The GameObject's name</param>
+    /// <param name="layer">The GameObject's LayerMask</param>
+    /// <returns>Whether the Pathway contains the desired node</returns>
+    public bool DoesContain(string name, LayerMask layer)
+    {
+        foreach (GameObject i in nodes)
+        {
+            if (i.name.Equals(name) && i.layer.Equals(layer))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
