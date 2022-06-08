@@ -10,8 +10,10 @@ public class MiniatureBrainController : MonoBehaviour
     [SerializeField] GameObject brain;
     [Tooltip("Any other objects to be created in the mini brain")]
     [SerializeField] GameObject[] additionalObjects;
-    [SerializeField] Material defaultMaterial, pathwayMaterial;
+    [Tooltip("The active and non-active materials for the mini brain preview")]
+    [SerializeField] Material defaultMaterial, hiddenMaterial;
 
+    bool hasHiddenConnectivity;
     Pathway[] pathways;
 
     void Start()
@@ -74,12 +76,21 @@ public class MiniatureBrainController : MonoBehaviour
     public void SetCurrentPathway(Pathway path)
     {
         ConfigurePathways(); // First resets all the pathways
+
+        // Hiding the connectivity display
+        if (!hasHiddenConnectivity)
+        {
+            GetComponentInChildren<DisplayConnectivity>().gameObject.AddComponent<SetLineRendererMaterial>().material = hiddenMaterial;
+            hasHiddenConnectivity = true;
+        }
         
         foreach (Pathway i in pathways)
         {
             // Getting the pathway is on the right and is the one we're looking for
             if (i.name.Equals(path.name) && i.transform.parent.CompareTag("Right"))
             {
+                Destroy(i.gameObject.GetComponent<SetLineRendererMaterial>());
+                
                 LineRenderer[] temp = i.gameObject.GetComponentsInChildren<LineRenderer>();
 
                 // Removing any old lines
@@ -88,12 +99,14 @@ public class MiniatureBrainController : MonoBehaviour
                     Destroy(j);
                 }
                 
-                i.nonNarrativePathwayWidth = 0.01f;
-                i.nonNarrativePathwayMaterial = pathwayMaterial;
+                i.nonNarrativePathwayWidth = 0.005f;
+                i.nonNarrativePathwayMaterial = defaultMaterial;
                 
                 i.SetNodes(i.nodes, true, 0.5f); // Setting the new highlighted lines
-
-                break;
+            }
+            else
+            {
+                i.gameObject.AddComponent<SetLineRendererMaterial>().material = hiddenMaterial; // Hiding the non-active Pathways
             }
         }
     }

@@ -6,114 +6,213 @@ using Valve.VR;
 
 public class SwimmingController : MonoBehaviour
 {
+    [Header("Guide")]
+    [Tooltip("Whether or not to show the guide arrow")]
     [SerializeField] bool showGuide;
-    [SerializeField] float speed = 0.1f;
+    [Tooltip("What material should be applied to the guide arrow")]
+    [SerializeField] Material guideMaterial;
     
-    [SerializeField] Transform rig;
-    [SerializeField] Transform rightHand, leftHand;
+    [Header("Parameters")]
+    [Tooltip("The speed factor of the swimming")]
+    [SerializeField] float speed = 0.3f;
+    [Tooltip("Minimum safe distance from the triggering hand positions after they have both been triggered before the swimming starts")]
+    [SerializeField] float safeDistance = 0.25f;
+    [Tooltip("The factor by which the speed should slow down each 1/10th of a second (i.e. higher = less slowdown)")]
+    [SerializeField] float slowdownFactor = 12;
     
-    [Tooltip("The controller trigger boolean")]
+    [Header("Objects & Triggers")]
+    [Tooltip("The SteamVR action to trigger the swimming on both hands")]
     [SerializeField] SteamVR_Action_Boolean trigger;
-    [Tooltip("Which hand's input")]
-    [SerializeField] SteamVR_Input_Sources rightInput, leftInput;
+    [Tooltip("The SteamVR CameraRig and right/left hand Transform")]
+    [SerializeField] Transform rig, rightHand, leftHand;
 
-    Vector3 midPoint, moveDirection;
-    Vector3 startPosition;
+    GameObject guide; // The guide arrow GameObject
     
-    GameObject guide;
-    bool rightGrip, leftGrip;
+    bool rightDown, leftDown; // Whether the right or left triggering buttons are being held down
+    
+    Vector3 forwardAverage; // The normalized average vector between the left and right hands' forward-facing vectors
+    Vector3 moveDirection; // The direction the rig is supposed to move in
+    Vector3 midPoint; // The (local) midpoint between the right and left hands
+    Vector3 rightStartPosition, leftStartPosition; // The (local) position of the right and left hands at the moment that both controllers' trigger buttons are held down
+    float midPointStartDistance; // The (global) summed distances from the left and right hands to the midpoint at the moment that both controllers' trigger buttons are held down
+    
+    bool isSlowingDown; // Whether the rig is in the process of slowing down after a single slide has started
+    float startSpeed; // The initial starting speed of the swimming
 
     void Start()
     {
         if (showGuide)
         {
+            // Creating the new guide object
             guide = new GameObject("Guide");
+            guide.transform.SetParent(rig);
         
-            LineRenderer temp = guide.AddComponent<LineRenderer>();
-            temp.useWorldSpace = false;
-            temp.widthMultiplier = 0.02f;
-            temp.SetPositions(new []{ Vector3.zero, Vector3.forward * 0.5f });
+            // Giving it its directional LineRenderer
+            LineRenderer guideLine = guide.AddComponent<LineRenderer>();
+            guideLine.material = guideMaterial;
+            guideLine.useWorldSpace = false;
+            guideLine.widthMultiplier = 0.02f;
+            guideLine.SetPositions(new []{ Vector3.zero, Vector3.forward * 0.5f });
+
+            // Creating a cosmetic arrow tip object
+            GameObject arrow = new GameObject("Arrow");
+            arrow.transform.SetParent(guide.transform);
+
+            // Adding the arrow tip LineRenderer
+            LineRenderer arrowLine = arrow.AddComponent<LineRenderer>();
+            arrowLine.material = guideMaterial;
+            arrowLine.useWorldSpace = false;
+            arrowLine.widthMultiplier = 0.02f;
+            arrowLine.positionCount = 3;
+            arrowLine.SetPositions(new []{ new Vector3(-0.1f, 0, 0.4f), Vector3.forward * 0.5f, new Vector3(0.1f, 0, 0.4f) });
         }
         
         // Adding listeners for the controller input
-        trigger.AddOnStateDownListener(OnRightGripDown, rightInput);
-        trigger.AddOnStateUpListener(OnRightGripUp, rightInput);
-        trigger.AddOnStateDownListener(OnLeftGripDown, leftInput);
-        trigger.AddOnStateUpListener(OnLeftGripUp, leftInput);
+        trigger.AddOnStateDownListener(OnRightDown, SteamVR_Input_Sources.RightHand);
+        trigger.AddOnStateUpListener(OnRightUp, SteamVR_Input_Sources.RightHand);
+        trigger.AddOnStateDownListener(OnLeftDown, SteamVR_Input_Sources.LeftHand);
+        trigger.AddOnStateUpListener(OnLeftUp, SteamVR_Input_Sources.LeftHand);
+
+        startSpeed = speed;
     }
 
     void FixedUpdate()
     {
-        Vector3 vectorBetween = leftHand.position - rightHand.position;
-        midPoint = rightHand.position + (vectorBetween / 2f);
-
+        // Getting the forward average and midpoint between the hands
+        forwardAverage = ((rightHand.forward + leftHand.forward) / 2f).normalized;
+        Vector3 vectorBetween = leftHand.localPosition - rightHand.localPosition;
+        midPoint = rightHand.localPosition + (vectorBetween / 2f);
+        
         if (showGuide)
         {
-            guide.transform.position = midPoint;
+            Vector3 tempDirection;
+
+            // If not moving, point it towards the forward average
+            if (rightDown && leftDown)
+            {
+                tempDirection = moveDirection;
+            }
+            // If currently moving, keep the guide locked in that direction
+            else
+            {
+                tempDirection = forwardAverage;
+            }
+            
+            guide.transform.localPosition = midPoint;
+            guide.transform.LookAt(rig.TransformPoint(midPoint + tempDirection));
         }
-
-        Vector3 forwardAverage = ((rightHand.forward + leftHand.forward) / 2f).normalized;
-        moveDirection = forwardAverage - midPoint;
-
-        if (showGuide)
+        
+        // If both controllers' triggering buttons are being held down
+        if (rightDown && leftDown)
         {
-            guide.transform.LookAt(midPoint + forwardAverage);
+            float rightDistance = Vector3.Distance(rightHand.localPosition, rightStartPosition);
+            float leftDistance = Vector3.Distance(leftHand.localPosition, leftStartPosition);
+            float midPointDistance = rightDistance + leftDistance; // Calculating the current summed distance from the midpoint
+
+            float midPointDifference = midPointDistance - midPointStartDistance; // Finding the difference between the current distance and the starting distance
+
+            // Making sure to only start moving when the difference is out of the safe distance
+            if (Mathf.Abs(midPointDifference) > safeDistance)
+            {
+                // Starting to slow down
+                if (!isSlowingDown)
+                {
+                    isSlowingDown = true;
+                    Invoke(nameof(SlowSpeed), 0.1f);
+                }
+            
+                rig.transform.position += moveDirection * (speed * midPointDifference); // Moving the rig in the desired direction
+            }
         }
+    }
 
-        if (rightGrip && leftGrip)
+    /// <summary>
+    /// Recursive Invoke method that incrementally slows down the swimming speed until the swimming stops
+    /// </summary>
+    void SlowSpeed()
+    {
+        if (isSlowingDown && speed > 0.01f)
         {
-            print(moveDirection.magnitude);
-            rig.transform.position += moveDirection * speed;
+            speed -= startSpeed / slowdownFactor; // Slowing it down by the slowdownFactor of the initial speed
+            Invoke(nameof(SlowSpeed), 0.1f);
+        }
+    }
+
+    /// <summary>
+    /// Method to initialize the required variables when the swimming first starts
+    /// </summary>
+    void StartSwimming()
+    {
+        // Getting the hand positions at the starting moment
+        rightStartPosition = rightHand.localPosition;
+        leftStartPosition = leftHand.localPosition;
+
+        midPointStartDistance = Vector3.Distance(rightStartPosition, midPoint) + Vector3.Distance(leftStartPosition, midPoint); // Getting the summed midpoint distance at the starting moment
+
+        moveDirection = forwardAverage; // Locking the move direction to the last gotten forward averge
+    }
+
+    /// <summary>
+    /// Method to reset required variables when the swimming stops
+    /// </summary>
+    void StopSwimming()
+    {
+        // Stops slowing down and resets the current speed
+        isSlowingDown = false;
+        speed = startSpeed;
+    }
+
+    /// <summary>
+    /// Triggers when triggering action starts on the right controller
+    /// </summary>
+    /// <param name="fromAction">Action to be anticipated</param>
+    /// <param name="fromSource">Controller/hand that performs the action</param>
+    void OnRightDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        rightDown = true;
+
+        if (leftDown)
+        {
+            StartSwimming();
         }
     }
     
     /// <summary>
-    /// Triggers when grip action starts on the right controller
+    /// Triggers when triggering action stops on the right controller
     /// </summary>
     /// <param name="fromAction">Action to be anticipated</param>
     /// <param name="fromSource">Controller/hand that performs the action</param>
-    void OnRightGripDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    void OnRightUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        rightGrip = true;
+        rightDown = false;
+        
+        StopSwimming();
+    }
+    
+    /// <summary>
+    /// Triggers when triggering action starts on the left controller
+    /// </summary>
+    /// <param name="fromAction">Action to be anticipated</param>
+    /// <param name="fromSource">Controller/hand that performs the action</param>
+    void OnLeftDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    {
+        leftDown = true;
 
-        if (leftGrip)
+        if (rightDown)
         {
-            startPosition = rig.transform.position;
+            StartSwimming();
         }
     }
     
     /// <summary>
-    /// Triggers when grip action stops on the right controller
+    /// Triggers when triggering action stops on the left controller
     /// </summary>
     /// <param name="fromAction">Action to be anticipated</param>
     /// <param name="fromSource">Controller/hand that performs the action</param>
-    void OnRightGripUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+    void OnLeftUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        rightGrip = false;
-    }
-    
-    /// <summary>
-    /// Triggers when grip action starts on the left controller
-    /// </summary>
-    /// <param name="fromAction">Action to be anticipated</param>
-    /// <param name="fromSource">Controller/hand that performs the action</param>
-    void OnLeftGripDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
-    {
-        leftGrip = true;
-
-        if (rightGrip)
-        {
-            startPosition = rig.transform.position;
-        }
-    }
-    
-    /// <summary>
-    /// Triggers when grip action stops on the left controller
-    /// </summary>
-    /// <param name="fromAction">Action to be anticipated</param>
-    /// <param name="fromSource">Controller/hand that performs the action</param>
-    void OnLeftGripUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
-    {
-        leftGrip = false;
+        leftDown = false;
+        
+        StopSwimming();
     }
 }

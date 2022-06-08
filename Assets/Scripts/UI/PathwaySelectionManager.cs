@@ -9,21 +9,12 @@ using Valve.VR;
 
 public class PathwaySelectionManager : MonoBehaviour
 {
-    [Header("Pathways & UI")]
     [Tooltip("All of the pathways currently in the system")]
     public Pathway[] pathways;
-
-    [Header("Input variables")]
     [Tooltip("The controller trigger boolean")]
     [SerializeField] SteamVR_Action_Boolean trigger;
-    [Tooltip("Which hand's input")]
-    [SerializeField] SteamVR_Input_Sources handType;
-    
-    [Header("Structure outlines")]
     [Tooltip("The outline colour for the large structures and the UI")]
     [SerializeField] Color outlineColour;
-    [Tooltip("The outline colour for the mini structures")]
-    [SerializeField] Color miniOutlineColour;
 
     UIManager manager; // The overall manager for the minor UI managers such as this one
     
@@ -33,8 +24,6 @@ public class PathwaySelectionManager : MonoBehaviour
     ControllerLaser laser; // The right hand's laser script
     GameObject lastHitObject; // The last object hit with the laser script
     GameObject lastOutlineStructure; // The last selected miniature and large structures, respectively
-
-    //StructureZoom zoom; // The script to zoom the view around
     
     MiniatureBrainController miniBrain; // The script for the miniature brain
 
@@ -43,7 +32,6 @@ public class PathwaySelectionManager : MonoBehaviour
         // Initializing sub-scripts
         manager = FindObjectOfType<UIManager>();
         laser = FindObjectOfType<ControllerLaser>();
-        //zoom = FindObjectOfType<StructureZoom>();
         miniBrain = FindObjectOfType<MiniatureBrainController>();
         pathwayController = FindObjectOfType<PathwayController>();
 
@@ -54,7 +42,7 @@ public class PathwaySelectionManager : MonoBehaviour
         }
         
         // Adding listeners for the controller input
-        trigger.AddOnStateDownListener(OnTriggerDown, handType);
+        trigger.AddOnStateDownListener(OnTriggerDown, SteamVR_Input_Sources.RightHand);
     }
 
     void FixedUpdate()
@@ -136,7 +124,6 @@ public class PathwaySelectionManager : MonoBehaviour
     public void SetCurrentStructure()
     {
         GameObject tempStructure = currentPathway.narrative.Current.Object;
-        //zoom.target = tempStructure; // Setting the view zoom target
         
         // Making sure the last large outline is hidden
         if (lastOutlineStructure != null)
@@ -184,7 +171,10 @@ public class PathwaySelectionManager : MonoBehaviour
                     tempMiniAnimator.enabled = false;
                 }
                 
-                if (currentPathway.DoesContain(i.name, i.layer))
+                if (
+                    currentPathway.DoesContain(i.name, i.layer) &&
+                    i.name.Equals(tempStructure.name) &&
+                    i.layer.Equals(tempStructure.layer))
                 {
                     if (tempMiniOutline != null)
                     {
@@ -194,19 +184,16 @@ public class PathwaySelectionManager : MonoBehaviour
                     {
                         Outline newMiniOutline = i.AddComponent<Outline>();
                         newMiniOutline.OutlineWidth = 5;
-                        newMiniOutline.OutlineColor = miniOutlineColour;
+                        newMiniOutline.OutlineColor = outlineColour;
                     }
-                
-                    if (i.name.Equals(tempStructure.name) && i.layer.Equals(tempStructure.layer))
+                        
+                    if (tempMiniAnimator != null)
                     {
-                        if (tempMiniAnimator != null)
-                        {
-                            tempMiniAnimator.enabled = true;
-                        }
-                        else
-                        {
-                            i.AddComponent<AnimateOutline>();
-                        }
+                        tempMiniAnimator.enabled = true;
+                    }
+                    else
+                    {
+                        i.AddComponent<AnimateOutline>();
                     }
                 }
             }

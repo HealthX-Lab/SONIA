@@ -22,11 +22,8 @@ public class StructureManager : MonoBehaviour
     [Tooltip("The objects where the structure previews should be spawned in")]
     [SerializeField] GameObject centralStructure, rightStructure, leftStructure;
     
-    [Header("Input variables")]
     [Tooltip("The controller trigger boolean")]
     [SerializeField] SteamVR_Action_Boolean trigger;
-    [Tooltip("Which hand's input")]
-    [SerializeField] SteamVR_Input_Sources handType;
     
     UIManager manager; // The overall manager for the minor UI managers such as this one
 
@@ -42,7 +39,7 @@ public class StructureManager : MonoBehaviour
         laser = FindObjectOfType<ControllerLaser>();
         
         // Adding listeners for the controller input
-        trigger.AddOnStateDownListener(OnTriggerDown, handType);
+        trigger.AddOnStateDownListener(OnTriggerDown, SteamVR_Input_Sources.RightHand);
     }
 
     void FixedUpdate()

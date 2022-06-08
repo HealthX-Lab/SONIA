@@ -5,6 +5,8 @@ public class AnimateOutline : MonoBehaviour
 {
     [Tooltip("The speed at which the outline pulses")]
     [SerializeField] float speed = 0.2f;
+    [Tooltip("The maximum width that the outline can grow to")]
+    [SerializeField] float maxWidth = 15;
 
     Outline outline; // The outline Component of the object
     bool increasing = true; // Whether the outline is growing or shrinking
@@ -21,7 +23,7 @@ public class AnimateOutline : MonoBehaviour
             outline.OutlineWidth += speed; // Growing the outline
 
             // Switching the direction if too large
-            if (outline.OutlineWidth >= 12)
+            if (outline.OutlineWidth >= maxWidth)
             {
                 increasing = false;
             }

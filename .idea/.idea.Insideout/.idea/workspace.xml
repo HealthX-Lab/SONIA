@@ -2,33 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Dashboard.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Dashboard.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Dash.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Dash.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Dash.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Dash.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Swimming.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Swimming.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Brain Skybox.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Brain Skybox.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Skybox.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Skybox.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/BrainSkybox.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/BrainSkybox.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/SetLineRendererMaterial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/SetLineRendererMaterial.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Particle Attractor by Moonflower Carnivore/Scripts/particleAttractorLinear.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Particle Attractor by Moonflower Carnivore/Scripts/particleAttractorLinear.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Pathway Brain.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Brains/Pathway Brain.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SteamVR CameraRig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SteamVR CameraRig.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pathway canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Pathway canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Brain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Brain.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Swimming.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Swimming.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/AnimateOutline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/AnimateOutline.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/GeneratePathways.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Files/GeneratePathways.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Pathway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Pathway.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PathwaySelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PathwaySelectionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/BoundsInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/BoundsInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,6 +114,7 @@
       <workItem from="1654002683501" duration="18599000" />
       <workItem from="1654088104788" duration="21810000" />
       <workItem from="1654521504890" duration="18391000" />
+      <workItem from="1654694291202" duration="18234000" />
     </task>
     <servers />
   </component>
