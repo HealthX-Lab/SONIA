@@ -1,12 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-public class SetLineRendererMaterial : MonoBehaviour
+public class ApplyLineRendererMaterial : MonoBehaviour
 {
     [Tooltip("The material to be applied")]
     public Material material;
     
     void Start()
+    {
+        Apply();
+    }
+
+    /// <summary>
+    /// Checks through all LineRenderers in children of the object and applies the given Material
+    /// </summary>
+    public void Apply()
     {
         LineRenderer[] temp = GetComponentsInChildren<LineRenderer>();
 

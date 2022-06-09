@@ -8,7 +8,7 @@ public class AnimateOutline : MonoBehaviour
     [Tooltip("The maximum width that the outline can grow to")]
     [SerializeField] float maxWidth = 15;
 
-    Outline outline; // The outline Component of the object
+    [HideInInspector] public Outline outline; // The outline Component of the object
     bool increasing = true; // Whether the outline is growing or shrinking
     
     void Start()

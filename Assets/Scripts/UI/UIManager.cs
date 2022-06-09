@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -6,12 +7,8 @@ public class UIManager : MonoBehaviour
     [Tooltip("The management script for pathway selection")]
     [SerializeField] PathwaySelectionManager pathwayManager;
     [Tooltip("The management script for structure previewing")]
-    [SerializeField] StructureManager structureManager;
-
-    void Start()
-    {
-        GoToPathwayUI(); // Pathway by default
-    }
+    [SerializeField] StructureSelectionManager structureManager;
+    [SerializeField] Material lineResetMaterial;
 
     /// <summary>
     /// Shows the pathway manager UI
@@ -20,6 +17,46 @@ public class UIManager : MonoBehaviour
     {
         SetPathwayManager(true);
         SetStructureManager(false);
+
+        // Setting the mini brain remotely
+        if (pathwayManager.miniBrain == null)
+        {
+            pathwayManager.miniBrain = FindObjectOfType<MiniatureBrainController>();
+        }
+
+        // Resetting the mini brain
+        pathwayManager.miniBrain.hasHiddenConnectivity = false;
+        pathwayManager.miniBrain.ConfigurePathways();
+
+        // Resetting its LineRenderers
+        ApplyLineRendererMaterial[] applyScripts = pathwayManager.miniBrain.GetComponentsInChildren<ApplyLineRendererMaterial>();
+
+        foreach (ApplyLineRendererMaterial i in applyScripts)
+        {
+            i.material = lineResetMaterial;
+            i.Apply();
+        }
+        
+        // Resetting its animators and Outlines
+        AnimateOutline[] outlineAnimatorScripts = pathwayManager.miniBrain.GetComponentsInChildren<AnimateOutline>();
+
+        foreach (AnimateOutline j in outlineAnimatorScripts)
+        {
+            j.Reset();
+            j.enabled = false;
+            j.outline.enabled = false;
+        }
+        
+        // Resetting its MeshRenderers
+        Pathway[] miniPaths = pathwayManager.miniBrain.pathways;
+
+        foreach (Pathway k in miniPaths)
+        {
+            if (k.transform.parent.CompareTag("Right"))
+            {
+                pathwayManager.miniBrain.SetMeshMaterials(k, pathwayManager.miniBrain.fleshMaterial);
+            }
+        }
     }
 
     /// <summary>

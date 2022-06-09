@@ -1,10 +1,9 @@
 ﻿using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
 
-public class StructureManager : MonoBehaviour
+public class StructureSelectionManager : MonoBehaviour
 {
     [Header("Pathways & UI")]
     [Tooltip("The outline colour for the UI")]
@@ -13,6 +12,8 @@ public class StructureManager : MonoBehaviour
     [SerializeField] GameObject central, right, left;
     [Tooltip("The buttons for selecting right and left options to change structures")]
     [SerializeField] GameObject rightOption, leftOption;
+    [Tooltip("The button for returning to the Pathway selection menu")]
+    [SerializeField] GameObject returnOption;
     
     [Header("Structures")]
     [Tooltip("The scale to which all of the structure previews should be resized")]
@@ -187,6 +188,8 @@ public class StructureManager : MonoBehaviour
         // Setting the current Pathway UI option's corresponding one
         if (laser.hitObject != null && laser.hitObject.CompareTag("Structure Option"))
         {
+            //laser.hitObject.GetComponent<SoundTrigger>().PlaySound();
+            
             if (laser.hitObject.Equals(rightOption))
             {
                 manager.GoToNext(0);
@@ -202,8 +205,11 @@ public class StructureManager : MonoBehaviour
                     manager.GoToNext(1);
                 }
             }
-            
-            // TODO: check when the Narrative has been completed
+            else if (laser.hitObject.Equals(returnOption))
+            {
+                
+                manager.GoToPathwayUI();
+            }
         }
     }
 }

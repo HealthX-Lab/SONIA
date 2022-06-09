@@ -2,27 +2,85 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Brain Skybox.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Brain Skybox.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Skybox.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Skybox.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/BrainSkybox.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/BrainSkybox.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/SetLineRendererMaterial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/SetLineRendererMaterial.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Brain Skybox.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Brain Skybox.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Swimming Controller.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Swimming Controller.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Animation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art/SoundManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art/SoundManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art/SoundTrigger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Art/SoundTrigger.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/Fireflies.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Testing/Fireflies.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds/plop.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds/plop.mp3.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Brain Skybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Brain Skybox.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Demo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Demo/DemoScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Demo/DemoScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Editor/LightRays2DEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Editor/LightRays2DEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Readme.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Script.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Script/LightRays2D.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Script/LightRays2D.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Script/LightRays2DAbstract.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Script/LightRays2DAbstract.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Script/LightRays2DCanvas.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Script/LightRays2DCanvas.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Shaders/LightRays.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/LightRays2D/Shaders/LightRays.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Connectivity.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Brains/Connectivity.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Edge Description Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Edge Description Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/T1-connectivity-AAL118.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/T1-connectivity-AAL118.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/aal_MNI_info.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/aal_MNI_info.csv.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Brain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Brain.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Art.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Art.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Files.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Files.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Skybox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Skybox.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Swimming.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Swimming.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/AnimateOutline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/AnimateOutline.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/AnimateOutline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animation/AnimateOutline.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/AnimateOutline.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animation/AnimateOutline.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/ApplyMaterial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/ApplyMeshMaterial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/ApplyMaterial.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/ApplyMeshMaterial.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/BrainSkybox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/BrainSkybox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/BrainSkybox.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/BrainSkybox.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/DisplayConnectivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/DisplayConnectivity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/DisplayConnectivity.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/DisplayConnectivity.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Fireflies.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Fireflies.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/FollowByDistance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animation/FollowByDistance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/FollowByDistance.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animation/FollowByDistance.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animation/LazyFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/LazyFollow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animation/LazyFollow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/MiniatureBrainController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/MiniatureBrainController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/MiniatureBrainController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Rotator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animation/Rotator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/Rotator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animation/Rotator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/SetLineRendererMaterial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/ApplyLineRendererMaterial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art &amp; Animation/SetLineRendererMaterial.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Art/ApplyLineRendererMaterial.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Pathway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Pathway.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PathwaySelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PathwaySelectionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureSelectionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StructureSelectionManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +173,7 @@
       <workItem from="1654088104788" duration="21810000" />
       <workItem from="1654521504890" duration="18391000" />
       <workItem from="1654694291202" duration="18234000" />
+      <workItem from="1654779177873" duration="23089000" />
     </task>
     <servers />
   </component>

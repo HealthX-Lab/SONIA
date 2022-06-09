@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Pathway : MonoBehaviour
 {
+    [Tooltip("This Pathway's name")]
     public string name;
+    [Tooltip("Whether or not to prohibit the visualization of the edges at startup")]
     public bool hideVisualization;
     
     [Header("Non-Narrative Pathways")]

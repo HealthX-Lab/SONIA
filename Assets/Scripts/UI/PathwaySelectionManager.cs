@@ -25,7 +25,7 @@ public class PathwaySelectionManager : MonoBehaviour
     GameObject lastHitObject; // The last object hit with the laser script
     GameObject lastOutlineStructure; // The last selected miniature and large structures, respectively
     
-    MiniatureBrainController miniBrain; // The script for the miniature brain
+    [HideInInspector] public MiniatureBrainController miniBrain; // The script for the miniature brain
 
     void Start()
     {
@@ -104,7 +104,7 @@ public class PathwaySelectionManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Highlights the current Pathway, both visually and in code
+    /// Highlights the current Pathway in the code
     /// </summary>
     /// <param name="path">The Pathway to be set visible</param>
     void SetCurrentPathway(Pathway path)
@@ -210,6 +210,7 @@ public class PathwaySelectionManager : MonoBehaviour
         // Setting the current Pathway UI option's corresponding one
         if (laser.hitObject != null && laser.hitObject.CompareTag("Pathway Option"))
         {
+            //laser.hitObject.GetComponent<SoundTrigger>().PlaySound();
             SetCurrentPathway(pathwayController.pathwayDict[lastHitObject]);
         }
     }

@@ -14,11 +14,11 @@ public class SwimmingController : MonoBehaviour
     
     [Header("Parameters")]
     [Tooltip("The speed factor of the swimming")]
-    [SerializeField] float speed = 0.3f;
+    [SerializeField] float speed = 0.2f;
     [Tooltip("Minimum safe distance from the triggering hand positions after they have both been triggered before the swimming starts")]
     [SerializeField] float safeDistance = 0.25f;
     [Tooltip("The factor by which the speed should slow down each 1/10th of a second (i.e. higher = less slowdown)")]
-    [SerializeField] float slowdownFactor = 12;
+    [SerializeField] float slowdownFactor = 10;
     
     [Header("Objects & Triggers")]
     [Tooltip("The SteamVR action to trigger the swimming on both hands")]
