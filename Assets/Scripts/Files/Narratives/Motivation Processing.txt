@@ -1,0 +1,31 @@
+﻿Connections exist back and forth from the striatum to the amygdala and mPFC. They deal with rewards, motivation, decision making, and avoidance, achieving a balance with anxiety behaviours.
+Amygdala (Right)
+
+[NODE]
+Amygdala (Right)
+A highly-interconnected structure related to fear learning and responses to anxiety. It transmits sensory information to other structures.
+Amygdala
+[NEXT]
+Striatum (Right)
+<Striatum edge description>
+[PREVIOUS]
+
+[NODE]
+Striatum (Right)
+A collection of structures related to the reward circuit. It contributes to anxiety symptoms and bias in many processes.
+Striatum
+[NEXT]
+Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
+<mPFC edge description>
+[PREVIOUS]
+Amygdala (Right)
+<Amygdala edge description>
+
+[NODE]
+Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
+A collection of structures near the front of the brain related to fear conditioning and long-term anxiety symptoms.
+mPFC
+[NEXT]
+[PREVIOUS]
+Striatum (Right)
+<Striatum edge description>

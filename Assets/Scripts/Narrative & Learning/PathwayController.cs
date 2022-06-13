@@ -59,6 +59,11 @@ public class PathwayController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the visual aspects of the given structure
+    /// </summary>
+    /// <param name="structure">The large brain structure to be set</param>
+    /// <param name="activeValue">Whether the structure is being set on or off</param>
     public void SetStructure(GameObject structure, bool activeValue)
     {
         Material tempMaterial = defaultMaterial;
@@ -76,10 +81,17 @@ public class PathwayController : MonoBehaviour
             j.material = tempMaterial;
             j.GetComponent<MeshCollider>().enabled = activeValue;
         }
-           
+        
+        // Setting the structure's UI
         StructureUIController tempStructureUI = structure.GetComponent<StructureUIController>();
         tempStructureUI.CheckCanvas();
         tempStructureUI.canvasTransform.gameObject.SetActive(activeValue);
+
+        // Setting the structure's animated outline
+        if (structure.GetComponent<AnimateOutline>() != null)
+        {
+            structure.GetComponent<AnimateOutline>().enabled = activeValue;
+        }
     }
 
     /// <summary>

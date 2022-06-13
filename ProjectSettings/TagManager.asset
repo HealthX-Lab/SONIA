@@ -9,6 +9,8 @@ TagManager:
   - Structure Node
   - Left
   - Right
+  - Tutorial Option
+  - Return Option
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,20 @@ public class UIManager : MonoBehaviour
     [Tooltip("The management script for structure previewing")]
     [SerializeField] StructureSelectionManager structureManager;
     [SerializeField] Material lineResetMaterial;
+    [SerializeField] GameObject brain;
+
+    [HideInInspector] public TutorialController tutorial;
+
+    void Start()
+    {
+        tutorial = FindObjectOfType<TutorialController>();
+
+        // Hiding the pathway manager if the tutorial is starting
+        if (tutorial.showTutorial)
+        {
+            Invoke(nameof(HidePathwayManager), 0.1f);
+        }
+    }
 
     /// <summary>
     /// Shows the pathway manager UI
@@ -56,6 +70,35 @@ public class UIManager : MonoBehaviour
             {
                 pathwayManager.miniBrain.SetMeshMaterials(k, pathwayManager.miniBrain.fleshMaterial);
             }
+        }
+
+        // Resetting the big brain's mesh materials
+        ApplyMeshMaterial bigBrainApplyMesh = brain.GetComponent<ApplyMeshMaterial>();
+
+        if (bigBrainApplyMesh == null)
+        {
+            bigBrainApplyMesh = brain.AddComponent<ApplyMeshMaterial>();
+        }
+        
+        bigBrainApplyMesh.material = pathwayManager.miniBrain.hiddenMaterial;
+        bigBrainApplyMesh.Apply();
+        
+        // Resetting the big brain's animated outlines
+        AnimateOutline[] bigBrainOutlineAnimate = brain.GetComponentsInChildren<AnimateOutline>();
+
+        foreach (AnimateOutline l in bigBrainOutlineAnimate)
+        {
+            l.Reset();
+            l.enabled = false;
+            l.outline.enabled = false;
+        }
+        
+        // Resetting the big brain's structure UI
+        StructureUIController[] bigBrainStructureUI = brain.GetComponentsInChildren<StructureUIController>();
+
+        foreach (StructureUIController m in bigBrainStructureUI)
+        {
+            m.canvasTransform.gameObject.SetActive(false);
         }
     }
 
@@ -138,6 +181,11 @@ public class UIManager : MonoBehaviour
         pathwayManager.currentPathway.narrative.GoToPrevious(); // Setting the current Narrative appropriately
         GoToStructureUI();
     }
+    
+    /// <summary>
+    /// Quick method to hide the pathway manager script and objects
+    /// </summary>
+    void HidePathwayManager() { SetPathwayManager(false); }
 
     /// <summary>
     /// Method to show/hide the pathway selection management script

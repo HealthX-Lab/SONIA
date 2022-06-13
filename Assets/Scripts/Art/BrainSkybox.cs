@@ -4,6 +4,8 @@ using Random = UnityEngine.Random;
 
 public class BrainSkybox : MonoBehaviour
 {
+    [SerializeField] float speed = 0.05f;
+    
     [Header("Materials & colours")]
     [Tooltip("The Material into which the new Perlin noise Texture2D will be generated")]
     [SerializeField] Material skyboxMaterial;
@@ -37,23 +39,49 @@ public class BrainSkybox : MonoBehaviour
     [SerializeField] Vector2 offset;
 
     Texture2D skyboxTexture; // The Texture2D to be applied to the Material
-    Color[] pix; // The Color array of each pixel in the Texture2D
+    
+    /*
+    Color[] currentPixels, nextPixels;
+    float startTime;
+    */
     
     void Start()
     {
         // Creating the new Texture2D and assigning it to the Material
         skyboxTexture = new Texture2D(width, height);
         skyboxMaterial.mainTexture = skyboxTexture;
-        
-        pix = new Color[width * height];
 
-        CalculateNoise(); // Calculating the Perlin noise at start
+        // Generating and applying the colours to the Texture2D
+        skyboxTexture.SetPixels(CalculateNoise());
+        skyboxTexture.Apply();
+
+        /*
+        currentPixels = skyboxTexture.GetPixels();
+        nextPixels = CalculateNoise();
+        startTime = Time.time;
+        */
     }
+
+    /*
+    void FixedUpdate()
+    {
+        if (Time.time - startTime < 5)
+        {
+            for (int i = 0; i < currentPixels.Length; i++)
+            {
+                currentPixels[i] = Color.Lerp(currentPixels[i], nextPixels[i], speed);
+            }
+            
+            skyboxTexture.SetPixels(currentPixels);
+            skyboxTexture.Apply();
+        }
+    }
+    */
     
     /// <summary>
     /// Method to calculate the noise map, stitch the edges, and apply the colours
     /// </summary>
-    void CalculateNoise()
+    Color[] CalculateNoise()
     {
         float[] map = GenerateNoiseMap(); // Initial Perlin noise
 
@@ -75,15 +103,15 @@ public class BrainSkybox : MonoBehaviour
             )
         );
 
+        Color[] temp = new Color[width * height];
+
         // Setting colours based on the Perlin values
         for (int i = 0; i < map.Length; i++)
         {
-            pix[i] = Color.Lerp(darkColour, lightColour, map[i]);
+            temp[i] = Color.Lerp(darkColour, lightColour, map[i]);
         }
-        
-        // Applying the colours to the Texture2D
-        skyboxTexture.SetPixels(pix);
-        skyboxTexture.Apply();
+
+        return temp;
     }
 
     /// <summary>

@@ -46,7 +46,7 @@ public class StructureSelectionManager : MonoBehaviour
     void FixedUpdate()
     {
         // Making sure that the laser is hitting one of the options
-        if (laser.hitObject != null && laser.hitObject.CompareTag("Structure Option"))
+        if (laser.hitObject != null && (laser.hitObject.CompareTag("Structure Option") || laser.hitObject.CompareTag("Return Option")))
         {
             if (lastHitObject != laser.hitObject)
             {
@@ -186,7 +186,7 @@ public class StructureSelectionManager : MonoBehaviour
     void OnTriggerDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         // Setting the current Pathway UI option's corresponding one
-        if (laser.hitObject != null && laser.hitObject.CompareTag("Structure Option"))
+        if (laser.hitObject != null && (laser.hitObject.CompareTag("Structure Option") || laser.hitObject.CompareTag("Return Option")))
         {
             //laser.hitObject.GetComponent<SoundTrigger>().PlaySound();
             

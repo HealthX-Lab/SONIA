@@ -1,0 +1,31 @@
+﻿A pair of connections terminate at the BNST. They relate to the regulation and modulation of anxiety in conditions with uncertain aspects, both short and long term.
+Amygdala (Right)
+
+[NODE]
+Amygdala (Right)
+A highly-interconnected structure related to fear learning and responses to anxiety. It transmits sensory information to other structures.
+Amygdala
+[NEXT]
+Bed Nucleus of the Stria Terminalis <i>(BNST)</i> (Right)
+<BNST edge description>
+[PREVIOUS]
+
+[NODE]
+Bed Nucleus of the Stria Terminalis <i>(BNST)</i> (Right)
+An extended part of the amygdala related to anxiety response. Imbalances in its regulation may result in chronic anxiety disorders.
+BNST
+[NEXT]
+Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
+<mPFC edge description>
+[PREVIOUS]
+Amygdala (Right)
+<Amygdala edge description>
+
+[NODE]
+Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
+A collection of structures near the front of the brain related to fear conditioning and long-term anxiety symptoms.
+mPFC
+[NEXT]
+[PREVIOUS]
+Bed Nucleus of the Stria Terminalis <i>(BNST)</i> (Right)
+<BNST edge description>

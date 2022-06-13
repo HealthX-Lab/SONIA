@@ -1,0 +1,47 @@
+﻿// Introduction
+
+Welcome to Insideout!
+Right now, you're standing at the centre of a model of the human brain.
+Brain structures will become visible in time.
+Around you is the boundary box, please try to remain inside of it at all times.
+
+// Controls
+
+In your hands are two controllers.
+You can lift them up in front of you, to see them in the 3D environment.
+The left controller has a miniature brain attached to it.
+This miniature represents the brain all around you.
+The right controller has a line attached to it.
+You can think of this line as a laser pointer.
+On the underside of each controller is a trigger.
+Try pulling the right controller trigger with your index finger.
+[WAIT] When a button appears, you can point the laser at it, and pull the trigger to click the button.
+Try clicking the button in front of you.
+// TODO: add swimming?
+[WAIT] Those are the only controls. Have fun!
+
+// Pathway selection
+
+This is the connections view.
+Each connection here represents a small network of brain structures.
+They each relate to a particular brain anxiety response.
+Click on one of the structure connection networks.
+
+// Structure selection
+
+[WAIT] This is the structure view.
+Here, you can cycle through the structures in this connection.
+You can read about their functions and connections, and follow the timelines of neuron activation.
+Click on one of the small buttons to move to the next structure.
+[WAIT] Cycle through until you have viewed all the structures in the connection.
+You can also go back to structures you have previously viewed.
+When you're ready to return to the connection view, click on the large upper button.
+
+// Gamification
+
+// TODO pathway completion, structure completion, etc.
+
+// Conclusion
+
+// TODO: anything else needed here
+[WAIT] Continue to explore connections and structures!

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ApplyMeshMaterial : MonoBehaviour
 {
     [Tooltip("The material to be applied to all MeshRenderers within the objet")]
-    [HideInInspector] public Material material;
+    public Material material;
     [Tooltip("The amount of seconds to wait before actually changing the material (to wait for other scripts to load)")]
     [SerializeField] float waitSeconds = 1;
     [Tooltip("Whether the script is being added to a VR controller")]
@@ -17,13 +17,10 @@ public class ApplyMeshMaterial : MonoBehaviour
         {
             Invoke(nameof(Apply), waitSeconds);
         }
-        // TODO: should probably add this for continuity
-        /*
         else
         {
             Apply();
         }
-        */
     }
 
     /// <summary>
