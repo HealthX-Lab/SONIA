@@ -7,7 +7,7 @@ A highly-interconnected structure related to fear learning and responses to anxi
 Amygdala
 [NEXT]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
-<mPFC edge description>
+to mPFC
 [PREVIOUS]
 
 [NODE]
@@ -17,4 +17,4 @@ mPFC
 [NEXT]
 [PREVIOUS]
 Amygdala (Right)
-<Amygdala edge description>
+to Amygdala

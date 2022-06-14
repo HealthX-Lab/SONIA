@@ -7,7 +7,7 @@ A highly-interconnected structure related to fear learning and responses to anxi
 Amygdala
 [NEXT]
 Hippocampus (Right)
-<Hippocampus edge description>
+to Hippocampus
 [PREVIOUS]
 
 [NODE]
@@ -16,10 +16,10 @@ A flat structure related to the manipulation and retrieval of memories. It helps
 Hippocampus
 [NEXT]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
-<mPFC edge description>
+to mPFC
 [PREVIOUS]
 Amygdala (Right)
-<Amygdala edge description>
+to Amygdala
 
 [NODE]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
@@ -28,4 +28,4 @@ mPFC
 [NEXT]
 [PREVIOUS]
 Hippocampus (Right)
-<Hippocampus edge description>
+to Hippocampus

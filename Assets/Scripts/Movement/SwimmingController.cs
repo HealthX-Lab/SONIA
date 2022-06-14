@@ -112,7 +112,7 @@ public class SwimmingController : MonoBehaviour
             float midPointDifference = midPointDistance - midPointStartDistance; // Finding the difference between the current distance and the starting distance
 
             // Making sure to only start moving when the difference is out of the safe distance
-            if (Mathf.Abs(midPointDifference) > safeDistance)
+            if (midPointDifference > 0 || (midPointDifference < 0 && (-midPointDifference > safeDistance)))
             {
                 // Starting to slow down
                 if (!isSlowingDown)

@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 7717c75816e5d6e4f98c235601cf99e4, type: 2}
   waitSeconds: 1
+  isController: 1
 --- !u!1 &159396
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 7717c75816e5d6e4f98c235601cf99e4, type: 2}
   waitSeconds: 1
+  isController: 1
 --- !u!1001 &2403600128347437204
 PrefabInstance:
   m_ObjectHideFlags: 0

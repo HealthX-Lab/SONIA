@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GeneratePathways : MonoBehaviour
 {
@@ -11,27 +10,13 @@ public class GeneratePathways : MonoBehaviour
     [SerializeField] Material defaultMaterial;
     [Tooltip("The material when the structure is occluding")]
     [SerializeField] Material occlusionMaterial;
-    [Tooltip("The actual GameObjects in the scene that will be linked up to individual NarrativeNodes")]
-    [SerializeField] GameObject amygdala, mPFC, hippocampus, BNST, striatum, hypothalamus;
-
+    
+    [HideInInspector] public GameObject[] keyStructures;
     Narrative[] narratives; // The Narratives generated from the files
     PathwayController controller; // The Pathway control/management script
 
-    void Start()
+    public void Generate()
     {
-        // Initializing the Pathway controller
-        controller = gameObject.AddComponent<PathwayController>();
-        controller.defaultMaterial = defaultMaterial;
-        controller.occlusionMaterial = occlusionMaterial;
-        
-        // Occluding all the possible Narrative structures
-        controller.SetStructure(amygdala, false);
-        controller.SetStructure(mPFC, false);
-        controller.SetStructure(hippocampus, false);
-        controller.SetStructure(BNST, false);
-        controller.SetStructure(striatum, false);
-        controller.SetStructure(hypothalamus, false);
-        
         // Initializing a necessary variable in PathwaySelectionManager
         PathwaySelectionManager manager = FindObjectOfType<PathwaySelectionManager>();
         manager.pathways = new Pathway[files.Length];
@@ -71,8 +56,15 @@ public class GeneratePathways : MonoBehaviour
             newPathway.narrative = narratives[i];
             newPathway.narrativeNodes = temp.Nodes.ToArray();
             
+            print(newPathway.nodes[0]);
+            
             manager.pathways[i] = newPathway; // Adding to the necessary variable in PathwaySelectionManager
         }
+        
+        // Initializing the Pathway controller
+        controller = gameObject.AddComponent<PathwayController>();
+        controller.defaultMaterial = defaultMaterial;
+        controller.occlusionMaterial = occlusionMaterial;
     }
 
     /// <summary>
@@ -82,28 +74,14 @@ public class GeneratePathways : MonoBehaviour
     /// <returns>The GameObject that corresponds to the given code</returns>
     GameObject FindGameObject(string name)
     {
-        switch (name)
+        foreach (GameObject i in keyStructures)
         {
-            case "Amygdala":
-                controller.SetStructure(amygdala, true);
-                return amygdala;
-            case "mPFC":
-                controller.SetStructure(mPFC, true);
-                return mPFC;
-            case "Hippocampus":
-                controller.SetStructure(hippocampus, true);
-                return hippocampus;
-            case "BNST":
-                controller.SetStructure(BNST, true);
-                return BNST;
-            case "Striatum":
-                controller.SetStructure(striatum, true);
-                return striatum;
-            case "Hypothalamus":
-                controller.SetStructure(hypothalamus, true);
-                return hypothalamus;
-            default:
-                return null;
+            if (i.name.Equals(name))
+            {
+                return i;
+            }
         }
+
+        return null;
     }
 }

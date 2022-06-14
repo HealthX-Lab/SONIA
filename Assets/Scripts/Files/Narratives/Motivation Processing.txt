@@ -7,7 +7,7 @@ A highly-interconnected structure related to fear learning and responses to anxi
 Amygdala
 [NEXT]
 Striatum (Right)
-<Striatum edge description>
+to Striatum
 [PREVIOUS]
 
 [NODE]
@@ -16,10 +16,10 @@ A collection of structures related to the reward circuit. It contributes to anxi
 Striatum
 [NEXT]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
-<mPFC edge description>
+to mPFC
 [PREVIOUS]
 Amygdala (Right)
-<Amygdala edge description>
+to Amygdala
 
 [NODE]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
@@ -28,4 +28,4 @@ mPFC
 [NEXT]
 [PREVIOUS]
 Striatum (Right)
-<Striatum edge description>
+to Striatum

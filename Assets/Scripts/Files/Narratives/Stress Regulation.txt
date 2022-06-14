@@ -7,7 +7,7 @@ A highly-interconnected structure related to fear learning and responses to anxi
 Amygdala
 [NEXT]
 Hypothalamus (Right)
-<Hypothalamus edge description>
+to Hypothalamus
 [PREVIOUS]
 
 [NODE]
@@ -16,10 +16,10 @@ A central part of a brain axis related to regulating emotions, defensiveness, an
 Hypothalamus
 [NEXT]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
-<mPFC edge description>
+to mPFC
 [PREVIOUS]
 Amygdala (Right)
-<Amygdala edge description>
+to Amygdala
 
 [NODE]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
@@ -28,4 +28,4 @@ mPFC
 [NEXT]
 [PREVIOUS]
 Hypothalamus (Right)
-<Hypothalamus edge description>
+to Hypothalamus

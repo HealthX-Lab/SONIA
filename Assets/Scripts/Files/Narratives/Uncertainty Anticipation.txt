@@ -7,7 +7,7 @@ A highly-interconnected structure related to fear learning and responses to anxi
 Amygdala
 [NEXT]
 Bed Nucleus of the Stria Terminalis <i>(BNST)</i> (Right)
-<BNST edge description>
+to BNST
 [PREVIOUS]
 
 [NODE]
@@ -16,10 +16,10 @@ An extended part of the amygdala related to anxiety response. Imbalances in its 
 BNST
 [NEXT]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
-<mPFC edge description>
+to mPFC
 [PREVIOUS]
 Amygdala (Right)
-<Amygdala edge description>
+to Amygdala
 
 [NODE]
 Medial Prefrontal Cortex <i>(mPFC)</i> (Right)
@@ -28,4 +28,4 @@ mPFC
 [NEXT]
 [PREVIOUS]
 Bed Nucleus of the Stria Terminalis <i>(BNST)</i> (Right)
-<BNST edge description>
+to BNST

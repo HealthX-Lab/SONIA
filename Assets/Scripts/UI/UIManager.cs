@@ -8,9 +8,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] PathwaySelectionManager pathwayManager;
     [Tooltip("The management script for structure previewing")]
     [SerializeField] StructureSelectionManager structureManager;
+    [Tooltip("The LineRenderer reset material for the Pathways")]
     [SerializeField] Material lineResetMaterial;
-    [SerializeField] GameObject brain;
-
+    [Tooltip("The big brain object in the scene")]
+    public GameObject brain;
+    
     [HideInInspector] public TutorialController tutorial;
 
     void Start()

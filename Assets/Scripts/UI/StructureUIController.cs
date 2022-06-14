@@ -11,7 +11,7 @@ public class StructureUIController : MonoBehaviour
     [Tooltip("Description name of the structure")]
     public string description;
     [Tooltip("The layer on which to raycast (so it goes through other structures)")]
-    [SerializeField] LayerMask layer;
+    public LayerMask layer;
     [Tooltip("Whether to scale the UI based on distance or not")]
     [SerializeField] bool fixedScale = true;
     [Tooltip("The unscaled Ui size")]
