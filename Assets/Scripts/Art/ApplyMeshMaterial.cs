@@ -7,13 +7,11 @@ public class ApplyMeshMaterial : MonoBehaviour
     [Tooltip("The material to be applied to all MeshRenderers within the objet")]
     public Material material;
     [Tooltip("The amount of seconds to wait before actually changing the material (to wait for other scripts to load)")]
-    [SerializeField] float waitSeconds = 1;
-    [Tooltip("Whether the script is being added to a VR controller")]
-    [SerializeField] bool isController;
+    [SerializeField] float waitSeconds;
 
     void Start()
     {
-        if (isController)
+        if (waitSeconds > 0)
         {
             Invoke(nameof(Apply), waitSeconds);
         }

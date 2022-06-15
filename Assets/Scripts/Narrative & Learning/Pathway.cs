@@ -70,7 +70,7 @@ public class Pathway : MonoBehaviour
                 }
             }
         
-            GameObject newEdge = Resources.Load<GameObject>("Pathway Edge"); // Getting the edge object
+            GameObject newEdge = Resources.Load<GameObject>("Particle Connection"); // Getting the edge object
             GameObject newEdgeDescription = Resources.Load<GameObject>("Edge Description Canvas");
 
             for (int j = 0; j < nodes.Length; j++)

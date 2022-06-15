@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 9136278559798797954}
   - component: {fileID: 9136278559798797955}
   - component: {fileID: 9136278559798797952}
-  m_Layer: 0
-  m_Name: Pathway Edge
+  - component: {fileID: 8639937081948843056}
+  m_Layer: 3
+  m_Name: Particle Connection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +192,7 @@ ParticleSystem:
       maxColor: {r: 0, g: 0.2004807, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0.2, b: 1, a: 1}
+        key0: {r: 0, g: 0.050943412, b: 0.254717, a: 1}
         key1: {r: 0, g: 0.9187336, b: 1, a: 1}
         key2: {r: 0.8596492, g: 0, b: 1, a: 0}
         key3: {r: 0.8596492, g: 0, b: 1, a: 0}
@@ -250,8 +251,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 2
+      scalar: 20
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4731,4 +4732,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
+  transformParent: {fileID: 0}
   speed: 0.5
+--- !u!114 &8639937081948843056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136278559798797956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 76252a84844c44443a8ae22c7bc20906, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
