@@ -7,11 +7,11 @@ public class MiniBrain : MonoBehaviour
 {
     [Header("Files")]
     [Tooltip("The base folder name within the Resources folder")]
-    [SerializeField] string path = "FBX";
-    [Tooltip("The .csv of names of structures within the base folder")]
-    [SerializeField] string infoPath = "aal_MNI_info";
-    [Tooltip("The .csv connectivity matrix within the base folder")]
-    [SerializeField] string connectivityPath = "T1-connectivity-AAL118";
+    [SerializeField] string path;
+    [Tooltip("The corresponding local file names for the atlas info (names, connectivity, descriptions, and connection descriptions)")]
+    [SerializeField] string infoPath, connectivityPath, descriptionsPath, connectionDescriptionsPath;
+    [Tooltip("Whether or not to ignore every other structure in the list (starting with the first)")]
+    [SerializeField] bool ignoreLeft;
     
     [Header("Visualization")]
     [Tooltip("The material to be applied to the structures")]
@@ -49,23 +49,52 @@ public class MiniBrain : MonoBehaviour
         offset.localRotation = Quaternion.Euler(rotation);
         
         // Initializing the atlas info
-        info = new AtlasInfo(path, connectivityPath);
-        info.Structures = Resources.LoadAll<GameObject>(path);
-        info.LocalCentres = new Vector3[info.Structures.Length];
+        info = new AtlasInfo(path, connectivityPath, descriptionsPath, connectionDescriptionsPath);
+        GameObject[] tempStructures = Resources.LoadAll<GameObject>(path);
+
+        int structureLength = tempStructures.Length;
+
+        // Splitting the struture length in half if the left is being ignored
+        if (ignoreLeft)
+        {
+            structureLength /= 2;
+            info.LeftStructures = new GameObject[structureLength];
+        }
+        
+        info.Structures = new GameObject[structureLength];
+        info.LocalCentres = new Vector3[structureLength];
+        
+        // The current index being added to the connected structures and the left structures
+        int rightStructureCount = 0;
+        int leftStructureCount = 0;
         
         string[] names = LoadNames(Resources.Load<TextAsset>(path + "/" + infoPath)); // Loading the names of each structure
         
-        for (int i = 0; i < info.Structures.Length; i++)
+        for (int i = 0; i < tempStructures.Length; i++)
         {
             // Creating and initializing each structure
-            GameObject temp = Instantiate(info.Structures[i], offset);
+            GameObject temp = Instantiate(tempStructures[i], offset);
             temp.name = names[i];
             temp.GetComponent<MeshRenderer>().material = material;
-            temp.AddComponent<MeshCollider>();
+            
+            // Adding the structures if they're on teh right, or the left isn't being ignored
+            if (!ignoreLeft || (ignoreLeft && i % 2 == 1))
+            {
+                temp.AddComponent<MeshCollider>();
+                
+                // Setting atlas info variables
+                info.Structures[rightStructureCount] = temp;
+                info.LocalCentres[rightStructureCount] = new BoundsInfo(info.Structures[rightStructureCount]).GlobalCentre;
 
-            // Setting atlas info variables
-            info.Structures[i] = temp;
-            info.LocalCentres[i] = new BoundsInfo(info.Structures[i]).GlobalCentre;
+                rightStructureCount++;
+            }
+            // Adding the left structures
+            else if (ignoreLeft)
+            {
+                info.LeftStructures[leftStructureCount] = temp;
+
+                leftStructureCount++;
+            }
         }
 
         // Initializing the connectivity variables
@@ -102,7 +131,7 @@ public class MiniBrain : MonoBehaviour
             }
         }
 
-        // Scaling teh new atlas so that it fits to the scale
+        // Scaling the new atlas so that it fits to the scale
         BoundsInfo bounds = new BoundsInfo(offset.gameObject);
         offset.localScale = Vector3.one * (scale / bounds.Magnitude);
     }
@@ -110,7 +139,7 @@ public class MiniBrain : MonoBehaviour
     /// <summary>
     /// Creates an array of formatted names from the supplied file
     /// </summary>
-    /// <param name="infoFile">The file within the Resources/path/infoFile.csv file</param>
+    /// <param name="infoFile">The file at Resources/path/infoFile.csv</param>
     /// <returns>The formatted names as an array</returns>
     string[] LoadNames(TextAsset infoFile)
     {

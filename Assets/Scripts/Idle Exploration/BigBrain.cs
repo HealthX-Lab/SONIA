@@ -41,6 +41,12 @@ public class BigBrain : MonoBehaviour
         {
             UpdateStructure(i, true);
         }
+        
+        // Also creating the left structures (if they are being ignored for connectivity purposes)
+        foreach (GameObject j in miniBrain.info.LeftStructures)
+        {
+            UpdateStructure(j, true);
+        }
     }
 
     /// <summary>
@@ -92,7 +98,7 @@ public class BigBrain : MonoBehaviour
     {
         foreach (LineRenderer i in obj.GetComponentsInChildren<LineRenderer>())
         {
-            i.widthMultiplier *= scale;
+            i.widthMultiplier *= (scale / 2f);
         }
     }
 
@@ -116,7 +122,7 @@ public class BigBrain : MonoBehaviour
     {
         foreach (Outline i in obj.GetComponentsInChildren<Outline>())
         {
-            i.OutlineWidth *= 10;
+            i.OutlineWidth *= 5;
         }
     }
 
