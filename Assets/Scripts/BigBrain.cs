@@ -75,6 +75,7 @@ public class BigBrain : MonoBehaviour
 
         // Creating the new big structure
         structureDict[key] = Instantiate(key, offset);
+        structureDict[key].SetActive(true);
         structureDict[key].GetComponent<MeshRenderer>().material = material;
         
         // Updating and removing any unnecessary elements from the new big brain structure

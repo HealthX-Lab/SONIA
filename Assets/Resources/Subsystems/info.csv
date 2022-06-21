@@ -1,12 +1,12 @@
-1,Amygdala_L
-2,Amygdala_R
-3,mPFC_L
-4,mPFC_R
-5,Hippocampus_L
-6,Hippocampus_R
-7,BNST_L
-8,BNST_R
-9,Striatum_L
-10,Striatum_R
-11,Hypothalamus_L
-12,Hypothalamus_R
+Amygdala_L,
+Amygdala_R,[Amygdala description goes here]
+mPFC_L,
+mPFC_R,[mPFC description goes here]
+Hippocampus_L,
+Hippocampus_R,[Hippocampus description goes here]
+BNST_L,
+BNST_R,[BNST description goes here]
+Striatum_L,
+Striatum_R,[Striatum description goes here]
+Hypothalamus_L,
+Hypothalamus_R,[Hypothalamus description goes here]

@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +6,8 @@ public class StructureInformation : MonoBehaviour
 {
     Transform cam; // The camera's transform
     [HideInInspector] public GameObject canvas, connectionDescription; // The information canvas and the connection description
+    MiniBrain miniBrain;
+    CompletionController completion; // The script to manage the completion amounts and displaying
     
     void Start()
     {
@@ -19,6 +20,9 @@ public class StructureInformation : MonoBehaviour
         // Hiding the connection description at the start
         connectionDescription = canvas.GetComponentsInChildren<TMP_Text>()[3].gameObject;
         connectionDescription.SetActive(false);
+
+        miniBrain = FindObjectOfType<MiniBrain>();
+        completion = FindObjectOfType<CompletionController>();
     }
 
     void FixedUpdate()
@@ -67,14 +71,26 @@ public class StructureInformation : MonoBehaviour
         {
             Instantiate(connection, layout).GetComponentInChildren<TMP_Text>().text = j.name;
         }
+        
+        // Updating the completion when a structure is selected
+        completion.UpdateStructureCompletion(miniBrain.info.IndexOf(miniBrain.info.Find(name)));
+        completion.GenerateCompletionInfo();
     }
 
     /// <summary>
     /// Method to quickly set the text of the connection description
     /// </summary>
-    /// <param name="description">The description of the connection to another structure</param>
-    public void SetConnectionDescription(string description)
+    /// <param name="selectedIndex">The index in the AtlasInfo of the currently selected object</param>
+    /// <param name="otherIndex">The index in the AtlasInfo of the other object connected to the current object</param>
+    public void SetConnectionDescription(int selectedIndex, int otherIndex)
     {
-        connectionDescription.GetComponent<TMP_Text>().text = description;
+        connectionDescription.GetComponent<TMP_Text>().text = miniBrain.info.SubsystemConnectionDescriptions[
+            selectedIndex,
+            otherIndex
+        ];
+        
+        // Updating the completion when a connection is selected
+        completion.UpdateStructureCompletion(selectedIndex, otherIndex);
+        completion.GenerateCompletionInfo();
     }
 }

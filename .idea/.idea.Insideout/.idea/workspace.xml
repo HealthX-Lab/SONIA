@@ -2,549 +2,245 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent (Flesh) (25%).mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent (Flesh) (25%).mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00001.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00001.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00002.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00002.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00003.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00003.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00004.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00004.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00005.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00005.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00006.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00006.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00007.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00007.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00008.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00008.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00009.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00009.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00010.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00010.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00011.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00011.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00012.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00012.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00013.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00013.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00014.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00014.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00015.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00015.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00016.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00016.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00017.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00017.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00018.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00018.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00019.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00019.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00020.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00020.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00021.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00021.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00022.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00022.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00023.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00023.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00024.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00024.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00025.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00025.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00026.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00026.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00027.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00027.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00028.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00028.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00029.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00029.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00030.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00030.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00031.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00031.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00032.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00032.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00033.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00033.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00034.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00034.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00035.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00035.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00036.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00036.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00037.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00037.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00038.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00038.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00039.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00039.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00040.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00040.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00041.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00041.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00042.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00042.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00043.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00043.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00044.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00044.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00045.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00045.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00046.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00046.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00047.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00047.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00048.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00048.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00049.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00049.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00050.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00050.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00051.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00051.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00052.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00052.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00053.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00053.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00054.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00054.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00055.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00055.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00056.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00056.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00057.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00057.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00058.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00058.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00059.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00059.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00060.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00060.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00061.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00061.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00062.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00062.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00063.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00063.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00064.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00064.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00065.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00065.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00066.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00066.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00067.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00067.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00068.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00068.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00069.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00069.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00070.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00070.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00071.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00071.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00072.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00072.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00073.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00073.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00074.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00074.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00075.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00075.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00076.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00076.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00077.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00077.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00078.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00078.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00079.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00079.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00080.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00080.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00081.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00081.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00082.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00082.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00083.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00083.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00084.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00084.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00085.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00085.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00086.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00086.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00087.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00087.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00088.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00088.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00089.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00089.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00090.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00090.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00091.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00091.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00092.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00092.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00093.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00093.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00094.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00094.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00095.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00095.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00096.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00096.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00097.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00097.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00098.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00098.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00099.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00099.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00100.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00100.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00101.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00101.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00102.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00102.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00103.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00103.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00104.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00104.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00105.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00105.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00106.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00106.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00107.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00107.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00108.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00108.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00109.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00109.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00110.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00110.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00111.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00111.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00112.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00112.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00113.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00113.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00114.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00114.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00115.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00115.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00116.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00116.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00117.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00117.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00118.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL00118.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_connection_descriptions.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_connection_descriptions.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_connectivity.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_connectivity.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_descriptions.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_descriptions.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_info.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_info.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Connection.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Connection.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/01.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/01.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/02.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/02.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/03.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/03.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/04.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/04.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/05.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/05.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/06.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/06.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/07.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/07.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/08.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/08.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/09.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/09.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/10.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/10.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/11.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/11.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/12.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/12.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/connection_descriptions.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/connection_descriptions.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/connectivity.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/connectivity.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/descriptions.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/descriptions.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/info.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/info.csv.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Futura PT.ttc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Futura PT.ttc.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Trebuchet MS.ttc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Trebuchet MS.ttc.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Futura PT SDF.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Futura PT SDF.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Trebuchet MS SDF.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Trebuchet MS SDF.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Structure.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Structure.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystem.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystem.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_connection_descriptions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_connection_descriptions.csv.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_connectivity.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_connectivity.csv.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_info.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_info.csv.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AtlasInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AtlasInfo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BigBrain.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BigBrain.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CompletionController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CompletionController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MiniBrain.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MiniBrain.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation/AnimateOutline.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation/AnimateOutline.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation/FollowByDistance.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation/FollowByDistance.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation/LazyFollow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation/LazyFollow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation/Rotator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Animation/Rotator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/ApplyLineRendererMaterial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/ApplyLineRendererMaterial.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/ApplyMeshMaterial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/ApplyMeshMaterial.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/BrainSkybox.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/BrainSkybox.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/DisplayConnectivity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/DisplayConnectivity.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/MiniatureBrainController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/MiniatureBrainController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/SoundManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/SoundManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/SoundTrigger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/SoundTrigger.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Connectivity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Connectivity/T1-connectivity-AAL118.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Connectivity/T1-connectivity-AAL118.csv.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Connectivity/aal_MNI_info.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Connectivity/aal_MNI_info.csv.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/FileToNarrative.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/FileToNarrative.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/GenerateAnxietyPathways.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/GenerateAnxietyPathways.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/GeneratePathways.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/GeneratePathways.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Cognitive Control.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Cognitive Control.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Fear Conditioning.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Fear Conditioning.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Motivation Processing.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Motivation Processing.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Narrative Name.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Narrative Name.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Stress Regulation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Stress Regulation.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Uncertainty Anticipation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/Narratives/Uncertainty Anticipation.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/tutorial.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Files/tutorial.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Movement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Movement/StructureZoom.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Movement/StructureZoom.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Movement/SwimmingController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Movement/SwimmingController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/Narrative.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/Narrative.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/NarrativeNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/NarrativeNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/Pathway.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/Pathway.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/PathwayController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/PathwayController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/TutorialController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Narrative &amp; Learning/TutorialController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing/BubblingVertices.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing/BubblingVertices.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing/Fireflies.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing/Fireflies.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing/LightRaysToSkybox.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing/LightRaysToSkybox.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing/NarrativeTesting.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Testing/NarrativeTesting.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/ControllerLaser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/ControllerLaser.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/PathwaySelectionManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/PathwaySelectionManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/StructureSelectionManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/StructureSelectionManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/StructureUIController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/StructureUIController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/UIManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/UI/UIManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Utility.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Utility/BoundsInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Utility/BoundsInfo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Utility/FindClosest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Utility/FindClosest.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StructureInformation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StructureInformation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StructureSelection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StructureSelection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SubsystemInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SubsystemInfo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Flesh).mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Flesh).mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00001.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00001.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00002.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00002.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00003.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00003.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00004.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00004.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00005.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00005.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00006.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00006.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00007.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00007.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00008.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00008.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00009.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00009.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00010.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00010.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00011.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00011.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00012.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00012.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00013.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00013.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00014.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00014.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00015.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00015.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00016.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00016.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00017.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00017.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00018.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00018.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00019.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00019.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00020.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00020.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00021.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00021.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00022.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00022.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00023.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00023.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00024.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00024.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00025.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00025.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00026.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00026.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00027.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00027.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00028.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00028.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00029.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00029.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00030.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00030.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00031.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00031.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00032.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00032.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00033.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00033.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00034.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00034.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00035.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00035.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00036.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00036.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00037.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00037.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00038.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00038.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00039.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00039.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00040.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00040.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00041.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00041.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00042.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00042.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00043.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00043.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00044.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00044.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00045.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00045.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00046.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00046.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00047.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00047.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00048.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00048.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00049.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00049.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00050.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00050.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00051.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00051.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00052.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00052.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00053.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00053.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00054.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00054.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00055.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00055.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00056.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00056.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00057.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00057.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00058.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00058.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00059.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00059.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00060.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00060.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00061.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00061.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00062.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00062.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00063.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00063.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00064.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00064.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00065.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00065.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00066.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00066.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00067.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00067.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00068.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00068.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00069.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00069.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00070.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00070.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00071.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00071.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00072.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00072.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00073.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00073.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00074.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00074.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00075.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00075.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00076.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00076.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00077.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00077.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00078.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00078.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00079.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00079.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00080.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00080.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00081.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00081.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00082.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00082.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00083.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00083.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00084.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00084.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00085.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00085.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00086.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00086.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00087.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00087.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00088.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00088.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00089.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00089.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00090.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00090.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00091.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00091.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00092.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00092.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00093.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00093.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00094.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00094.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00095.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00095.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00096.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00096.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00097.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00097.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00098.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00098.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00099.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00099.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00100.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00100.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00101.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00101.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00102.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00102.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00103.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00103.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00104.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00104.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00105.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00105.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00106.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00106.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00107.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00107.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00108.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00108.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00109.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00109.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00110.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00110.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00111.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00111.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00112.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00112.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00113.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00113.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00114.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00114.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00115.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00115.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00116.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00116.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00117.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00117.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00118.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/AAL00118.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/T1-connectivity-AAL118.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/T1-connectivity-AAL118.csv.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/aal_MNI_info.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/FBX/aal_MNI_info.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Blood vessels.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Blood vessels.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_connection_descriptions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_connection_descriptions.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_descriptions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_descriptions.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Connection.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Connection.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/connection_descriptions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/connection_descriptions.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/descriptions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/descriptions.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/info.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/AtlasInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/AtlasInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/BigBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/BigBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/MiniBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/MiniBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureInformation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureSelection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/TMP Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation/AnimateOutline.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation/AnimateOutline.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation/FollowByDistance.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation/FollowByDistance.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation/LazyFollow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation/LazyFollow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation/Rotator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animation/Rotator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/ApplyLineRendererMaterial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/ApplyLineRendererMaterial.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/ApplyMeshMaterial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/ApplyMeshMaterial.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/BrainSkybox.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/BrainSkybox.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/DisplayConnectivity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/DisplayConnectivity.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/MiniatureBrainController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/MiniatureBrainController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/SoundManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/SoundManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/SoundTrigger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Art/SoundTrigger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Connectivity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Connectivity/T1-connectivity-AAL118.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Connectivity/T1-connectivity-AAL118.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Connectivity/aal_MNI_info.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Connectivity/aal_MNI_info.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/FileToNarrative.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/FileToNarrative.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/GenerateAnxietyPathways.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/GenerateAnxietyPathways.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/GeneratePathways.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/GeneratePathways.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Cognitive Control.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Cognitive Control.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Fear Conditioning.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Fear Conditioning.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Motivation Processing.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Motivation Processing.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Narrative Name.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Narrative Name.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Stress Regulation.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Stress Regulation.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Uncertainty Anticipation.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/Narratives/Uncertainty Anticipation.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/tutorial.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Files/tutorial.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/AtlasInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/AtlasInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/BigBrain.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/BigBrain.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/MiniBrain.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/MiniBrain.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureInformation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureInformation.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureSelection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureSelection.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Narrative.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Narrative.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/NarrativeNode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/NarrativeNode.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Pathway.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/Pathway.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/TutorialController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/TutorialController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/BubblingVertices.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/BubblingVertices.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/Fireflies.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/Fireflies.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/LightRaysToSkybox.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/LightRaysToSkybox.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NarrativeTesting.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Testing/NarrativeTesting.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ControllerLaser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ControllerLaser.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PathwaySelectionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PathwaySelectionManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureSelectionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureSelectionManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureUIController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StructureUIController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/BoundsInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/BoundsInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/FindClosest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/FindClosest.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -553,13 +249,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Idle Exploration/MiniBrain.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Idle Exploration/StructureInformation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement/StructureZoom.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement/SwimmingController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/NarrativeNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Narrative &amp; Learning/PathwayController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Testing/BubblingVertices.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -573,20 +262,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RiderUnityFileTemplatesSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "database.data.extractors.current.id": "Comma-separated (CSV)_id",
+    "nodejs_package_manager_path": "npm",
+    "rider.run.widget.enabled.cache": "false",
+    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe" />
@@ -647,6 +336,7 @@
       <workItem from="1655298724366" duration="23008000" />
       <workItem from="1655730658884" duration="9544000" />
       <workItem from="1655743039990" duration="10029000" />
+      <workItem from="1655815983143" duration="20011000" />
     </task>
     <servers />
   </component>

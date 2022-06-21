@@ -248,19 +248,29 @@ public class StructureSelection : MonoBehaviour
                 miniBrain.info.Descriptions[infoIndex],
                 miniBrain.info.ValidConnections[infoIndex].ToArray()
             );
-            
+
             bigBrain.UpdateStructure(selectedObject, false); // Updating the big brain
         }
         // Checking if a menu object has been clicked on
         else if (lastHitMenuObject != null)
         {
-            leftHand.connectionDescription.SetActive(true); // Showing the connection description
+            int selectedIndex = miniBrain.info.IndexOf(selectedObject);
+
+            // Making sure that the connection description exists
+            if (miniBrain.info.SubsystemConnectionDescriptions != null && selectedIndex < miniBrain.info.SubsystemConnectionDescriptions.Length)
+            {
+                leftHand.connectionDescription.SetActive(true); // Showing the connection description
+
+                int otherIndex = miniBrain.info.IndexOf(miniBrain.info.Find(
+                    lastHitMenuObject.transform.parent.GetComponentInChildren<TMP_Text>().text
+                ));
             
-            // Setting the text of teh connection description
-            leftHand.SetConnectionDescription(miniBrain.info.ConnectionDescriptions[
-                miniBrain.info.IndexOf(selectedObject),
-                miniBrain.info.IndexOf(miniBrain.info.Find(lastHitMenuObject.transform.parent.GetComponentInChildren<TMP_Text>().text))]
-            );
+                // Setting the text of the connection description
+                leftHand.SetConnectionDescription(
+                    selectedIndex,
+                    otherIndex
+                ); 
+            }
         }
     }
 }
