@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 
 /// <summary>
-/// Class to hold arrays of info about loaded atlases
+/// Class to generate and store info about the loaded atlas
 /// </summary>
 public class AtlasInfo
 {
@@ -77,22 +77,22 @@ public class AtlasInfo
         this.basePath = basePath;
         
         // Setting the structure names/descriptions, connectivity, and connection descriptions
-        Names = LoadStringColumn(infoPath, 0, true, false);
-        Descriptions = LoadStringColumn(infoPath, 1, false, true);
-        Connectivity = LoadFloatMatrix(connectivityPath);
-        SubsystemConnectionDescriptions = LoadStringMatrix(subsystemsConnectionDescriptionsPath);
+        Names = LoadStringColumn(infoPath, 0, '|', true, false);
+        Descriptions = LoadStringColumn(infoPath, 1, '|', false, true);
+        Connectivity = LoadFloatMatrix(connectivityPath, ',');
+        SubsystemConnectionDescriptions = LoadStringMatrix(subsystemsConnectionDescriptionsPath, '|');
 
-        string[] subsystemNames = LoadStringColumn(subsystemsInfoPath, 0, false, false); // Getting the subsystem names (if they exist)
+        string[] subsystemNames = LoadStringColumn(subsystemsInfoPath, 0, '|', false, false); // Getting the subsystem names (if they exist)
 
         if (subsystemNames != null)
         {
             // Loading the descriptions and initializing the Subsystems
-            string[] subsystemDescriptions = LoadStringColumn(subsystemsInfoPath, 1, false, false);
+            string[] subsystemDescriptions = LoadStringColumn(subsystemsInfoPath, 1, '|', false, false);
             Subsystems = new SubsystemInfo[subsystemNames.Length];
 
             for (int i = 0; i < subsystemNames.Length; i++)
             {
-                float[] subsystemFloatConnectivity = LoadFloatRow(subsystemsConnectivityPath, i);
+                float[] subsystemFloatConnectivity = LoadFloatRow(subsystemsConnectivityPath, i, ',');
                 bool[] subsystemBoolConnectivity = new bool[subsystemFloatConnectivity.Length];
 
                 // Setting the included structures for each Subsystem
@@ -128,10 +128,11 @@ public class AtlasInfo
     /// </summary>
     /// <param name="fileName">The file at Resources/basePath/fileName.csv</param>
     /// <param name="columnIndex">The index of the column to be read from</param>
+    /// <param name="delim">The delimiter character for the rows in the file</param>
     /// <param name="format">Whether or not to format the values of the column</param>
     /// <param name="ignoreLeft">Whether or not to ignore every other structure in the list (starting with the first)</param>
     /// <returns>A string array of the values in the column (null if the file doesn't exist)</returns>
-    string[] LoadStringColumn(string fileName, int columnIndex, bool format, bool ignoreLeft)
+    string[] LoadStringColumn(string fileName, int columnIndex, char delim, bool format, bool ignoreLeft)
     {
         TextAsset file = LoadFile(fileName);
 
@@ -163,7 +164,7 @@ public class AtlasInfo
                         index = rightIndex;
                     }
                     
-                    temp[index] = split[i].Split(',')[columnIndex].Trim(); // Getting the value in the column
+                    temp[index] = split[i].Split(delim)[columnIndex].Trim(); // Getting the value in the column
 
                     // Formatting the string (if requested)
                     if (format)
@@ -186,15 +187,16 @@ public class AtlasInfo
     /// </summary>
     /// <param name="fileName">The file at Resources/basePath/fileName.csv</param>
     /// <param name="rowIndex">The index of the row to be read from</param>
+    /// <param name="delim">The delimiter character for the rows in the file</param>
     /// <returns>A string array of the values in the row (null if the file doesn't exist)</returns>
-    float[] LoadFloatRow(string fileName, int rowIndex)
+    float[] LoadFloatRow(string fileName, int rowIndex, char delim)
     {
         TextAsset file = LoadFile(fileName);
 
         // Making sure the file exists
         if (file != null)
         {
-            string[] split = file.text.Split('\n')[rowIndex].Split(','); // Getting the array of values for the row
+            string[] split = file.text.Split('\n')[rowIndex].Split(delim); // Getting the array of values for the row
             float[] temp = new float[split.Length];
 
             for (int i = 0; i < split.Length; i++)
@@ -212,8 +214,9 @@ public class AtlasInfo
     /// Creates a 2D array float matrix from the supplied file
     /// </summary>
     /// <param name="fileName">The file at Resources/basePath/fileName.csv</param>
+    /// <param name="delim">The delimiter character for the rows in the file</param>
     /// <returns>The float matrix as a 2D array</returns>
-    float[,] LoadFloatMatrix(string fileName)
+    float[,] LoadFloatMatrix(string fileName, char delim)
     {
         TextAsset file = LoadFile(fileName);
 
@@ -224,7 +227,7 @@ public class AtlasInfo
         
             for (int i = 0; i < split.Length; i++)
             {
-                string[] splitSplit = split[i].Split(','); // Splitting by comma
+                string[] splitSplit = split[i].Split(delim); // Splitting by comma
             
                 for (int j = 0; j < splitSplit.Length; j++)
                 {
@@ -237,13 +240,14 @@ public class AtlasInfo
 
         return null;
     }
-    
+
     /// <summary>
     /// Creates a 2D array string matrix from the supplied file
     /// </summary>
     /// <param name="fileName">The file at Resources/basePath/fileName.csv</param>
+    /// <param name="delim">The delimiter character for the rows in the file</param>
     /// <returns>The string matrix as a 2D array</returns>
-    string[,] LoadStringMatrix(string fileName)
+    string[,] LoadStringMatrix(string fileName, char delim)
     {
         TextAsset file = LoadFile(fileName);
 
@@ -254,7 +258,7 @@ public class AtlasInfo
         
             for (int i = 0; i < split.Length; i++)
             {
-                string[] splitSplit = split[i].Split(','); // Splitting by comma
+                string[] splitSplit = split[i].Split(delim); // Splitting by comma
             
                 for (int j = 0; j < splitSplit.Length; j++)
                 {

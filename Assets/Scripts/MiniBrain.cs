@@ -52,6 +52,17 @@ public class MiniBrain : MonoBehaviour
         offset.SetParent(transform);
         offset.localPosition = position;
         offset.localRotation = Quaternion.Euler(rotation);
+
+        // Adding an origin marker for visual aid
+        GameObject origin = Instantiate(Resources.Load<GameObject>("Node"), offset);
+        origin.transform.localScale *= 2;
+        origin.GetComponent<MeshRenderer>().material = connectionMaterial;
+        
+        // Adding an outline to the origin marker
+        Outline originOutline = origin.AddComponent<Outline>();
+        originOutline.OutlineColor = connectionMaterial.color;
+        originOutline.OutlineWidth = 3;
+        originOutline.OutlineMode = Outline.Mode.OutlineVisible;
         
         // Initializing the atlas info
         info = new AtlasInfo(

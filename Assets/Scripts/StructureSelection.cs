@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
 
@@ -138,7 +137,7 @@ public class StructureSelection : MonoBehaviour
         int otherIndex = miniBrain.info.IndexOf(other); // Index of the other GameObject in the whole structure array
         int targetIndex = miniBrain.info.ValidConnections[otherIndex].IndexOf(target); // Index of the target GameObject in the other GameObject's valid connections
 
-        // Making sure it does exist in teh other's valid connections
+        // Making sure it does exist in the other's valid connections
         if (targetIndex != -1)
         {
             miniBrain.info.Structures[otherIndex].transform.GetChild(targetIndex).GetComponent<LineRenderer>().enabled = false; // Disabling it
@@ -244,7 +243,7 @@ public class StructureSelection : MonoBehaviour
 
             // Applying the list to the UI
             leftHand.SetUI(
-                miniBrain.info.Structures[infoIndex].name,
+                miniBrain.info.Structures[infoIndex],
                 miniBrain.info.Descriptions[infoIndex],
                 miniBrain.info.ValidConnections[infoIndex].ToArray()
             );

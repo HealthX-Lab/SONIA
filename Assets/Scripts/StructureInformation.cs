@@ -6,7 +6,7 @@ public class StructureInformation : MonoBehaviour
 {
     Transform cam; // The camera's transform
     [HideInInspector] public GameObject canvas, connectionDescription; // The information canvas and the connection description
-    MiniBrain miniBrain;
+    MiniBrain miniBrain; // The mini brain script
     CompletionController completion; // The script to manage the completion amounts and displaying
     
     void Start()
@@ -44,10 +44,10 @@ public class StructureInformation : MonoBehaviour
     /// <summary>
     /// Method to quickly set the name, description, and populate the connection descriptions of the selected structure
     /// </summary>
-    /// <param name="name">The name of the selected structure</param>
+    /// <param name="selected">The selected structure</param>
     /// <param name="description">The description of the selected structure</param>
     /// <param name="connections">The structures to which the selected structure is connected</param>
-    public void SetUI(string name, string description, GameObject[] connections)
+    public void SetUI(GameObject selected, string description, GameObject[] connections)
     {
         Transform layout = canvas.GetComponentInChildren<VerticalLayoutGroup>().transform;
         
@@ -61,19 +61,36 @@ public class StructureInformation : MonoBehaviour
         
         TMP_Text[] text = canvas.GetComponentsInChildren<TMP_Text>();
 
-        text[0].text = name;
+        text[0].text = selected.name;
         text[1].text = description;
+
+        // Adding colour-coded Subsystem pips for the selected structure
+        if (miniBrain.info.Subsystems != null)
+        {
+            Destroy(text[0].gameObject.transform.GetChild(0).gameObject);
+            Instantiate(Resources.Load<GameObject>("ColourPips"), text[0].gameObject.transform).GetComponent<ColourPips>()
+                .AddPips(selected, Vector3.up * 0.1f);
+        }
 
         GameObject connection = Resources.Load<GameObject>("Connection");
 
         // Adding the new connection descriptions
         foreach (GameObject j in connections)
         {
-            Instantiate(connection, layout).GetComponentInChildren<TMP_Text>().text = j.name;
+            GameObject tempConnection = Instantiate(connection, layout);
+            tempConnection.GetComponentInChildren<TMP_Text>().text = j.name;
+
+            // Adding colour-coded Subsystem pips for each connected structure
+            if (miniBrain.info.Subsystems != null)
+            {
+                GameObject tempPips = Instantiate(Resources.Load<GameObject>("ColourPips"), tempConnection.transform);
+                tempPips.GetComponent<ColourPips>().AddPips(selected, j, Vector3.right * -0.35f);
+                tempPips.GetComponent<HorizontalLayoutGroup>().reverseArrangement = true;
+            }
         }
         
         // Updating the completion when a structure is selected
-        completion.UpdateStructureCompletion(miniBrain.info.IndexOf(miniBrain.info.Find(name)));
+        completion.UpdateStructureCompletion(miniBrain.info.IndexOf(selected));
         completion.GenerateCompletionInfo();
     }
 

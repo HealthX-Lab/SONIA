@@ -1,12 +1,12 @@
-Amygdala_L,
-Amygdala_R,[Amygdala description goes here]
-mPFC_L,
-mPFC_R,[mPFC description goes here]
-Hippocampus_L,
-Hippocampus_R,[Hippocampus description goes here]
-BNST_L,
-BNST_R,[BNST description goes here]
-Striatum_L,
-Striatum_R,[Striatum description goes here]
-Hypothalamus_L,
-Hypothalamus_R,[Hypothalamus description goes here]
+Amygdala_L|
+Amygdala_R|A highly-interconnected structure related to fear learning and responses to anxiety. It transmits sensory information to other structures.
+mPFC_L|
+mPFC_R|A collection of structures near the front of the brain related to fear conditioning and long-term anxiety symptoms.
+Hippocampus_L|
+Hippocampus_R|A flat structure related to the manipulation and retrieval of memories. It helps to express and regulate fear.
+BNST_L|
+BNST_R|An extended part of the amygdala related to anxiety response. Imbalances in its regulation may result in chronic anxiety disorders.
+Striatum_L|
+Striatum_R|A collection of structures related to the reward circuit. It contributes to anxiety symptoms and bias in many processes.
+Hypothalamus_L|
+Hypothalamus_R|A central part of a brain axis related to regulating emotions, defensiveness, and aggression. Sleep, stress, and caffeine can all affect it.

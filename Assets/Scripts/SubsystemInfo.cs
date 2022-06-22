@@ -2,7 +2,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Class representing the info about subsystems within loaded atlases
+/// Class to generate and store info about the subsystems within the loaded atlas
 /// </summary>
 public class SubsystemInfo
 {
