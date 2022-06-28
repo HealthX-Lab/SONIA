@@ -2,35 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/New Material.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/New Material.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Pip.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Pip.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ColourPips.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ColourPips.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BoundsInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BoundsInfo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ColourPips.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ColourPips.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/AAL/aal_MNI_info.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Connection.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Connection.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Scripts/Outline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Scripts/Outline.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/01.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/01.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/02.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/02.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/03.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/03.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/04.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/04.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/05.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/05.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/06.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/06.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/07.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/07.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/08.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/08.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/09.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/09.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/10.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/10.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/11.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/11.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/12.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/12.fbx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_connection_descriptions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_connection_descriptions.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/subsystems_info.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AtlasInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AtlasInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BigBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BigBrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourPips.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColourPips.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CompletionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CompletionController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MiniBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MiniBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OLD/Utility/BoundsInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OLD/Utility/BoundsInfo.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StructureInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StructureInformation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StructureSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StructureSelection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SubsystemInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SubsystemInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +122,7 @@
       <workItem from="1655743039990" duration="10029000" />
       <workItem from="1655815983143" duration="20132000" />
       <workItem from="1655903410442" duration="17733000" />
+      <workItem from="1656420670376" duration="20805000" />
     </task>
     <servers />
   </component>

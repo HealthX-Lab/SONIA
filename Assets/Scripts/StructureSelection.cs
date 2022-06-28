@@ -1,16 +1,17 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
 
 public class StructureSelection : MonoBehaviour
 {
-    [Tooltip("The material to be used when a structure is selected, and the default one")]
-    [SerializeField] Material defaultMaterial, selectedMaterial;
-    [Tooltip("The length of the laser pointer when not pointing towards anything")]
-    [SerializeField] float length = 0.2f;
-    [Tooltip("The triggering action from the right hand controller")]
-    [SerializeField] SteamVR_Action_Boolean action;
+    [SerializeField, Tooltip("The material to be used when a structure is selected, and the default one")]
+    Material defaultMaterial, selectedMaterial;
+    [SerializeField, Tooltip("The length of the laser pointer when not pointing towards anything")]
+    float length = 0.2f;
+    [SerializeField, Tooltip("The triggering action from the right hand controller")]
+    SteamVR_Action_Boolean action;
 
     LineRenderer line; // The laser pointer
     bool hasReset; // Whether the laser pointer has already been reset after pointing away
@@ -19,7 +20,7 @@ public class StructureSelection : MonoBehaviour
 
     MiniBrain miniBrain; // The mini brain script
     BigBrain bigBrain; // The big brain script
-    StructureInformation leftHand; // The structure information script in the left hand
+    StructureInformation structureInformation; // The structure information script in the left hand
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class StructureSelection : MonoBehaviour
         // Getting the required scripts
         miniBrain = FindObjectOfType<MiniBrain>();
         bigBrain = FindObjectOfType<BigBrain>();
-        leftHand = FindObjectOfType<StructureInformation>();
+        structureInformation = FindObjectOfType<StructureInformation>();
         
         action.AddOnStateDownListener(OnActionDown, SteamVR_Input_Sources.RightHand); // Adding a listener for the triggering action
     }
@@ -66,11 +67,12 @@ public class StructureSelection : MonoBehaviour
                         Outline outline = hitObject.AddComponent<Outline>();
                         outline.OutlineColor = selectedMaterial.color;
                         outline.OutlineWidth = 2;
+                        outline.OutlineMode = Outline.Mode.OutlineVisible;
                     }
                 }
             }
             // Checking if a menu object is being hit
-            else if (hit.transform.IsChildOf(leftHand.canvas.transform))
+            else if (hit.transform.IsChildOf(structureInformation.canvas.transform))
             {
                 line.SetPosition(1, transform.InverseTransformPoint(hit.point)); // Making the laser snap to that object
                 hasReset = false;
@@ -89,6 +91,7 @@ public class StructureSelection : MonoBehaviour
                     Outline outline = lastHitMenuObject.AddComponent<Outline>();
                     outline.OutlineColor = selectedMaterial.color;
                     outline.OutlineWidth = 8;
+                    outline.OutlineMode = Outline.Mode.OutlineVisible;
                 }
                 else
                 {
@@ -140,9 +143,15 @@ public class StructureSelection : MonoBehaviour
         // Making sure it does exist in the other's valid connections
         if (targetIndex != -1)
         {
+            // Making sure to skip the first child (the node) if the structures are replaced with nodes
+            if (miniBrain.replaceWithNodes)
+            {
+                targetIndex++;
+            }
+            
             miniBrain.info.Structures[otherIndex].transform.GetChild(targetIndex).GetComponent<LineRenderer>().enabled = false; // Disabling it
         
-            SetLineRendererMaterial(target, selectedMaterial); // Making the target's line stand out
+            //SetLineRendererMaterial(target, selectedMaterial); // Making the target's line stand out
 
             return true;
         }
@@ -175,21 +184,56 @@ public class StructureSelection : MonoBehaviour
     /// <param name="mat">The material to be applied</param>
     void SetLineRendererMaterial(GameObject obj, Material mat)
     {
-        foreach (LineRenderer i in obj.GetComponentsInChildren<LineRenderer>())
+        for (int i = 0; i < obj.GetComponentsInChildren<LineRenderer>().Length; i++)
         {
-            i.material = mat;
-
-            // Making it thick if the Material is the selected one
-            if (mat.Equals(selectedMaterial))
-            {
-                i.widthMultiplier = 0.005f;
-            }
-            // Otherwise returning it to default thickness
-            else if (mat.Equals(defaultMaterial))
-            {
-                i.widthMultiplier = 0.001f;
-            }
+            SetLineRendererMaterial(obj, mat, i);
         }
+    } 
+
+    /// <summary>
+    /// Sets a particular LineRenderer on a GameObject to some Material
+    /// </summary>
+    /// <param name="obj">The GameObject to be searched within</param>
+    /// <param name="mat">The material to be applied</param>
+    /// <param name="index">The index of the LineRenderer to be set</param>
+    void SetLineRendererMaterial(GameObject obj, Material mat, int index)
+    {
+        LineRenderer temp = obj.GetComponentsInChildren<LineRenderer>()[index];
+        temp.material = mat;
+
+        if (mat.Equals(defaultMaterial))
+        {
+            temp.widthMultiplier = 0.001f;
+        }
+        else
+        {
+            temp.widthMultiplier = 0.005f;
+        }
+    }
+
+    /// <summary>
+    /// Quick method to Get the appropriate, AtlasInfo-corresponding structure
+    /// </summary>
+    /// <param name="selected">The selected GameObject in the mini brain</param>
+    /// <returns>Either the selected object itself or its parent (the real structure)</returns>
+    GameObject GetCorrespondingGameObject(GameObject selected)
+    {
+        if (miniBrain.replaceWithNodes)
+        {
+            return selected.transform.parent.gameObject;
+        }
+        
+        return selected;
+    }
+
+    GameObject waitStructure; // Very small temporary variable to hold a structure that's to be updated after some time
+    
+    /// <summary>
+    /// Quick method to wait before updating a structure (to make sure there's time to delete GameObjects, etc.)
+    /// </summary>
+    void WaitUpdateStructure()
+    {
+        bigBrain.UpdateStructure(waitStructure, false, false); // Updating the big brain
     }
 
     /// <summary>
@@ -202,24 +246,23 @@ public class StructureSelection : MonoBehaviour
         // Checking if a structure has been clicked on
         if (hitObject != null && !hitObject.Equals(selectedObject))
         {
-            leftHand.connectionDescription.SetActive(false); // Hiding the connection description
-            
-            int infoIndex;
+            structureInformation.connectionDescription.SetActive(false); // Hiding the connection description
             
             // Removing the old selected object outline
             if (selectedObject != null)
             {
                 Destroy(selectedObject.GetComponent<Outline>());
                 
-                ShowOverlappingLineRenderers(selectedObject); // Showing the other overlapping connections
+                GameObject lastTemp = GetCorrespondingGameObject(selectedObject);
                 
-                bigBrain.UpdateStructure(selectedObject, false); // Updating the big brain
+                ShowOverlappingLineRenderers(lastTemp); // Showing the other overlapping connections
+
+                waitStructure = lastTemp;
+                Invoke(nameof(WaitUpdateStructure), 0.01f);
                 
-                infoIndex = miniBrain.info.IndexOf(selectedObject);
-                
-                foreach (GameObject i in miniBrain.info.ValidConnections[infoIndex])
+                foreach (GameObject i in miniBrain.info.ValidConnections[miniBrain.info.IndexOf(lastTemp)])
                 {
-                    bigBrain.UpdateStructure(i, false); // Updating the big brain
+                    bigBrain.UpdateStructure(i, false, false); // Updating the big brain
                 }
             }
             
@@ -229,43 +272,65 @@ public class StructureSelection : MonoBehaviour
             Outline outline = selectedObject.GetComponent<Outline>();
             outline.OutlineColor = selectedMaterial.color;
             outline.OutlineWidth *= 2f;
+
+            GameObject temp = GetCorrespondingGameObject(selectedObject);
             
-            infoIndex = miniBrain.info.IndexOf(selectedObject);
+            int infoIndex = miniBrain.info.IndexOf(temp);
             
-            foreach (GameObject i in miniBrain.info.ValidConnections[infoIndex])
+            foreach (GameObject j in miniBrain.info.ValidConnections[infoIndex])
             {
                 // Hiding the other overlapping connections
-                if (HideOverlappingLineRenderers(i, selectedObject))
+                if (HideOverlappingLineRenderers(j, temp))
                 {
-                    bigBrain.UpdateStructure(i, false); // Updating the big brain
+                    bigBrain.UpdateStructure(j, false, true); // Updating the big brain
                 }
+            }
+            
+            int descriptionInfoIndex = infoIndex;
+
+            if (miniBrain.ignoreLeft)
+            {
+                descriptionInfoIndex = (descriptionInfoIndex * 2) + 1;
             }
 
             // Applying the list to the UI
-            leftHand.SetUI(
+            structureInformation.SetUI(
                 miniBrain.info.Structures[infoIndex],
-                miniBrain.info.Descriptions[infoIndex],
+                miniBrain.info.Descriptions[descriptionInfoIndex],
                 miniBrain.info.ValidConnections[infoIndex].ToArray()
             );
 
-            bigBrain.UpdateStructure(selectedObject, false); // Updating the big brain
+            bigBrain.UpdateStructure(temp, false, true); // Updating the big brain
         }
         // Checking if a menu object has been clicked on
         else if (lastHitMenuObject != null)
         {
-            int selectedIndex = miniBrain.info.IndexOf(selectedObject);
+            GameObject temp = GetCorrespondingGameObject(selectedObject);
+            int selectedIndex = miniBrain.info.IndexOf(temp);
 
             // Making sure that the connection description exists
-            if (miniBrain.info.SubsystemConnectionDescriptions != null && selectedIndex < miniBrain.info.SubsystemConnectionDescriptions.Length)
+            if (miniBrain.info.SubsystemConnectionDescriptions != null
+                && selectedIndex < miniBrain.info.SubsystemConnectionDescriptions.Length)
             {
-                leftHand.connectionDescription.SetActive(true); // Showing the connection description
+                structureInformation.connectionDescription.SetActive(true); // Showing the connection description
 
                 int otherIndex = miniBrain.info.IndexOf(miniBrain.info.Find(
                     lastHitMenuObject.transform.parent.GetComponentInChildren<TMP_Text>().text
                 ));
+                
+                int lineIndex = otherIndex; // TODO: this needs to be replaced with the index in the connected structures
+
+                if (miniBrain.replaceWithNodes)
+                {
+                    lineIndex++;
+                }
+                
+                print(lineIndex);
+                
+                SetLineRendererMaterial(temp, selectedMaterial, lineIndex); // Making the target's line stand out
             
                 // Setting the text of the connection description
-                leftHand.SetConnectionDescription(
+                structureInformation.SetConnectionDescription(
                     selectedIndex,
                     otherIndex
                 ); 

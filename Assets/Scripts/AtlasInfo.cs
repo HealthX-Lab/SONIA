@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -77,17 +78,17 @@ public class AtlasInfo
         this.basePath = basePath;
         
         // Setting the structure names/descriptions, connectivity, and connection descriptions
-        Names = LoadStringColumn(infoPath, 0, '|', true, false);
-        Descriptions = LoadStringColumn(infoPath, 1, '|', false, true);
+        Names = LoadStringColumn(infoPath, 0, '|', true);
+        Descriptions = LoadStringColumn(infoPath, 1, '|', false);
         Connectivity = LoadFloatMatrix(connectivityPath, ',');
         SubsystemConnectionDescriptions = LoadStringMatrix(subsystemsConnectionDescriptionsPath, '|');
 
-        string[] subsystemNames = LoadStringColumn(subsystemsInfoPath, 0, '|', false, false); // Getting the subsystem names (if they exist)
+        string[] subsystemNames = LoadStringColumn(subsystemsInfoPath, 0, '|', false); // Getting the subsystem names (if they exist)
 
         if (subsystemNames != null)
         {
             // Loading the descriptions and initializing the Subsystems
-            string[] subsystemDescriptions = LoadStringColumn(subsystemsInfoPath, 1, '|', false, false);
+            string[] subsystemDescriptions = LoadStringColumn(subsystemsInfoPath, 1, '|', false);
             Subsystems = new SubsystemInfo[subsystemNames.Length];
 
             for (int i = 0; i < subsystemNames.Length; i++)
@@ -130,9 +131,7 @@ public class AtlasInfo
     /// <param name="columnIndex">The index of the column to be read from</param>
     /// <param name="delim">The delimiter character for the rows in the file</param>
     /// <param name="format">Whether or not to format the values of the column</param>
-    /// <param name="ignoreLeft">Whether or not to ignore every other structure in the list (starting with the first)</param>
-    /// <returns>A string array of the values in the column (null if the file doesn't exist)</returns>
-    string[] LoadStringColumn(string fileName, int columnIndex, char delim, bool format, bool ignoreLeft)
+    string[] LoadStringColumn(string fileName, int columnIndex, char delim, bool format)
     {
         TextAsset file = LoadFile(fileName);
 
@@ -142,37 +141,17 @@ public class AtlasInfo
             string[] split = file.text.Split('\n'); // Splitting by line
 
             int splitLength = split.Length;
-            int rightIndex = 0;
 
-            // Splitting the returned array's length in half if the left is being ignored
-            if (ignoreLeft)
-            {
-                splitLength /= 2;
-            }
-            
             string[] temp = new string[splitLength];
 
             for (int i = 0; i < split.Length; i++)
             {
-                // Adding the value if the left isn't being ignored, or if it is, grabbing every other index
-                if (!ignoreLeft || i % 2 == 1)
+                temp[i] = split[i].Split(delim)[columnIndex].Trim(); // Getting the value in the column
+
+                // Formatting the string (if requested)
+                if (format)
                 {
-                    int index = i;
-
-                    if (ignoreLeft)
-                    {
-                        index = rightIndex;
-                    }
-                    
-                    temp[index] = split[i].Split(delim)[columnIndex].Trim(); // Getting the value in the column
-
-                    // Formatting the string (if requested)
-                    if (format)
-                    {
-                        temp[index] = FormatName(temp[index]);
-                    }
-                    
-                    rightIndex++; // Increasing the index for the smaller version of the array if the left is being ignored
+                    temp[i] = CheckForNewLines(FormatName(temp[i]));
                 }
             }
 
@@ -262,7 +241,7 @@ public class AtlasInfo
             
                 for (int j = 0; j < splitSplit.Length; j++)
                 {
-                    temp[i, j] = splitSplit[j].Trim(); // Setting the values
+                    temp[i, j] = CheckForNewLines(splitSplit[j].Trim()); // Setting the values
                 }
             }
 
@@ -309,6 +288,30 @@ public class AtlasInfo
                     temp += split[i];
                 }
             }
+        }
+
+        return temp;
+    }
+
+    /// <summary>
+    /// Quick method to loop through a string and turn "\n" characters into actual new lines
+    /// </summary>
+    /// <param name="str">The text being given to format</param>
+    /// <returns>the formatted text with the added new lines</returns>
+    string CheckForNewLines(string str)
+    {
+        string temp = "";
+        string[] split = str.Split(new [] { "\\n" }, StringSplitOptions.None); // Split along newlines
+
+        // Add them all together with new lines in between
+        for (int i = 0; i < split.Length; i++)
+        {
+            if (i > 0)
+            {
+                temp += "\n";
+            }
+            
+            temp += split[i];
         }
 
         return temp;

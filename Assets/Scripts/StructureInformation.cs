@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class StructureInformation : MonoBehaviour
 {
+    [SerializeField, Tooltip("Whether the information is attached to a moving object")]
+    bool isMoving;
+    
     Transform cam; // The camera's transform
     [HideInInspector] public GameObject canvas, connectionDescription; // The information canvas and the connection description
     MiniBrain miniBrain; // The mini brain script
@@ -17,6 +20,14 @@ public class StructureInformation : MonoBehaviour
         canvas = Instantiate(Resources.Load<GameObject>("Structure Canvas"));
         canvas.SetActive(false);
 
+        // Setting the constant position if it's not going to move
+        if (!isMoving)
+        {
+            canvas.transform.SetParent(transform);
+            canvas.transform.localPosition = Vector3.zero;
+            canvas.transform.localEulerAngles = Vector3.up * 180;
+        }
+
         // Hiding the connection description at the start
         connectionDescription = canvas.GetComponentsInChildren<TMP_Text>()[3].gameObject;
         connectionDescription.SetActive(false);
@@ -27,18 +38,22 @@ public class StructureInformation : MonoBehaviour
 
     void FixedUpdate()
     {
-        Transform canvasTransform = canvas.transform;
+        // Only looking at the user if it's following a moving object
+        if (isMoving)
+        {
+            Transform canvasTransform = canvas.transform;
 
-        // Positioning and rotating the canvas
-        canvasTransform.position = transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.2f);
-        canvasTransform.LookAt(cam);
+            // Positioning and rotating the canvas
+            canvasTransform.position = transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.2f);
+            canvasTransform.LookAt(cam);
         
-        // Looking at the user, with some minor extra tilting
-        canvasTransform.localRotation = Quaternion.Euler(new Vector3(
-            -10,
-            canvasTransform.localRotation.eulerAngles.y + 20,
-            canvasTransform.localRotation.eulerAngles.z
-        ));
+            // Looking at the user, with some minor extra tilting
+            canvasTransform.localRotation = Quaternion.Euler(new Vector3(
+                -10,
+                canvasTransform.localRotation.eulerAngles.y + 20,
+                canvasTransform.localRotation.eulerAngles.z
+            ));   
+        }
     }
 
     /// <summary>

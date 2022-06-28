@@ -1,15 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class BigBrain : MonoBehaviour
 {
-    [Tooltip("The material to be applied to the big structures")]
-    [SerializeField] Material material;
-    [Tooltip("The bounds scale of the big atlas")]
-    [SerializeField] float scale = 1000;
+    [SerializeField, Tooltip("The material to be applied to the big structures")]
+    Material material;
+    [SerializeField, Tooltip("The bounds scale of the big atlas")]
+    float scale = 1;
     
     MiniBrain miniBrain; // The mini brain script
     
@@ -34,27 +33,40 @@ public class BigBrain : MonoBehaviour
         offset.SetParent(transform);
         offset.localPosition = miniBrain.offset.localPosition;
         offset.localRotation = miniBrain.offset.localRotation;
-        offset.localScale = miniBrain.offset.localScale * scale;
+        transform.localScale = miniBrain.offset.localScale * scale;
 
         // Creating big brain structures from the mini brain structures
         foreach (GameObject i in miniBrain.info.Structures)
         {
-            UpdateStructure(i, true);
+            UpdateStructure(i, true, true);
         }
         
         // Also creating the left structures (if they are being ignored for connectivity purposes)
-        foreach (GameObject j in miniBrain.info.LeftStructures)
+        if (miniBrain.ignoreLeft)
         {
-            UpdateStructure(j, true);
+            foreach (GameObject j in miniBrain.info.LeftStructures)
+            {
+                UpdateStructure(j, true, true);
+            }   
+        }
+
+        // After the big brain has been loaded, the mini brain structures are converted to nodes
+        if (miniBrain.replaceWithNodes)
+        {
+            miniBrain.ReplaceWithNodes();   
         }
     }
 
     /// <summary>
     /// Deletes a big brain structure, and replaces it with its corresponding mini brain structure
     /// </summary>
-    /// <param name="key"></param>
-    /// <param name="isFromStart"></param>
-    public void UpdateStructure(GameObject key, bool isFromStart)
+    /// <param name="key">The mini brain structure to be copied into the big brain</param>
+    /// <param name="isFromStart">If this is the first time this method is being called for this structure</param>
+    /// <param name="checkAndAddOutline">
+    /// Whether or not to add an outline to the structure
+    /// (if the structures in the mini brain are replaced by nodes)
+    /// </param>
+    public void UpdateStructure(GameObject key, bool isFromStart, bool checkAndAddOutline)
     {
         if (!structureDict.Keys.Contains(key))
         {
@@ -78,15 +90,40 @@ public class BigBrain : MonoBehaviour
         structureDict[key].SetActive(true);
         structureDict[key].GetComponent<MeshRenderer>().material = material;
         
+        UpdateMeshRenderersInChildren(structureDict[key]);
+        
+        // Making sure that the outline is gone (if it should be)
+        if (miniBrain.replaceWithNodes
+            && structureDict[key].transform.childCount > 0
+            && !checkAndAddOutline
+            && structureDict[key].transform.GetChild(0).GetComponent<Outline>())
+        {
+            Destroy(structureDict[key].transform.GetChild(0).GetComponent<Outline>());
+        }
+
+        if (miniBrain.replaceWithNodes
+            && structureDict[key].transform.childCount > 0)
+        {
+            // Updating the colour of the big structure (which has just been made visible)
+            if (checkAndAddOutline && structureDict[key].transform.GetChild(0).GetComponent<Outline>())
+            {
+                Outline temp = structureDict[key].AddComponent<Outline>();
+                
+                temp.OutlineColor = structureDict[key].transform.GetChild(0).GetComponent<Outline>().OutlineColor;
+                temp.OutlineMode = Outline.Mode.OutlineVisible;
+            }
+
+            Destroy(structureDict[key].transform.GetChild(0).gameObject); // Removing the node object if the mini structures have them
+        }
+
         // Updating and removing any unnecessary elements from the new big brain structure
         UpdateLineRenderersInChildren(structureDict[key]);
         UpdateOutlinesInChildren(structureDict[key]);
         RemoveComponentsInChildren<Collider>(structureDict[key]);
 
-        // In case the user was pointing the controller at teh mini brain as the scene starts
+        // In case the user was pointing the controller at the mini brain as the scene starts
         if (isFromStart)
         {
-            UpdateMeshRenderersInChildren(structureDict[key]);
             RemoveComponentsInChildren<Outline>(structureDict[key]);
         }
     }
@@ -99,7 +136,7 @@ public class BigBrain : MonoBehaviour
     {
         foreach (LineRenderer i in obj.GetComponentsInChildren<LineRenderer>())
         {
-            i.widthMultiplier *= (scale / 2f);
+            i.widthMultiplier *= scale * 150;
         }
     }
 
@@ -111,6 +148,7 @@ public class BigBrain : MonoBehaviour
     {
         foreach (MeshRenderer i in obj.GetComponentsInChildren<MeshRenderer>())
         {
+            i.enabled = true; 
             i.materials = new[] { i.material };
         }
     }
@@ -123,6 +161,10 @@ public class BigBrain : MonoBehaviour
     {
         foreach (Outline i in obj.GetComponentsInChildren<Outline>())
         {
+            // Doing a check to reset the outline script
+            i.enabled = false;
+            i.enabled = true;
+            
             i.OutlineWidth *= 5;
         }
     }

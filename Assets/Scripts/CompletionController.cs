@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class CompletionController : MonoBehaviour
 {
-    [Tooltip("The GridLayoutGroup GameObjects where the completion info will be listed")]
-    [SerializeField] Transform structureLayout, subsystemLayout;
+    [SerializeField, Tooltip("The GridLayoutGroup GameObjects where the completion info will be listed")]
+    Transform structureLayout, subsystemLayout;
 
     MiniBrain miniBrain; // The mini brain script
     StructureCompletion[] structureCompletion; // The % amount (0-1) that each structure has been completed to

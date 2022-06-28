@@ -6,39 +6,51 @@ using UnityEngine;
 public class MiniBrain : MonoBehaviour
 {
     [Header("Files")]
-    [Tooltip("The base folder name within the Resources folder")]
-    [SerializeField] string path;
-    [Tooltip("The corresponding local file names for the atlas info (names/descriptions and connectivity)")]
-    [SerializeField] string infoPath, connectivityPath;
-    [Tooltip("The corresponding local file names for the atlas info (subsystem names/descriptions, subsystem connectivity, and subsystem connection descriptions)")]
-    [SerializeField] string subsystemsInfoPath, subsystemsConnectivityPath, subsystemsConnectionDescriptionsPath;
+    [SerializeField, Tooltip("The base folder name within the Resources folder")]
+    string path;
+    [SerializeField, Tooltip("The corresponding local file names for the atlas info (names/descriptions and connectivity)")]
+    string infoPath, connectivityPath;
+    [SerializeField, Tooltip(
+         "The corresponding local file names for the atlas info" +
+         " (subsystem names/descriptions, subsystem connectivity, and subsystem connection descriptions)"
+    )]
+    string subsystemsInfoPath, subsystemsConnectivityPath, subsystemsConnectionDescriptionsPath;
 
     [Header("Visualization")]
-    [Tooltip("The material to be applied to the structures")]
-    [SerializeField] Material material;
-    [Tooltip("The material to be applied to the left half of the structures (if ignoreLeft is enabled)")]
-    [SerializeField] Material leftMaterial;
-    [Tooltip("The position and rotation for the new atlas")]
-    [SerializeField] Vector3 position, rotation;
-    [Tooltip("The bounds scale of the atlas")]
-    [SerializeField] float scale = 2;
+    [SerializeField, Tooltip("The material to be applied to the structures")]
+    Material material;
+    [SerializeField, Tooltip("The material to be applied to the left half of the structures (if ignoreLeft is enabled)")]
+    Material leftMaterial;
+    [SerializeField, Tooltip("The position and rotation for the new atlas")]
+    Vector3 position, rotation;
+    [SerializeField, Tooltip("The bounds scale of the atlas")]
+    float scale = 2;
     [Tooltip("Whether or not to ignore every other structure in the list (starting with the first)")]
-    [SerializeField] bool ignoreLeft;
-    [SerializeField] bool hideLeft;
+    public bool ignoreLeft;
+    [SerializeField, Tooltip("Whether or not to hide the left side of the atlas")]
+    bool hideLeft;
+    [Tooltip("Whether or not to replace all selectable structures with spherical nodes")]
+    public bool replaceWithNodes = true;
     
     [Header("Connectivity")]
-    [Tooltip("The highest connectivity between structures in the whole matrix (should be pre-calculated)")]
-    [SerializeField] float highestValue = 1;
-    [Tooltip("The minimum strength that a connection can have for it to be displayed")]
-    [SerializeField] float thresholdPercentage = 0.1f;
-    [Tooltip("The material to be applied to the connection visualizations")]
-    [SerializeField] Material connectionMaterial;
+    [SerializeField, Tooltip("The highest connectivity between structures in the whole matrix (should be pre-calculated)")]
+    float highestValue = 1;
+    [SerializeField, Tooltip("The minimum strength that a connection can have for it to be displayed")]
+    float thresholdPercentage = 0.1f;
+    [SerializeField, Tooltip("The material to be applied to the connection visualizations")]
+    Material connectionMaterial;
 
     [HideInInspector] public Transform offset; // The offset parent Transform for the structures
     [HideInInspector] public AtlasInfo info; // The info class about the atlas
 
     void Start()
     {
+        // If the left is hidden, it is also ignored by default
+        if (hideLeft)
+        {
+            ignoreLeft = true;
+        }
+        
         Generate();
     }
 
@@ -54,8 +66,8 @@ public class MiniBrain : MonoBehaviour
         offset.localRotation = Quaternion.Euler(rotation);
 
         // Adding an origin marker for visual aid
-        GameObject origin = Instantiate(Resources.Load<GameObject>("Node"), offset);
-        origin.transform.localScale *= 2;
+        GameObject origin = Instantiate(Resources.Load<GameObject>("Node"), transform);
+        origin.transform.localScale = Vector3.one * 2;
         origin.GetComponent<MeshRenderer>().material = connectionMaterial;
         
         // Adding an outline to the origin marker
@@ -171,6 +183,30 @@ public class MiniBrain : MonoBehaviour
 
         // Scaling the new atlas so that it fits to the scale
         BoundsInfo bounds = new BoundsInfo(offset.gameObject);
-        offset.localScale = Vector3.one * (scale / bounds.Magnitude);
+        transform.localScale = Vector3.one * (scale / bounds.Magnitude);
+    }
+
+    /// <summary>
+    /// Method to 'convert' each structure into a representative node
+    /// </summary>
+    public void ReplaceWithNodes()
+    {
+        for (int i = 0; i < info.Structures.Length; i++)
+        {
+            // Creating new nodes
+            GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            temp.GetComponent<MeshRenderer>().material = material;
+            Transform tempTransform = temp.transform;
+            
+            // Positioning the new nodes
+            tempTransform.localScale = Vector3.one / 20f;
+            tempTransform.localPosition = new BoundsInfo(info.Structures[i]).GlobalCentre;
+            tempTransform.SetParent(info.Structures[i].transform);
+            tempTransform.SetAsFirstSibling();
+            
+            // Hiding the structures
+            info.Structures[i].GetComponent<MeshRenderer>().enabled = false;
+            info.Structures[i].GetComponent<MeshCollider>().enabled = false;
+        }
     }
 }

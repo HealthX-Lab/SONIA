@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 
@@ -59,7 +60,7 @@ public class Outline : MonoBehaviour {
   [SerializeField]
   private Color outlineColor = Color.white;
 
-  [SerializeField, Range(0f, 10f)]
+  [SerializeField] // Modified by Owen Hellum (June 2022)
   private float outlineWidth = 2f;
 
   [Header("Optional")]
@@ -141,14 +142,16 @@ public class Outline : MonoBehaviour {
 
   void OnDisable() {
     foreach (var renderer in renderers) {
+      if (renderer != null) // Modified by Owen Hellum (June 2022)
+      {
+        // Remove outline shaders
+        var materials = renderer.sharedMaterials.ToList();
 
-      // Remove outline shaders
-      var materials = renderer.sharedMaterials.ToList();
+        materials.Remove(outlineMaskMaterial);
+        materials.Remove(outlineFillMaterial);
 
-      materials.Remove(outlineMaskMaterial);
-      materials.Remove(outlineFillMaterial);
-
-      renderer.materials = materials.ToArray();
+        renderer.materials = materials.ToArray(); 
+      }
     }
   }
 

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ColourPips : MonoBehaviour
 {
-    [Tooltip("The colour pip spawnable object")]
-    [SerializeField] GameObject pip;
+    [SerializeField, Tooltip("The colour pip spawnable object")]
+    GameObject pip;
     [Tooltip("The colours of the pips to be instantiated")]
     public List<Color> colours;
-    [Tooltip("Whether or not to automatically generate the pips when the scene starts")]
-    [SerializeField] bool generateOnStart;
+    [SerializeField, Tooltip("Whether or not to automatically generate the pips when the scene starts")]
+    bool generateOnStart;
 
     MiniBrain miniBrain; // The mini brain script
 
