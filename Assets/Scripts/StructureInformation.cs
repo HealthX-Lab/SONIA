@@ -83,8 +83,8 @@ public class StructureInformation : MonoBehaviour
         if (miniBrain.info.Subsystems != null)
         {
             Destroy(text[0].gameObject.transform.GetChild(0).gameObject);
-            Instantiate(Resources.Load<GameObject>("ColourPips"), text[0].gameObject.transform).GetComponent<ColourPips>()
-                .AddPips(selected, Vector3.up * 0.1f);
+            Instantiate(Resources.Load<GameObject>("ColourPips"), text[0].gameObject.transform)
+                .GetComponent<ColourPips>().AddPips(selected, Vector3.up * 0.1f);
         }
 
         GameObject connection = Resources.Load<GameObject>("Connection");
@@ -98,7 +98,11 @@ public class StructureInformation : MonoBehaviour
             // Adding colour-coded Subsystem pips for each connected structure
             if (miniBrain.info.Subsystems != null)
             {
-                GameObject tempPips = Instantiate(Resources.Load<GameObject>("ColourPips"), tempConnection.transform);
+                GameObject tempPips = Instantiate(
+                    Resources.Load<GameObject>("ColourPips"),
+                    tempConnection.transform
+                );
+                
                 tempPips.GetComponent<ColourPips>().AddPips(selected, j, Vector3.right * -0.35f);
                 tempPips.GetComponent<HorizontalLayoutGroup>().reverseArrangement = true;
             }

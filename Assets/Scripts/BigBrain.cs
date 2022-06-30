@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class BigBrain : MonoBehaviour
@@ -38,7 +39,7 @@ public class BigBrain : MonoBehaviour
         // Creating big brain structures from the mini brain structures
         foreach (GameObject i in miniBrain.info.Structures)
         {
-            UpdateStructure(i, true, true);
+            UpdateStructure(i, true, true, false);
         }
         
         // Also creating the left structures (if they are being ignored for connectivity purposes)
@@ -46,7 +47,7 @@ public class BigBrain : MonoBehaviour
         {
             foreach (GameObject j in miniBrain.info.LeftStructures)
             {
-                UpdateStructure(j, true, true);
+                UpdateStructure(j, true, true, false);
             }   
         }
 
@@ -66,11 +67,14 @@ public class BigBrain : MonoBehaviour
     /// Whether or not to add an outline to the structure
     /// (if the structures in the mini brain are replaced by nodes)
     /// </param>
-    public void UpdateStructure(GameObject key, bool isFromStart, bool checkAndAddOutline)
+    /// <param name="showName">Whether or not to show the structure's name on the structure when selected</param>
+    public void UpdateStructure(GameObject key, bool isFromStart, bool checkAndAddOutline, bool showName)
     {
         if (!structureDict.Keys.Contains(key))
         {
-            // If the structure doesn't exist yet, and this method is being called at the start of the scene, it creates a new entry in teh dictionary
+            // If the structure doesn't exist yet,
+            // and this method is being called at the start of the scene,
+            // it creates a new entry in the dictionary
             if (isFromStart)
             {
                 structureDict.Add(key, null);
@@ -91,29 +95,31 @@ public class BigBrain : MonoBehaviour
         structureDict[key].GetComponent<MeshRenderer>().material = material;
         
         UpdateMeshRenderersInChildren(structureDict[key]);
+
+        Transform structureTransform = structureDict[key].transform;
         
         // Making sure that the outline is gone (if it should be)
         if (miniBrain.replaceWithNodes
-            && structureDict[key].transform.childCount > 0
+            && structureTransform.childCount > 0
             && !checkAndAddOutline
-            && structureDict[key].transform.GetChild(0).GetComponent<Outline>())
+            && structureTransform.GetChild(0).GetComponent<Outline>())
         {
-            Destroy(structureDict[key].transform.GetChild(0).GetComponent<Outline>());
+            Destroy(structureTransform.GetChild(0).GetComponent<Outline>());
         }
 
-        if (miniBrain.replaceWithNodes
-            && structureDict[key].transform.childCount > 0)
+        if (miniBrain.replaceWithNodes && structureTransform.childCount > 0)
         {
             // Updating the colour of the big structure (which has just been made visible)
-            if (checkAndAddOutline && structureDict[key].transform.GetChild(0).GetComponent<Outline>())
+            if (checkAndAddOutline && structureTransform.GetChild(0).GetComponent<Outline>())
             {
                 Outline temp = structureDict[key].AddComponent<Outline>();
                 
-                temp.OutlineColor = structureDict[key].transform.GetChild(0).GetComponent<Outline>().OutlineColor;
+                temp.OutlineColor = structureTransform.GetChild(0).GetComponent<Outline>().OutlineColor;
                 temp.OutlineMode = Outline.Mode.OutlineVisible;
             }
 
-            Destroy(structureDict[key].transform.GetChild(0).gameObject); // Removing the node object if the mini structures have them
+            // Removing the node object if the mini structures have them
+            Destroy(structureTransform.GetChild(0).gameObject);
         }
 
         // Updating and removing any unnecessary elements from the new big brain structure
@@ -125,6 +131,19 @@ public class BigBrain : MonoBehaviour
         if (isFromStart)
         {
             RemoveComponentsInChildren<Outline>(structureDict[key]);
+        }
+
+        // If the updated structure is to show its name
+        if (showName)
+        {
+            // Adding a new name canvas
+            GameObject nameCanvas = Instantiate(
+                Resources.Load<GameObject>("Big Structure Canvas"),
+                structureTransform
+            );
+            
+            nameCanvas.transform.position = new BoundsInfo(structureDict[key]).GlobalCentre; // Setting its position
+            nameCanvas.GetComponentInChildren<TMP_Text>().text = key.name; // Setting its name
         }
     }
     
@@ -164,6 +183,13 @@ public class BigBrain : MonoBehaviour
             // Doing a check to reset the outline script
             i.enabled = false;
             i.enabled = true;
+            
+            Material[] mats = i.GetComponent<MeshRenderer>().materials;
+            
+            for (int j = 1; j < mats.Length; j++)
+            {
+                mats[j].renderQueue = 3000;
+            }
             
             i.OutlineWidth *= 5;
         }

@@ -102,7 +102,7 @@ public class Outline : MonoBehaviour {
 
   void OnEnable() {
     foreach (var renderer in renderers) {
-      if (renderer is not LineRenderer)
+      if (renderer is not LineRenderer) // Added by Owen Hellum (May 2022)
       {
         // Append outline shaders
         var materials = renderer.sharedMaterials.ToList();

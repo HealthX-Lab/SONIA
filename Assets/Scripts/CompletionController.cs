@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CompletionController : MonoBehaviour
@@ -109,14 +110,14 @@ public class CompletionController : MonoBehaviour
                 GameObject temp = Instantiate(structureCompletionInfoObject, structureLayout);
                 
                 temp.GetComponentInChildren<TMP_Text>().text =
-                    miniBrain.info.Structures[i].name + ": " +                         // Name
+                    miniBrain.info.Structures[i].name + ": " + // Name
                     Mathf.RoundToInt(structureCompletion[i].Completion * 100) + "%"; // Completion amount
 
                 // Adding colour-coded Subsystem pips for each structure
                 if (miniBrain.info.Subsystems != null)
                 {
-                    Instantiate(Resources.Load<GameObject>("ColourPips"), temp.transform).GetComponent<ColourPips>()
-                        .AddPips(miniBrain.info.Structures[i], Vector3.right * 0.3f);
+                    Instantiate(Resources.Load<GameObject>("ColourPips"), temp.transform)
+                        .GetComponent<ColourPips>().AddPips(miniBrain.info.Structures[i], Vector3.right * 0.3f);
                 }
             }
         }
@@ -143,14 +144,26 @@ public class CompletionController : MonoBehaviour
             // Only showing those which have some completion started
             if (subsystemCompletion[i] > 0)
             {
-                TMP_Text temp = Instantiate(subsystemCompletionInfoObject, subsystemLayout).GetComponentInChildren<TMP_Text>();
-                
+                TMP_Text temp = Instantiate(subsystemCompletionInfoObject, subsystemLayout)
+                    .GetComponentInChildren<TMP_Text>();
+
                 temp.text =
-                    miniBrain.info.Subsystems[i].Name + ": " + // Name
-                    Mathf.RoundToInt(subsystemCompletion[i] * 100) + "%\n\n" + // Completion amount
-                    miniBrain.info.Subsystems[i].Description;  // Subsystem description
+                    miniBrain.info.Subsystems[i].Name // Name
+                    + ": " + Mathf.RoundToInt(subsystemCompletion[i] * 100) + "%"; // Completion amount
+                    //+ "\n\n" + miniBrain.info.Subsystems[i].Description; // Subsystem description
 
                 temp.color = miniBrain.info.Subsystems[i].Colour;
+
+                Color newColour = miniBrain.info.Subsystems[i].Colour;
+                MeshRenderer tempRenderer = temp.transform.parent.GetComponentInChildren<MeshRenderer>();
+                
+                StandardShaderUtils.ChangeRenderMode(tempRenderer.material, StandardShaderUtils.BlendMode.Transparent);
+                tempRenderer.material.color = new Color(
+                    newColour.r,
+                    newColour.g,
+                    newColour.b,
+                    0.2f
+                );
             }
         }
 
@@ -203,14 +216,17 @@ public class CompletionController : MonoBehaviour
     }
 
     /// <summary>
-    /// Calculates a structure's total completion, based on whether it has been viewed, and which connections have been viewed
+    /// Calculates a structure's total completion,
+    /// based on whether it has been viewed,
+    /// and which connections have been viewed
     /// </summary>
     /// <param name="selectedIndex">The index of the selected structure in the AtlasInfo</param>
     void CalculateStructureCompletion(int selectedIndex)
     {
         structureCompletion[selectedIndex].Completion = 0; // Resetting at first
         
-        float completionValue = 1f / (structureCompletion[selectedIndex].ViewedConnections.Length + 1); // The incremental value that each structure and connection view is 'worth' (for this structure)
+        // The incremental value that each structure and connection view is 'worth' (for this structure)
+        float completionValue = 1f / (structureCompletion[selectedIndex].ViewedConnections.Length + 1);
 
         // Checking first whether the structure has been viewed
         if (structureCompletion[selectedIndex].ViewedStructure)
@@ -247,12 +263,15 @@ public class CompletionController : MonoBehaviour
             subsystemCompletion[i] = 0; // Resetting at first
             
             List<GameObject> tempValidStructures = tempSubsystems[i].ValidStructures;
-            float[] structureSubsystemCompletion = new float[tempValidStructures.Count]; // Amount completed by each structure for this particular Subsystem
+            
+            // Amount completed by each structure for this particular Subsystem
+            float[] structureSubsystemCompletion = new float[tempValidStructures.Count];
             
             // Calculating the Subsystem completion for each structure
             for (int j = 0; j < tempValidStructures.Count; j++)
             {
-                int index = tempInfo.IndexOf(tempValidStructures[j]); // Getting the atlas index for each Subsystem's structure
+                // Getting the atlas index for each Subsystem's structure
+                int index = tempInfo.IndexOf(tempValidStructures[j]);
                 
                 StructureCompletion tempStructureCompletion = structureCompletion[index];
                 
@@ -281,7 +300,8 @@ public class CompletionController : MonoBehaviour
                 }
             }
 
-            subsystemCompletion[i] = GetAverage(structureSubsystemCompletion); // Getting an average of all the structure Subsystem completions
+            // Getting an average of all the structure Subsystem completions
+            subsystemCompletion[i] = GetAverage(structureSubsystemCompletion);
         }
     }
 

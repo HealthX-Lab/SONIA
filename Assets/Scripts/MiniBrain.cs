@@ -21,6 +21,8 @@ public class MiniBrain : MonoBehaviour
     Material material;
     [SerializeField, Tooltip("The material to be applied to the left half of the structures (if ignoreLeft is enabled)")]
     Material leftMaterial;
+    [SerializeField, Tooltip("The colour to be applied to the ring around the origin")]
+    Color originOutlineColour = Color.white;
     [SerializeField, Tooltip("The position and rotation for the new atlas")]
     Vector3 position, rotation;
     [SerializeField, Tooltip("The bounds scale of the atlas")]
@@ -72,7 +74,7 @@ public class MiniBrain : MonoBehaviour
         
         // Adding an outline to the origin marker
         Outline originOutline = origin.AddComponent<Outline>();
-        originOutline.OutlineColor = connectionMaterial.color;
+        originOutline.OutlineColor = originOutlineColour;
         originOutline.OutlineWidth = 3;
         originOutline.OutlineMode = Outline.Mode.OutlineVisible;
         
@@ -110,7 +112,7 @@ public class MiniBrain : MonoBehaviour
             GameObject temp = Instantiate(tempStructures[i], offset);
             temp.name = info.Names[i];
             
-            // Adding the structures if they're on teh right, or the left isn't being ignored
+            // Adding the structures if they're on the right, or the left isn't being ignored
             if (!ignoreLeft || (ignoreLeft && i % 2 == 1))
             {
                 temp.GetComponent<MeshRenderer>().material = material;
@@ -144,7 +146,8 @@ public class MiniBrain : MonoBehaviour
         
         for (int j = 0; j < info.Structures.Length; j++)
         {
-            info.ValidConnections[j] = new List<GameObject>(); // Creating a new list of connected GameObjects for each structure
+            // Creating a new list of connected GameObjects for each structure
+            info.ValidConnections[j] = new List<GameObject>();
             
             for (int k = 0; k < info.Structures.Length; k++)
             {
@@ -158,6 +161,7 @@ public class MiniBrain : MonoBehaviour
                     lineObject.transform.SetParent(info.Structures[j].transform);
                     
                     LineRenderer line = lineObject.AddComponent<LineRenderer>();
+                    //line.sortingLayerName = "Connections";
                     line.material = connectionMaterial;
                     line.widthMultiplier = 0.001f;
 

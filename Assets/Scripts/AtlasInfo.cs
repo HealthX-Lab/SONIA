@@ -83,7 +83,8 @@ public class AtlasInfo
         Connectivity = LoadFloatMatrix(connectivityPath, ',');
         SubsystemConnectionDescriptions = LoadStringMatrix(subsystemsConnectionDescriptionsPath, '|');
 
-        string[] subsystemNames = LoadStringColumn(subsystemsInfoPath, 0, '|', false); // Getting the subsystem names (if they exist)
+        // Getting the subsystem names (if they exist)
+        string[] subsystemNames = LoadStringColumn(subsystemsInfoPath, 0, '|', false);
 
         if (subsystemNames != null)
         {
@@ -175,7 +176,8 @@ public class AtlasInfo
         // Making sure the file exists
         if (file != null)
         {
-            string[] split = file.text.Split('\n')[rowIndex].Split(delim); // Getting the array of values for the row
+            // Getting the array of values for the row
+            string[] split = file.text.Split('\n')[rowIndex].Split(delim);
             float[] temp = new float[split.Length];
 
             for (int i = 0; i < split.Length; i++)
@@ -340,5 +342,27 @@ public class AtlasInfo
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Quick method to find the Subsystems shared by both structures
+    /// </summary>
+    /// <param name="a">The first of the two structures to be checked</param>
+    /// <param name="b">The second of the two structures to be checked</param>
+    /// <returns>An array of each SubsystemInfo object that contains both structures</returns>
+    public SubsystemInfo[] FindSharedSubsystems(GameObject a, GameObject b)
+    {
+        List<SubsystemInfo> temp = new List<SubsystemInfo>();
+        
+        foreach (SubsystemInfo i in Subsystems)
+        {
+            // Checking which Subsystems both structures belong to, and that the list doesn't already contain the SubsystemInfo
+            if (i.ValidStructures.Contains(a) && i.ValidStructures.Contains(b) && !temp.Contains(i))
+            {
+                temp.Add(i);
+            }
+        }
+
+        return temp.ToArray();
     }
 }

@@ -67,13 +67,10 @@ public class ColourPips : MonoBehaviour
             miniBrain = FindObjectOfType<MiniBrain>();
         }
         
-        foreach (SubsystemInfo i in miniBrain.info.Subsystems)
+        // Adding colours for each shared Subsystem
+        foreach (SubsystemInfo i in miniBrain.info.FindSharedSubsystems(selected, target))
         {
-            // Checking which Subsystems both structures belong to, and that the list doesn't already contain the colour
-            if (i.ValidStructures.Contains(selected) && i.ValidStructures.Contains(target) && !colours.Contains(i.Colour))
-            {
-                colours.Add(i.Colour);
-            }
+            colours.Add(i.Colour);
         }
         
         transform.localPosition += offset;
