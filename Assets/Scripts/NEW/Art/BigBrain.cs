@@ -56,6 +56,25 @@ public class BigBrain : MonoBehaviour
         {
             miniBrain.ReplaceWithNodes();   
         }
+
+        // Checking to make sure that the extra structures are to be generated for the big brain
+        if (miniBrain.bigExtraStructures)
+        {
+            // Duplicating the extra structures
+            Transform extraOffset = Instantiate(miniBrain.extraOffset.gameObject, transform).transform;
+
+            // Making the extra structures' connections thicker
+            for (int k = 0; k < extraOffset.childCount; k++)
+            {
+                UpdateLineRenderersInChildren(extraOffset.GetChild(k).gameObject);
+            }
+
+            // Hiding the mini brain extra structures if they should be hidden
+            if (!miniBrain.miniExtraStructures)
+            {
+                miniBrain.extraOffset.gameObject.SetActive(false);
+            }
+        }
     }
 
     /// <summary>

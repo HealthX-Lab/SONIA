@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ColourPips : MonoBehaviour
 {
     [SerializeField, Tooltip("The colour pip spawnable object")]
     GameObject pip;
-    [Tooltip("The colours of the pips to be instantiated")]
-    public List<Color> colours;
+    [SerializeField, Tooltip("The colours of the pips to be instantiated")]
+    Color[] colours;
     [SerializeField, Tooltip("Whether or not to automatically generate the pips when the scene starts")]
     bool generateOnStart;
-
-    MiniBrain miniBrain; // The mini brain script
 
     void Start()
     {
@@ -33,13 +32,13 @@ public class ColourPips : MonoBehaviour
     }
     
     /// <summary>
-    /// Adds pips for all the Subsystems that the structure in question is a part of
+    /// Adds pips for all the Subsystems that the structure is a part of
     /// </summary>
     /// <param name="selected">The structure to be checked for membership to Subsystems</param>
     public void AddPips(GameObject selected) { AddPips(selected, Vector3.zero); }
     
     /// <summary>
-    /// Adds pips for all the Subsystems that the structure in question is a part of
+    /// Adds pips for all the Subsystems that the structure is a part of
     /// </summary>
     /// <param name="selected">The structure to be checked for membership to Subsystems</param>
     /// <param name="offset">The local offset of the pips (should it be needed)</param>
@@ -60,21 +59,20 @@ public class ColourPips : MonoBehaviour
     /// <param name="offset">The local offset of the pips (should it be needed)</param>
     public void AddPips(GameObject selected, GameObject target, Vector3 offset)
     {
-        colours = new List<Color>(); // Making sure the colour list is empty
+        List<Color> temp = new List<Color>();
         
-        if (miniBrain == null)
-        {
-            miniBrain = FindObjectOfType<MiniBrain>();
-        }
-        
+        MiniBrain miniBrain = FindObjectOfType<MiniBrain>();
+
         // Adding colours for each shared Subsystem
         foreach (SubsystemInfo i in miniBrain.info.FindSharedSubsystems(selected, target))
         {
-            colours.Add(i.Colour);
+            temp.Add(i.Colour);
         }
         
         transform.localPosition += offset;
 
+        colours = temp.ToArray();
+        
         Generate();
     }
 }

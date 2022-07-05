@@ -6,8 +6,8 @@ using Valve.VR;
 
 public class StructureSelection : MonoBehaviour
 {
-    [SerializeField, Tooltip("The material to be used when a structure is selected, and the default one")]
-    Material defaultMaterial, selectedMaterial;
+    [Tooltip("The material to be used when a structure is selected, and the default one")]
+    public Material defaultMaterial, selectedMaterial;
     [SerializeField, Tooltip("The length of the laser pointer when not pointing towards anything")]
     float length = 0.2f;
     [SerializeField, Tooltip("The triggering action from the right hand controller")]
@@ -240,41 +240,53 @@ public class StructureSelection : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets a particular LineRenderer on a GameObject to some Material
+    /// Splits a particular LineRenderer on a GameObject into a set of colours
     /// </summary>
     /// <param name="obj">The GameObject to be searched within</param>
-    /// <param name="mat">The material to be applied</param>
-    /// <param name="cols">the colours to split the new LineRenderer by</param>
+    /// <param name="cols">the colours to split the LineRenderer by</param>
     /// <param name="index">The index of the LineRenderer to be set</param>
-    LineRenderer[] SetLineRendererMaterial(GameObject obj, Material mat, Color[] cols, int index)
+    /// <param name="isLocal">Whether or not the LineRenderer(s) use local positioning</param>
+    LineRenderer[] SetLineRendererMaterial(GameObject obj, Color[] cols, int index, bool isLocal)
+    {
+        return SetLineRendererMaterial(obj.transform.GetChild(index).GetComponent<LineRenderer>(), cols, isLocal);
+    }
+
+    /// <summary>
+    /// Splits a LineRenderer into a set of colours
+    /// </summary>
+    /// <param name="cols">the colours to split the LineRenderer by</param>
+    /// <param name="isLocal">Whether or not the LineRenderer(s) use local positioning</param>
+    public static LineRenderer[] SetLineRendererMaterial(LineRenderer renderer, Color[] cols, bool isLocal)
     {
         LineRenderer[] lineSections = new LineRenderer[cols.Length];
-
-        // The child LineRenderer to be hidden and 'split'
-        LineRenderer tempLine = obj.transform.GetChild(index).GetComponent<LineRenderer>();
-        tempLine.enabled = false;
+        
+        renderer.enabled = false;
         
         // The initial local position and direction
-        Vector3 start = tempLine.GetPosition(0);
-        Vector3 dir = (tempLine.GetPosition(1) - start) / cols.Length;
+        Vector3 start = renderer.GetPosition(0);
+        Vector3 dir = (renderer.GetPosition(1) - start) / cols.Length;
         
         for (int i = 0; i < cols.Length; i++)
         {
             // Creating a new line section/segment object as a child of the child LineRenderer
             GameObject newLineObject = new GameObject("Line Section");
-            newLineObject.transform.SetParent(tempLine.transform);
+            newLineObject.transform.SetParent(renderer.transform);
             newLineObject.transform.localPosition = Vector3.zero;
             newLineObject.transform.localScale = Vector3.one;
             
             LineRenderer newLine = newLineObject.AddComponent<LineRenderer>(); // Adding a LineRenderer to it
             
             // Setting the section's Subsystem colour
-            newLine.material = mat;
+            newLine.material = renderer.material;
             newLine.material.SetColor(EmissionColor, cols[i]);
+            newLine.widthMultiplier = 0.005f;
+            
+            if (isLocal)
+            {
+                newLine.useWorldSpace = false;
+            }
             
             // Setting the section's positions (it's less complex than it looks)
-            newLine.useWorldSpace = false;
-            newLine.widthMultiplier = 0.005f;
             newLine.SetPositions(
                 new [] {
                     start + (i * dir),
@@ -441,9 +453,9 @@ public class StructureSelection : MonoBehaviour
                 // Making the target's line stand out
                 lastLineSections = SetLineRendererMaterial(
                     temp,
-                    selectedMaterial,
                     colours.ToArray(),
-                    otherIndex
+                    otherIndex,
+                    true
                 );   
             }
             // If there are no Subsystem's it just highlights it with the default selection colour

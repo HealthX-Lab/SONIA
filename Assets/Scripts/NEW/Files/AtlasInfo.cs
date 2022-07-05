@@ -365,4 +365,39 @@ public class AtlasInfo
 
         return temp.ToArray();
     }
+
+    /// <summary>
+    /// Quick method to find the Subsystems shared by both structures
+    /// </summary>
+    /// <param name="a">The name of the first of the two structures to be checked</param>
+    /// <param name="b">The name of the second of the two structures to be checked</param>
+    /// <returns>An array of each SubsystemInfo object that contains both structures</returns>
+    public SubsystemInfo[] FindSharedSubsystems(string a, string b) { return FindSharedSubsystems(Find(a), Find(b)); }
+
+    /// <summary>
+    /// Quick method to find the colours of the Subsystems shared by both structures
+    /// </summary>
+    /// <param name="a">The first of the two structures to be checked</param>
+    /// <param name="b">The second of the two structures to be checked</param>
+    /// <returns>An array the Color of each SubsystemInfo object that contains both structures</returns>
+    public Color[] FindSharedColours(GameObject a, GameObject b)
+    {
+        SubsystemInfo[] infos = FindSharedSubsystems(a, b);
+        Color[] temp = new Color[infos.Length];
+
+        for (int i = 0; i < infos.Length; i++)
+        {
+            temp[i] = infos[i].Colour;
+        }
+
+        return temp;
+    }
+    
+    /// <summary>
+    /// Quick method to find the colours of the Subsystems shared by both structures
+    /// </summary>
+    /// <param name="a">The name of the first of the two structures to be checked</param>
+    /// <param name="b">The name of the second of the two structures to be checked</param>
+    /// <returns>An array the Color of each SubsystemInfo object that contains both structures</returns>
+    public Color[] FindSharedColours(string a, string b) { return FindSharedColours(Find(a), Find(b)); }
 }

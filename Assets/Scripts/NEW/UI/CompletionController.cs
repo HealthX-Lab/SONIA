@@ -11,19 +11,20 @@ public class CompletionController : MonoBehaviour
     Transform structureLayout, subsystemLayout;
 
     MiniBrain miniBrain; // The mini brain script
-    StructureCompletion[] structureCompletion; // The % amount (0-1) that each structure has been completed to
+    public StructureCompletion[] structureCompletion; // The % amount (0-1) that each structure has been completed to
     float[] subsystemCompletion; // The % amount (0-1) that each Subsystem has been completed to
-    GameObject structureCompletionInfoObject, subsystemCompletionInfoObject; // The spawnable structure and Subsystem completion info objects
+    // The spawnable structure and Subsystem completion info objects
+    GameObject structureCompletionInfoObject, subsystemCompletionInfoObject;
 
     /// <summary>
     /// A small struct with information about the completion amounts for a structure
     /// </summary>
-    struct StructureCompletion
+    public struct StructureCompletion
     {
         /// <summary>
         /// The float value of the completion amount (0-1)
         /// </summary>
-        public float Completion { get; set; }
+        public List<float> SubsystemCompletion { get; set; }
         
         /// <summary>
         /// Whether the structure has been viewed
@@ -34,6 +35,29 @@ public class CompletionController : MonoBehaviour
         /// Which of the structure's connections have been viewed
         /// </summary>
         public bool[] ViewedConnections { get; set; }
+
+        /// <summary>
+        /// Quick method to calculate the total completion of the structure
+        /// </summary>
+        /// <returns></returns>
+        public float Completion()
+        {
+            float temp = 0;
+
+            // Adds all the subsystem percentages, if they exist
+            if (SubsystemCompletion != null)
+            {
+                temp += SubsystemCompletion.Sum();
+            }
+
+            // Adds a percentage for viewing the structure
+            if (ViewedStructure)
+            {
+                temp += 1f / (SubsystemCompletion.Count + 1);
+            }
+            
+            return temp;
+        }
     }
 
     void Start()
@@ -105,23 +129,32 @@ public class CompletionController : MonoBehaviour
         for (int i = 0; i < miniBrain.info.Structures.Length; i++)
         {
             // Only showing those which have some completion started
-            if (structureCompletion[i].Completion > 0)
+            if (structureCompletion[i].Completion() > 0)
             {
                 GameObject temp = Instantiate(structureCompletionInfoObject, structureLayout);
-                
-                temp.GetComponentInChildren<TMP_Text>().text =
-                    miniBrain.info.Structures[i].name + ": " + // Name
-                    Mathf.RoundToInt(structureCompletion[i].Completion * 100) + "%"; // Completion amount
+                temp.name = miniBrain.info.Structures[i].name;
 
-                // Adding colour-coded Subsystem pips for each structure
+                // TODO: may want to remove the % part of the text here
+                temp.GetComponentInChildren<TMP_Text>().text =
+                    temp.name + ": " + // Name
+                    Mathf.RoundToInt(structureCompletion[i].Completion() * 100) + "%"; // Completion amount
+
+                // Adding colour-coded Subsystem pips and/or colour bars for each structure
                 if (miniBrain.info.Subsystems != null)
                 {
+                    /*
                     Instantiate(Resources.Load<GameObject>("ColourPips"), temp.transform)
                         .GetComponent<ColourPips>().AddPips(miniBrain.info.Structures[i], Vector3.right * 0.3f);
+                    */
+                    
+                    Instantiate(Resources.Load<GameObject>("ColourBars"), temp.transform)
+                        .GetComponent<ColourBars>().AddBars(miniBrain.info.Structures[i], Vector3.down * 0.15f);
                 }
             }
         }
         
+        //Invoke(nameof(WaitSetConnections), 0.1f); // TODO: this needs to be displayed better
+
         // Showing the structure completion UI only when there's at least one structure underway
         if (structureLayout.childCount == 0)
         {
@@ -130,6 +163,45 @@ public class CompletionController : MonoBehaviour
         else
         {
             structureLayout.parent.gameObject.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// Method to generate connections between structures in the completion UI
+    /// (to be invoked after the structures have been added to the LayoutGroup and at least 1 frame has passed)
+    /// </summary>
+    void WaitSetConnections()
+    {
+        // Checking each structure in teh UI with each other structure
+        for (int i = 0; i < structureLayout.childCount; i++)
+        {
+            for (int j = i+1; j < structureLayout.childCount; j++)
+            {
+                // Getting their shared Subsystem colours
+                Color[] cols = miniBrain.info.FindSharedColours(structureLayout.GetChild(i).name, structureLayout.GetChild(j).name);
+
+                if (cols.Length > 0)
+                {
+                    // Adding a new LineRenderer object
+                    Transform newLine = new GameObject("Connection to " + structureLayout.GetChild(j).name).transform;
+                    newLine.SetParent(structureLayout.GetChild(i).transform);
+                    newLine.transform.localPosition = Vector3.zero;
+                    
+                    // Adding and setting the LineRenderer's attributes
+                    LineRenderer renderer = newLine.AddComponent<LineRenderer>();
+                    renderer.material = miniBrain.connectionMaterial;
+                    renderer.widthMultiplier = 0.005f;
+                    renderer.SetPositions(
+                        new [] {
+                            structureLayout.GetChild(i).position,
+                            structureLayout.GetChild(j).position
+                        }
+                    );
+
+                    // Setting the LineRenderer's colours to the shared colours
+                    StructureSelection.SetLineRendererMaterial(renderer, cols, false);
+                }
+            }
         }
     }
     
@@ -147,12 +219,14 @@ public class CompletionController : MonoBehaviour
                 TMP_Text temp = Instantiate(subsystemCompletionInfoObject, subsystemLayout)
                     .GetComponentInChildren<TMP_Text>();
 
+                // TODO: add a toggle to view the Subsystem description
                 temp.text =
                     miniBrain.info.Subsystems[i].Name // Name
                     + ": " + Mathf.RoundToInt(subsystemCompletion[i] * 100) + "%"; // Completion amount
                     //+ "\n\n" + miniBrain.info.Subsystems[i].Description; // Subsystem description
 
-                temp.color = miniBrain.info.Subsystems[i].Colour;
+                //temp.color = miniBrain.info.Subsystems[i].Colour;
+                temp.color = FindObjectOfType<StructureSelection>().selectedMaterial.color;
 
                 Color newColour = miniBrain.info.Subsystems[i].Colour;
                 MeshRenderer tempRenderer = temp.transform.parent.GetComponentInChildren<MeshRenderer>();
@@ -162,7 +236,25 @@ public class CompletionController : MonoBehaviour
                     newColour.r,
                     newColour.g,
                     newColour.b,
-                    0.2f
+                    0.5f
+                );
+                
+                // Adding a new percentage completion bar for each Subsystem in the UI
+                GameObject colourBar = Instantiate(Resources.Load<GameObject>("ColourBars"), temp.transform.parent);
+                colourBar.transform.localScale *= 0.7f;
+                
+                // Setting the bar to be one colour, and equal to the Subsystem's total completion amount
+                colourBar.GetComponent<ColourBars>().SetValues(
+                    new []
+                    {
+                        miniBrain.info.Subsystems[i].Colour
+                    }, 
+                    new []
+                    {
+                        subsystemCompletion[i]
+                    },
+                    Vector3.down * 0.075f,
+                    false
                 );
             }
         }
@@ -223,7 +315,7 @@ public class CompletionController : MonoBehaviour
     /// <param name="selectedIndex">The index of the selected structure in the AtlasInfo</param>
     void CalculateStructureCompletion(int selectedIndex)
     {
-        structureCompletion[selectedIndex].Completion = 0; // Resetting at first
+        structureCompletion[selectedIndex].SubsystemCompletion = new List<float>(); // Resetting at first
         
         // The incremental value that each structure and connection view is 'worth' (for this structure)
         float completionValue = 1f / (structureCompletion[selectedIndex].ViewedConnections.Length + 1);
@@ -231,14 +323,16 @@ public class CompletionController : MonoBehaviour
         // Checking first whether the structure has been viewed
         if (structureCompletion[selectedIndex].ViewedStructure)
         {
-            structureCompletion[selectedIndex].Completion += completionValue;
+            bool[] temp = structureCompletion[selectedIndex].ViewedConnections;
             
-            foreach (bool i in structureCompletion[selectedIndex].ViewedConnections)
+            for (int i = 0; i < temp.Length; i++)
             {
+                structureCompletion[selectedIndex].SubsystemCompletion.Add(0);
+                
                 // Then checking if any of the connections have been viewed
-                if (i)
+                if (temp[i])
                 {
-                    structureCompletion[selectedIndex].Completion += completionValue;
+                    structureCompletion[selectedIndex].SubsystemCompletion[i] = completionValue;
                 }
             }
         }

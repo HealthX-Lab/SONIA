@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 
 public class MiniBrain : MonoBehaviour
@@ -36,13 +36,33 @@ public class MiniBrain : MonoBehaviour
     
     [Header("Connectivity")]
     [SerializeField, Tooltip("The highest connectivity between structures in the whole matrix (should be pre-calculated)")]
-    float highestValue = 1;
+    float highestValue;
     [SerializeField, Tooltip("The minimum strength that a connection can have for it to be displayed")]
     float thresholdPercentage = 0.1f;
-    [SerializeField, Tooltip("The material to be applied to the connection visualizations")]
-    Material connectionMaterial;
-
-    [HideInInspector] public Transform offset; // The offset parent Transform for the structures
+    [Tooltip("The material to be applied to the connection visualizations")]
+    public Material connectionMaterial;
+    
+    [Header("Extra structures")]
+    [SerializeField, Tooltip("The base folder name within the Resources folder for the extra structures")]
+    string extraPath;
+    [SerializeField, Tooltip("The corresponding local file name for the connectivity for the extra structures")]
+    string extraConnectivityPath;
+    [SerializeField, Tooltip("Whether or not to visualize the connectivity between the extra structures")]
+    bool showExtraConnectivity = true;
+    [SerializeField, Tooltip("The highest connectivity between structures in the whole matrix (should be pre-calculated)for the extra structures")]
+    float extraHighestValue;
+    [SerializeField, Tooltip("The minimum strength that a connection can have for it to be displayed for the extra structures")]
+    float extraThresholdPercentage = 0.1f;
+    [SerializeField, Tooltip("The material to be applied to the extra structures")]
+    Material extraMaterial;
+    [SerializeField, Tooltip("The material to be applied to the connection visualizations for the extra structures")]
+    Material extraConnectionMaterial;
+    [Tooltip("Whether or not to visualize the extra structures in the mini brain")]
+    public bool miniExtraStructures = true;
+    [Tooltip("Whether or not to visualize the extra structures in the big brain")]
+    public bool bigExtraStructures = true;
+    
+    [HideInInspector] public Transform offset, extraOffset; // The offset parent Transform for the structures and the extra structures
     [HideInInspector] public AtlasInfo info; // The info class about the atlas
 
     void Start()
@@ -188,6 +208,106 @@ public class MiniBrain : MonoBehaviour
         // Scaling the new atlas so that it fits to the scale
         BoundsInfo bounds = new BoundsInfo(offset.gameObject);
         transform.localScale = Vector3.one * (scale / bounds.Magnitude);
+
+        // Making sure that the path to the extra structure is valid, and that it should be visualized somewhere
+        if (extraPath.IsNotNullOrEmpty() && (miniExtraStructures || bigExtraStructures))
+        {
+            // Creating the extra structures' offset
+            extraOffset = new GameObject("Extra Structures").transform;
+            extraOffset.SetParent(transform);
+            extraOffset.localPosition = position;
+            extraOffset.localRotation = Quaternion.Euler(rotation);;
+            extraOffset.localScale = Vector3.one;
+
+            GameObject[] extraStructures = Resources.LoadAll<GameObject>(extraPath);
+
+            // Instantiating each extra structure
+            foreach (GameObject m in extraStructures)
+            {
+                GameObject tempExtra = Instantiate(m, extraOffset);
+                tempExtra.GetComponent<MeshRenderer>().material = extraMaterial;
+                Destroy(tempExtra.GetComponent<Collider>());
+            }
+
+            // Making sure that the connectivity path is valid, and that they should be visualized
+            if (extraConnectivityPath.IsNotNullOrEmpty() && showExtraConnectivity)
+            {
+                // Getting teh extra structures' threshold value
+                float extraThresholdValue = extraHighestValue * thresholdPercentage;
+                
+                // Loading the connectivity
+                float[,] extraConnectivity = LoadFloatMatrix(extraConnectivityPath, ',');
+
+                for (int m = 0; m < extraOffset.childCount; m++)
+                {
+                    for (int n = 0; n < extraOffset.childCount; n++)
+                    {
+                        // Making sure that each connection is valid
+                        if (extraConnectivity[m, n] >= extraThresholdValue)
+                        {
+                            // Adding the valid connection lines
+                            GameObject lineObject = new GameObject("Connection to " + extraStructures[n].name);
+                            lineObject.transform.SetParent(extraOffset.GetChild(m).transform);
+                    
+                            LineRenderer line = lineObject.AddComponent<LineRenderer>();
+                            line.material = extraConnectionMaterial;
+                            line.widthMultiplier = 0.001f;
+
+                            // Setting the connection lines to the bounds centres of each structure
+                            line.useWorldSpace = false;
+                            line.SetPositions(
+                                new [] {
+                                    new BoundsInfo(extraOffset.GetChild(m).gameObject).GlobalCentre,
+                                    new BoundsInfo(extraOffset.GetChild(n).gameObject).GlobalCentre
+                                }
+                            );
+                        }
+                    }
+                }   
+            }
+            else
+            {
+                showExtraConnectivity = false;
+            }
+        }
+        // If the path is invalid, the visualization variables are set to false
+        // (so big brain doesn't try to copy them later)
+        else
+        {
+            miniExtraStructures = false;
+            bigExtraStructures = false;
+        }
+    }
+    
+    /// <summary>
+    /// Creates a 2D array float matrix from the supplied file
+    /// </summary>
+    /// <param name="fileName">The file at Resources/basePath/fileName.csv</param>
+    /// <param name="delim">The delimiter character for the rows in the file</param>
+    /// <returns>The float matrix as a 2D array</returns>
+    float[,] LoadFloatMatrix(string fileName, char delim)
+    {
+        TextAsset file = Resources.Load<TextAsset>(extraPath + "/" + fileName);
+
+        if (file != null)
+        {
+            string[] split = file.text.Split('\n'); // Splitting by line
+            float[,] temp = new float[split.Length, split.Length];
+        
+            for (int i = 0; i < split.Length; i++)
+            {
+                string[] splitSplit = split[i].Split(delim); // Splitting by comma
+            
+                for (int j = 0; j < splitSplit.Length; j++)
+                {
+                    temp[i, j] = float.Parse(splitSplit[j].Trim()); // Setting the values
+                }
+            }
+
+            return temp;
+        }
+
+        return null;
     }
 
     /// <summary>
