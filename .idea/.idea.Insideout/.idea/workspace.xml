@@ -2,97 +2,81 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent (Extra).mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent (Extra).mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources/Materials/Outline.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources/Materials/Outline.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources/Shaders/Outline.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources/Shaders/Outline.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ColourBars.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ColourBars.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Completion Bar Section.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Completion Bar Section.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Completion Bar.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Completion Bar.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BrainSkybox.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BrainSkybox.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/ColourBars.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/ColourBars.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/ColourPips.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/ColourPips.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Files.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/AtlasInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/AtlasInfo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/SubsystemInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/SubsystemInfo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/BoundsInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/BoundsInfo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/StandardShaderUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/StandardShaderUtils.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/CompletionController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/CompletionController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/LookAtCamera.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/LookAtCamera.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/StructureInformation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/StructureInformation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh/Flesh.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh/Flesh.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh/Transparent (Flesh) (25%).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh/Transparent (Flesh) (25%).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh/Transparent (Flesh) (70%).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh/Transparent (Flesh) (70%).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh/Transparent (Flesh) (90%).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Flesh/Transparent (Flesh) (90%).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow/Glow (Dark).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow/Glow (Dark).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow/Glow (Light).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow/Glow (Light).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow/Glow (White).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Glow/Glow (White).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD/Blood vessels.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD/Blood vessels.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD/Dashboard.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD/Dashboard.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD/Sulci.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD/Sulci.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD/Ventricles.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/OLD/Ventricles.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (Clear).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (Clear).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (Controllers).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (Controllers).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (Extra).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (Extra).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (UI).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (UI).mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (White).mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (White).mat.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Material.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Material.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Readme.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Readme.txt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources/Materials.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources/Materials.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources/Shaders.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Resources/Shaders.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Materials.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Materials.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Materials/Plane.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Materials/Plane.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Materials/Plane.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Materials/Plane.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Scenes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Scenes.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Scenes/QuickOutline.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Scenes/QuickOutline.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Scenes/QuickOutline.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Samples/Scenes/QuickOutline.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Scripts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Scripts/Outline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Scripts/Outline.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Scripts/Outline.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/QuickOutline/Scripts/Outline.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Blood vessels.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Blood vessels.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Dashboard.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Dashboard.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Flesh.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Flesh.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Floor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Floor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Glow (Dark).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Glow (Dark).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Glow (Light).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Glow (Light).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Glow (White).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Glow (White).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Sulci.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Sulci.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Controllers).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Controllers).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Extra).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Extra).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Flesh) (25%).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Flesh) (25%).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Flesh) (90%).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Flesh) (90%).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Structures).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (Structures).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (UI).mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent (UI).mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ventricles.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Ventricles.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ColourPips.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ColourPips.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Big Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Big Structure Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AtlasInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AtlasInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BigBrain.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BigBrain.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BoundsInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BoundsInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourPips.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourPips.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CompletionController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CompletionController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LookAtCamera.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LookAtCamera.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MiniBrain.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MiniBrain.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/BrainSkybox.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/BrainSkybox.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StandardShaderUtils.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StandardShaderUtils.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StructureInformation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StructureInformation.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StructureSelection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StructureSelection.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SubsystemInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SubsystemInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,10 +130,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="26952">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="26952" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -192,6 +176,7 @@
       <workItem from="1656420670376" duration="20805000" />
       <workItem from="1656595233525" duration="18669000" />
       <workItem from="1657026582669" duration="19999000" />
+      <workItem from="1657200508709" duration="17483000" />
     </task>
     <servers />
   </component>

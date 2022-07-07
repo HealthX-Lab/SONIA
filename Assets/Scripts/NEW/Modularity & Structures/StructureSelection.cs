@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,15 +17,13 @@ public class StructureSelection : MonoBehaviour
     LineRenderer line; // The laser pointer
     bool hasReset; // Whether the laser pointer has already been reset after pointing away
     GameObject hitObject, selectedObject; // The current object being pointed towards and the clicked object
-    GameObject lastHitMenuObject, selectedMenuObject; // The last menu option pointed towards
+    GameObject lastHitMenuObject, selectedMenuObject; // The last menu option pointed towards and selected (respectively)
     LineRenderer[] lastLineSections; // The colour-coded LineRenderers for the last selected connection
+    GameObject lastOther; // Structure associated with the last selected connection
 
     MiniBrain miniBrain; // The mini brain script
     BigBrain bigBrain; // The big brain script
     StructureInformation structureInformation; // The structure information script in the left hand
-
-    bool waitShowName; // Temporary variable to hold whether or not to show the big structure's name after some big time
-    GameObject waitStructure; // Temporary variable to hold a structure that's to be updated after some time
     
     // Rider IDE told me to use this variable instead of using the string name directly, so here it is
     static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
@@ -254,6 +253,7 @@ public class StructureSelection : MonoBehaviour
     /// <summary>
     /// Splits a LineRenderer into a set of colours
     /// </summary>
+    /// <param name="renderer">The LineRenderer in question to be split</param>
     /// <param name="cols">the colours to split the LineRenderer by</param>
     /// <param name="isLocal">Whether or not the LineRenderer(s) use local positioning</param>
     public static LineRenderer[] SetLineRendererMaterial(LineRenderer renderer, Color[] cols, bool isLocal)
@@ -295,6 +295,32 @@ public class StructureSelection : MonoBehaviour
             );
 
             lineSections[i] = newLine;
+
+            /*
+            if (i == cols.Length - 1)
+            {
+                GameObject arrow = new GameObject("Arrow");
+                arrow.transform.SetParent(newLineObject.transform);
+                arrow.transform.localPosition = Vector3.zero;
+                arrow.transform.localScale = Vector3.one;
+                arrow.transform.localRotation =
+                    Quaternion.Euler(arrow.transform.localRotation.eulerAngles + dir.normalized);
+
+                LineRenderer arrowLine = arrow.AddComponent<LineRenderer>();
+                arrowLine.material = renderer.material;
+                arrowLine.material.SetColor(EmissionColor, cols[i]);
+                arrowLine.widthMultiplier = 0.005f;
+
+                arrowLine.positionCount = 3;
+                arrowLine.SetPositions(
+                    new [] {
+                        newLine.GetPosition(1) + new Vector3(-1.5f, 0, -1.5f),
+                        newLine.GetPosition(1),
+                        newLine.GetPosition(1) + new Vector3(1.5f, 0, -1.5f)
+                    }
+                );
+            }
+            */
         }
 
         return lineSections; // Returning the newly added sections (for future destruction)
@@ -316,37 +342,33 @@ public class StructureSelection : MonoBehaviour
     }
 
     /// <summary>
-    /// Quick method to wait before updating a structure (to make sure there's time to delete GameObjects, etc.)
-    /// </summary>
-    void WaitUpdateStructure()
-    {
-        UpdateStructure(waitStructure, true, waitShowName);
-    }
-
-    /// <summary>
-    /// Quick method to update a structure in the big brain
-    /// </summary>
-    /// <param name="obj">The mini brain structure to be copied into the big brain</param>
-    /// <param name="checkAndAddOutline">
-    /// Whether or not to add an outline to the structure
-    /// (if the structures in the mini brain are replaced by nodes)
-    /// </param>
-    /// <param name="showName">Whether or not to show the structure's name on the structure when selected</param>
-    void UpdateStructure(GameObject obj, bool checkAndAddOutline, bool showName)
-    {
-        bigBrain.UpdateStructure(obj, false, checkAndAddOutline, showName);
-    }
-
-    /// <summary>
     /// Triggers when given action starts on the given controller
     /// </summary>
     /// <param name="fromAction">Action to be anticipated</param>
     /// <param name="fromSource">Controller/hand that performs the action</param>
     void OnActionDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
+        StartCoroutine(OnActionDownCoroutine());
+    }
+
+    /// <summary>
+    /// Coroutine to manage controller selections (with pauses to ensure that structure/components are deleted properly)
+    /// </summary>
+    IEnumerator OnActionDownCoroutine()
+    {
+        float bufferSeconds = 0.01f;
+
         // Checking if a structure has been clicked on
         if (hitObject != null && !hitObject.Equals(selectedObject))
         {
+            // Hiding the last connection's structure's outline
+            if (lastOther != null)
+            {
+                Destroy(lastOther.GetComponent<Outline>());
+                yield return new WaitForSeconds(bufferSeconds);
+                bigBrain.UpdateStructure(lastOther, false, false, false, false);
+            }
+            
             structureInformation.connectionDescription.SetActive(false); // Hiding the connection description
             
             // Removing the old selected object outline
@@ -358,13 +380,12 @@ public class StructureSelection : MonoBehaviour
                 
                 ShowOverlappingLineRenderers(lastTemp); // Showing the other overlapping connections
 
-                waitShowName = false;
-                waitStructure = lastTemp;
-                Invoke(nameof(WaitUpdateStructure), 0.01f);
-                
+                yield return new WaitForSeconds(bufferSeconds);
+                bigBrain.UpdateStructure(lastTemp, false, false, false, false);
+
                 foreach (GameObject i in miniBrain.info.ValidConnections[miniBrain.info.IndexOf(lastTemp)])
                 {
-                    bigBrain.UpdateStructure(i, false, false, false); // Updating the big brain
+                    bigBrain.UpdateStructure(i, false, false, false, false); // Updating the big brain
                 }
             }
             
@@ -372,6 +393,7 @@ public class StructureSelection : MonoBehaviour
 
             // Adding a unique outline to the selected object
             Outline outline = selectedObject.GetComponent<Outline>();
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
             outline.OutlineColor = selectedMaterial.color;
             outline.OutlineWidth *= 2f;
 
@@ -394,11 +416,19 @@ public class StructureSelection : MonoBehaviour
                 miniBrain.info.ValidConnections[infoIndex].ToArray()
             );
 
-            bigBrain.UpdateStructure(temp, false, true, true); // Updating the big brain
+            bigBrain.UpdateStructure(temp, false, true, true, true); // Updating the big brain
         }
         // Checking if a menu object has been clicked on
         else if (lastHitMenuObject != null)
         {
+            // Hiding the last connection's structure's outline
+            if (lastOther != null)
+            {
+                Destroy(lastOther.GetComponent<Outline>());
+                yield return new WaitForSeconds(bufferSeconds);
+                bigBrain.UpdateStructure(lastOther, false, false, false, false);
+            }
+            
             // Disabling the old outline
             if (selectedMenuObject != null)
             {
@@ -423,6 +453,7 @@ public class StructureSelection : MonoBehaviour
                 
             structureInformation.connectionDescription.SetActive(true); // Showing the connection description
 
+            // Getting the connected structure
             GameObject other = miniBrain.info.Find(
                 lastHitMenuObject.transform.parent.GetComponentInChildren<TMP_Text>().text
             );
@@ -431,7 +462,7 @@ public class StructureSelection : MonoBehaviour
             SetLineRendererVisibility(temp, true);
             HideOverlappingLineRenderers(other, temp);
 
-            UpdateStructure(other, false, true);
+            bigBrain.UpdateStructure(other, false, false, true, true);
 
             int otherIndex = miniBrain.info.ValidConnections[selectedIndex].IndexOf(other);
 
@@ -456,7 +487,23 @@ public class StructureSelection : MonoBehaviour
                     colours.ToArray(),
                     otherIndex,
                     true
-                );   
+                );
+                
+                // Adding an outline to the connection's structure
+                Outline outline = other.AddComponent<Outline>();
+                outline.OutlineMode = Outline.Mode.OutlineVisible;
+                outline.OutlineWidth *= 2f;
+
+                if (colours.Count == 1)
+                {
+                    outline.OutlineColor = colours[0];
+                }
+                else
+                {
+                    outline.OutlineColor = selectedMaterial.color;
+                }
+                
+                bigBrain.UpdateStructure(other, false, true, true, true);
             }
             // If there are no Subsystem's it just highlights it with the default selection colour
             else
@@ -470,9 +517,8 @@ public class StructureSelection : MonoBehaviour
                 ); 
             }
 
-            waitShowName = true;
-            waitStructure = temp;
-            Invoke(nameof(WaitUpdateStructure), 0.01f);
+            yield return new WaitForSeconds(bufferSeconds);
+            bigBrain.UpdateStructure(temp, false, true, true, true);
 
             // Making sure that the connection description exists
             if (miniBrain.info.SubsystemConnectionDescriptions != null
@@ -485,6 +531,8 @@ public class StructureSelection : MonoBehaviour
                     miniBrain.info.IndexOf(other)
                 ); 
             }
+
+            lastOther = other;
         }
     }
 }

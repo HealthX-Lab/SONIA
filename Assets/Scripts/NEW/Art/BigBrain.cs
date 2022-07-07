@@ -39,7 +39,7 @@ public class BigBrain : MonoBehaviour
         // Creating big brain structures from the mini brain structures
         foreach (GameObject i in miniBrain.info.Structures)
         {
-            UpdateStructure(i, true, true, false);
+            UpdateStructure(i, true, true, false, false);
         }
         
         // Also creating the left structures (if they are being ignored for connectivity purposes)
@@ -47,7 +47,7 @@ public class BigBrain : MonoBehaviour
         {
             foreach (GameObject j in miniBrain.info.LeftStructures)
             {
-                UpdateStructure(j, true, true, false);
+                UpdateStructure(j, true, true, false, false);
             }   
         }
 
@@ -87,7 +87,8 @@ public class BigBrain : MonoBehaviour
     /// (if the structures in the mini brain are replaced by nodes)
     /// </param>
     /// <param name="showName">Whether or not to show the structure's name on the structure when selected</param>
-    public void UpdateStructure(GameObject key, bool isFromStart, bool checkAndAddOutline, bool showName)
+    /// <param name="showNode">Whether or not to show a small spherical node at the centre of the structure when selected</param>
+    public void UpdateStructure(GameObject key, bool isFromStart, bool checkAndAddOutline, bool showName, bool showNode)
     {
         if (!structureDict.Keys.Contains(key))
         {
@@ -111,7 +112,18 @@ public class BigBrain : MonoBehaviour
         // Creating the new big structure
         structureDict[key] = Instantiate(key, offset);
         structureDict[key].SetActive(true);
-        structureDict[key].GetComponent<MeshRenderer>().material = material;
+        
+        MeshRenderer tempRenderer = structureDict[key].GetComponent<MeshRenderer>();
+        tempRenderer.material = material;
+
+        // Setting the big brain structure to the given material, but with the mini brain structure's colour
+        Color miniColour = key.GetComponent<MeshRenderer>().material.color;
+        tempRenderer.material.color = new Color(
+            miniColour.r,
+            miniColour.g,
+            miniColour.b,
+            tempRenderer.material.color.a
+        );
         
         UpdateMeshRenderersInChildren(structureDict[key]);
 
@@ -164,6 +176,18 @@ public class BigBrain : MonoBehaviour
             nameCanvas.transform.position = new BoundsInfo(structureDict[key]).GlobalCentre; // Setting its position
             nameCanvas.GetComponentInChildren<TMP_Text>().text = key.name; // Setting its name
         }
+
+        if (showNode)
+        {
+            GameObject node = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            
+            node.transform.position = new BoundsInfo(structureDict[key]).GlobalCentre;
+            node.transform.localScale *= 1.5f;
+            node.transform.SetParent(structureTransform);
+
+            node.GetComponent<MeshRenderer>().material = FindObjectOfType<StructureSelection>().defaultMaterial;
+            Destroy(node.GetComponent<SphereCollider>());
+        }
     }
     
     /// <summary>
@@ -203,13 +227,17 @@ public class BigBrain : MonoBehaviour
             i.enabled = false;
             i.enabled = true;
             
+            /*
             Material[] mats = i.GetComponent<MeshRenderer>().materials;
             
             for (int j = 1; j < mats.Length; j++)
             {
                 mats[j].renderQueue = 3000;
+                mats[j].SetFloat("_OutlineWidth", i.OutlineWidth * 5);
+                mats[j].color = i.OutlineColor;
             }
-            
+            */
+
             i.OutlineWidth *= 5;
         }
     }

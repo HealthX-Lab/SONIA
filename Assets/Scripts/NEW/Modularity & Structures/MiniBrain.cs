@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Tutorials.Core.Editor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MiniBrain : MonoBehaviour
 {
@@ -45,6 +47,8 @@ public class MiniBrain : MonoBehaviour
     [Header("Extra structures")]
     [SerializeField, Tooltip("The base folder name within the Resources folder for the extra structures")]
     string extraPath;
+    [SerializeField, Tooltip("Which indices (if any) of the structures should not be generated")]
+    int[] ignoreExtraIndices;
     [SerializeField, Tooltip("The corresponding local file name for the connectivity for the extra structures")]
     string extraConnectivityPath;
     [SerializeField, Tooltip("Whether or not to visualize the connectivity between the extra structures")]
@@ -64,6 +68,7 @@ public class MiniBrain : MonoBehaviour
     
     [HideInInspector] public Transform offset, extraOffset; // The offset parent Transform for the structures and the extra structures
     [HideInInspector] public AtlasInfo info; // The info class about the atlas
+    List<Color> usedColours; // The previously assigned flesh colours to the structures
 
     void Start()
     {
@@ -118,6 +123,18 @@ public class MiniBrain : MonoBehaviour
             structureLength /= 2;
             info.LeftStructures = new GameObject[structureLength];
         }
+
+        // Setting the ranges that the flesh materials can be generated within
+        Vector2 hueRange = new Vector2(0.95f, 1);
+        Vector2 saturationRange = new Vector2(0.25f, 0.6f);
+        Vector2 valueRange = new Vector2(0.8f, 1);
+        
+        // Generating small intervals within the ranges (so hue, saturation, and value is equodistant from others)
+        float hueInterval = (hueRange.y - hueRange.x) / structureLength;
+        float saturationInterval = (saturationRange.y - saturationRange.x) / structureLength;
+        float valueInterval = (valueRange.y - valueRange.x) / structureLength;
+
+        usedColours = new List<Color>();
         
         info.Structures = new GameObject[structureLength];
         info.LocalCentres = new Vector3[structureLength];
@@ -131,11 +148,33 @@ public class MiniBrain : MonoBehaviour
             // Creating and initializing each structure
             GameObject temp = Instantiate(tempStructures[i], offset);
             temp.name = info.Names[i];
-            
+
             // Adding the structures if they're on the right, or the left isn't being ignored
             if (!ignoreLeft || (ignoreLeft && i % 2 == 1))
             {
-                temp.GetComponent<MeshRenderer>().material = material;
+                MeshRenderer tempRenderer = temp.GetComponent<MeshRenderer>();
+                tempRenderer.material = material;
+
+                // Generating a unique colour for each structure if the left isn't being ignored
+                if (!ignoreLeft)
+                {
+                    tempRenderer.material.color = GetUniqueFleshColour(
+                        structureLength,
+                        hueRange.y,
+                        saturationRange.y, 
+                        valueRange.x,
+                        hueInterval,
+                        saturationInterval,
+                        valueInterval
+                    );
+                }
+                // Otherwise, copying teh colour from the previously generated left structure
+                else
+                {
+                    tempRenderer.material.color = info.LeftStructures[leftStructureCount - 1]
+                        .GetComponent<MeshRenderer>().material.color;
+                }
+                
                 temp.AddComponent<MeshCollider>();
                 
                 // Setting atlas info variables
@@ -147,7 +186,19 @@ public class MiniBrain : MonoBehaviour
             // Adding the left structures
             else if (ignoreLeft)
             {
-                temp.GetComponent<MeshRenderer>().material = leftMaterial;
+                MeshRenderer tempRenderer = temp.GetComponent<MeshRenderer>();
+                tempRenderer.material = leftMaterial;
+                
+                // Generating a unique colour for each left structure
+                tempRenderer.material.color = GetUniqueFleshColour(
+                    structureLength,
+                    hueRange.y,
+                    saturationRange.y, 
+                    valueRange.x,
+                    hueInterval,
+                    saturationInterval,
+                    valueInterval
+                );
                 
                 info.LeftStructures[leftStructureCount] = temp;
 
@@ -222,18 +273,22 @@ public class MiniBrain : MonoBehaviour
             GameObject[] extraStructures = Resources.LoadAll<GameObject>(extraPath);
 
             // Instantiating each extra structure
-            foreach (GameObject m in extraStructures)
+            for (int m = 0; m < extraStructures.Length; m++)
             {
-                GameObject tempExtra = Instantiate(m, extraOffset);
-                tempExtra.GetComponent<MeshRenderer>().material = extraMaterial;
-                Destroy(tempExtra.GetComponent<Collider>());
+                // Making sure to skip over ignored structures in teh extra structures array
+                if (!ignoreExtraIndices.Contains(m))
+                {
+                    GameObject tempExtra = Instantiate(extraStructures[m], extraOffset);
+                    tempExtra.GetComponent<MeshRenderer>().material = extraMaterial;
+                    Destroy(tempExtra.GetComponent<Collider>());   
+                }
             }
 
             // Making sure that the connectivity path is valid, and that they should be visualized
             if (extraConnectivityPath.IsNotNullOrEmpty() && showExtraConnectivity)
             {
                 // Getting teh extra structures' threshold value
-                float extraThresholdValue = extraHighestValue * thresholdPercentage;
+                float extraThresholdValue = extraHighestValue * extraThresholdPercentage;
                 
                 // Loading the connectivity
                 float[,] extraConnectivity = LoadFloatMatrix(extraConnectivityPath, ',');
@@ -278,7 +333,91 @@ public class MiniBrain : MonoBehaviour
             bigExtraStructures = false;
         }
     }
-    
+
+    /// <summary>
+    /// Method to generate a colour along hue, saturation, and value ranges that hasn't been generated before
+    /// </summary>
+    /// <param name="len">The number of structures that will have flesh colours added to them</param>
+    /// <param name="hueMax">The maximum amount that a hue can be</param>
+    /// <param name="saturationMax">The maximum amount that a saturation can be</param>
+    /// <param name="valueMin">The minimum amount that a value can be</param>
+    /// <param name="hueInterval">A factor for making sure that all hues aren't too close/far from each other</param>
+    /// <param name="saturationInterval">A factor for making sure that all saturations aren't too close/far from each other</param>
+    /// <param name="valueInterval">A factor for making sure that all values aren't too close/far from each other</param>
+    /// <returns>A unique randomly-generated fleshy colour</returns>
+    Color GetUniqueFleshColour(
+        int len,
+        float hueMax,
+        float saturationMax,
+        float valueMin,
+        float hueInterval,
+        float saturationInterval,
+        float valueInterval)
+    {
+        // Setting the flesh colour initially
+        Color temp = GetFleshColour(
+            len,
+            hueMax,
+            saturationMax,
+            valueMin,
+            hueInterval,
+            saturationInterval,
+            valueInterval
+        );
+
+        // If (for some strange reason) the used colours list is already full,
+        // the execution ends and a non-unique colour is returned
+        if (usedColours.Count >= len)
+        {
+            return temp;
+        }
+        
+        // Looping and resetting while the generated colour already exists
+        while (usedColours.Contains(temp))
+        {
+            temp = GetFleshColour(
+                len,
+                hueMax,
+                saturationMax,
+                valueMin,
+                hueInterval,
+                saturationInterval,
+                valueInterval
+            );
+        }
+                    
+        usedColours.Add(temp); // Making sure to add it to the list so that it isn't replicated in the future
+
+        return temp;
+    }
+
+    /// <summary>
+    /// Quick method to generate a random colour along hue, saturation, and value ranges
+    /// </summary>
+    /// <param name="len">The number of structures that will have flesh colours added to them</param>
+    /// <param name="hueMax">The maximum amount that a hue can be</param>
+    /// <param name="saturationMax">The maximum amount that a saturation can be</param>
+    /// <param name="valueMin">The minimum amount that a value can be</param>
+    /// <param name="hueInterval">A factor for making sure that all hues aren't too close/far from each other</param>
+    /// <param name="saturationInterval">A factor for making sure that all saturations aren't too close/far from each other</param>
+    /// <param name="valueInterval">A factor for making sure that all values aren't too close/far from each other</param>
+    /// <returns>A randomly-generated fleshy colour</returns>
+    Color GetFleshColour(
+        int len,
+        float hueMax,
+        float saturationMax,
+        float valueMin,
+        float hueInterval,
+        float saturationInterval,
+        float valueInterval)
+    {
+        return Color.HSVToRGB(
+            hueMax - (Random.Range(0, len) * hueInterval),
+            saturationMax - (Random.Range(0, len) * saturationInterval),
+            valueMin + (Random.Range(0, len) * valueInterval)
+        );
+    }
+
     /// <summary>
     /// Creates a 2D array float matrix from the supplied file
     /// </summary>
@@ -319,7 +458,12 @@ public class MiniBrain : MonoBehaviour
         {
             // Creating new nodes
             GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            temp.GetComponent<MeshRenderer>().material = material;
+            
+            temp.GetComponent<MeshRenderer>().material = info.Structures[i].GetComponent<MeshRenderer>().material;
+            
+            // Making the collider radius larger so that the nodes can be hit easier
+            temp.GetComponent<SphereCollider>().radius *= 1.5f;
+            
             Transform tempTransform = temp.transform;
             
             // Positioning the new nodes
