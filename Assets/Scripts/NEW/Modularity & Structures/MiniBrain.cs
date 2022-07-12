@@ -129,7 +129,7 @@ public class MiniBrain : MonoBehaviour
         Vector2 saturationRange = new Vector2(0.25f, 0.6f);
         Vector2 valueRange = new Vector2(0.8f, 1);
         
-        // Generating small intervals within the ranges (so hue, saturation, and value is equodistant from others)
+        // Generating small intervals within the ranges (so hue, saturation, and value is equidistant from others)
         float hueInterval = (hueRange.y - hueRange.x) / structureLength;
         float saturationInterval = (saturationRange.y - saturationRange.x) / structureLength;
         float valueInterval = (valueRange.y - valueRange.x) / structureLength;
@@ -230,18 +230,18 @@ public class MiniBrain : MonoBehaviour
                     // Adding the valid connection lines
                     GameObject lineObject = new GameObject("Connection to " + info.Structures[k].name);
                     lineObject.transform.SetParent(info.Structures[j].transform);
+                    lineObject.transform.position = new BoundsInfo(info.Structures[j]).GlobalCentre;
                     
                     LineRenderer line = lineObject.AddComponent<LineRenderer>();
-                    //line.sortingLayerName = "Connections";
                     line.material = connectionMaterial;
                     line.widthMultiplier = 0.001f;
+                    line.useWorldSpace = false;
 
                     // Setting the connection lines to the bounds centres of each structure
-                    line.useWorldSpace = false;
                     line.SetPositions(new []
                     {
-                        info.LocalCentres[j],
-                        info.LocalCentres[k]
+                        Vector3.zero,
+                        lineObject.transform.InverseTransformPoint(new BoundsInfo(info.Structures[k]).GlobalCentre)
                     });
                 }
             }
@@ -267,7 +267,7 @@ public class MiniBrain : MonoBehaviour
             extraOffset = new GameObject("Extra Structures").transform;
             extraOffset.SetParent(transform);
             extraOffset.localPosition = position;
-            extraOffset.localRotation = Quaternion.Euler(rotation);;
+            extraOffset.localRotation = Quaternion.Euler(rotation);
             extraOffset.localScale = Vector3.one;
 
             GameObject[] extraStructures = Resources.LoadAll<GameObject>(extraPath);
@@ -454,12 +454,12 @@ public class MiniBrain : MonoBehaviour
     /// </summary>
     public void ReplaceWithNodes()
     {
-        for (int i = 0; i < info.Structures.Length; i++)
+        foreach (GameObject i in info.Structures)
         {
             // Creating new nodes
             GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             
-            temp.GetComponent<MeshRenderer>().material = info.Structures[i].GetComponent<MeshRenderer>().material;
+            temp.GetComponent<MeshRenderer>().material = i.GetComponent<MeshRenderer>().material;
             
             // Making the collider radius larger so that the nodes can be hit easier
             temp.GetComponent<SphereCollider>().radius *= 1.5f;
@@ -468,13 +468,13 @@ public class MiniBrain : MonoBehaviour
             
             // Positioning the new nodes
             tempTransform.localScale = Vector3.one / 20f;
-            tempTransform.localPosition = new BoundsInfo(info.Structures[i]).GlobalCentre;
-            tempTransform.SetParent(info.Structures[i].transform);
+            tempTransform.localPosition = new BoundsInfo(i).GlobalCentre;
+            tempTransform.SetParent(i.transform);
             tempTransform.SetAsFirstSibling();
             
             // Hiding the structures
-            info.Structures[i].GetComponent<MeshRenderer>().enabled = false;
-            info.Structures[i].GetComponent<MeshCollider>().enabled = false;
+            i.GetComponent<MeshRenderer>().enabled = false;
+            i.GetComponent<MeshCollider>().enabled = false;
         }
     }
 }

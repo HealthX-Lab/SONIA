@@ -244,10 +244,9 @@ public class StructureSelection : MonoBehaviour
     /// <param name="obj">The GameObject to be searched within</param>
     /// <param name="cols">the colours to split the LineRenderer by</param>
     /// <param name="index">The index of the LineRenderer to be set</param>
-    /// <param name="isLocal">Whether or not the LineRenderer(s) use local positioning</param>
-    LineRenderer[] SetLineRendererMaterial(GameObject obj, Color[] cols, int index, bool isLocal)
+    LineRenderer[] SetLineRendererMaterial(GameObject obj, Color[] cols, int index)
     {
-        return SetLineRendererMaterial(obj.transform.GetChild(index).GetComponent<LineRenderer>(), cols, isLocal);
+        return SetLineRendererMaterial(obj.transform.GetChild(index).GetComponent<LineRenderer>(), cols);
     }
 
     /// <summary>
@@ -255,8 +254,7 @@ public class StructureSelection : MonoBehaviour
     /// </summary>
     /// <param name="renderer">The LineRenderer in question to be split</param>
     /// <param name="cols">the colours to split the LineRenderer by</param>
-    /// <param name="isLocal">Whether or not the LineRenderer(s) use local positioning</param>
-    public static LineRenderer[] SetLineRendererMaterial(LineRenderer renderer, Color[] cols, bool isLocal)
+    public static LineRenderer[] SetLineRendererMaterial(LineRenderer renderer, Color[] cols)
     {
         LineRenderer[] lineSections = new LineRenderer[cols.Length];
         
@@ -271,8 +269,8 @@ public class StructureSelection : MonoBehaviour
             // Creating a new line section/segment object as a child of the child LineRenderer
             GameObject newLineObject = new GameObject("Line Section");
             newLineObject.transform.SetParent(renderer.transform);
-            newLineObject.transform.localPosition = Vector3.zero;
             newLineObject.transform.localScale = Vector3.one;
+            newLineObject.transform.localPosition = start + (i * dir);
             
             LineRenderer newLine = newLineObject.AddComponent<LineRenderer>(); // Adding a LineRenderer to it
             
@@ -280,47 +278,42 @@ public class StructureSelection : MonoBehaviour
             newLine.material = renderer.material;
             newLine.material.SetColor(EmissionColor, cols[i]);
             newLine.widthMultiplier = 0.005f;
-            
-            if (isLocal)
-            {
-                newLine.useWorldSpace = false;
-            }
+            newLine.useWorldSpace = false;
             
             // Setting the section's positions (it's less complex than it looks)
             newLine.SetPositions(
                 new [] {
-                    start + (i * dir),
-                    start + ((i+1) * dir)
+                    Vector3.zero,
+                    dir
                 }
             );
 
             lineSections[i] = newLine;
 
-            /*
-            if (i == cols.Length - 1)
-            {
-                GameObject arrow = new GameObject("Arrow");
-                arrow.transform.SetParent(newLineObject.transform);
-                arrow.transform.localPosition = Vector3.zero;
-                arrow.transform.localScale = Vector3.one;
-                arrow.transform.localRotation =
-                    Quaternion.Euler(arrow.transform.localRotation.eulerAngles + dir.normalized);
+            // Adding an arrow object for each line segment
+            GameObject arrow = new GameObject("Arrow");
+            arrow.transform.SetParent(newLineObject.transform);
+            arrow.transform.localScale = Vector3.one;
+            arrow.transform.localPosition = dir / 2f;
+            arrow.transform.LookAt(arrow.transform.position + dir);
 
-                LineRenderer arrowLine = arrow.AddComponent<LineRenderer>();
-                arrowLine.material = renderer.material;
-                arrowLine.material.SetColor(EmissionColor, cols[i]);
-                arrowLine.widthMultiplier = 0.005f;
+            // Adding an arrow LineRenderer to the above object
+            LineRenderer arrowLine = arrow.AddComponent<LineRenderer>();
+            arrowLine.material = renderer.material;
+            arrowLine.material.SetColor(EmissionColor, cols[i]);
+            arrowLine.widthMultiplier = 0.005f;
+            arrowLine.useWorldSpace = false;
 
-                arrowLine.positionCount = 3;
-                arrowLine.SetPositions(
-                    new [] {
-                        newLine.GetPosition(1) + new Vector3(-1.5f, 0, -1.5f),
-                        newLine.GetPosition(1),
-                        newLine.GetPosition(1) + new Vector3(1.5f, 0, -1.5f)
-                    }
-                );
-            }
-            */
+            float arrowSize = 3; // Scale factor for the arrow
+
+            arrowLine.positionCount = 3;
+            arrowLine.SetPositions(
+                new [] {
+                    arrowSize * new Vector3(-1, 0, -1),
+                    Vector3.zero,
+                    arrowSize * new Vector3(1, 0, -1)
+                }
+            );
         }
 
         return lineSections; // Returning the newly added sections (for future destruction)
@@ -374,6 +367,17 @@ public class StructureSelection : MonoBehaviour
             // Removing the old selected object outline
             if (selectedObject != null)
             {
+                // Removing all the last created line sections
+                if (lastLineSections != null)
+                {
+                    foreach (LineRenderer i in lastLineSections)
+                    {
+                        Destroy(i.gameObject);
+                    }   
+                }
+
+                lastLineSections = null;
+                
                 Destroy(selectedObject.GetComponent<Outline>());
                 
                 GameObject lastTemp = GetCorrespondingGameObject(selectedObject);
@@ -383,9 +387,10 @@ public class StructureSelection : MonoBehaviour
                 yield return new WaitForSeconds(bufferSeconds);
                 bigBrain.UpdateStructure(lastTemp, false, false, false, false);
 
-                foreach (GameObject i in miniBrain.info.ValidConnections[miniBrain.info.IndexOf(lastTemp)])
+                foreach (GameObject j in miniBrain.info.ValidConnections[miniBrain.info.IndexOf(lastTemp)])
                 {
-                    bigBrain.UpdateStructure(i, false, false, false, false); // Updating the big brain
+                    // Updating the big brain
+                    bigBrain.UpdateStructure(j, false, false, false, false);
                 }
             }
             
@@ -450,6 +455,8 @@ public class StructureSelection : MonoBehaviour
                     Destroy(j.gameObject);
                 }   
             }
+            
+            lastLineSections = null;
                 
             structureInformation.connectionDescription.SetActive(true); // Showing the connection description
 
@@ -485,8 +492,7 @@ public class StructureSelection : MonoBehaviour
                 lastLineSections = SetLineRendererMaterial(
                     temp,
                     colours.ToArray(),
-                    otherIndex,
-                    true
+                    otherIndex
                 );
                 
                 // Adding an outline to the connection's structure
@@ -529,7 +535,7 @@ public class StructureSelection : MonoBehaviour
                 structureInformation.SetConnectionDescription(
                     selectedIndex,
                     miniBrain.info.IndexOf(other)
-                ); 
+                );
             }
 
             lastOther = other;

@@ -92,7 +92,7 @@ public class ColourBars : MonoBehaviour
             // If there are no connections, it gets the value from the total completion instead
             else
             {
-                tempPercentages.Add(tempCompletion.Completion());
+                tempPercentages.Add(tempCompletion.Completion(completion.structureSelectionFirst));
             }
         }
         
@@ -105,15 +105,15 @@ public class ColourBars : MonoBehaviour
     /// <param name="col">The colours of the bars to be instantiated</param>
     /// <param name="comp">The percentages of each colour in the bar</param>
     /// <param name="offset">The local offset of the bar (should it be needed)</param>
-    /// <param name="maxFill">Whether or not to completely fill each colour's section if the percentage is > 0</param>
-    public void SetValues(Color[] col, float[] comp, Vector3 offset, bool maxFill)
+    /// <param name="fill">Whether or not to completely fill each colour's section if the percentage is > 0</param>
+    public void SetValues(Color[] col, float[] comp, Vector3 offset, bool fill)
     {
         colours = col;
         completionPercentages = comp;
         
         transform.localPosition += offset;
 
-        this.maxFill = maxFill;
+        this.maxFill = fill;
         
         Generate();
     }
