@@ -5,6 +5,12 @@ using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// MonoBehaviour to generate the visual representations of the brain atlas's structures and connections
+/// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class MiniBrain : MonoBehaviour
 {
     [Header("Files")]
@@ -17,6 +23,8 @@ public class MiniBrain : MonoBehaviour
          " (subsystem names/descriptions, subsystem connectivity, and subsystem connection descriptions)"
     )]
     string subsystemsInfoPath, subsystemsConnectivityPath, subsystemsConnectionDescriptionsPath;
+    [SerializeField, Tooltip("Whether to force the structures to have to all be viewed first, before the subsystems")]
+    bool structureSelectionFirst = true;
 
     [Header("Visualization")]
     [SerializeField, Tooltip("The material to be applied to the structures")]
@@ -113,6 +121,10 @@ public class MiniBrain : MonoBehaviour
             subsystemsConnectionDescriptionsPath
         );
         
+        // Making sure some of the other scripts 'start' after this one has generated the AtlasInfo
+        FindObjectOfType<CompletionController>().CompletionStart(structureSelectionFirst);
+        FindObjectOfType<StructureInformation>().InformationStart();
+        
         GameObject[] tempStructures = Resources.LoadAll<GameObject>(path);
 
         int structureLength = tempStructures.Length;
@@ -168,7 +180,7 @@ public class MiniBrain : MonoBehaviour
                         valueInterval
                     );
                 }
-                // Otherwise, copying teh colour from the previously generated left structure
+                // Otherwise, copying the colour from the previously generated left structure
                 else
                 {
                     tempRenderer.material.color = info.LeftStructures[leftStructureCount - 1]
@@ -275,7 +287,7 @@ public class MiniBrain : MonoBehaviour
             // Instantiating each extra structure
             for (int m = 0; m < extraStructures.Length; m++)
             {
-                // Making sure to skip over ignored structures in teh extra structures array
+                // Making sure to skip over ignored structures in the extra structures array
                 if (!ignoreExtraIndices.Contains(m))
                 {
                     GameObject tempExtra = Instantiate(extraStructures[m], extraOffset);
@@ -287,7 +299,7 @@ public class MiniBrain : MonoBehaviour
             // Making sure that the connectivity path is valid, and that they should be visualized
             if (extraConnectivityPath.IsNotNullOrEmpty() && showExtraConnectivity)
             {
-                // Getting teh extra structures' threshold value
+                // Getting the extra structures' threshold value
                 float extraThresholdValue = extraHighestValue * extraThresholdPercentage;
                 
                 // Loading the connectivity

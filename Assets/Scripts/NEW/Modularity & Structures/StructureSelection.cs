@@ -5,21 +5,37 @@ using TMPro;
 using UnityEngine;
 using Valve.VR;
 
+/// <summary>
+/// MonoBehaviour to manage the selection and deselection of structures
+/// within the mini brain and the structure information UI
+/// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class StructureSelection : MonoBehaviour
 {
     [Tooltip("The material to be used when a structure is selected, and the default one")]
     public Material defaultMaterial, selectedMaterial;
+    [SerializeField, Tooltip(
+         "Whether or not to treat the line attached to the controller as a lightsaber" +
+         " (otherwise it acts as a laser pointer)"
+    )]
+    bool isLightsaber = true;
+    [SerializeField, Tooltip("The length of the lightsaber")]
+    float lightsaberLength = 0.3f;
     [SerializeField, Tooltip("The length of the laser pointer when not pointing towards anything")]
-    float length = 0.2f;
+    float laserPointerLength = 0.2f;
     [SerializeField, Tooltip("The triggering action from the right hand controller")]
     SteamVR_Action_Boolean action;
 
     LineRenderer line; // The laser pointer
     bool hasReset; // Whether the laser pointer has already been reset after pointing away
-    GameObject hitObject, selectedObject; // The current object being pointed towards and the clicked object
+    // The current objects (structure and menu) being pointed towards and the clicked object
+    GameObject hitObject, hitMenuObject, selectedObject;
     GameObject lastHitMenuObject, selectedMenuObject; // The last menu option pointed towards and selected (respectively)
     LineRenderer[] lastLineSections; // The colour-coded LineRenderers for the last selected connection
     GameObject lastOther; // Structure associated with the last selected connection
+    GameObject lastLeft, lastOtherLeft; // The structures on the left side of the brain to have their outlines mirrored
 
     MiniBrain miniBrain; // The mini brain script
     BigBrain bigBrain; // The big brain script
@@ -34,8 +50,14 @@ public class StructureSelection : MonoBehaviour
         line = gameObject.AddComponent<LineRenderer>();
         line.material = selectedMaterial;
         line.widthMultiplier = 0.005f;
-
         line.useWorldSpace = false;
+
+        // Setting the lightsaber length
+        if (isLightsaber)
+        {
+            line.SetPosition(1, Vector3.forward * lightsaberLength);   
+        }
+
         ResetLaser();
 
         // Getting the required scripts
@@ -57,10 +79,14 @@ public class StructureSelection : MonoBehaviour
             ))
         {
             // Checking if a structure is being hit
-            if (hit.transform.IsChildOf(miniBrain.transform))
+            if (hit.transform.IsChildOf(miniBrain.transform) && ((isLightsaber && hit.distance <= lightsaberLength) || !isLightsaber))
             {
-                // Making the laser snap to that object
-                line.SetPosition(1, transform.InverseTransformPoint(hit.point));
+                if (!isLightsaber)
+                {
+                    // Making the laser snap to that object
+                    line.SetPosition(1, transform.InverseTransformPoint(hit.point));   
+                }
+                
                 hasReset = false;
             
                 // Making sure the object being pointed at is a new one
@@ -98,6 +124,7 @@ public class StructureSelection : MonoBehaviour
                 }
 
                 lastHitMenuObject = hit.transform.gameObject;
+                hitMenuObject = lastHitMenuObject;
                 
                 // Adding a new / enabling the outline
                 if (!lastHitMenuObject.GetComponent<Outline>())
@@ -140,9 +167,19 @@ public class StructureSelection : MonoBehaviour
             {
                 lastHitMenuObject.GetComponent<Outline>().enabled = false;
             }
+
+            float resetLength = lightsaberLength;
+
+            // Making sure to reset to the proper length
+            if (!isLightsaber)
+            {
+                resetLength = laserPointerLength;
+            }
             
-            line.SetPosition(1, Vector3.forward * length);
+            line.SetPosition(1, Vector3.forward * resetLength);
+            
             hitObject = null;
+            hitMenuObject = null;
 
             hasReset = true;   
         }
@@ -320,7 +357,7 @@ public class StructureSelection : MonoBehaviour
     }
 
     /// <summary>
-    /// Quick method to Get the appropriate, AtlasInfo-corresponding structure
+    /// Quick method to get the appropriate, AtlasInfo-corresponding structure
     /// </summary>
     /// <param name="selected">The selected GameObject in the mini brain</param>
     /// <returns>Either the selected object itself or its parent (the real structure)</returns>
@@ -354,10 +391,26 @@ public class StructureSelection : MonoBehaviour
         // Checking if a structure has been clicked on
         if (hitObject != null && !hitObject.Equals(selectedObject))
         {
+            // Destroying the old left side outline
+            if (lastLeft != null)
+            {
+                Destroy(lastLeft.GetComponent<Outline>());
+            }
+            
+            // Destroying the old left side other outline
+            if (lastOtherLeft != null && !lastOtherLeft.Equals(lastLeft))
+            {
+                Destroy(lastOtherLeft.GetComponent<Outline>());
+            }
+            
             // Hiding the last connection's structure's outline
             if (lastOther != null)
             {
                 Destroy(lastOther.GetComponent<Outline>());
+                
+                // Turning the last selected object's LineRenderers back on
+                SetLineRendererVisibility(GetCorrespondingGameObject(selectedObject), true);
+                
                 yield return new WaitForSeconds(bufferSeconds);
                 bigBrain.UpdateStructure(lastOther, false, false, false, false);
             }
@@ -405,6 +458,17 @@ public class StructureSelection : MonoBehaviour
             GameObject temp = GetCorrespondingGameObject(selectedObject);
             int infoIndex = miniBrain.info.IndexOf(temp);
 
+            // Creating a left side outline to mirror the right
+            if (miniBrain.ignoreLeft)
+            {
+                Outline leftOutline = miniBrain.info.LeftStructures[infoIndex].AddComponent<Outline>();
+                leftOutline.OutlineMode = Outline.Mode.OutlineVisible;
+                leftOutline.OutlineColor = outline.OutlineColor;
+                leftOutline.OutlineWidth = outline.OutlineWidth;
+            
+                lastLeft = leftOutline.gameObject;
+            }
+
             SetLineRendererVisibility(temp, true);
             
             int descriptionInfoIndex = infoIndex;
@@ -414,22 +478,55 @@ public class StructureSelection : MonoBehaviour
                 descriptionInfoIndex = (descriptionInfoIndex * 2) + 1;
             }
 
+            List<GameObject> connectionsFrom = new List<GameObject>();
+
+            // Getting all the structures that to the selected structure
+            for (int k = 0; k < miniBrain.info.Structures.Length; k++)
+            {
+                if (miniBrain.info.ValidConnections[k].Contains(miniBrain.info.Structures[infoIndex]))
+                {
+                    connectionsFrom.Add(miniBrain.info.Structures[k]);
+                }
+            }
+
             // Applying the list to the UI
             structureInformation.SetUI(
                 miniBrain.info.Structures[infoIndex],
                 miniBrain.info.Descriptions[descriptionInfoIndex],
-                miniBrain.info.ValidConnections[infoIndex].ToArray()
+                miniBrain.info.ValidConnections[infoIndex].ToArray(),
+                connectionsFrom.ToArray()
             );
 
             bigBrain.UpdateStructure(temp, false, true, true, true); // Updating the big brain
         }
         // Checking if a menu object has been clicked on
-        else if (lastHitMenuObject != null)
+        else if (hitMenuObject != null && lastHitMenuObject != null)
         {
+            // Destroying the old left side other outline
+            if (lastOtherLeft != null && !lastOtherLeft.Equals(lastLeft))
+            {
+                Destroy(lastOtherLeft.GetComponent<Outline>());
+            }
+            
+            // Removing all the last created line sections
+            if (lastLineSections != null)
+            {
+                foreach (LineRenderer j in lastLineSections)
+                {
+                    Destroy(j.gameObject);
+                }   
+            }
+            
+            lastLineSections = null;
+            
             // Hiding the last connection's structure's outline
             if (lastOther != null)
             {
                 Destroy(lastOther.GetComponent<Outline>());
+                
+                // Turning the last selected object's LineRenderers back on
+                SetLineRendererVisibility(lastOther, true);
+                
                 yield return new WaitForSeconds(bufferSeconds);
                 bigBrain.UpdateStructure(lastOther, false, false, false, false);
             }
@@ -446,19 +543,6 @@ public class StructureSelection : MonoBehaviour
             
             GameObject temp = GetCorrespondingGameObject(selectedObject);
             int selectedIndex = miniBrain.info.IndexOf(temp);
-            
-            // Removing all the last created line sections
-            if (lastLineSections != null)
-            {
-                foreach (LineRenderer j in lastLineSections)
-                {
-                    Destroy(j.gameObject);
-                }   
-            }
-            
-            lastLineSections = null;
-                
-            structureInformation.connectionDescription.SetActive(true); // Showing the connection description
 
             // Getting the connected structure
             GameObject other = miniBrain.info.Find(
@@ -471,49 +555,26 @@ public class StructureSelection : MonoBehaviour
 
             bigBrain.UpdateStructure(other, false, false, true, true);
 
+            // The tag of the ancestor 'connected' UI GameObject (either "To" or "From")
+            string parentTag = lastHitMenuObject.transform.parent.parent.parent.tag;
+
             int otherIndex = miniBrain.info.ValidConnections[selectedIndex].IndexOf(other);
+            
+            List<Color> colours = new List<Color>();
 
             if (miniBrain.info.Subsystems != null)
             {
-                List<Color> colours = new List<Color>();
-                
                 // getting the shared colours between the selected structure and the connected structure
                 foreach (SubsystemInfo i in miniBrain.info.FindSharedSubsystems(temp, other))
                 {
                     colours.Add(i.Colour);
                 }
-                
-                if (miniBrain.replaceWithNodes)
-                {
-                    otherIndex++;
-                }
-
-                // Making the target's line stand out
-                lastLineSections = SetLineRendererMaterial(
-                    temp,
-                    colours.ToArray(),
-                    otherIndex
-                );
-                
-                // Adding an outline to the connection's structure
-                Outline outline = other.AddComponent<Outline>();
-                outline.OutlineMode = Outline.Mode.OutlineVisible;
-                outline.OutlineWidth *= 2f;
-
-                if (colours.Count == 1)
-                {
-                    outline.OutlineColor = colours[0];
-                }
-                else
-                {
-                    outline.OutlineColor = selectedMaterial.color;
-                }
-                
-                bigBrain.UpdateStructure(other, false, true, true, true);
             }
-            // If there are no Subsystem's it just highlights it with the default selection colour
+            // If there are no Subsystems it just highlights it with the default selection colour
             else
             {
+                colours.Add(selectedMaterial.color);
+                
                 ShowOverlappingLineRenderers(temp);
                 
                 SetLineRendererMaterial(
@@ -522,23 +583,93 @@ public class StructureSelection : MonoBehaviour
                     otherIndex
                 ); 
             }
+            
+            // Changing the selection targets if the connected structure to be added is connected the other way around
+            if (parentTag.Equals("From"))
+            {
+                // Making sure to update the appropriate structures
+                HideOverlappingLineRenderers(temp, other);
+                bigBrain.UpdateStructure(temp, false, true, true, true);
+                
+                otherIndex = miniBrain.info.ValidConnections[miniBrain.info.IndexOf(other)].IndexOf(temp);
+                temp = other;
+            }
+            
+            // Adding an outline to the connection's structure
+            Outline outline = other.AddComponent<Outline>();
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
+            outline.OutlineWidth *= 2f;
+
+            if (colours.Count == 1)
+            {
+                outline.OutlineColor = colours[0];
+            }
+            else
+            {
+                outline.OutlineColor = selectedMaterial.color;
+            }
+            
+            // Creating a left side other outline to mirror the right
+            if (miniBrain.ignoreLeft)
+            {
+                Outline leftOtherOutline = miniBrain.info.LeftStructures[miniBrain.info.IndexOf(other)].AddComponent<Outline>();
+                leftOtherOutline.OutlineMode = Outline.Mode.OutlineVisible;
+                leftOtherOutline.OutlineColor = outline.OutlineColor;
+                leftOtherOutline.OutlineWidth = outline.OutlineWidth;
+        
+                lastOtherLeft = leftOtherOutline.gameObject;   
+            }
+
+            // Skipping over the node child if the structures are being replaced with nodes
+            if (miniBrain.replaceWithNodes)
+            {
+                otherIndex++;
+            }
+            
+            // Making the target's line stand out
+            lastLineSections = SetLineRendererMaterial(
+                temp,
+                colours.ToArray(),
+                otherIndex
+            );
+
+            bigBrain.UpdateStructure(other, false, true, true, true);
 
             yield return new WaitForSeconds(bufferSeconds);
             bigBrain.UpdateStructure(temp, false, true, true, true);
 
             // Making sure that the connection description exists
-            if (miniBrain.info.SubsystemConnectionDescriptions != null
+            if (miniBrain.info.Subsystems != null
                 && selectedIndex < miniBrain.info.SubsystemConnectionDescriptions.Length)
-                // TODO: make sure that the connection description does exist
             {
+                structureInformation.connectionDescription.SetActive(true); // Showing the connection description
+
                 // Setting the text of the connection description
-                structureInformation.SetConnectionDescription(
-                    selectedIndex,
-                    miniBrain.info.IndexOf(other)
-                );
+                if (parentTag.Equals("To"))
+                {
+                    structureInformation.SetConnectionDescription(
+                        selectedIndex,
+                        miniBrain.info.IndexOf(other)
+                    );
+                }
+                else if (parentTag.Equals("From"))
+                {
+                    structureInformation.SetConnectionDescription(
+                        miniBrain.info.IndexOf(other),
+                        selectedIndex
+                    );
+                }
             }
 
-            lastOther = other;
+            // Carrying over the last highlighted other object so it can be modified when something changes later
+            if (parentTag.Equals("To"))
+            {
+                lastOther = other;
+            }
+            else if (parentTag.Equals("From"))
+            {
+                lastOther = temp;
+            }
         }
     }
 }

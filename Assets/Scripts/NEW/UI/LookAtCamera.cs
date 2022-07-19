@@ -1,6 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// MonoBehaviour to constantly point towards the main camera (and scale with distance)
+/// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class LookAtCamera : MonoBehaviour
 {
     Transform cameraTransform; // The Transform component of the headset

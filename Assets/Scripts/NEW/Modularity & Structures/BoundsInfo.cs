@@ -1,8 +1,11 @@
 using UnityEngine;
 
 /// <summary>
-/// Class used to easily get exact position and size information from a mesh
+/// Custom class used to easily get exact position and size information from a mesh
 /// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class BoundsInfo
 {
     /// <summary>

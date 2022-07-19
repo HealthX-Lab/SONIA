@@ -2,6 +2,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// MonoBehaviour to manage the updating of the structure information UI
+/// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class StructureInformation : MonoBehaviour
 {
     [SerializeField, Tooltip("Whether the information is attached to a moving object")]
@@ -13,8 +19,14 @@ public class StructureInformation : MonoBehaviour
     CompletionController completion; // The script to manage the completion amounts and displaying
     GameObject descriptionSection, connectionsSection; // The structure's description and connected structure parts in the UI
     bool hasSetNewUIPosition; // Whether or not the UI has been set after the completion stage has been changed
+    // The Transforms of the verticalLayoutGroups holding the structures
+    // that the selected structure is connected to and from, respectively
+    Transform connectedToLayout, connectedFromLayout;
     
-    void Start()
+    /// <summary>
+    /// External, manually-called Start method
+    /// </summary>
+    public void InformationStart()
     {
         cam = Camera.main.transform;
         
@@ -29,22 +41,27 @@ public class StructureInformation : MonoBehaviour
             canvas.transform.localPosition = Vector3.zero;
             canvas.transform.localEulerAngles = Vector3.up * 180;
         }
-
-        TMP_Text[] texts = canvas.GetComponentsInChildren<TMP_Text>();
-
+        
+        // Getting the main sections of the information UI
+        descriptionSection = canvas.transform.GetChild(1).gameObject;
+        connectionsSection = canvas.transform.GetChild(2).gameObject;
+        
+        // Getting the layout group sections
+        connectedToLayout = connectionsSection.transform.GetChild(0)
+            .GetComponentInChildren<VerticalLayoutGroup>().transform;
+        connectedFromLayout = connectionsSection.transform.GetChild(1)
+            .GetComponentInChildren<VerticalLayoutGroup>().transform;
+        
         // Hiding the connection description at the start
-        connectionDescription = texts[3].gameObject;
+        connectionDescription = connectionsSection.transform.GetChild(2).gameObject;
         connectionDescription.SetActive(false);
 
-        descriptionSection = texts[1].gameObject;
-        connectionsSection = texts[2].transform.parent.gameObject;
-        
         completion = FindObjectOfType<CompletionController>();
 
         // Hiding the connected structures UI at first if the completion is being done in stages
         if (completion.structureSelectionFirst)
         {
-            connectionsSection.SetActive(false);   
+            connectionsSection.SetActive(false);
         }
 
         miniBrain = FindObjectOfType<MiniBrain>();
@@ -68,6 +85,11 @@ public class StructureInformation : MonoBehaviour
                 canvasTransform.localRotation.eulerAngles.z
             ));   
         }
+        
+        // Making the 'connected from' UI responsive to the length of the 'connected to' UI
+        Vector3 tempPos = connectedToLayout.parent.position;
+        connectedFromLayout.parent.position =
+            tempPos + (Vector3.down * (0.15f + (0.05f * connectedToLayout.childCount)));
     }
 
     /// <summary>
@@ -75,9 +97,15 @@ public class StructureInformation : MonoBehaviour
     /// </summary>
     /// <param name="selected">The selected structure</param>
     /// <param name="description">The description of the selected structure</param>
-    /// <param name="connections">The structures to which the selected structure is connected</param>
+    /// <param name="connectionsTo">The structures to which the selected structure is connected</param>
+    /// <param name="connectionsFrom">The structures from which the selected structure is connected</param>
     /// <param name="loop">Whether or not to call the function a second time after calling it (true by default)</param>
-    public void SetUI(GameObject selected, string description, GameObject[] connections, bool loop = true)
+    public void SetUI(
+        GameObject selected,
+        string description,
+        GameObject[] connectionsTo,
+        GameObject[] connectionsFrom,
+        bool loop = true)
     {
         if ((completion.structureSelectionFirst && completion.hasFinishedStructureSelection) || !completion.structureSelectionFirst)
         {
@@ -104,21 +132,25 @@ public class StructureInformation : MonoBehaviour
                 }
             }
 
-            Transform layout = canvas.GetComponentInChildren<VerticalLayoutGroup>().transform;
-        
-            // Removing the old connection descriptions
-            for (int i = 0; i < layout.childCount; i++)
+            // Removing the old 'connection to' options
+            for (int i = 0; i < connectedToLayout.childCount; i++)
             {
-                Destroy(layout.GetChild(i).gameObject);
+                Destroy(connectedToLayout.GetChild(i).gameObject);
+            }
+
+            // Removing the old 'connection from' options
+            for (int j = 0; j < connectedFromLayout.childCount; j++)
+            {
+                Destroy(connectedFromLayout.GetChild(j).gameObject);
             }
             
             GameObject connection = Resources.Load<GameObject>("Connection");
             
-            // Adding the new connection descriptions
-            foreach (GameObject j in connections)
+            // Adding the new 'connection to' names
+            foreach (GameObject k in connectionsTo)
             {
-                GameObject tempConnection = Instantiate(connection, layout);
-                tempConnection.GetComponentInChildren<TMP_Text>().text = j.name;
+                GameObject tempConnection = Instantiate(connection, connectedToLayout);
+                tempConnection.GetComponentInChildren<TMP_Text>().text = k.name;
 
                 // Adding colour-coded Subsystem pips for each connected structure
                 if (miniBrain.info.Subsystems != null)
@@ -128,15 +160,34 @@ public class StructureInformation : MonoBehaviour
                         tempConnection.transform
                     );
                 
-                    tempPips.GetComponent<ColourPips>().AddPips(selected, j, Vector3.right * -0.35f);
+                    tempPips.GetComponent<ColourPips>().AddPips(selected, k, Vector3.right * -0.35f);
+                    tempPips.GetComponent<HorizontalLayoutGroup>().reverseArrangement = true;
+                }
+            }
+            
+            // Adding the new' connection from' names
+            foreach (GameObject l in connectionsFrom)
+            {
+                GameObject tempConnection = Instantiate(connection, connectedFromLayout);
+                tempConnection.GetComponentInChildren<TMP_Text>().text = l.name;
+
+                // Adding colour-coded Subsystem pips for each connected structure
+                if (miniBrain.info.Subsystems != null)
+                {
+                    GameObject tempPips = Instantiate(
+                        Resources.Load<GameObject>("ColourPips"),
+                        tempConnection.transform
+                    );
+                
+                    tempPips.GetComponent<ColourPips>().AddPips(selected, l, Vector3.right * -0.35f);
                     tempPips.GetComponent<HorizontalLayoutGroup>().reverseArrangement = true;
                 }
             }
         }
 
-        canvas.SetActive(true);
-        
         TMP_Text[] text = canvas.GetComponentsInChildren<TMP_Text>();
+
+        canvas.SetActive(true);
 
         text[0].text = selected.name;
 
@@ -167,7 +218,7 @@ public class StructureInformation : MonoBehaviour
         // Calling the method again if it's set to loop
         if (completion.hasFinishedStructureSelection && loop)
         {
-            SetUI(selected, description, connections, false);
+            SetUI(selected, description, connectionsTo, connectionsFrom, false);
         }
     }
 

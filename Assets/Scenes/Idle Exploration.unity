@@ -123,43 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &87502236
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &127501414
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +173,7 @@ MonoBehaviour:
   subsystemsInfoPath: 
   subsystemsConnectivityPath: 
   subsystemsConnectionDescriptionsPath: 
+  structureSelectionFirst: 0
   material: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
   leftMaterial: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
   originOutlineColour: {r: 1, g: 1, b: 1, a: 1}
@@ -234,6 +198,43 @@ MonoBehaviour:
   bigExtraStructures: 1
   offset: {fileID: 0}
   extraOffset: {fileID: 0}
+--- !u!21 &269564789
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &605138301
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,11 +387,11 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 87502236}
+      objectReference: {fileID: 269564789}
     - target: {fileID: 3380982, guid: 48e736fba915e1648bd546ab491202ad, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 735874686}
+      objectReference: {fileID: 906535090}
     - target: {fileID: 968504147326904493, guid: 48e736fba915e1648bd546ab491202ad,
         type: 3}
       propertyPath: m_Enabled
@@ -437,8 +438,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730497766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 1.2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 1.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -460,7 +461,7 @@ MonoBehaviour:
   isMoving: 0
   canvas: {fileID: 0}
   connectionDescription: {fileID: 0}
---- !u!43 &735874686
+--- !u!43 &906535090
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1035,7 +1036,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMaterial: {fileID: 2100000, guid: 39e8bebd5fb59ca49ae871f30e2ce068, type: 2}
   selectedMaterial: {fileID: 2100000, guid: c00b963506d70da4f9b2f9804bd804d5, type: 2}
-  length: 0.2
+  isLightsaber: 1
+  lightsaberLength: 0.4
+  laserPointerLength: 0.2
   action:
     actionPath: /actions/default/in/InteractUI
     needsReinit: 0
@@ -1089,6 +1092,7 @@ MonoBehaviour:
   subsystemsInfoPath: subsystems_info
   subsystemsConnectivityPath: subsystems_connectivity
   subsystemsConnectionDescriptionsPath: subsystems_connection_descriptions
+  structureSelectionFirst: 1
   material: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
   leftMaterial: {fileID: 2100000, guid: fd264bd8685042340988e3737c361d89, type: 2}
   originOutlineColour: {r: 1, g: 1, b: 1, a: 1}

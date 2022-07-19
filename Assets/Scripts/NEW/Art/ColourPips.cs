@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// MonoBehaviour to generate colour-coded subsystem belonging markers in the UI
+/// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class ColourPips : MonoBehaviour
 {
     [SerializeField, Tooltip("The colour pip spawnable object")]

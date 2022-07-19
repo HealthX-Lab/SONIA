@@ -4,6 +4,12 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// MonoBehaviour to mirror changes from the mini brain onto the big brain
+/// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class BigBrain : MonoBehaviour
 {
     [SerializeField, Tooltip("The material to be applied to the big structures")]

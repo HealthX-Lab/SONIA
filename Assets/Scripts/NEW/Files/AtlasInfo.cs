@@ -4,8 +4,11 @@ using UnityEditor;
 using UnityEngine;
 
 /// <summary>
-/// Class to generate and store info about the loaded atlas
+/// Custom class to generate and store info about the loaded atlas
 /// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class AtlasInfo
 {
     /// <summary>

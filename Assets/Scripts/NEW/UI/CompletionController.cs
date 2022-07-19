@@ -5,12 +5,16 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// MonoBehaviour to manage the calculation and updating of the completion UI
+/// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class CompletionController : MonoBehaviour
 {
     [SerializeField, Tooltip("The GridLayoutGroup GameObjects where the completion info will be listed")]
     Transform structureLayout, subsystemLayout;
-    [Tooltip("Whether to force the structures to have to all be viewed first, before the subsystems")]
-    public bool structureSelectionFirst = true;
 
     MiniBrain miniBrain; // The mini brain script
     public StructureCompletion[] structureCompletion; // The % amount (0-1) that each structure has been completed to
@@ -21,9 +25,11 @@ public class CompletionController : MonoBehaviour
     int numberOfStructuresViewed, numberOfConnectionsViewed, numberOfConnections;
     [HideInInspector] public bool hasFinishedStructureSelection; // Whether or not all the structures have been viewed
     bool hasHiddenStructureLayout; // Whether or not the structure information UI has been hidden yet
+    // Whether to force the structures to have to all be viewed first, before the subsystems
+    [HideInInspector] public bool structureSelectionFirst;
 
     /// <summary>
-    /// A small struct with information about the completion amounts for a structure
+    /// Struct with information about the completion amounts for a structure
     /// </summary>
     public struct StructureCompletion
     {
@@ -81,10 +87,19 @@ public class CompletionController : MonoBehaviour
         }
     }
 
-    void Start()
+    /// <summary>
+    /// External, manually-called Start method
+    /// </summary>
+    /// <param name="structureSelectionFirst">
+    /// Whether to force the structures to have to all be viewed first,
+    /// before the subsystems
+    /// </param>
+    public void CompletionStart(bool structureSelectionFirst)
     {
         structureCompletionInfoObject = Resources.Load<GameObject>("Structure");
         subsystemCompletionInfoObject = Resources.Load<GameObject>("Subsystem");
+        
+        this.structureSelectionFirst = structureSelectionFirst;
 
         // Moving the structure completion UI up if the completion is in stages
         if (structureSelectionFirst)

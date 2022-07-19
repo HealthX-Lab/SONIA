@@ -2,16 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/BrainSkybox.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OLD/Art/BrainSkybox.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (White).mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (White).mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BrainSkybox.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BrainSkybox.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/ColourBars.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/ColourBars.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/ColourPips.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/ColourPips.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/AtlasInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/AtlasInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/SubsystemInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/SubsystemInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/BoundsInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/BoundsInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/CompletionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/CompletionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/LookAtCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/LookAtCamera.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/StructureInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/StructureInformation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +123,8 @@
       <workItem from="1656595233525" duration="18669000" />
       <workItem from="1657026582669" duration="19999000" />
       <workItem from="1657200508709" duration="17483000" />
-      <workItem from="1657630998002" duration="19657000" />
+      <workItem from="1657630998002" duration="19721000" />
+      <workItem from="1657804457457" duration="21391000" />
     </task>
     <servers />
   </component>

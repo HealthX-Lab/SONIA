@@ -2,6 +2,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// MonoBehaviour to generate colour-coded completion percentage bars in the UI
+/// </summary>
+/// <organization>Health-X Lab</organization>
+/// <project>Insideout (May-August 2022)</project>
+/// <author>Owen Hellum</author>
 public class ColourBars : MonoBehaviour
 {
     [SerializeField, Tooltip("The colours of the bars to be instantiated")]
@@ -46,7 +52,7 @@ public class ColourBars : MonoBehaviour
                 tempCompletion = 1;
             }
             
-            // Setting the width of teh new section
+            // Setting the width of the new section
             RectTransform rect = temp.GetComponent<RectTransform>();
             rect.sizeDelta = new Vector2(tempCompletion * (10f / colours.Length), rect.rect.height);
         }
@@ -100,7 +106,7 @@ public class ColourBars : MonoBehaviour
     }
     
     /// <summary>
-    /// Method to set all the required variables for generation, then generate teh colour bars
+    /// Method to set all the required variables for generation, then generate the colour bars
     /// </summary>
     /// <param name="col">The colours of the bars to be instantiated</param>
     /// <param name="comp">The percentages of each colour in the bar</param>

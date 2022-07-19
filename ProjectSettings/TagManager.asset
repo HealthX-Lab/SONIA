@@ -11,6 +11,8 @@ TagManager:
   - Right
   - Tutorial Option
   - Return Option
+  - To
+  - From
   layers:
   - Default
   - TransparentFX
