@@ -15,6 +15,8 @@ public class CompletionController : MonoBehaviour
 {
     [SerializeField, Tooltip("The GridLayoutGroup GameObjects where the completion info will be listed")]
     Transform structureLayout, subsystemLayout;
+    [SerializeField]
+    int[] specificStructureOrder;
 
     MiniBrain miniBrain; // The mini brain script
     public StructureCompletion[] structureCompletion; // The % amount (0-1) that each structure has been completed to
@@ -130,7 +132,7 @@ public class CompletionController : MonoBehaviour
             // Making sure to hide the structure UI after it has been completed
             if (structureSelectionFirst && hasFinishedStructureSelection)
             {
-                structureLayout.parent.gameObject.SetActive(false);
+                structureLayout.parent.localPosition += Vector3.left * 1.5f;
                 hasHiddenStructureLayout = true;
             }
         }
@@ -210,10 +212,10 @@ public class CompletionController : MonoBehaviour
         for (int i = 0; i < miniBrain.info.Structures.Length; i++)
         {
             // Only showing those which have some completion started
-            if (structureCompletion[i].Completion(structureSelectionFirst) > 0)
+            if (structureCompletion[specificStructureOrder[i]].Completion(structureSelectionFirst) > 0)
             {
                 GameObject temp = Instantiate(structureCompletionInfoObject, structureLayout);
-                temp.name = miniBrain.info.Structures[i].name;
+                temp.name = miniBrain.info.Structures[specificStructureOrder[i]].name;
 
                 TMP_Text tempText = temp.GetComponentInChildren<TMP_Text>();
                 string txt = temp.name;
@@ -222,13 +224,13 @@ public class CompletionController : MonoBehaviour
                 if (structureSelectionFirst)
                 {
                     tempText.fontSize = 0.1f;
-                    tempText.transform.localPosition = Vector3.down * 0.1f;
+                    tempText.transform.localPosition = Vector3.down * 0.025f;
                 }
                 // Otherwise, adding a % to the name
                 else
                 {
                     txt += ": " + Mathf.RoundToInt(
-                        structureCompletion[i].Completion(structureSelectionFirst) * 100
+                        structureCompletion[specificStructureOrder[i]].Completion(structureSelectionFirst) * 100
                     ) + "%";
                 }
 
@@ -252,7 +254,7 @@ public class CompletionController : MonoBehaviour
             hasFinishedStructureSelection = true;
         }
         
-        //Invoke(nameof(WaitSetConnections), 0.1f); // TODO: this needs to be displayed better
+        Invoke(nameof(WaitSetConnections), 0.1f); // TODO: this needs to be displayed better
 
         // Only checking and changing visibility if the stage hasn't changed yet
         if (!hasHiddenStructureLayout)
@@ -288,22 +290,96 @@ public class CompletionController : MonoBehaviour
                     // Adding a new LineRenderer object
                     Transform newLine = new GameObject("Connection to " + structureLayout.GetChild(j).name).transform;
                     newLine.SetParent(structureLayout.GetChild(i));
-                    newLine.transform.localPosition = new BoundsInfo(structureLayout.GetChild(i).gameObject).GlobalCentre;
+                    newLine.localPosition = Vector3.forward * 0.04f;
+                    newLine.localRotation = Quaternion.identity;
+                    newLine.localScale = Vector3.one;
                     
                     // Adding and setting the LineRenderer's attributes
                     LineRenderer renderer = newLine.AddComponent<LineRenderer>();
                     renderer.material = miniBrain.connectionMaterial;
-                    renderer.widthMultiplier = 0.005f;
-                    
+                    renderer.widthMultiplier = 0.01f;
+                    renderer.useWorldSpace = false;
+
+                    /*
+                    Vector3 pos1 = structureLayout.GetChild(i).position;
+                    Vector3 pos2 = structureLayout.GetChild(j).position;
+                    BoundsInfo bounds1 = new BoundsInfo(structureLayout.GetChild(i).gameObject, true);
+                    BoundsInfo bounds2 = new BoundsInfo(structureLayout.GetChild(j).gameObject, true);
+                    Vector3 extremityPos1 = Vector3.zero;
+                    Vector3 extremityPos2 = Vector3.zero;
+
+                    if (pos1.x < pos2.x)
+                    {
+                        if (pos2.y > pos1.y)
+                        {
+                            // TOP RIGHT to BOTTOM LEFT
+                            extremityPos1 = bounds1.Top + bounds1.Right;
+                            extremityPos2 = bounds2.Bottom + bounds2.Left;
+                        }
+                        else if (pos2.y < pos1.y)
+                        {
+                            // BOTTOM RIGHT to TOP LEFT
+                            extremityPos1 = bounds1.Bottom + bounds1.Right;
+                            extremityPos2 = bounds2.Top + bounds2.Left;
+                        }
+                        else
+                        {
+                            // RIGHT to LEFT
+                            extremityPos1 = bounds1.Right;
+                            extremityPos2 = bounds2.Left;
+                        }
+                    }
+                    else if (pos1.x > pos2.x)
+                    {
+                        if (pos2.y > pos1.y)
+                        {
+                            // TOP LEFT to BOTTOM RIGHT
+                            extremityPos1 = bounds1.Top + bounds1.Left;
+                            extremityPos2 = bounds2.Bottom + bounds2.Right;
+                        }
+                        else if (pos2.y < pos1.y)
+                        {
+                            // BOTTOM LEFT to TOP RIGHT
+                            extremityPos1 = bounds1.Bottom + bounds1.Left;
+                            extremityPos2 = bounds2.Top + bounds2.Right;
+                        }
+                        else
+                        {
+                            // LEFT to RIGHT
+                            extremityPos1 = bounds1.Left;
+                            extremityPos2 = bounds2.Right;
+                        }
+                    }
+                    else
+                    {
+                        if (pos2.y > pos1.y)
+                        {
+                            // TOP to BOTTOM
+                            extremityPos1 = bounds1.Top;
+                            extremityPos2 = bounds2.Bottom;
+                        }
+                        else if (pos2.y < pos1.y)
+                        {
+                            // BOTTOM to TOP
+                            extremityPos1 = bounds1.Bottom;
+                            extremityPos2 = bounds2.Top;
+                        }
+                    }
+                    */
+
                     renderer.SetPositions(
                         new [] {
-                            structureLayout.GetChild(i).position,
-                            structureLayout.GetChild(j).position
+                            /*
+                            structureLayout.GetChild(i).InverseTransformPoint(extremityPos1),
+                            structureLayout.GetChild(i).InverseTransformPoint(extremityPos2)
+                            */
+                            Vector3.zero,
+                            structureLayout.GetChild(i).InverseTransformPoint(structureLayout.GetChild(j).position)
                         }
                     );
 
                     // Setting the LineRenderer's colours to the shared colours
-                    StructureSelection.SetLineRendererMaterial(renderer, cols);
+                    StructureSelection.SetLineRendererMaterial(renderer, cols, false);
                 }
             }
         }

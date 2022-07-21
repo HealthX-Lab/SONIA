@@ -115,12 +115,7 @@ public class StructureInformation : MonoBehaviour
                 // Replacing the description with the connections if it's in phases
                 if (completion.structureSelectionFirst && completion.hasFinishedStructureSelection)
                 {
-                    descriptionSection.SetActive(false);
-                    connectionsSection.SetActive(true);
-                
-                    connectionsSection.transform.localPosition += Vector3.right * 1.35f;
-                
-                    hasSetNewUIPosition = true;
+                    Invoke(nameof(WaitSetUIPosition), 7);
                 }
                 // Otherwise just moving everything over
                 else if (!completion.structureSelectionFirst)
@@ -220,6 +215,21 @@ public class StructureInformation : MonoBehaviour
         {
             SetUI(selected, description, connectionsTo, connectionsFrom, false);
         }
+    }
+
+    /// <summary>
+    /// Method to be called with Invoke to make the UI switch to connection selection after a certain waiting period
+    /// </summary>
+    void WaitSetUIPosition()
+    {
+        descriptionSection.SetActive(false);
+        connectionsSection.SetActive(true);
+                
+        connectionsSection.transform.localPosition += Vector3.right * 1.35f;
+                
+        hasSetNewUIPosition = true;
+                    
+        FindObjectOfType<StructureSelection>().ToggleTutorial();
     }
 
     /// <summary>

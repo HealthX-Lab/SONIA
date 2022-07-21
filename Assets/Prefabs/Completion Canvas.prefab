@@ -171,7 +171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.31}
+  m_AnchoredPosition: {x: 0, y: 0.2}
   m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6336468008573452569
@@ -191,10 +191,10 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 0.5, y: 1}
+  m_CellSize: {x: 0.6, y: 1.1}
   m_Spacing: {x: 0.65, y: -0.65}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -272,7 +272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.15, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.5}
   m_SizeDelta: {x: 1, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3750794495411541271
@@ -578,8 +578,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structureLayout: {fileID: 6987743536571938514}
   subsystemLayout: {fileID: 2055327693549686500}
-  structureSelectionFirst: 1
+  specificStructureOrder: 020000000400000001000000000000000300000005000000
   hasFinishedStructureSelection: 0
+  structureSelectionFirst: 1
 --- !u!1 &5335562351178300126
 GameObject:
   m_ObjectHideFlags: 0

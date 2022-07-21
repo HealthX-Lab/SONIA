@@ -40,6 +40,9 @@ public class StructureSelection : MonoBehaviour
     MiniBrain miniBrain; // The mini brain script
     BigBrain bigBrain; // The big brain script
     StructureInformation structureInformation; // The structure information script in the left hand
+    TutorialLoader tutorial; // The tutorial script
+    
+    bool isInTutorial = true; // Whether or not to pause the selection, as the tutorial text is currently visible
     
     // Rider IDE told me to use this variable instead of using the string name directly, so here it is
     static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
@@ -64,6 +67,12 @@ public class StructureSelection : MonoBehaviour
         miniBrain = FindObjectOfType<MiniBrain>();
         bigBrain = FindObjectOfType<BigBrain>();
         structureInformation = FindObjectOfType<StructureInformation>();
+        tutorial = FindObjectOfType<TutorialLoader>();
+
+        if (tutorial == null)
+        {
+            isInTutorial = false;
+        }
         
         // Adding a listener for the triggering action
         action.AddOnStateDownListener(OnActionDown, SteamVR_Input_Sources.RightHand);
@@ -79,7 +88,10 @@ public class StructureSelection : MonoBehaviour
             ))
         {
             // Checking if a structure is being hit
-            if (hit.transform.IsChildOf(miniBrain.transform) && ((isLightsaber && hit.distance <= lightsaberLength) || !isLightsaber))
+            if (
+                !isInTutorial
+                && hit.transform.IsChildOf(miniBrain.transform)
+                && ((isLightsaber && hit.distance <= lightsaberLength) || !isLightsaber))
             {
                 if (!isLightsaber)
                 {
@@ -111,32 +123,38 @@ public class StructureSelection : MonoBehaviour
                 }
             }
             // Checking if a menu object is being hit
-            else if (hit.transform.IsChildOf(structureInformation.canvas.transform))
+            else if (
+                hit.transform.IsChildOf(structureInformation.canvas.transform)
+                || (tutorial != null && hit.transform.IsChildOf(tutorial.transform)))
             {
-                // Making the laser snap to that object
-                line.SetPosition(1, transform.InverseTransformPoint(hit.point));
-                hasReset = false;
-
-                // Disabling the old outline
-                if (lastHitMenuObject != null && !lastHitMenuObject.Equals(selectedMenuObject))
+                // Making sure to select only the appropriate UI options at the appropriate times
+                if ((isInTutorial && tutorial != null && hit.transform.IsChildOf(tutorial.transform)) || !isInTutorial)
                 {
-                    lastHitMenuObject.GetComponent<Outline>().enabled = false;
-                }
+                    // Making the laser snap to that object
+                    line.SetPosition(1, transform.InverseTransformPoint(hit.point));
+                    hasReset = false;
 
-                lastHitMenuObject = hit.transform.gameObject;
-                hitMenuObject = lastHitMenuObject;
+                    // Disabling the old outline
+                    if (lastHitMenuObject != null && !lastHitMenuObject.Equals(selectedMenuObject))
+                    {
+                        lastHitMenuObject.GetComponent<Outline>().enabled = false;
+                    }
+
+                    lastHitMenuObject = hit.transform.gameObject;
+                    hitMenuObject = lastHitMenuObject;
                 
-                // Adding a new / enabling the outline
-                if (!lastHitMenuObject.GetComponent<Outline>())
-                {
-                    Outline outline = lastHitMenuObject.AddComponent<Outline>();
-                    outline.OutlineColor = selectedMaterial.color;
-                    outline.OutlineWidth = 8;
-                    outline.OutlineMode = Outline.Mode.OutlineVisible;
-                }
-                else
-                {
-                    lastHitMenuObject.GetComponent<Outline>().enabled = true;
+                    // Adding a new / enabling the outline
+                    if (!lastHitMenuObject.GetComponent<Outline>())
+                    {
+                        Outline outline = lastHitMenuObject.AddComponent<Outline>();
+                        outline.OutlineColor = selectedMaterial.color;
+                        outline.OutlineWidth = 8;
+                        outline.OutlineMode = Outline.Mode.OutlineVisible;
+                    }
+                    else
+                    {
+                        lastHitMenuObject.GetComponent<Outline>().enabled = true;
+                    }   
                 }
             }
             else
@@ -265,14 +283,7 @@ public class StructureSelection : MonoBehaviour
         LineRenderer temp = obj.GetComponentsInChildren<LineRenderer>()[index];
         temp.material = mat;
 
-        if (mat.Equals(defaultMaterial))
-        {
-            temp.widthMultiplier = 0.001f;
-        }
-        else
-        {
-            temp.widthMultiplier = 0.005f;
-        }
+        temp.widthMultiplier = mat.Equals(defaultMaterial) ? 0.001f : 0.005f;
     }
 
     /// <summary>
@@ -281,9 +292,9 @@ public class StructureSelection : MonoBehaviour
     /// <param name="obj">The GameObject to be searched within</param>
     /// <param name="cols">the colours to split the LineRenderer by</param>
     /// <param name="index">The index of the LineRenderer to be set</param>
-    LineRenderer[] SetLineRendererMaterial(GameObject obj, Color[] cols, int index)
+    LineRenderer[] SetLineRendererMaterial(GameObject obj, Color[] cols, int index, bool addArrow)
     {
-        return SetLineRendererMaterial(obj.transform.GetChild(index).GetComponent<LineRenderer>(), cols);
+        return SetLineRendererMaterial(obj.transform.GetChild(index).GetComponent<LineRenderer>(), cols, addArrow);
     }
 
     /// <summary>
@@ -291,7 +302,7 @@ public class StructureSelection : MonoBehaviour
     /// </summary>
     /// <param name="renderer">The LineRenderer in question to be split</param>
     /// <param name="cols">the colours to split the LineRenderer by</param>
-    public static LineRenderer[] SetLineRendererMaterial(LineRenderer renderer, Color[] cols)
+    public static LineRenderer[] SetLineRendererMaterial(LineRenderer renderer, Color[] cols, bool addArrow)
     {
         LineRenderer[] lineSections = new LineRenderer[cols.Length];
         
@@ -307,6 +318,7 @@ public class StructureSelection : MonoBehaviour
             GameObject newLineObject = new GameObject("Line Section");
             newLineObject.transform.SetParent(renderer.transform);
             newLineObject.transform.localScale = Vector3.one;
+            newLineObject.transform.localRotation = Quaternion.identity;
             newLineObject.transform.localPosition = start + (i * dir);
             
             LineRenderer newLine = newLineObject.AddComponent<LineRenderer>(); // Adding a LineRenderer to it
@@ -314,7 +326,7 @@ public class StructureSelection : MonoBehaviour
             // Setting the section's Subsystem colour
             newLine.material = renderer.material;
             newLine.material.SetColor(EmissionColor, cols[i]);
-            newLine.widthMultiplier = 0.005f;
+            newLine.widthMultiplier = renderer.widthMultiplier;
             newLine.useWorldSpace = false;
             
             // Setting the section's positions (it's less complex than it looks)
@@ -327,30 +339,33 @@ public class StructureSelection : MonoBehaviour
 
             lineSections[i] = newLine;
 
-            // Adding an arrow object for each line segment
-            GameObject arrow = new GameObject("Arrow");
-            arrow.transform.SetParent(newLineObject.transform);
-            arrow.transform.localScale = Vector3.one;
-            arrow.transform.localPosition = dir / 2f;
-            arrow.transform.LookAt(arrow.transform.position + dir);
+            if (addArrow)
+            {
+                // Adding an arrow object for each line segment
+                GameObject arrow = new GameObject("Arrow");
+                arrow.transform.SetParent(newLineObject.transform);
+                arrow.transform.localScale = Vector3.one;
+                arrow.transform.localPosition = dir / 2f;
+                arrow.transform.LookAt(arrow.transform.position + dir);
 
-            // Adding an arrow LineRenderer to the above object
-            LineRenderer arrowLine = arrow.AddComponent<LineRenderer>();
-            arrowLine.material = renderer.material;
-            arrowLine.material.SetColor(EmissionColor, cols[i]);
-            arrowLine.widthMultiplier = 0.005f;
-            arrowLine.useWorldSpace = false;
+                // Adding an arrow LineRenderer to the above object
+                LineRenderer arrowLine = arrow.AddComponent<LineRenderer>();
+                arrowLine.material = renderer.material;
+                arrowLine.material.SetColor(EmissionColor, cols[i]);
+                arrowLine.widthMultiplier = 0.005f;
+                arrowLine.useWorldSpace = false;
 
-            float arrowSize = 3; // Scale factor for the arrow
+                float arrowSize = 3; // Scale factor for the arrow
 
-            arrowLine.positionCount = 3;
-            arrowLine.SetPositions(
-                new [] {
-                    arrowSize * new Vector3(-1, 0, -1),
-                    Vector3.zero,
-                    arrowSize * new Vector3(1, 0, -1)
-                }
-            );
+                arrowLine.positionCount = 3;
+                arrowLine.SetPositions(
+                    new [] {
+                        arrowSize * new Vector3(-1, 0, -1),
+                        Vector3.zero,
+                        arrowSize * new Vector3(1, 0, -1)
+                    }
+                );   
+            }
         }
 
         return lineSections; // Returning the newly added sections (for future destruction)
@@ -369,6 +384,38 @@ public class StructureSelection : MonoBehaviour
         }
         
         return selected;
+    }
+
+    /// <summary>
+    /// Method to be called to switch in and out of tutorial mode
+    /// </summary>
+    public void ToggleTutorial()
+    {
+        // Making sure that the tutorial canvas exists
+        if (tutorial != null)
+        {
+            if (isInTutorial)
+            {
+                // If there are remaining tutorial popups in this 'chain' of popups
+                if (tutorial.current is 0 or 2 or 5)
+                {
+                    tutorial.Reset();
+                }
+                // Otherwise, the tutorial is toggled off
+                else
+                {
+                    tutorial.gameObject.SetActive(false);
+                    isInTutorial = false;   
+                }
+            }
+            // The tutorial is toggled on
+            else
+            {
+                tutorial.Reset();
+                tutorial.gameObject.SetActive(true);
+                isInTutorial = true;
+            }   
+        }
     }
 
     /// <summary>
@@ -391,6 +438,12 @@ public class StructureSelection : MonoBehaviour
         // Checking if a structure has been clicked on
         if (hitObject != null && !hitObject.Equals(selectedObject))
         {
+            // If the first structure to be selected is selected, toggle on
+            if (tutorial != null && tutorial.current == 1)
+            {
+                ToggleTutorial();
+            }
+            
             // Destroying the old left side outline
             if (lastLeft != null)
             {
@@ -502,173 +555,181 @@ public class StructureSelection : MonoBehaviour
         // Checking if a menu object has been clicked on
         else if (hitMenuObject != null && lastHitMenuObject != null)
         {
-            // Destroying the old left side other outline
-            if (lastOtherLeft != null && !lastOtherLeft.Equals(lastLeft))
+            // If the tutorial mode is currently on, toggle off
+            if (isInTutorial)
             {
-                Destroy(lastOtherLeft.GetComponent<Outline>());
+                ToggleTutorial();
             }
-            
-            // Removing all the last created line sections
-            if (lastLineSections != null)
+            else
             {
-                foreach (LineRenderer j in lastLineSections)
+                // If the first connection to be selected is selected, toggle on
+                if (tutorial != null && tutorial.current == 4)
                 {
-                    Destroy(j.gameObject);
-                }   
-            }
-            
-            lastLineSections = null;
-            
-            // Hiding the last connection's structure's outline
-            if (lastOther != null)
-            {
-                Destroy(lastOther.GetComponent<Outline>());
-                
-                // Turning the last selected object's LineRenderers back on
-                SetLineRendererVisibility(lastOther, true);
-                
-                yield return new WaitForSeconds(bufferSeconds);
-                bigBrain.UpdateStructure(lastOther, false, false, false, false);
-            }
-            
-            // Disabling the old outline
-            if (selectedMenuObject != null)
-            {
-                selectedMenuObject.GetComponent<Outline>().enabled = false;
-            }
-            
-            // Confirming the menu selection
-            selectedMenuObject = lastHitMenuObject;
-            selectedMenuObject.GetComponent<Outline>().OutlineWidth = 16;
-            
-            GameObject temp = GetCorrespondingGameObject(selectedObject);
-            int selectedIndex = miniBrain.info.IndexOf(temp);
-
-            // Getting the connected structure
-            GameObject other = miniBrain.info.Find(
-                lastHitMenuObject.transform.parent.GetComponentInChildren<TMP_Text>().text
-            );
-
-            // Resetting the connection line visibility
-            SetLineRendererVisibility(temp, true);
-            HideOverlappingLineRenderers(other, temp);
-
-            bigBrain.UpdateStructure(other, false, false, true, true);
-
-            // The tag of the ancestor 'connected' UI GameObject (either "To" or "From")
-            string parentTag = lastHitMenuObject.transform.parent.parent.parent.tag;
-
-            int otherIndex = miniBrain.info.ValidConnections[selectedIndex].IndexOf(other);
-            
-            List<Color> colours = new List<Color>();
-
-            if (miniBrain.info.Subsystems != null)
-            {
-                // getting the shared colours between the selected structure and the connected structure
-                foreach (SubsystemInfo i in miniBrain.info.FindSharedSubsystems(temp, other))
-                {
-                    colours.Add(i.Colour);
+                    ToggleTutorial();
                 }
-            }
-            // If there are no Subsystems it just highlights it with the default selection colour
-            else
-            {
-                colours.Add(selectedMaterial.color);
                 
-                ShowOverlappingLineRenderers(temp);
+                // Destroying the old left side other outline
+                if (lastOtherLeft != null && !lastOtherLeft.Equals(lastLeft))
+                {
+                    Destroy(lastOtherLeft.GetComponent<Outline>());
+                }
                 
-                SetLineRendererMaterial(
+                // Removing all the last created line sections
+                if (lastLineSections != null)
+                {
+                    foreach (LineRenderer j in lastLineSections)
+                    {
+                        Destroy(j.gameObject);
+                    }   
+                }
+                
+                lastLineSections = null;
+                
+                // Hiding the last connection's structure's outline
+                if (lastOther != null)
+                {
+                    Destroy(lastOther.GetComponent<Outline>());
+                    
+                    // Turning the last selected object's LineRenderers back on
+                    SetLineRendererVisibility(lastOther, true);
+                    
+                    yield return new WaitForSeconds(bufferSeconds);
+                    bigBrain.UpdateStructure(lastOther, false, false, false, false);
+                }
+                
+                // Disabling the old outline
+                if (selectedMenuObject != null)
+                {
+                    selectedMenuObject.GetComponent<Outline>().enabled = false;
+                }
+                
+                // Confirming the menu selection
+                selectedMenuObject = lastHitMenuObject;
+                selectedMenuObject.GetComponent<Outline>().OutlineWidth = 16;
+                
+                GameObject temp = GetCorrespondingGameObject(selectedObject);
+                int selectedIndex = miniBrain.info.IndexOf(temp);
+
+                // Getting the connected structure
+                GameObject other = miniBrain.info.Find(
+                    lastHitMenuObject.transform.parent.GetComponentInChildren<TMP_Text>().text
+                );
+
+                // Resetting the connection line visibility
+                SetLineRendererVisibility(temp, true);
+                HideOverlappingLineRenderers(other, temp);
+
+                bigBrain.UpdateStructure(other, false, false, true, true);
+
+                // The tag of the ancestor 'connected' UI GameObject (either "To" or "From")
+                string parentTag = lastHitMenuObject.transform.parent.parent.parent.tag;
+
+                int otherIndex = miniBrain.info.ValidConnections[selectedIndex].IndexOf(other);
+                
+                List<Color> colours = new List<Color>();
+
+                if (miniBrain.info.Subsystems != null)
+                {
+                    // getting the shared colours between the selected structure and the connected structure
+                    foreach (SubsystemInfo i in miniBrain.info.FindSharedSubsystems(temp, other))
+                    {
+                        colours.Add(i.Colour);
+                    }
+                }
+                // If there are no Subsystems it just highlights it with the default selection colour
+                else
+                {
+                    colours.Add(selectedMaterial.color);
+                    
+                    ShowOverlappingLineRenderers(temp);
+                    
+                    SetLineRendererMaterial(
+                        temp,
+                        selectedMaterial,
+                        otherIndex
+                    ); 
+                }
+                
+                // Changing the selection targets if the connected structure to be added is connected the other way around
+                if (parentTag.Equals("From"))
+                {
+                    // Making sure to update the appropriate structures
+                    HideOverlappingLineRenderers(temp, other);
+                    bigBrain.UpdateStructure(temp, false, true, true, true);
+                    
+                    otherIndex = miniBrain.info.ValidConnections[miniBrain.info.IndexOf(other)].IndexOf(temp);
+                    temp = other;
+                }
+                
+                // Adding an outline to the connection's structure
+                Outline outline = other.AddComponent<Outline>();
+                outline.OutlineMode = Outline.Mode.OutlineVisible;
+                outline.OutlineWidth *= 2f;
+
+                outline.OutlineColor = (colours.Count == 1) ? colours[0] : selectedMaterial.color;
+                
+                // Creating a left side other outline to mirror the right
+                if (miniBrain.ignoreLeft)
+                {
+                    Outline leftOtherOutline = miniBrain.info.LeftStructures[miniBrain.info.IndexOf(other)].AddComponent<Outline>();
+                    leftOtherOutline.OutlineMode = Outline.Mode.OutlineVisible;
+                    leftOtherOutline.OutlineColor = outline.OutlineColor;
+                    leftOtherOutline.OutlineWidth = outline.OutlineWidth;
+            
+                    lastOtherLeft = leftOtherOutline.gameObject;   
+                }
+
+                // Skipping over the node child if the structures are being replaced with nodes
+                if (miniBrain.replaceWithNodes)
+                {
+                    otherIndex++;
+                }
+                
+                // Making the target's line stand out
+                lastLineSections = SetLineRendererMaterial(
                     temp,
-                    selectedMaterial,
-                    otherIndex
-                ); 
-            }
-            
-            // Changing the selection targets if the connected structure to be added is connected the other way around
-            if (parentTag.Equals("From"))
-            {
-                // Making sure to update the appropriate structures
-                HideOverlappingLineRenderers(temp, other);
+                    colours.ToArray(),
+                    otherIndex,
+                    true
+                );
+
+                bigBrain.UpdateStructure(other, false, true, true, true);
+
+                yield return new WaitForSeconds(bufferSeconds);
                 bigBrain.UpdateStructure(temp, false, true, true, true);
-                
-                otherIndex = miniBrain.info.ValidConnections[miniBrain.info.IndexOf(other)].IndexOf(temp);
-                temp = other;
-            }
-            
-            // Adding an outline to the connection's structure
-            Outline outline = other.AddComponent<Outline>();
-            outline.OutlineMode = Outline.Mode.OutlineVisible;
-            outline.OutlineWidth *= 2f;
 
-            if (colours.Count == 1)
-            {
-                outline.OutlineColor = colours[0];
-            }
-            else
-            {
-                outline.OutlineColor = selectedMaterial.color;
-            }
-            
-            // Creating a left side other outline to mirror the right
-            if (miniBrain.ignoreLeft)
-            {
-                Outline leftOtherOutline = miniBrain.info.LeftStructures[miniBrain.info.IndexOf(other)].AddComponent<Outline>();
-                leftOtherOutline.OutlineMode = Outline.Mode.OutlineVisible;
-                leftOtherOutline.OutlineColor = outline.OutlineColor;
-                leftOtherOutline.OutlineWidth = outline.OutlineWidth;
-        
-                lastOtherLeft = leftOtherOutline.gameObject;   
-            }
+                // Making sure that the connection description exists
+                if (miniBrain.info.Subsystems != null
+                    && selectedIndex < miniBrain.info.SubsystemConnectionDescriptions.Length)
+                {
+                    structureInformation.connectionDescription.SetActive(true); // Showing the connection description
 
-            // Skipping over the node child if the structures are being replaced with nodes
-            if (miniBrain.replaceWithNodes)
-            {
-                otherIndex++;
-            }
-            
-            // Making the target's line stand out
-            lastLineSections = SetLineRendererMaterial(
-                temp,
-                colours.ToArray(),
-                otherIndex
-            );
+                    // Setting the text of the connection description
+                    if (parentTag.Equals("To"))
+                    {
+                        structureInformation.SetConnectionDescription(
+                            selectedIndex,
+                            miniBrain.info.IndexOf(other)
+                        );
+                    }
+                    else if (parentTag.Equals("From"))
+                    {
+                        structureInformation.SetConnectionDescription(
+                            miniBrain.info.IndexOf(other),
+                            selectedIndex
+                        );
+                    }
+                }
 
-            bigBrain.UpdateStructure(other, false, true, true, true);
-
-            yield return new WaitForSeconds(bufferSeconds);
-            bigBrain.UpdateStructure(temp, false, true, true, true);
-
-            // Making sure that the connection description exists
-            if (miniBrain.info.Subsystems != null
-                && selectedIndex < miniBrain.info.SubsystemConnectionDescriptions.Length)
-            {
-                structureInformation.connectionDescription.SetActive(true); // Showing the connection description
-
-                // Setting the text of the connection description
+                // Carrying over the last highlighted other object so it can be modified when something changes later
                 if (parentTag.Equals("To"))
                 {
-                    structureInformation.SetConnectionDescription(
-                        selectedIndex,
-                        miniBrain.info.IndexOf(other)
-                    );
+                    lastOther = other;
                 }
                 else if (parentTag.Equals("From"))
                 {
-                    structureInformation.SetConnectionDescription(
-                        miniBrain.info.IndexOf(other),
-                        selectedIndex
-                    );
+                    lastOther = temp;
                 }
-            }
-
-            // Carrying over the last highlighted other object so it can be modified when something changes later
-            if (parentTag.Equals("To"))
-            {
-                lastOther = other;
-            }
-            else if (parentTag.Equals("From"))
-            {
-                lastOther = temp;
             }
         }
     }

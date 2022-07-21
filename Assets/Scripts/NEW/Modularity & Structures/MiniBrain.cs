@@ -43,6 +43,11 @@ public class MiniBrain : MonoBehaviour
     bool hideLeft;
     [Tooltip("Whether or not to replace all selectable structures with spherical nodes")]
     public bool replaceWithNodes = true;
+    [SerializeField, Tooltip(
+         "Whether to set the structures of teh brain to various unique flesh colours" +
+         " (uses standing 'rainbow' colour coding otherwise)"
+    )]
+    bool useFleshColours = true;
     
     [Header("Connectivity")]
     [SerializeField, Tooltip("The highest connectivity between structures in the whole matrix (should be pre-calculated)")]
@@ -137,9 +142,9 @@ public class MiniBrain : MonoBehaviour
         }
 
         // Setting the ranges that the flesh materials can be generated within
-        Vector2 hueRange = new Vector2(0.95f, 1);
-        Vector2 saturationRange = new Vector2(0.25f, 0.6f);
-        Vector2 valueRange = new Vector2(0.8f, 1);
+        Vector2 hueRange = new Vector2(0.9f, 1);
+        Vector2 saturationRange = new Vector2(0.25f, 0.8f);
+        Vector2 valueRange = new Vector2(0.5f, 1);
         
         // Generating small intervals within the ranges (so hue, saturation, and value is equidistant from others)
         float hueInterval = (hueRange.y - hueRange.x) / structureLength;
@@ -170,15 +175,27 @@ public class MiniBrain : MonoBehaviour
                 // Generating a unique colour for each structure if the left isn't being ignored
                 if (!ignoreLeft)
                 {
-                    tempRenderer.material.color = GetUniqueFleshColour(
-                        structureLength,
-                        hueRange.y,
-                        saturationRange.y, 
-                        valueRange.x,
-                        hueInterval,
-                        saturationInterval,
-                        valueInterval
-                    );
+                    if (useFleshColours)
+                    {
+                        tempRenderer.material.color = GetUniqueFleshColour(
+                            structureLength,
+                            hueRange.y,
+                            saturationRange.y, 
+                            valueRange.x,
+                            hueInterval,
+                            saturationInterval,
+                            valueInterval
+                        );   
+                    }
+                    else
+                    {
+                        // Getting the structure's equidistant unique colour along the spectrum 
+                        tempRenderer.material.color = Color.HSVToRGB(
+                            rightStructureCount * (1f / structureLength),
+                            0.2f,
+                            1
+                        );
+                    }
                 }
                 // Otherwise, copying the colour from the previously generated left structure
                 else
@@ -200,18 +217,30 @@ public class MiniBrain : MonoBehaviour
             {
                 MeshRenderer tempRenderer = temp.GetComponent<MeshRenderer>();
                 tempRenderer.material = leftMaterial;
-                
-                // Generating a unique colour for each left structure
-                tempRenderer.material.color = GetUniqueFleshColour(
-                    structureLength,
-                    hueRange.y,
-                    saturationRange.y, 
-                    valueRange.x,
-                    hueInterval,
-                    saturationInterval,
-                    valueInterval
-                );
-                
+
+                if (useFleshColours)
+                {
+                    // Generating a unique colour for each left structure
+                    tempRenderer.material.color = GetUniqueFleshColour(
+                        structureLength,
+                        hueRange.y,
+                        saturationRange.y, 
+                        valueRange.x,
+                        hueInterval,
+                        saturationInterval,
+                        valueInterval
+                    );
+                }
+                else
+                {
+                    // Getting the structure's equidistant unique colour along the spectrum
+                    tempRenderer.material.color = Color.HSVToRGB(
+                        leftStructureCount * (1f / structureLength),
+                        0.2f,
+                        1
+                    );
+                }
+
                 info.LeftStructures[leftStructureCount] = temp;
 
                 if (hideLeft)
@@ -319,9 +348,9 @@ public class MiniBrain : MonoBehaviour
                             LineRenderer line = lineObject.AddComponent<LineRenderer>();
                             line.material = extraConnectionMaterial;
                             line.widthMultiplier = 0.001f;
+                            line.useWorldSpace = false;
 
                             // Setting the connection lines to the bounds centres of each structure
-                            line.useWorldSpace = false;
                             line.SetPositions(
                                 new [] {
                                     new BoundsInfo(extraOffset.GetChild(m).gameObject).GlobalCentre,
