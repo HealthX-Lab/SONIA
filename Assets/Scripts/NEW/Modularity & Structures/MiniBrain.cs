@@ -143,8 +143,12 @@ public class MiniBrain : MonoBehaviour
 
         // Setting the ranges that the flesh materials can be generated within
         Vector2 hueRange = new Vector2(0.9f, 1);
-        Vector2 saturationRange = new Vector2(0.25f, 0.8f);
-        Vector2 valueRange = new Vector2(0.5f, 1);
+        Vector2 saturationRange = new Vector2(0.1f, 0.9f);
+        Vector2 valueRange = new Vector2(0.4f, 1);
+
+        // Modifying parts of the ranges so that the full scope is captured
+        saturationRange.x -= 0.1f;
+        valueRange.y += 0.1f;
         
         // Generating small intervals within the ranges (so hue, saturation, and value is equidistant from others)
         float hueInterval = (hueRange.y - hueRange.x) / structureLength;
@@ -177,7 +181,18 @@ public class MiniBrain : MonoBehaviour
                 {
                     if (useFleshColours)
                     {
-                        tempRenderer.material.color = GetUniqueFleshColour(
+                        tempRenderer.material.color = GetFleshColourByIndex(
+                            rightStructureCount,
+                            hueRange.y,
+                            saturationRange.y, 
+                            valueRange.x,
+                            hueInterval,
+                            saturationInterval,
+                            valueInterval
+                        );
+
+                        /*
+                        tempRenderer.material.color = GetUniqueRandomFleshColour(
                             structureLength,
                             hueRange.y,
                             saturationRange.y, 
@@ -185,7 +200,8 @@ public class MiniBrain : MonoBehaviour
                             hueInterval,
                             saturationInterval,
                             valueInterval
-                        );   
+                        );
+                        */
                     }
                     else
                     {
@@ -218,10 +234,22 @@ public class MiniBrain : MonoBehaviour
                 MeshRenderer tempRenderer = temp.GetComponent<MeshRenderer>();
                 tempRenderer.material = leftMaterial;
 
+                // Generating a unique colour for each left structure
                 if (useFleshColours)
                 {
+                    tempRenderer.material.color = GetFleshColourByIndex(
+                        leftStructureCount,
+                        hueRange.y,
+                        saturationRange.y, 
+                        valueRange.x,
+                        hueInterval,
+                        saturationInterval,
+                        valueInterval
+                    );
+                    
+                    /*
                     // Generating a unique colour for each left structure
-                    tempRenderer.material.color = GetUniqueFleshColour(
+                    tempRenderer.material.color = GetUniqueRandomFleshColour(
                         structureLength,
                         hueRange.y,
                         saturationRange.y, 
@@ -230,6 +258,7 @@ public class MiniBrain : MonoBehaviour
                         saturationInterval,
                         valueInterval
                     );
+                    */
                 }
                 else
                 {
@@ -376,7 +405,7 @@ public class MiniBrain : MonoBehaviour
     }
 
     /// <summary>
-    /// Method to generate a colour along hue, saturation, and value ranges that hasn't been generated before
+    /// Method to generate a random colour along hue, saturation, and value ranges that hasn't been generated before
     /// </summary>
     /// <param name="len">The number of structures that will have flesh colours added to them</param>
     /// <param name="hueMax">The maximum amount that a hue can be</param>
@@ -386,7 +415,7 @@ public class MiniBrain : MonoBehaviour
     /// <param name="saturationInterval">A factor for making sure that all saturations aren't too close/far from each other</param>
     /// <param name="valueInterval">A factor for making sure that all values aren't too close/far from each other</param>
     /// <returns>A unique randomly-generated fleshy colour</returns>
-    Color GetUniqueFleshColour(
+    Color GetUniqueRandomFleshColour(
         int len,
         float hueMax,
         float saturationMax,
@@ -396,7 +425,7 @@ public class MiniBrain : MonoBehaviour
         float valueInterval)
     {
         // Setting the flesh colour initially
-        Color temp = GetFleshColour(
+        Color temp = GetRandomFleshColour(
             len,
             hueMax,
             saturationMax,
@@ -416,7 +445,7 @@ public class MiniBrain : MonoBehaviour
         // Looping and resetting while the generated colour already exists
         while (usedColours.Contains(temp))
         {
-            temp = GetFleshColour(
+            temp = GetRandomFleshColour(
                 len,
                 hueMax,
                 saturationMax,
@@ -443,7 +472,7 @@ public class MiniBrain : MonoBehaviour
     /// <param name="saturationInterval">A factor for making sure that all saturations aren't too close/far from each other</param>
     /// <param name="valueInterval">A factor for making sure that all values aren't too close/far from each other</param>
     /// <returns>A randomly-generated fleshy colour</returns>
-    Color GetFleshColour(
+    Color GetRandomFleshColour(
         int len,
         float hueMax,
         float saturationMax,
@@ -456,6 +485,33 @@ public class MiniBrain : MonoBehaviour
             hueMax - (Random.Range(0, len) * hueInterval),
             saturationMax - (Random.Range(0, len) * saturationInterval),
             valueMin + (Random.Range(0, len) * valueInterval)
+        );
+    }
+    
+    /// <summary>
+    /// Quick method to generate a colour along hue, saturation, and value ranges at a certain index
+    /// </summary>
+    /// <param name="index">The index along the HSV ranges</param>
+    /// <param name="hueMax">The maximum amount that a hue can be</param>
+    /// <param name="saturationMax">The maximum amount that a saturation can be</param>
+    /// <param name="valueMin">The minimum amount that a value can be</param>
+    /// <param name="hueInterval">A factor for making sure that all hues aren't too close/far from each other</param>
+    /// <param name="saturationInterval">A factor for making sure that all saturations aren't too close/far from each other</param>
+    /// <param name="valueInterval">A factor for making sure that all values aren't too close/far from each other</param>
+    /// <returns>A fleshy colour at the given index</returns>
+    Color GetFleshColourByIndex(
+        int index,
+        float hueMax,
+        float saturationMax,
+        float valueMin,
+        float hueInterval,
+        float saturationInterval,
+        float valueInterval)
+    {
+        return Color.HSVToRGB(
+            hueMax - (index * hueInterval),
+            saturationMax - (index * saturationInterval),
+            valueMin + (index * valueInterval)
         );
     }
 

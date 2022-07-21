@@ -18,3 +18,6 @@ After selection, the corresponding connection line within the brain will become 
 
 Connection completion:
 After the first connection is selected, a list will appear to the left of the brain. This list contains all the subsystems that have at least one viewed connection. Each subsystem is colour coded, as seen previously. Below the name of each subsystem, a small progress bar denotes what percentage of connections from that particular subsystem have been viewed. You must view all connections and read their descriptions before completing the system.
+
+Conclusion:
+Congratulations! You have now viewed all structures and all connections. You may continue to select structures and connections at will.

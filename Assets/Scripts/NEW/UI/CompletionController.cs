@@ -13,9 +13,9 @@ using UnityEngine;
 /// <author>Owen Hellum</author>
 public class CompletionController : MonoBehaviour
 {
-    [SerializeField, Tooltip("The GridLayoutGroup GameObjects where the completion info will be listed")]
-    Transform structureLayout, subsystemLayout;
-    [SerializeField]
+    [Tooltip("The GridLayoutGroup GameObjects where the completion info will be listed")]
+    public Transform structureLayout, subsystemLayout;
+    [SerializeField, Tooltip("The specified order of indices that the structures should be displayed in in the completion UI")]
     int[] specificStructureOrder;
 
     MiniBrain miniBrain; // The mini brain script
@@ -25,7 +25,8 @@ public class CompletionController : MonoBehaviour
     GameObject structureCompletionInfoObject, subsystemCompletionInfoObject;
     // Current number of structures and Subsystem connections viewed (as well as total number of possible connections)
     int numberOfStructuresViewed, numberOfConnectionsViewed, numberOfConnections;
-    [HideInInspector] public bool hasFinishedStructureSelection; // Whether or not all the structures have been viewed
+    // Whether or not all the structures have been viewed / all connections have been viewed
+    [HideInInspector] public bool hasFinishedStructureSelection, hasFinishedConnectionSelection;
     bool hasHiddenStructureLayout; // Whether or not the structure information UI has been hidden yet
     // Whether to force the structures to have to all be viewed first, before the subsystems
     [HideInInspector] public bool structureSelectionFirst;
@@ -114,6 +115,17 @@ public class CompletionController : MonoBehaviour
                 layoutTransform.localPosition.z
             );
         }
+
+        // Populating the structure UI order with default values if it's empty
+        if (specificStructureOrder == null)
+        {
+            specificStructureOrder = new int[structureCompletion.Length];
+
+            for (int i = 0; i < specificStructureOrder.Length; i++)
+            {
+                specificStructureOrder[i] = i;
+            }
+        }
     }
 
     /// <summary>
@@ -158,6 +170,12 @@ public class CompletionController : MonoBehaviour
                 "Structures viewed (" + numberOfStructuresViewed + "/" + miniBrain.info.Structures.Length + "):";
             subsystemLayout.parent.gameObject.GetComponentInChildren<TMP_Text>().text =
                 "Connections viewed (" + numberOfConnectionsViewed + "/" + numberOfConnections + "):";
+            
+            // If all the structures have been viewed, the connection completion stage starts
+            if (structureSelectionFirst && numberOfConnectionsViewed >= numberOfConnections)
+            {
+                hasFinishedConnectionSelection = true;
+            }
         }
     }
 
@@ -249,12 +267,12 @@ public class CompletionController : MonoBehaviour
         }
 
         // If all the structures have been viewed, the connection completion stage starts
-        if (structureSelectionFirst && numberOfStructuresViewed == miniBrain.info.Structures.Length)
+        if (structureSelectionFirst && numberOfStructuresViewed >= miniBrain.info.Structures.Length)
         {
             hasFinishedStructureSelection = true;
         }
         
-        Invoke(nameof(WaitSetConnections), 0.1f); // TODO: this needs to be displayed better
+        Invoke(nameof(WaitSetConnections), 0.1f);
 
         // Only checking and changing visibility if the stage hasn't changed yet
         if (!hasHiddenStructureLayout)
@@ -282,11 +300,38 @@ public class CompletionController : MonoBehaviour
         {
             for (int j = i+1; j < structureLayout.childCount; j++)
             {
-                // Getting their shared Subsystem colours
-                Color[] cols = miniBrain.info.FindSharedColours(structureLayout.GetChild(i).name, structureLayout.GetChild(j).name);
+                // Getting their shared Subsystems
+                SubsystemInfo[] subs = miniBrain.info.FindSharedSubsystems(
+                    structureLayout.GetChild(i).name, 
+                    structureLayout.GetChild(j).name
+                );
 
-                if (cols.Length > 0)
+                // Making sure that they do have Subsystems in common
+                if (subs.Length > 0)
                 {
+                    Color col;
+                    
+                    // Getting the colour from the smallest Subsystem from among shared Subsystems
+                    if (subs.Length > 1)
+                    {
+                        int smallest = 0;
+
+                        for (int k = 0; k < subs.Length; k++)
+                        {
+                            if (subs[k].ValidStructures.Count < subs[smallest].ValidStructures.Count)
+                            {
+                                smallest = k;
+                            }
+                        }
+                        
+                        col = subs[smallest].Colour;
+                    }
+                    // Otherwise, getting the only colour
+                    else
+                    {
+                        col = subs[0].Colour;
+                    }
+
                     // Adding a new LineRenderer object
                     Transform newLine = new GameObject("Connection to " + structureLayout.GetChild(j).name).transform;
                     newLine.SetParent(structureLayout.GetChild(i));
@@ -379,7 +424,7 @@ public class CompletionController : MonoBehaviour
                     );
 
                     // Setting the LineRenderer's colours to the shared colours
-                    StructureSelection.SetLineRendererMaterial(renderer, cols, false);
+                    StructureSelection.SetLineRendererMaterial(renderer, new [] { col }, false, true);   
                 }
             }
         }
@@ -399,7 +444,10 @@ public class CompletionController : MonoBehaviour
                 TMP_Text temp = Instantiate(subsystemCompletionInfoObject, subsystemLayout)
                     .GetComponentInChildren<TMP_Text>();
 
-                // TODO: add a toggle to view the Subsystem description
+                // Setting the name so it can be retrieved later
+                temp.transform.parent.name = miniBrain.info.Subsystems[i].Name;
+
+                // TODO: add a toggle to view the Subsystem description?
                 temp.text =
                     miniBrain.info.Subsystems[i].Name // Name
                     + ": " + Mathf.RoundToInt(subsystemCompletion[i] * 100) + "%"; // Completion amount

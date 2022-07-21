@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 /// <summary>
 /// Custom class used to easily get exact position and size information from a mesh
@@ -19,11 +18,34 @@ public class BoundsInfo
     /// </summary>
     public Vector3 GlobalCentre { get; }
     
+    /// <summary>
+    /// The global position at the top of the mesh bounds
+    /// </summary>
     public Vector3 Top { get; }
+    
+    /// <summary>
+    /// The global position at the bottom of the mesh bounds
+    /// </summary>
     public Vector3 Bottom { get; }
+    
+    /// <summary>
+    /// The global position at the front of the mesh bounds
+    /// </summary>
     public Vector3 Front { get; }
+    
+    /// <summary>
+    /// The global position at the back of the mesh bounds
+    /// </summary>
     public Vector3 Back { get; }
+    
+    /// <summary>
+    /// The global position at the right of the mesh bounds
+    /// </summary>
     public Vector3 Right { get; }
+    
+    /// <summary>
+    /// The global position at the left of the mesh bounds
+    /// </summary>
     public Vector3 Left { get; }
     
     /// <summary>
@@ -58,6 +80,7 @@ public class BoundsInfo
             tempCentre += meshTransform.TransformPoint(tempBounds.center);
             tempMagnitude += tempBounds.size.magnitude * meshTransform.lossyScale.magnitude;
 
+            // Calculating the global positions around the bounding box of the mesh
             if (generateExtremities)
             {
                 Vector3 tempScale = meshTransform.localScale;

@@ -348,6 +348,24 @@ public class AtlasInfo
     }
 
     /// <summary>
+    /// Returns the SubsystemInfo in the subsystem array with the given name
+    /// </summary>
+    /// <param name="name">The name of the SubsystemInfo being searched for</param>
+    /// <returns>The SubsystemInfo with the given name (null if not found)</returns>
+    public SubsystemInfo FindSubsystem(string name)
+    {
+        foreach (SubsystemInfo i in Subsystems)
+        {
+            if (i.Name.Equals(name))
+            {
+                return i;
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
     /// Quick method to find the Subsystems shared by both structures
     /// </summary>
     /// <param name="a">The first of the two structures to be checked</param>
