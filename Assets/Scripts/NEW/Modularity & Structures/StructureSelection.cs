@@ -30,7 +30,7 @@ public class StructureSelection : MonoBehaviour
 
     LineRenderer line; // The laser pointer
     bool hasReset; // Whether the laser pointer has already been reset after pointing away
-    // The current objects (structure and menu) being pointed towards and the clicked object
+    // The current objects (structure and menu) being pointed towards and the selected brain object
     GameObject hitObject, hitMenuObject, selectedObject;
     GameObject lastHitMenuObject, selectedMenuObject; // The last menu option pointed towards and selected (respectively)
     LineRenderer[] lastLineSections; // The colour-coded LineRenderers for the last selected connection
@@ -322,6 +322,9 @@ public class StructureSelection : MonoBehaviour
             obj.transform.GetChild(index).GetComponent<LineRenderer>(),
             cols,
             addArrow,
+            3,
+            1,
+            Vector3.zero,
             useLineWidth
         );
     }
@@ -332,6 +335,9 @@ public class StructureSelection : MonoBehaviour
     /// <param name="renderer">The LineRenderer in question to be split</param>
     /// <param name="cols">the colours to split the LineRenderer by</param>
     /// <param name="addArrow">Whether or not to add a directional arrow midway through the connection line</param>
+    /// <param name="arrowSize">The scaling size of the arrow (if there is one)</param>
+    /// <param name="positionOffset">The offset along the line that the arrow should be positioned by (if there is one)</param>
+    /// <param name="rotationOffset">The rotation offset of the arrow (if there is one)</param>
     /// <param name="useLineWidth">
     /// Whether or not to set the width of the splits
     /// to be equal to the width of the original LineRenderer
@@ -340,6 +346,9 @@ public class StructureSelection : MonoBehaviour
         LineRenderer renderer,
         Color[] cols,
         bool addArrow,
+        float arrowSize,
+        float positionOffset,
+        Vector3 rotationOffset,
         bool useLineWidth)
     {
         LineRenderer[] lineSections = new LineRenderer[cols.Length];
@@ -383,18 +392,29 @@ public class StructureSelection : MonoBehaviour
                 GameObject arrow = new GameObject("Arrow");
                 arrow.transform.SetParent(newLineObject.transform);
                 arrow.transform.localScale = Vector3.one;
-                arrow.transform.localPosition = dir / 2f;
-                arrow.transform.LookAt(arrow.transform.position + dir);
+                arrow.transform.localPosition = dir / (2f * positionOffset);
+
+                // Getting the arrow's direction and looking there
+                Vector3 lookPosition = arrow.transform.position + dir;
+                arrow.transform.LookAt(lookPosition);
+                
+                // Rotating the arrow by the offset (keeping it flat if the arrow is pointing straight up or down)
+                if ((int)dir.x == 0)
+                {
+                    arrow.transform.localEulerAngles += new Vector3(rotationOffset.x, rotationOffset.y, 0);
+                }
+                else
+                {
+                    arrow.transform.localEulerAngles += rotationOffset;
+                }
 
                 // Adding an arrow LineRenderer to the above object
                 LineRenderer arrowLine = arrow.AddComponent<LineRenderer>();
                 arrowLine.material = renderer.material;
                 arrowLine.material.SetColor(EmissionColor, cols[i]);
-                arrowLine.widthMultiplier = 0.005f;
+                arrowLine.widthMultiplier = useLineWidth ? renderer.widthMultiplier : 0.005f;
                 arrowLine.useWorldSpace = false;
-
-                float arrowSize = 3; // Scale factor for the arrow
-
+                
                 arrowLine.positionCount = 3;
                 arrowLine.SetPositions(
                     new [] {
@@ -551,6 +571,8 @@ public class StructureSelection : MonoBehaviour
             
             selectedObject = hitObject;
 
+            yield return new WaitForSeconds(bufferSeconds);
+
             // Adding a unique outline to the selected object
             Outline outline = selectedObject.GetComponent<Outline>();
             outline.OutlineMode = Outline.Mode.OutlineVisible;
@@ -598,6 +620,8 @@ public class StructureSelection : MonoBehaviour
                 miniBrain.info.ValidConnections[infoIndex].ToArray(),
                 connectionsFrom.ToArray()
             );
+            
+            StartCoroutine(completion.HighlightStructureInDiagram(miniBrain.info.Structures[infoIndex].name));
 
             bigBrain.UpdateStructure(temp, false, true, true, true); // Updating the big brain
         }
@@ -798,51 +822,16 @@ public class StructureSelection : MonoBehaviour
                 }
                 
                 // Showing the last tutorial message once all connections have been viewed
-                if (tutorial.current == 6 && completion.hasFinishedConnectionSelection)
+                if (isInTutorial && tutorial.current == 6 && completion.hasFinishedConnectionSelection)
                 {
                     ToggleTutorial();
                 }
+                
+                structureInformation.ResetConnections();
             }
         }
     }
-
-    /*
-    void ClearBrain()
-    {
-        foreach (GameObject i in miniBrain.info.Structures)
-        {
-            StartCoroutine(ClearStructure(i));
-        }
-    }
-
-    IEnumerator ClearStructure(GameObject obj)
-    {
-        Destroy(obj.GetComponent<Outline>());
-            
-        // Destroying the old left side other outline
-        if (lastOtherLeft != null && !lastOtherLeft.Equals(lastLeft))
-        {
-            Destroy(lastOtherLeft.GetComponent<Outline>());
-        }
-                
-        // Removing all the last created line sections
-        if (lastLineSections != null)
-        {
-            foreach (LineRenderer j in lastLineSections)
-            {
-                Destroy(j.gameObject);
-            }   
-        }
-                
-        lastLineSections = null;
-            
-        SetLineRendererVisibility(obj, true);
-
-        yield return new WaitForSeconds(0.01f);
-        bigBrain.UpdateStructure(obj, false, false, false, false);
-    }
-    */
-
+    
     /// <summary>
     /// Adds an outline to the given structure and to the corresponding structure on the left
     /// </summary>

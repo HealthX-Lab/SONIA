@@ -22,6 +22,8 @@ public class StructureInformation : MonoBehaviour
     // The Transforms of the verticalLayoutGroups holding the structures
     // that the selected structure is connected to and from, respectively
     Transform connectedToLayout, connectedFromLayout;
+    GameObject[] lastConnectionsTo, lastConnectionsFrom; // The set of connected to/from structures in the UI
+    GameObject lastSelected; // The last selected structure in the mini brain
     
     /// <summary>
     /// External, manually-called Start method
@@ -85,11 +87,6 @@ public class StructureInformation : MonoBehaviour
                 canvasTransform.localRotation.eulerAngles.z
             ));   
         }
-        
-        // Making the 'connected from' UI responsive to the length of the 'connected to' UI
-        Vector3 tempPos = connectedToLayout.parent.position;
-        connectedFromLayout.parent.position =
-            tempPos + (Vector3.down * (0.15f + (0.05f * connectedToLayout.childCount)));
     }
 
     /// <summary>
@@ -116,6 +113,8 @@ public class StructureInformation : MonoBehaviour
                 if (completion.structureSelectionFirst && completion.hasFinishedStructureSelection)
                 {
                     Invoke(nameof(WaitSetUIPosition), 7);
+                    
+                    hasSetNewUIPosition = true;
                 }
                 // Otherwise just moving everything over
                 else if (!completion.structureSelectionFirst)
@@ -123,61 +122,11 @@ public class StructureInformation : MonoBehaviour
                     descriptionSection.transform.localPosition += Vector3.right * 0.7f;
                     connectionsSection.transform.localPosition += Vector3.right * 0.7f;
                 
-                    hasSetNewUIPosition = true; 
+                    hasSetNewUIPosition = true;
                 }
             }
 
-            // Removing the old 'connection to' options
-            for (int i = 0; i < connectedToLayout.childCount; i++)
-            {
-                Destroy(connectedToLayout.GetChild(i).gameObject);
-            }
-
-            // Removing the old 'connection from' options
-            for (int j = 0; j < connectedFromLayout.childCount; j++)
-            {
-                Destroy(connectedFromLayout.GetChild(j).gameObject);
-            }
-            
-            GameObject connection = Resources.Load<GameObject>("Connection");
-            
-            // Adding the new 'connection to' names
-            foreach (GameObject k in connectionsTo)
-            {
-                GameObject tempConnection = Instantiate(connection, connectedToLayout);
-                tempConnection.GetComponentInChildren<TMP_Text>().text = k.name;
-
-                // Adding colour-coded Subsystem pips for each connected structure
-                if (miniBrain.info.Subsystems != null)
-                {
-                    GameObject tempPips = Instantiate(
-                        Resources.Load<GameObject>("ColourPips"),
-                        tempConnection.transform
-                    );
-                
-                    tempPips.GetComponent<ColourPips>().AddPips(selected, k, Vector3.right * -0.35f);
-                    tempPips.GetComponent<HorizontalLayoutGroup>().reverseArrangement = true;
-                }
-            }
-            
-            // Adding the new' connection from' names
-            foreach (GameObject l in connectionsFrom)
-            {
-                GameObject tempConnection = Instantiate(connection, connectedFromLayout);
-                tempConnection.GetComponentInChildren<TMP_Text>().text = l.name;
-
-                // Adding colour-coded Subsystem pips for each connected structure
-                if (miniBrain.info.Subsystems != null)
-                {
-                    GameObject tempPips = Instantiate(
-                        Resources.Load<GameObject>("ColourPips"),
-                        tempConnection.transform
-                    );
-                
-                    tempPips.GetComponent<ColourPips>().AddPips(selected, l, Vector3.right * -0.35f);
-                    tempPips.GetComponent<HorizontalLayoutGroup>().reverseArrangement = true;
-                }
-            }
+            SetConnections(connectionsTo, connectionsFrom, selected);
         }
 
         TMP_Text[] text = canvas.GetComponentsInChildren<TMP_Text>();
@@ -218,6 +167,108 @@ public class StructureInformation : MonoBehaviour
     }
 
     /// <summary>
+    /// Quick method to load the connections from the last loaded ones (to keep visual changes up to date)
+    /// </summary>
+    public void ResetConnections()
+    {
+        if (lastConnectionsTo != null && lastConnectionsFrom != null && lastSelected != null)
+        {
+            SetConnections(lastConnectionsTo, lastConnectionsFrom, lastSelected);   
+        }
+    }
+    
+    /// <summary>
+    /// Loads all the connections with the given variables in the information UI
+    /// </summary>
+    /// <param name="to">The structures that the selected structure is connected to</param>
+    /// <param name="from">The structures that the selected structure is connected from</param>
+    /// <param name="selected">The selected structure</param>
+    void SetConnections(GameObject[] to, GameObject[] from, GameObject selected)
+    {
+        // Removing the old 'connection to' options
+        for (int i = 0; i < connectedToLayout.childCount; i++)
+        {
+            Destroy(connectedToLayout.GetChild(i).gameObject);
+        }
+
+        // Removing the old 'connection from' options
+        for (int j = 0; j < connectedFromLayout.childCount; j++)
+        {
+            Destroy(connectedFromLayout.GetChild(j).gameObject);
+        }
+
+        // Creating both sets of connections
+        AddConnections(to, connectedToLayout, selected, false);
+        AddConnections(from, connectedFromLayout, selected, true);
+
+        // Resetting the 'last' variables
+        lastConnectionsTo = to;
+        lastConnectionsFrom = from;
+        lastSelected = selected;
+    }
+
+    /// <summary>
+    /// Adds a set of connections into the information UI
+    /// </summary>
+    /// <param name="connections">The GameObjects tha the selected one is connected to/from</param>
+    /// <param name="layout">The place to instantiate the connections in the UI</param>
+    /// <param name="selected">The selected GameObject in the mini brain</param>
+    /// <param name="isFrom">Whether or not the connections are coming from the other structures (rather than to)</param>
+    void AddConnections(GameObject[] connections, Transform layout, GameObject selected, bool isFrom)
+    {
+        GameObject connection = Resources.Load<GameObject>("Connection");
+        
+        // Adding the new connection names
+        foreach (GameObject i in connections)
+        {
+            // Instantiating the connection
+            GameObject tempConnection = Instantiate(connection, layout);
+            tempConnection.GetComponentInChildren<TMP_Text>().text = i.name;
+
+            GameObject selectedObject = selected;
+            GameObject otherObject = i;
+            
+            // Swapping the targets if it's connected 'from'
+            if (isFrom)
+            {
+                (selectedObject, otherObject) = (otherObject, selectedObject);
+            }
+
+            // Getting the respective relative indices in the atlas
+            int selectedIndex = miniBrain.info.IndexOf(selectedObject);
+            int otherIndex = miniBrain.info.ValidConnections[selectedIndex].IndexOf(otherObject);
+            
+            // Checking if the connection has been viewed
+            if (completion.structureCompletion[selectedIndex].ViewedConnections[otherIndex])
+            {
+                // Making the material transparent if it has
+                MeshRenderer tempRenderer = tempConnection.GetComponentInChildren<MeshRenderer>();
+                StandardShaderUtils.ChangeRenderMode(tempRenderer.material, StandardShaderUtils.BlendMode.Transparent);
+
+                Color tempColour = tempRenderer.material.color;
+                tempRenderer.material.color = new Color(
+                    tempColour.r,
+                    tempColour.g,
+                    tempColour.b,
+                    0.5f
+                );
+            }
+
+            // Adding colour-coded Subsystem pips for each connected structure
+            if (miniBrain.info.Subsystems != null)
+            {
+                GameObject tempPips = Instantiate(
+                    Resources.Load<GameObject>("ColourPips"),
+                    tempConnection.transform
+                );
+                
+                tempPips.GetComponent<ColourPips>().AddPips(selected, i, Vector3.right * -0.35f);
+                tempPips.GetComponent<HorizontalLayoutGroup>().reverseArrangement = true;
+            }
+        }
+    }
+
+    /// <summary>
     /// Method to be called with Invoke to make the UI switch to connection selection after a certain waiting period
     /// </summary>
     void WaitSetUIPosition()
@@ -225,9 +276,7 @@ public class StructureInformation : MonoBehaviour
         descriptionSection.SetActive(false);
         connectionsSection.SetActive(true);
                 
-        connectionsSection.transform.localPosition += Vector3.right * 1.35f;
-                
-        hasSetNewUIPosition = true;
+        connectionsSection.transform.localPosition += Vector3.right * 0.9f;
                     
         FindObjectOfType<StructureSelection>().ToggleTutorial();
     }

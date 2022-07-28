@@ -143,8 +143,8 @@ public class MiniBrain : MonoBehaviour
 
         // Setting the ranges that the flesh materials can be generated within
         Vector2 hueRange = new Vector2(0.9f, 1);
-        Vector2 saturationRange = new Vector2(0.1f, 0.9f);
-        Vector2 valueRange = new Vector2(0.4f, 1);
+        Vector2 saturationRange = new Vector2(0.1f, 1);
+        Vector2 valueRange = new Vector2(0.4f, 1.2f);
 
         // Modifying parts of the ranges so that the full scope is captured
         saturationRange.x -= 0.1f;

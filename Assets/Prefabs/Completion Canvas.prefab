@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.2}
-  m_SizeDelta: {x: 2, y: 1}
+  m_SizeDelta: {x: 4, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6336468008573452569
 MonoBehaviour:
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 0.6, y: 1.1}
-  m_Spacing: {x: 0.65, y: -0.65}
+  m_CellSize: {x: 1.1, y: 1.5}
+  m_Spacing: {x: 1, y: -0.65}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &2186097741073052239
@@ -580,6 +580,7 @@ MonoBehaviour:
   subsystemLayout: {fileID: 2055327693549686500}
   specificStructureOrder: 020000000400000001000000000000000300000005000000
   hasFinishedStructureSelection: 0
+  hasFinishedConnectionSelection: 0
   structureSelectionFirst: 1
 --- !u!1 &5335562351178300126
 GameObject:

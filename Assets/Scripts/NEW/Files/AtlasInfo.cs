@@ -328,6 +328,13 @@ public class AtlasInfo
     /// <param name="obj">The object being searched for</param>
     /// <returns>The index that the object is at in the array (0-based) (-1 if not found)</returns>
     public int IndexOf(GameObject obj) { return ArrayUtility.IndexOf(Structures, obj); }
+    
+    /// <summary>
+    /// Returns the index of the object with the given name in the structure array
+    /// </summary>
+    /// <param name="name">The name of the object being searched for</param>
+    /// <returns>The index that the object is at in the array (0-based) (-1 if not found)</returns>
+    public int IndexOf(string name) { return IndexOf(Find(name)); }
 
     /// <summary>
     /// Returns the GameObject in the structure array with the given name

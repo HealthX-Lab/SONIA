@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -30,6 +31,7 @@ public class CompletionController : MonoBehaviour
     bool hasHiddenStructureLayout; // Whether or not the structure information UI has been hidden yet
     // Whether to force the structures to have to all be viewed first, before the subsystems
     [HideInInspector] public bool structureSelectionFirst;
+    GameObject lastHighlightedStructureInDiagram; // The structure box in the diagram UI that was last highlighted
 
     /// <summary>
     /// Struct with information about the completion amounts for a structure
@@ -141,10 +143,10 @@ public class CompletionController : MonoBehaviour
             DestroyAllChildren(structureLayout);
             GenerateStructureCompletionInfo();
 
-            // Making sure to hide the structure UI after it has been completed
+            // Making sure to move the subsystem UI after the structure selection has been completed
             if (structureSelectionFirst && hasFinishedStructureSelection)
             {
-                structureLayout.parent.localPosition += Vector3.left * 1.5f;
+                subsystemLayout.parent.localPosition += Vector3.left * 1.5f;
                 hasHiddenStructureLayout = true;
             }
         }
@@ -298,133 +300,75 @@ public class CompletionController : MonoBehaviour
         // Checking each structure in the UI with each other structure
         for (int i = 0; i < structureLayout.childCount; i++)
         {
-            for (int j = i+1; j < structureLayout.childCount; j++)
+            for (int j = 0; j < structureLayout.childCount; j++)
             {
-                // Getting their shared Subsystems
-                SubsystemInfo[] subs = miniBrain.info.FindSharedSubsystems(
-                    structureLayout.GetChild(i).name, 
-                    structureLayout.GetChild(j).name
-                );
-
-                // Making sure that they do have Subsystems in common
-                if (subs.Length > 0)
+                string iName = structureLayout.GetChild(i).name;
+                string jName = structureLayout.GetChild(j).name;
+                
+                // Making sure that there is a connection from one to the other
+                if (miniBrain.info.ValidConnections[miniBrain.info.IndexOf(iName)]
+                    .Contains(miniBrain.info.Find(jName)))
                 {
-                    Color col;
-                    
-                    // Getting the colour from the smallest Subsystem from among shared Subsystems
-                    if (subs.Length > 1)
-                    {
-                        int smallest = 0;
+                    // Getting their shared Subsystems
+                    SubsystemInfo[] subs = miniBrain.info.FindSharedSubsystems(iName, jName);
 
-                        for (int k = 0; k < subs.Length; k++)
-                        {
-                            if (subs[k].ValidStructures.Count < subs[smallest].ValidStructures.Count)
-                            {
-                                smallest = k;
-                            }
-                        }
+                    // Making sure that they do have Subsystems in common
+                    if (subs.Length > 0)
+                    {
+                        Color col;
                         
-                        col = subs[smallest].Colour;
-                    }
-                    // Otherwise, getting the only colour
-                    else
-                    {
-                        col = subs[0].Colour;
-                    }
-
-                    // Adding a new LineRenderer object
-                    Transform newLine = new GameObject("Connection to " + structureLayout.GetChild(j).name).transform;
-                    newLine.SetParent(structureLayout.GetChild(i));
-                    newLine.localPosition = Vector3.forward * 0.04f;
-                    newLine.localRotation = Quaternion.identity;
-                    newLine.localScale = Vector3.one;
-                    
-                    // Adding and setting the LineRenderer's attributes
-                    LineRenderer renderer = newLine.AddComponent<LineRenderer>();
-                    renderer.material = miniBrain.connectionMaterial;
-                    renderer.widthMultiplier = 0.01f;
-                    renderer.useWorldSpace = false;
-
-                    /*
-                    Vector3 pos1 = structureLayout.GetChild(i).position;
-                    Vector3 pos2 = structureLayout.GetChild(j).position;
-                    BoundsInfo bounds1 = new BoundsInfo(structureLayout.GetChild(i).gameObject, true);
-                    BoundsInfo bounds2 = new BoundsInfo(structureLayout.GetChild(j).gameObject, true);
-                    Vector3 extremityPos1 = Vector3.zero;
-                    Vector3 extremityPos2 = Vector3.zero;
-
-                    if (pos1.x < pos2.x)
-                    {
-                        if (pos2.y > pos1.y)
+                        // Getting the colour from the smallest Subsystem from among shared Subsystems
+                        if (subs.Length > 1)
                         {
-                            // TOP RIGHT to BOTTOM LEFT
-                            extremityPos1 = bounds1.Top + bounds1.Right;
-                            extremityPos2 = bounds2.Bottom + bounds2.Left;
+                            int smallest = 0;
+
+                            for (int k = 0; k < subs.Length; k++)
+                            {
+                                if (subs[k].ValidStructures.Count < subs[smallest].ValidStructures.Count)
+                                {
+                                    smallest = k;
+                                }
+                            }
+                            
+                            col = subs[smallest].Colour;
                         }
-                        else if (pos2.y < pos1.y)
-                        {
-                            // BOTTOM RIGHT to TOP LEFT
-                            extremityPos1 = bounds1.Bottom + bounds1.Right;
-                            extremityPos2 = bounds2.Top + bounds2.Left;
-                        }
+                        // Otherwise, getting the only colour
                         else
                         {
-                            // RIGHT to LEFT
-                            extremityPos1 = bounds1.Right;
-                            extremityPos2 = bounds2.Left;
+                            col = subs[0].Colour;
                         }
-                    }
-                    else if (pos1.x > pos2.x)
-                    {
-                        if (pos2.y > pos1.y)
-                        {
-                            // TOP LEFT to BOTTOM RIGHT
-                            extremityPos1 = bounds1.Top + bounds1.Left;
-                            extremityPos2 = bounds2.Bottom + bounds2.Right;
-                        }
-                        else if (pos2.y < pos1.y)
-                        {
-                            // BOTTOM LEFT to TOP RIGHT
-                            extremityPos1 = bounds1.Bottom + bounds1.Left;
-                            extremityPos2 = bounds2.Top + bounds2.Right;
-                        }
-                        else
-                        {
-                            // LEFT to RIGHT
-                            extremityPos1 = bounds1.Left;
-                            extremityPos2 = bounds2.Right;
-                        }
-                    }
-                    else
-                    {
-                        if (pos2.y > pos1.y)
-                        {
-                            // TOP to BOTTOM
-                            extremityPos1 = bounds1.Top;
-                            extremityPos2 = bounds2.Bottom;
-                        }
-                        else if (pos2.y < pos1.y)
-                        {
-                            // BOTTOM to TOP
-                            extremityPos1 = bounds1.Bottom;
-                            extremityPos2 = bounds2.Top;
-                        }
-                    }
-                    */
 
-                    renderer.SetPositions(
-                        new [] {
-                            /*
-                            structureLayout.GetChild(i).InverseTransformPoint(extremityPos1),
-                            structureLayout.GetChild(i).InverseTransformPoint(extremityPos2)
-                            */
-                            Vector3.zero,
-                            structureLayout.GetChild(i).InverseTransformPoint(structureLayout.GetChild(j).position)
-                        }
-                    );
+                        // Adding a new LineRenderer object
+                        Transform newLine = new GameObject("Connection to " + structureLayout.GetChild(j).name).transform;
+                        newLine.SetParent(structureLayout.GetChild(i));
+                        newLine.localPosition = Vector3.forward * 0.04f;
+                        newLine.localRotation = Quaternion.identity;
+                        newLine.localScale = Vector3.one;
+                        
+                        // Adding and setting the LineRenderer's attributes
+                        LineRenderer renderer = newLine.AddComponent<LineRenderer>();
+                        renderer.material = miniBrain.connectionMaterial;
+                        renderer.widthMultiplier = 0.01f;
+                        renderer.useWorldSpace = false;
+                        
+                        renderer.SetPositions(
+                            new [] {
+                                Vector3.zero,
+                                structureLayout.GetChild(i).InverseTransformPoint(structureLayout.GetChild(j).position)
+                            }
+                        );
 
-                    // Setting the LineRenderer's colours to the shared colours
-                    StructureSelection.SetLineRendererMaterial(renderer, new [] { col }, false, true);   
+                        // Setting the LineRenderer's colours to the shared colours (and transforming the arrow)
+                        StructureSelection.SetLineRendererMaterial(
+                            renderer, 
+                            new [] { col },
+                            true,
+                            0.1f,
+                            0.7f,
+                            new Vector3(0, -20, 90),
+                            true
+                        );   
+                    }   
                 }
             }
         }
@@ -681,5 +625,42 @@ public class CompletionController : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Adds an outline to the structure with the given name in the diagram UI
+    /// </summary>
+    /// <param name="name">The name of the selected structure</param>
+    public IEnumerator HighlightStructureInDiagram(string name)
+    {
+        yield return new WaitForSeconds(0.01f);
+        
+        GameObject temp = null;
+
+        // Looping through all the diagram UI boxes
+        for (int i = 0; i < structureLayout.childCount; i++)
+        {
+            temp = structureLayout.GetChild(i).gameObject;
+
+            // Stopping when the correct one is found
+            if (temp.name.Equals(name))
+            {
+                break;
+            }
+        }
+
+        // Destroying the old outline
+        if (lastHighlightedStructureInDiagram != null)
+        {
+            Destroy(lastHighlightedStructureInDiagram.GetComponent<Outline>());
+        }
+        
+        // Creating a new outline
+        Outline tempOutline = temp.AddComponent<Outline>();
+        tempOutline.OutlineColor = FindObjectOfType<StructureSelection>().selectedMaterial.color;
+        tempOutline.OutlineWidth = 20f;
+        tempOutline.OutlineMode = Outline.Mode.OutlineVisible;
+
+        lastHighlightedStructureInDiagram = temp;
     }
 }
