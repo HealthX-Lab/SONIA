@@ -146,7 +146,7 @@ public class CompletionController : MonoBehaviour
             // Making sure to move the subsystem UI after the structure selection has been completed
             if (structureSelectionFirst && hasFinishedStructureSelection)
             {
-                subsystemLayout.parent.localPosition += Vector3.left * 1.5f;
+                subsystemLayout.parent.localPosition += new Vector3(0.2f, -1.5f, 0);
                 hasHiddenStructureLayout = true;
             }
         }
@@ -174,9 +174,13 @@ public class CompletionController : MonoBehaviour
                 "Connections viewed (" + numberOfConnectionsViewed + "/" + numberOfConnections + "):";
             
             // If all the structures have been viewed, the connection completion stage starts
-            if (structureSelectionFirst && numberOfConnectionsViewed >= numberOfConnections)
+            if (!hasFinishedConnectionSelection
+                && structureSelectionFirst
+                && numberOfConnectionsViewed >= numberOfConnections)
             {
                 hasFinishedConnectionSelection = true;
+                
+                FindObjectOfType<StructureSelection>().ToggleTutorial();
             }
         }
     }
@@ -658,7 +662,7 @@ public class CompletionController : MonoBehaviour
         // Creating a new outline
         Outline tempOutline = temp.AddComponent<Outline>();
         tempOutline.OutlineColor = FindObjectOfType<StructureSelection>().selectedMaterial.color;
-        tempOutline.OutlineWidth = 20f;
+        tempOutline.OutlineWidth = 30f;
         tempOutline.OutlineMode = Outline.Mode.OutlineVisible;
 
         lastHighlightedStructureInDiagram = temp;

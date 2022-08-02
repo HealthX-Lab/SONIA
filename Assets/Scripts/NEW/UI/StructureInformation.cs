@@ -12,6 +12,8 @@ public class StructureInformation : MonoBehaviour
 {
     [SerializeField, Tooltip("Whether the information is attached to a moving object")]
     bool isMoving;
+    [SerializeField, Tooltip("Whether or not to have the 'connected from' UI appear")]
+    bool showConnectedFrom;
     
     Transform cam; // The camera's transform
     [HideInInspector] public GameObject canvas, connectionDescription; // The information canvas and the connection description
@@ -40,7 +42,7 @@ public class StructureInformation : MonoBehaviour
         if (!isMoving)
         {
             canvas.transform.SetParent(transform);
-            canvas.transform.localPosition = Vector3.zero;
+            canvas.transform.localPosition = Vector3.up * 0.2f;
             canvas.transform.localEulerAngles = Vector3.up * 180;
         }
         
@@ -53,6 +55,8 @@ public class StructureInformation : MonoBehaviour
             .GetComponentInChildren<VerticalLayoutGroup>().transform;
         connectedFromLayout = connectionsSection.transform.GetChild(1)
             .GetComponentInChildren<VerticalLayoutGroup>().transform;
+        
+        connectedFromLayout.parent.gameObject.SetActive(showConnectedFrom);
         
         // Hiding the connection description at the start
         connectionDescription = connectionsSection.transform.GetChild(2).gameObject;
@@ -275,8 +279,15 @@ public class StructureInformation : MonoBehaviour
     {
         descriptionSection.SetActive(false);
         connectionsSection.SetActive(true);
-                
-        connectionsSection.transform.localPosition += Vector3.right * 0.9f;
+
+        float setAmount = 1.35f;
+
+        if (showConnectedFrom)
+        {
+            setAmount = 0.9f;
+        }
+        
+        connectionsSection.transform.localPosition += Vector3.right * setAmount;
                     
         FindObjectOfType<StructureSelection>().ToggleTutorial();
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TextToSpeechApi;
 using TMPro;
 using Unity.Tutorials.Core.Editor;
 using UnityEngine;
@@ -21,11 +22,19 @@ public class TutorialLoader : MonoBehaviour
     GameObject button; // The button GameObject to be hidden and shown each rest
     string[] tutorialSections; // The array of tutorial texts to be shown sequentially
     [HideInInspector] public int current; // The index of the currently/last shown tutorial section
+    TextToSpeech tts;
+    AudioSource source;
 
     void Start()
     {
         GenerateSections();
 
+        tts = new TextToSpeech();
+        tts.Init();
+        tts.SetNewSpeechVoice(tts.GetSpeechVoices()[0].Id);
+
+        source = GetComponent<AudioSource>();
+        
         current = -1;
         Reset();
     }
@@ -36,11 +45,33 @@ public class TutorialLoader : MonoBehaviour
     public void Reset()
     {
         current++;
-        GetComponentInChildren<TMP_Text>().text = tutorialSections[current];
 
-        button = GetComponentInChildren<Collider>().transform.parent.gameObject;
-        button.SetActive(false);
-        Invoke(nameof(ShowButton), 3);
+        if (current < tutorialSections.Length)
+        {
+            GetComponentInChildren<TMP_Text>().text = tutorialSections[current];
+
+            button = GetComponentInChildren<Collider>().transform.parent.gameObject;
+            button.SetActive(false);
+            Invoke(nameof(ShowButton), 3);
+        
+            source.Stop();
+        
+            tts.SpeechText(tutorialSections[current]).OnSuccess((audioData) =>
+            {
+                AudioClip audioClip = AudioClip.Create(
+                    "Tutorial clip",
+                    audioData.value.Length, 
+                    1,
+                    tts.samplerate,
+                    false
+                );
+            
+                audioClip.SetData(audioData.value, 0);
+            
+                source.clip = audioClip;
+                source.Play();
+            });   
+        }
     }
 
     /// <summary>
@@ -64,14 +95,18 @@ public class TutorialLoader : MonoBehaviour
                 if (isHeader)
                 {
                     temp.Add("<style=\"H1\">" + i + "</style>");
-                    isHeader = false;
                 }
                 // Otherwise, appending the regular tutorial text to the previous header
                 else
                 {
                     temp[^1] += "\n" + i;
-                    isHeader = true;
                 }
+                
+                isHeader = false;
+            }
+            else
+            {
+                isHeader = true;
             }
         }
 

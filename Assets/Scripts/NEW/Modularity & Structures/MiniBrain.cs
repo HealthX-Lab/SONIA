@@ -60,13 +60,16 @@ public class MiniBrain : MonoBehaviour
     [Header("Extra structures")]
     [SerializeField, Tooltip("The base folder name within the Resources folder for the extra structures")]
     string extraPath;
-    [SerializeField, Tooltip("Which indices (if any) of the structures should not be generated")]
-    int[] ignoreExtraIndices;
+    [SerializeField, Tooltip("Which indices (if any) of the structures should be generated in the mini brain")]
+    int[] extraWhitelist;
     [SerializeField, Tooltip("The corresponding local file name for the connectivity for the extra structures")]
     string extraConnectivityPath;
     [SerializeField, Tooltip("Whether or not to visualize the connectivity between the extra structures")]
     bool showExtraConnectivity = true;
-    [SerializeField, Tooltip("The highest connectivity between structures in the whole matrix (should be pre-calculated)for the extra structures")]
+    [SerializeField, Tooltip(
+         "The highest connectivity between structures in the whole matrix" +
+         " (should be pre-calculated) for the extra structures"
+    )]
     float extraHighestValue;
     [SerializeField, Tooltip("The minimum strength that a connection can have for it to be displayed for the extra structures")]
     float extraThresholdPercentage = 0.1f;
@@ -82,6 +85,7 @@ public class MiniBrain : MonoBehaviour
     [HideInInspector] public Transform offset, extraOffset; // The offset parent Transform for the structures and the extra structures
     [HideInInspector] public AtlasInfo info; // The info class about the atlas
     List<Color> usedColours; // The previously assigned flesh colours to the structures
+    GameObject[] extraStructuresInBrain; // The array of the extra structures generated in the brain
 
     void Start()
     {
@@ -341,17 +345,16 @@ public class MiniBrain : MonoBehaviour
             extraOffset.localScale = Vector3.one;
 
             GameObject[] extraStructures = Resources.LoadAll<GameObject>(extraPath);
+            extraStructuresInBrain = new GameObject[extraStructures.Length];
 
             // Instantiating each extra structure
             for (int m = 0; m < extraStructures.Length; m++)
             {
-                // Making sure to skip over ignored structures in the extra structures array
-                if (!ignoreExtraIndices.Contains(m))
-                {
-                    GameObject tempExtra = Instantiate(extraStructures[m], extraOffset);
-                    tempExtra.GetComponent<MeshRenderer>().material = extraMaterial;
-                    Destroy(tempExtra.GetComponent<Collider>());   
-                }
+                GameObject tempExtra = Instantiate(extraStructures[m], extraOffset);
+                tempExtra.GetComponent<MeshRenderer>().material = extraMaterial;
+                Destroy(tempExtra.GetComponent<Collider>());
+
+                extraStructuresInBrain[m] = tempExtra; // Adding the newly-generated extra structure to the array
             }
 
             // Making sure that the connectivity path is valid, and that they should be visualized
@@ -363,16 +366,18 @@ public class MiniBrain : MonoBehaviour
                 // Loading the connectivity
                 float[,] extraConnectivity = LoadFloatMatrix(extraConnectivityPath, ',');
 
-                for (int m = 0; m < extraOffset.childCount; m++)
+                for (int n = 0; n < extraOffset.childCount; n++)
                 {
-                    for (int n = 0; n < extraOffset.childCount; n++)
+                    for (int o = 0; o < extraOffset.childCount; o++)
                     {
-                        // Making sure that each connection is valid
-                        if (extraConnectivity[m, n] >= extraThresholdValue)
+                        // Making sure that each connection is valid and less than the number of structures
+                        if (n < extraConnectivity.GetLength(0)
+                            && o < extraConnectivity.GetLength(0)
+                            && extraConnectivity[n, o] >= extraThresholdValue)
                         {
                             // Adding the valid connection lines
-                            GameObject lineObject = new GameObject("Connection to " + extraStructures[n].name);
-                            lineObject.transform.SetParent(extraOffset.GetChild(m).transform);
+                            GameObject lineObject = new GameObject("Connection to " + extraStructures[o].name);
+                            lineObject.transform.SetParent(extraOffset.GetChild(n).transform);
                     
                             LineRenderer line = lineObject.AddComponent<LineRenderer>();
                             line.material = extraConnectionMaterial;
@@ -382,8 +387,8 @@ public class MiniBrain : MonoBehaviour
                             // Setting the connection lines to the bounds centres of each structure
                             line.SetPositions(
                                 new [] {
-                                    new BoundsInfo(extraOffset.GetChild(m).gameObject).GlobalCentre,
-                                    new BoundsInfo(extraOffset.GetChild(n).gameObject).GlobalCentre
+                                    new BoundsInfo(extraOffset.GetChild(n).gameObject).GlobalCentre,
+                                    new BoundsInfo(extraOffset.GetChild(o).gameObject).GlobalCentre
                                 }
                             );
                         }
@@ -572,6 +577,21 @@ public class MiniBrain : MonoBehaviour
             // Hiding the structures
             i.GetComponent<MeshRenderer>().enabled = false;
             i.GetComponent<MeshCollider>().enabled = false;
+        }
+    }
+
+    /// <summary>
+    /// Method to destroy any of the unnecessary extra mini brain structures
+    /// after they have been loaded into the big brain
+    /// </summary>
+    public void HideExtraStructures()
+    {
+        for (int i = 0; i < extraStructuresInBrain.Length; i++)
+        {
+            if (!extraWhitelist.Contains(i))
+            {
+                Destroy(extraStructuresInBrain[i]);
+            }
         }
     }
 }

@@ -58,9 +58,11 @@ public class BigBrain : MonoBehaviour
         }
 
         // After the big brain has been loaded, the mini brain structures are converted to nodes
+        // and hide any unnecessary extra mini brain structure
         if (miniBrain.replaceWithNodes)
         {
             miniBrain.ReplaceWithNodes();   
+            miniBrain.HideExtraStructures();
         }
 
         // Checking to make sure that the extra structures are to be generated for the big brain

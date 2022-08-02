@@ -2,16 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/README.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/README.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scenes/Demo.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scenes/Demo.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Demo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Demo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Dispatcher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Dispatcher.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Future.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Future.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/RotateCube.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/RotateCube.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/TextToSpeechApi.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/TextToSpeechApi.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/text-to-speech.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/text-to-speech.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL_brainmesh00001.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL_brainmesh00001.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Completion Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Connection.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Connection.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL_brainmesh00001.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL_brainmesh00001.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/tutorial.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/tutorial.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/AtlasInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Files/AtlasInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/CompletionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/CompletionController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/StructureInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/StructureInformation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/TutorialLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/TutorialLoader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,6 +144,9 @@
       <workItem from="1658408567627" duration="9642000" />
       <workItem from="1658422666582" duration="2385000" />
       <workItem from="1659012888143" duration="10341000" />
+      <workItem from="1659444690957" duration="3208000" />
+      <workItem from="1659452893824" duration="4643000" />
+      <workItem from="1659464479974" duration="2451000" />
     </task>
     <servers />
   </component>

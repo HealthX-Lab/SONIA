@@ -1,23 +1,47 @@
 Introduction:
-The generated models in front of you are the primary brain structures/groups associated with certain anxiety responses. There are six of them, with various other clear brain structures around for spatial context. For visual aid, selectable structures on the right side have been replaced with small spheres. On a larger scale, the structures have also been projected around you, so that you are placed at the centre of the brain. Any selections within the miniature brain will be reflected upon the large brain. Press the 'Continue' button below to proceed.
+• The six models in front of you are the primary brain structures associated with certain anxiety responses.
+• Selectable structures on the right side have been replaced with small nodes.
+• Any selections within the miniature brain will be reflected upon the large brain around you.
+Press the <b>'Continue'</b> button below to proceed.
 
 Selecting structures:
-You will now be able to select any of the six structures within the miniature brain. To select one, simply wave the white line attached to your controller inside of the desired structure and press the trigger button with your index finger. A white outline will appear around the structure to show that it is being targeted, and will become thicker when it has in fact been selected with the controller trigger. The corresponding structure on the left side of the brain will also become highlighted. After selection, text will appear above the brain with the name of the structure, and a short description.
+• You will now be able to select any of the six structures within the miniature brain.
+• To select one, wave the white line attached to your controller inside of the desired structure and press the trigger button with your index finger.
+• Text will appear above the brain with the name of the structure, and a short description.
 
-Subsystems:
-Within the brain, there are subsystems of connections which are associated with various anxiety responses. Small, spherical, colour-coded pips will appear above the name of the selected structure, denoting which subsystems it belongs to. Subsystems will be explained in greater detail later.
+Subsystems and colour coding:
+• There are subsystems of connections which are associated with various anxiety responses.
+• All subsystems have distinct colours associated with them.
+• The coloured pips above the names of the selected structures indicate which subsystems they are a part of.
+The following <b>subsystems</b> are included:
+
+<color=#FF0000>Cognitive control:</color>
+Signals are sent back and forth between the amygdala and the mPFC. An increase and deregulation of these signals means an increase in anxiety behaviours and disorders.
+
+<color=#CCFF00>Fear conditioning:</color>
+Various connections exist to and from the hippocampus, as well as between the mPFC and amygdala. These signals are related to fear learning and increase the chances of anxiety disorders, behaviours, and expressions.
+
+<color=#00FF66>Uncertainty anticipation:</color>
+A pair of connections terminate at the BNST. They relate to the regulation and modulation of anxiety in conditions with uncertain aspects, both short and long term.
+
+<color=#0066FF>Motivation processing:</color>
+Connections exist back and forth from the striatum to the amygdala and mPFC. They deal with rewards, motivation, decision making, and avoidance, achieving a balance with anxiety behaviours.
+
+<color=#CC00FF>Stress regulation:</color>
+The hypothalamus, amygdala, and mPFC are highly interconnected for stress. They regulate fear, aggression, and other emotions back and forth in anxiety-inducing situations.
 
 Structure completion:
-After the first structure is selected, a list will appear to the left of the brain. This list contains all structures that have been previously selected. You must view all structures and read their descriptions before moving on to the next step.
+• After the first structure is selected, a list of viewed structures will appear to the left of the brain.
+• You must view all structures and read their descriptions before moving on to the next step.
 
 Selecting connections:
-After all structures have been selected and read, the structure list will disappear. The text above the brain will be replaced with a list of connections associated with the selected structure that are going to and coming from other structures. To select these connections and read their descriptions, simply point the white line attached to your controller towards the list of connections like a laser pointer, and press thr trigger button with your index finger. A white outline will appear around the connection name to show that it is being targeted, and will become thicker when it has in fact been selected with the controller trigger. After selection, description of the selected connection will appear above the brain.
-
-Colour coded connections:
-After selection, the corresponding connection line within the brain will become highlighted, as well as the respective other structure that is connected to the selected structure. Both the connection line and the other structure will be highlighted with colour(s) that correspond to the connection subsystem that the connection belongs to (the other structure will be highlighted in white if the connection belongs to many subsystems).
+• The text above the brain has been replaced with a list of connections going to other structures.
+• To select these connections, point the white line attached to your controller towards the list of connections like a laser pointer and press the trigger button with your index finger.
 
 Connection completion:
-After the first connection is selected, a list will appear to the left of the brain. This list contains all the subsystems that have at least one viewed connection. Each subsystem is colour coded, as seen previously. Below the name of each subsystem, a small progress bar denotes what percentage of connections from that particular subsystem have been viewed. You must view all connections and read their descriptions before completing the system.
+• After the first connection is selected, a list will appear to the left of the brain.
+• This list shows how many of the subsystems' connections have been viewed.
+• Each subsystem is colour coded.
+• You must view all connections and read their descriptions before completing the system.
 
-Conclusion:
 Congratulations! You have now viewed all structures and all connections. You may continue to select structures and connections at will.

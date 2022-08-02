@@ -42,12 +42,6 @@ public class StructureSelection : MonoBehaviour
     StructureInformation structureInformation; // The structure information script in the left hand
     TutorialLoader tutorial; // The tutorial script
     CompletionController completion; // The structure/connection completion script
-    
-    /*
-    bool isLastHitMenuObjectASubsystem; // Whether or not the last UI object that has been it was a subsystem
-    List<GameObject> subsystemHighlights; // The last highlighted structures as part of a subsystem
-    */
-    
     bool isInTutorial = true; // Whether or not to pause the selection, as the tutorial text is currently visible
     
     // Rider IDE told me to use this variable instead of using the string name directly, so here it is
@@ -132,23 +126,11 @@ public class StructureSelection : MonoBehaviour
             // Checking if a menu object is being hit
             else if (
                 hit.transform.IsChildOf(structureInformation.canvas.transform)
-                || (tutorial != null && hit.transform.IsChildOf(tutorial.transform))
-                /*|| hit.transform.IsChildOf(completion.subsystemLayout)*/)
+                || (tutorial != null && hit.transform.IsChildOf(tutorial.transform)))
             {
                 // Making sure to select only the appropriate UI options at the appropriate times
                 if ((isInTutorial && tutorial != null && hit.transform.IsChildOf(tutorial.transform)) || !isInTutorial)
                 {
-                    /*
-                    if (hit.transform.IsChildOf(completion.subsystemLayout))
-                    {
-                        isLastHitMenuObjectASubsystem = true;
-                    }
-                    else
-                    {
-                        isLastHitMenuObjectASubsystem = false;
-                    }
-                    */
-                    
                     // Making the laser snap to that object
                     line.SetPosition(1, transform.InverseTransformPoint(hit.point));
                     hasReset = false;
@@ -455,7 +437,7 @@ public class StructureSelection : MonoBehaviour
             if (isInTutorial)
             {
                 // If there are remaining tutorial popups in this 'chain' of popups
-                if (tutorial.current is 0 or 2 or 5)
+                if (tutorial.current == 0 || (tutorial.current >= 2 && tutorial.current <= 7))
                 {
                     tutorial.Reset();
                 }
@@ -514,17 +496,6 @@ public class StructureSelection : MonoBehaviour
                 Destroy(lastOtherLeft.GetComponent<Outline>());
             }
             
-            /*
-            if (subsystemHighlights != null)
-            {
-                foreach (GameObject j in subsystemHighlights)
-                {
-                    StartCoroutine(ClearStructure(j));
-                    yield return new WaitForSeconds(bufferSeconds);
-                }   
-            }
-            */
-            
             // Hiding the last connection's structure's outline
             if (lastOther != null)
             {
@@ -568,10 +539,8 @@ public class StructureSelection : MonoBehaviour
                     bigBrain.UpdateStructure(j, false, false, false, false);
                 }
             }
-            
-            selectedObject = hitObject;
 
-            yield return new WaitForSeconds(bufferSeconds);
+            selectedObject = hitObject;
 
             // Adding a unique outline to the selected object
             Outline outline = selectedObject.GetComponent<Outline>();
@@ -633,31 +602,10 @@ public class StructureSelection : MonoBehaviour
             {
                 ToggleTutorial();
             }
-            /*
-            else if (isLastHitMenuObjectASubsystem)
-            {
-                ClearBrain();
-
-                subsystemHighlights = new List<GameObject>();
-                
-                SubsystemInfo temp = miniBrain.info.FindSubsystem(lastHitMenuObject.transform.parent.name);
-
-                foreach (GameObject i in miniBrain.info.Structures)
-                {
-                    if (temp.ValidStructures.Contains(i))
-                    {
-                        subsystemHighlights.Add(i);
-                        
-                        yield return new WaitForSeconds(bufferSeconds);
-                        HighlightStructure(i, temp.Colour);
-                    }
-                }
-            }
-            */
             else
             {
                 // If the first connection to be selected is selected, toggle on
-                if (tutorial != null && tutorial.current == 4)
+                if (tutorial != null && tutorial.current == 9)
                 {
                     ToggleTutorial();
                 }
@@ -678,18 +626,7 @@ public class StructureSelection : MonoBehaviour
                 }
                 
                 lastLineSections = null;
-                
-                /*
-                if (subsystemHighlights != null)
-                {
-                    foreach (GameObject j in subsystemHighlights)
-                    {
-                        StartCoroutine(ClearStructure(j));
-                        yield return new WaitForSeconds(bufferSeconds);
-                    }   
-                }
-                */
-                
+
                 // Hiding the last connection's structure's outline
                 if (lastOther != null)
                 {
@@ -820,13 +757,7 @@ public class StructureSelection : MonoBehaviour
                 {
                     lastOther = temp;
                 }
-                
-                // Showing the last tutorial message once all connections have been viewed
-                if (isInTutorial && tutorial.current == 6 && completion.hasFinishedConnectionSelection)
-                {
-                    ToggleTutorial();
-                }
-                
+
                 structureInformation.ResetConnections();
             }
         }
