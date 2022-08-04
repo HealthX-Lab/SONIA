@@ -13,6 +13,12 @@ Subsystems and colour coding:
 • There are subsystems of connections which are associated with various anxiety responses.
 • All subsystems have distinct colours associated with them.
 • The coloured pips above the names of the selected structures indicate which subsystems they are a part of.
+
+Structure completion:
+• After the first structure is selected, a list of viewed structures will appear to the left of the brain.
+• You must view all structures and read their descriptions before moving on to the next step.
+
+List of subsystems
 The following <b>subsystems</b> are included:
 
 <color=#FF0000>Cognitive control:</color>
@@ -29,10 +35,6 @@ Connections exist back and forth from the striatum to the amygdala and mPFC. The
 
 <color=#CC00FF>Stress regulation:</color>
 The hypothalamus, amygdala, and mPFC are highly interconnected for stress. They regulate fear, aggression, and other emotions back and forth in anxiety-inducing situations.
-
-Structure completion:
-• After the first structure is selected, a list of viewed structures will appear to the left of the brain.
-• You must view all structures and read their descriptions before moving on to the next step.
 
 Selecting connections:
 • The text above the brain has been replaced with a list of connections going to other structures.

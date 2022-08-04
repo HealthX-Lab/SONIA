@@ -2,41 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="347ef318-4bb2-43d6-8873-af6f1d9fb7a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/README.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/README.pdf.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scenes.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scenes/Demo.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scenes/Demo.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Demo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Demo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Dispatcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Dispatcher.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Future.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/Future.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/RotateCube.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/RotateCube.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/TextToSpeechApi.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/Scripts/TextToSpeechApi.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/text-to-speech.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/lolpez/Windows Text To Speech/text-to-speech.dll.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL_brainmesh00001.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/AAL/AAL_brainmesh00001.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Insideout/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL_brainmesh00001.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/AAL/FBX/AAL_brainmesh00001.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Structure Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (White).mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Transparent/Transparent (White).mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Floor.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Subsystems/tutorial.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Subsystems/tutorial.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Idle Exploration.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/MiniBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/Modularity &amp; Structures/StructureSelection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/CompletionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/CompletionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/StructureInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/StructureInformation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/TutorialLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NEW/UI/TutorialLoader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NEW/Art/BigBrain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -58,20 +32,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "database.data.extractors.current.id": "Comma-separated (CSV)_id",
+    "nodejs_package_manager_path": "npm",
+    "rider.run.widget.enabled.cache": "false",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe" />
@@ -147,6 +121,8 @@
       <workItem from="1659444690957" duration="3208000" />
       <workItem from="1659452893824" duration="4643000" />
       <workItem from="1659464479974" duration="2451000" />
+      <workItem from="1659617565823" duration="4299000" />
+      <workItem from="1659636979224" duration="4933000" />
     </task>
     <servers />
   </component>

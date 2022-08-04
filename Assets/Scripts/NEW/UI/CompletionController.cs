@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -350,7 +349,7 @@ public class CompletionController : MonoBehaviour
                         newLine.localScale = Vector3.one;
                         
                         // Adding and setting the LineRenderer's attributes
-                        LineRenderer renderer = newLine.AddComponent<LineRenderer>();
+                        LineRenderer renderer = newLine.gameObject.AddComponent<LineRenderer>();
                         renderer.material = miniBrain.connectionMaterial;
                         renderer.widthMultiplier = 0.01f;
                         renderer.useWorldSpace = false;
@@ -635,10 +634,8 @@ public class CompletionController : MonoBehaviour
     /// Adds an outline to the structure with the given name in the diagram UI
     /// </summary>
     /// <param name="name">The name of the selected structure</param>
-    public IEnumerator HighlightStructureInDiagram(string name)
+    public void HighlightStructureInDiagram(string name)
     {
-        yield return new WaitForSeconds(0.01f);
-        
         GameObject temp = null;
 
         // Looping through all the diagram UI boxes
@@ -666,5 +663,30 @@ public class CompletionController : MonoBehaviour
         tempOutline.OutlineMode = Outline.Mode.OutlineVisible;
 
         lastHighlightedStructureInDiagram = temp;
+    }
+
+    public void HighlightConnectionInDiagram(string name, string other, Color col)
+    {
+        GameObject temp = null;
+
+        // Looping through all the diagram UI boxes
+        for (int i = 0; i < structureLayout.childCount; i++)
+        {
+            temp = structureLayout.GetChild(i).gameObject;
+
+            // Stopping when the correct one is found
+            if (temp.name.Equals(name))
+            {
+                break;
+            }
+        }
+        
+        print(temp);
+
+        foreach (LineRenderer i in temp.transform.GetChild(index + 2).gameObject.GetComponentsInChildren<LineRenderer>())
+        {
+            print(i);
+            i.material.color = col;
+        }
     }
 }

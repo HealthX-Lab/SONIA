@@ -437,7 +437,7 @@ public class StructureSelection : MonoBehaviour
             if (isInTutorial)
             {
                 // If there are remaining tutorial popups in this 'chain' of popups
-                if (tutorial.current == 0 || (tutorial.current >= 2 && tutorial.current <= 7))
+                if (tutorial.current is 0 or 2 || (tutorial.current >= 4 && tutorial.current <= 9))
                 {
                     tutorial.Reset();
                 }
@@ -589,8 +589,10 @@ public class StructureSelection : MonoBehaviour
                 miniBrain.info.ValidConnections[infoIndex].ToArray(),
                 connectionsFrom.ToArray()
             );
+
+            yield return new WaitForSeconds(bufferSeconds);
             
-            StartCoroutine(completion.HighlightStructureInDiagram(miniBrain.info.Structures[infoIndex].name));
+            completion.HighlightStructureInDiagram(miniBrain.info.Structures[infoIndex].name);
 
             bigBrain.UpdateStructure(temp, false, true, true, true); // Updating the big brain
         }
@@ -605,7 +607,7 @@ public class StructureSelection : MonoBehaviour
             else
             {
                 // If the first connection to be selected is selected, toggle on
-                if (tutorial != null && tutorial.current == 9)
+                if (tutorial != null && tutorial.current == 10)
                 {
                     ToggleTutorial();
                 }
@@ -723,6 +725,7 @@ public class StructureSelection : MonoBehaviour
                 bigBrain.UpdateStructure(other, false, true, true, true);
 
                 yield return new WaitForSeconds(bufferSeconds);
+
                 bigBrain.UpdateStructure(temp, false, true, true, true);
 
                 // Making sure that the connection description exists
@@ -759,6 +762,12 @@ public class StructureSelection : MonoBehaviour
                 }
 
                 structureInformation.ResetConnections();
+                
+                completion.HighlightConnectionInDiagram(
+                    miniBrain.info.Structures[selectedIndex].name,
+                    otherIndex,
+                    Color.white
+                );
             }
         }
     }

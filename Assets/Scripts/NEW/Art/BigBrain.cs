@@ -45,7 +45,7 @@ public class BigBrain : MonoBehaviour
         // Creating big brain structures from the mini brain structures
         foreach (GameObject i in miniBrain.info.Structures)
         {
-            UpdateStructure(i, true, true, false, false);
+            UpdateStructure(i, true, true, false, true);
         }
         
         // Also creating the left structures (if they are being ignored for connectivity purposes)
@@ -53,7 +53,7 @@ public class BigBrain : MonoBehaviour
         {
             foreach (GameObject j in miniBrain.info.LeftStructures)
             {
-                UpdateStructure(j, true, true, false, false);
+                UpdateStructure(j, true, true, false, true);
             }   
         }
 
