@@ -44,10 +44,11 @@ public class MiniBrain : MonoBehaviour
     [Tooltip("Whether or not to replace all selectable structures with spherical nodes")]
     public bool replaceWithNodes = true;
     [SerializeField, Tooltip(
-         "Whether to set the structures of teh brain to various unique flesh colours" +
+         "Whether to set the structures of the brain to various unique flesh colours" +
          " (uses standing 'rainbow' colour coding otherwise)"
     )]
     bool useFleshColours = true;
+    public LayerMask structureLayer;
     
     [Header("Connectivity")]
     [SerializeField, Tooltip("The highest connectivity between structures in the whole matrix (should be pre-calculated)")]
@@ -173,6 +174,7 @@ public class MiniBrain : MonoBehaviour
             // Creating and initializing each structure
             GameObject temp = Instantiate(tempStructures[i], offset);
             temp.name = info.Names[i];
+            temp.layer = LayerMask.NameToLayer("Selectable");
 
             // Adding the structures if they're on the right, or the left isn't being ignored
             if (!ignoreLeft || (ignoreLeft && i % 2 == 1))
@@ -560,6 +562,7 @@ public class MiniBrain : MonoBehaviour
         {
             // Creating new nodes
             GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            temp.layer = LayerMask.NameToLayer("Selectable");
             
             temp.GetComponent<MeshRenderer>().material = i.GetComponent<MeshRenderer>().material;
             

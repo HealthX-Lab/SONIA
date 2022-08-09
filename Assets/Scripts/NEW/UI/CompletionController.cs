@@ -277,7 +277,7 @@ public class CompletionController : MonoBehaviour
             hasFinishedStructureSelection = true;
         }
         
-        Invoke(nameof(WaitSetConnections), 0.1f);
+        Invoke(nameof(SetDiagramConnections), 0.1f);
 
         // Only checking and changing visibility if the stage hasn't changed yet
         if (!hasHiddenStructureLayout)
@@ -295,10 +295,10 @@ public class CompletionController : MonoBehaviour
     }
 
     /// <summary>
-    /// Method to generate connections between structures in the completion UI
+    /// Method to generate connections between structures in the completion UI diagram
     /// (to be invoked after the structures have been added to the LayoutGroup and at least 1 frame has passed)
     /// </summary>
-    void WaitSetConnections()
+    void SetDiagramConnections()
     {
         // Checking each structure in the UI with each other structure
         for (int i = 0; i < structureLayout.childCount; i++)
@@ -318,28 +318,7 @@ public class CompletionController : MonoBehaviour
                     // Making sure that they do have Subsystems in common
                     if (subs.Length > 0)
                     {
-                        Color col;
-                        
-                        // Getting the colour from the smallest Subsystem from among shared Subsystems
-                        if (subs.Length > 1)
-                        {
-                            int smallest = 0;
-
-                            for (int k = 0; k < subs.Length; k++)
-                            {
-                                if (subs[k].ValidStructures.Count < subs[smallest].ValidStructures.Count)
-                                {
-                                    smallest = k;
-                                }
-                            }
-                            
-                            col = subs[smallest].Colour;
-                        }
-                        // Otherwise, getting the only colour
-                        else
-                        {
-                            col = subs[0].Colour;
-                        }
+                        Color col = miniBrain.info.FindSmallestSharedColour(iName, jName);
 
                         // Adding a new LineRenderer object
                         Transform newLine = new GameObject("Connection to " + structureLayout.GetChild(j).name).transform;
@@ -634,7 +613,8 @@ public class CompletionController : MonoBehaviour
     /// Adds an outline to the structure with the given name in the diagram UI
     /// </summary>
     /// <param name="name">The name of the selected structure</param>
-    public void HighlightStructureInDiagram(string name)
+    /// <param name="active">Whether or not to make the highlight visible</param>
+    public void HighlightStructureInDiagram(string name, bool active)
     {
         GameObject temp = null;
 
@@ -655,17 +635,31 @@ public class CompletionController : MonoBehaviour
         {
             Destroy(lastHighlightedStructureInDiagram.GetComponent<Outline>());
         }
-        
-        // Creating a new outline
-        Outline tempOutline = temp.AddComponent<Outline>();
-        tempOutline.OutlineColor = FindObjectOfType<StructureSelection>().selectedMaterial.color;
-        tempOutline.OutlineWidth = 30f;
-        tempOutline.OutlineMode = Outline.Mode.OutlineVisible;
+
+        if (active)
+        {
+            // Creating a new outline
+            Outline tempOutline = temp.AddComponent<Outline>();
+            tempOutline.OutlineColor = FindObjectOfType<StructureSelection>().selectedMaterial.color;
+            tempOutline.OutlineWidth = 30f;
+            tempOutline.OutlineMode = Outline.Mode.OutlineVisible;   
+        }
+        else
+        {
+            Destroy(temp.GetComponent<Outline>());
+        }
 
         lastHighlightedStructureInDiagram = temp;
     }
 
-    public void HighlightConnectionInDiagram(string name, string other, Color col)
+    /// <summary>
+    /// Emphasizes the connection between the given structures in the diagram UI
+    /// </summary>
+    /// <param name="name">The name of the starting structure</param>
+    /// <param name="other">The name of the 'connected to' structure</param>
+    /// <param name="mat">The material to be applied</param>
+    /// <param name="active">Whether or not to make the highlight visible</param>
+    public void HighlightConnectionInDiagram(string name, string other, Material mat, bool active)
     {
         GameObject temp = null;
 
@@ -680,13 +674,50 @@ public class CompletionController : MonoBehaviour
                 break;
             }
         }
-        
-        print(temp);
 
-        foreach (LineRenderer i in temp.transform.GetChild(index + 2).gameObject.GetComponentsInChildren<LineRenderer>())
+        for (int j = 0; j < temp.transform.childCount; j++)
         {
-            print(i);
-            i.material.color = col;
+            GameObject tempConnection = temp.transform.GetChild(j).gameObject;
+
+            // Finding the connected structure in the diagram
+            if (tempConnection.name.Contains(other))
+            {
+                // getting the LineRenderers that make up the connection
+                LineRenderer[] lines = tempConnection.GetComponentsInChildren<LineRenderer>();
+
+                // Repositioning it (so it doesn't overlap if bidirectional)
+                if (active)
+                {
+                    lines[0].transform.localPosition = Vector3.forward * 0.03f;
+                }
+                else
+                {
+                    lines[0].transform.localPosition = Vector3.forward * 0.04f;
+                }
+
+                foreach (LineRenderer k in lines)
+                {
+                    k.material = mat; // Applying the new material
+
+                    // Making the lines thicker
+                    if (active)
+                    {
+                        k.widthMultiplier = 0.015f;
+                    }
+                    // Resetting the line thickness and colour
+                    else
+                    {
+                        k.widthMultiplier = 0.01f;
+
+                        k.material.SetColor(
+                            "_EmissionColor",
+                            miniBrain.info.FindSmallestSharedColour(name, other)
+                        );
+                    }
+                }
+
+                break; // Stopping after the connection has been found
+            }
         }
     }
 }

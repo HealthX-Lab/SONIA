@@ -676,6 +676,7 @@ GameObject:
   - component: {fileID: 3765030730260804225}
   - component: {fileID: 3765030730260804224}
   - component: {fileID: 3765030730260804231}
+  - component: {fileID: 7426666199166458245}
   m_Layer: 5
   m_Name: Structure Canvas
   m_TagString: Untagged
@@ -749,7 +750,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3765030730260804231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,6 +768,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!65 &7426666199166458245
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765030730260804230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2.25, z: 0.5}
+  m_Center: {x: 0, y: -0.3, z: 0}
 --- !u!1 &3765030730298176694
 GameObject:
   m_ObjectHideFlags: 0

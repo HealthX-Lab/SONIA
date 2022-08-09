@@ -242,11 +242,13 @@ public class StructureInformation : MonoBehaviour
             int selectedIndex = miniBrain.info.IndexOf(selectedObject);
             int otherIndex = miniBrain.info.ValidConnections[selectedIndex].IndexOf(otherObject);
             
+            MeshRenderer tempRenderer = tempConnection.GetComponentInChildren<MeshRenderer>();
+            tempRenderer.gameObject.layer = LayerMask.NameToLayer("Selectable");
+            
             // Checking if the connection has been viewed
             if (completion.structureCompletion[selectedIndex].ViewedConnections[otherIndex])
             {
-                // Making the material transparent if it has
-                MeshRenderer tempRenderer = tempConnection.GetComponentInChildren<MeshRenderer>();
+                // Making the material transparent if it has been viewed
                 StandardShaderUtils.ChangeRenderMode(tempRenderer.material, StandardShaderUtils.BlendMode.Transparent);
 
                 Color tempColour = tempRenderer.material.color;

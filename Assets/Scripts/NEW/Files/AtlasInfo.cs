@@ -428,4 +428,41 @@ public class AtlasInfo
     /// <param name="b">The name of the second of the two structures to be checked</param>
     /// <returns>An array the Color of each SubsystemInfo object that contains both structures</returns>
     public Color[] FindSharedColours(string a, string b) { return FindSharedColours(Find(a), Find(b)); }
+
+    /// <summary>
+    /// Method to check through all Subsystems to find the least frequent colour shared among structures
+    /// </summary>
+    /// <param name="a">The first of the two structures to be checked</param>
+    /// <param name="b">The second of the two structures to be checked</param>
+    /// <returns>The least frequent Subsystem colour that the two structures share</returns>
+    public Color FindSmallestSharedColour(GameObject a, GameObject b)
+    {
+        SubsystemInfo[] subs = FindSharedSubsystems(a, b);
+        
+        // Getting the colour from the smallest Subsystem from among shared Subsystems
+        if (subs.Length > 1)
+        {
+            int smallest = 0;
+
+            for (int k = 0; k < subs.Length; k++)
+            {
+                if (subs[k].ValidStructures.Count < subs[smallest].ValidStructures.Count)
+                {
+                    smallest = k;
+                }
+            }
+                            
+            return subs[smallest].Colour;
+        }
+        
+        return subs[0].Colour; // Otherwise, getting the only colour
+    }
+    
+    /// <summary>
+    /// Method to check through all Subsystems to find the least frequent colour shared among structures
+    /// </summary>
+    /// <param name="a">The name of the first of the two structures to be checked</param>
+    /// <param name="b">The name of the second of the two structures to be checked</param>
+    /// <returns>The least frequent Subsystem colour that the two structures share</returns>
+    public Color FindSmallestSharedColour(string a, string b) { return FindSmallestSharedColour(Find(a), Find(b)); }
 }

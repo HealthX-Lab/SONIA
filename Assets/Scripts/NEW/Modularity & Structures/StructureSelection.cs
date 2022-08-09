@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Valve.VR;
 
 /// <summary>
@@ -29,6 +30,7 @@ public class StructureSelection : MonoBehaviour
     SteamVR_Action_Boolean action;
 
     LineRenderer line; // The laser pointer
+    GameObject ball;
     bool hasReset; // Whether the laser pointer has already been reset after pointing away
     // The current objects (structure and menu) being pointed towards and the selected brain object
     GameObject hitObject, hitMenuObject, selectedObject;
@@ -36,6 +38,7 @@ public class StructureSelection : MonoBehaviour
     LineRenderer[] lastLineSections; // The colour-coded LineRenderers for the last selected connection
     GameObject lastOther; // Structure associated with the last selected connection
     GameObject lastLeft, lastOtherLeft; // The structures on the left side of the brain to have their outlines mirrored
+    string lastOtherName; // The name of the last structure selected in the 'connected to' UI
 
     MiniBrain miniBrain; // The mini brain script
     BigBrain bigBrain; // The big brain script
@@ -43,9 +46,6 @@ public class StructureSelection : MonoBehaviour
     TutorialLoader tutorial; // The tutorial script
     CompletionController completion; // The structure/connection completion script
     bool isInTutorial = true; // Whether or not to pause the selection, as the tutorial text is currently visible
-    
-    // Rider IDE told me to use this variable instead of using the string name directly, so here it is
-    static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
 
     void Start()
     {
@@ -54,11 +54,26 @@ public class StructureSelection : MonoBehaviour
         line.material = selectedMaterial;
         line.widthMultiplier = 0.005f;
         line.useWorldSpace = false;
+        
+        ball = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        
+        Transform ballTransform = ball.transform;
+        ballTransform.SetParent(gameObject.transform);
+        ballTransform.localScale = Vector3.one * 0.03f;
+        
+        MeshRenderer ballRenderer = ball.GetComponent<MeshRenderer>();
+        ballRenderer.material = selectedMaterial;
+        ballRenderer.shadowCastingMode = ShadowCastingMode.Off;
 
         // Setting the lightsaber length
         if (isLightsaber)
         {
-            line.SetPosition(1, Vector3.forward * lightsaberLength);   
+            line.SetPosition(1, Vector3.forward * lightsaberLength);
+            ballTransform.localPosition = line.GetPosition(1);
+        }
+        else
+        {
+            ball.SetActive(false);
         }
 
         ResetLaser();
@@ -85,7 +100,8 @@ public class StructureSelection : MonoBehaviour
                 transform.position, 
                 transform.forward,
                 out var hit,
-                Single.PositiveInfinity
+                Single.PositiveInfinity,
+                miniBrain.structureLayer
             ))
         {
             // Checking if a structure is being hit
@@ -98,6 +114,10 @@ public class StructureSelection : MonoBehaviour
                 {
                     // Making the laser snap to that object
                     line.SetPosition(1, transform.InverseTransformPoint(hit.point));   
+                }
+                else
+                {
+                    ball.SetActive(true);
                 }
                 
                 hasReset = false;
@@ -155,7 +175,9 @@ public class StructureSelection : MonoBehaviour
                     else
                     {
                         lastHitMenuObject.GetComponent<Outline>().enabled = true;
-                    }   
+                    }
+                    
+                    ball.SetActive(false);
                 }
             }
             else
@@ -193,6 +215,10 @@ public class StructureSelection : MonoBehaviour
             if (!isLightsaber)
             {
                 resetLength = laserPointerLength;
+            }
+            else
+            {
+                ball.SetActive(true);
             }
             
             line.SetPosition(1, Vector3.forward * resetLength);
@@ -318,8 +344,8 @@ public class StructureSelection : MonoBehaviour
     /// <param name="cols">the colours to split the LineRenderer by</param>
     /// <param name="addArrow">Whether or not to add a directional arrow midway through the connection line</param>
     /// <param name="arrowSize">The scaling size of the arrow (if there is one)</param>
-    /// <param name="positionOffset">The offset along the line that the arrow should be positioned by (if there is one)</param>
-    /// <param name="rotationOffset">The rotation offset of the arrow (if there is one)</param>
+    /// <param name="arrowPositionOffset">The offset along the line that the arrow should be positioned by (if there is one)</param>
+    /// <param name="arrowRotationOffset">The rotation offset of the arrow (if there is one)</param>
     /// <param name="useLineWidth">
     /// Whether or not to set the width of the splits
     /// to be equal to the width of the original LineRenderer
@@ -329,8 +355,8 @@ public class StructureSelection : MonoBehaviour
         Color[] cols,
         bool addArrow,
         float arrowSize,
-        float positionOffset,
-        Vector3 rotationOffset,
+        float arrowPositionOffset,
+        Vector3 arrowRotationOffset,
         bool useLineWidth)
     {
         LineRenderer[] lineSections = new LineRenderer[cols.Length];
@@ -354,7 +380,7 @@ public class StructureSelection : MonoBehaviour
             
             // Setting the section's Subsystem colour
             newLine.material = renderer.material;
-            newLine.material.SetColor(EmissionColor, cols[i]);
+            newLine.material.SetColor("_EmissionColor", cols[i]);
             newLine.widthMultiplier = useLineWidth ? renderer.widthMultiplier : 0.005f;
             newLine.useWorldSpace = false;
             
@@ -374,7 +400,7 @@ public class StructureSelection : MonoBehaviour
                 GameObject arrow = new GameObject("Arrow");
                 arrow.transform.SetParent(newLineObject.transform);
                 arrow.transform.localScale = Vector3.one;
-                arrow.transform.localPosition = dir / (2f * positionOffset);
+                arrow.transform.localPosition = dir / (2f * arrowPositionOffset);
 
                 // Getting the arrow's direction and looking there
                 Vector3 lookPosition = arrow.transform.position + dir;
@@ -383,17 +409,17 @@ public class StructureSelection : MonoBehaviour
                 // Rotating the arrow by the offset (keeping it flat if the arrow is pointing straight up or down)
                 if ((int)dir.x == 0)
                 {
-                    arrow.transform.localEulerAngles += new Vector3(rotationOffset.x, rotationOffset.y, 0);
+                    arrow.transform.localEulerAngles += new Vector3(arrowRotationOffset.x, arrowRotationOffset.y, 0);
                 }
                 else
                 {
-                    arrow.transform.localEulerAngles += rotationOffset;
+                    arrow.transform.localEulerAngles += arrowRotationOffset;
                 }
 
                 // Adding an arrow LineRenderer to the above object
                 LineRenderer arrowLine = arrow.AddComponent<LineRenderer>();
                 arrowLine.material = renderer.material;
-                arrowLine.material.SetColor(EmissionColor, cols[i]);
+                arrowLine.material.SetColor("_EmissionColor", cols[i]);
                 arrowLine.widthMultiplier = useLineWidth ? renderer.widthMultiplier : 0.005f;
                 arrowLine.useWorldSpace = false;
                 
@@ -538,9 +564,25 @@ public class StructureSelection : MonoBehaviour
                     // Updating the big brain
                     bigBrain.UpdateStructure(j, false, false, false, false);
                 }
+                
+                // Removing the old structure highlight in the diagram
+                completion.HighlightStructureInDiagram(lastTemp.name, false);
+                
+                // Removing the old connection highlight in the diagram
+                if (lastOtherName != null)
+                {
+                    completion.HighlightConnectionInDiagram(
+                        lastTemp.name,
+                        lastOtherName,
+                        selectedMaterial,
+                        false
+                    );
+                }
             }
 
             selectedObject = hitObject;
+            
+            // TODO: need to add error handling so that selectedObject isn't null here
 
             // Adding a unique outline to the selected object
             Outline outline = selectedObject.GetComponent<Outline>();
@@ -591,10 +633,12 @@ public class StructureSelection : MonoBehaviour
             );
 
             yield return new WaitForSeconds(bufferSeconds);
-            
-            completion.HighlightStructureInDiagram(miniBrain.info.Structures[infoIndex].name);
 
-            bigBrain.UpdateStructure(temp, false, true, true, true); // Updating the big brain
+            // Adding a new structure highlight in the diagram
+            completion.HighlightStructureInDiagram(miniBrain.info.Structures[infoIndex].name, true);
+
+            // Updating the big brain
+            bigBrain.UpdateStructure(temp, false, true, true, true);
         }
         // Checking if a menu object has been clicked on
         else if (hitMenuObject != null && lastHitMenuObject != null)
@@ -646,6 +690,21 @@ public class StructureSelection : MonoBehaviour
                 {
                     selectedMenuObject.GetComponent<Outline>().enabled = false;
                 }
+
+                // Removing the old structure highlight in the diagram
+                string selectedName = GetCorrespondingGameObject(selectedObject).name;
+                completion.HighlightStructureInDiagram(selectedName, false);
+                
+                // Removing the old connection highlight in the diagram
+                if (lastOtherName != null)
+                {
+                    completion.HighlightConnectionInDiagram(
+                        selectedName,
+                        lastOtherName,
+                        selectedMaterial,
+                        false
+                    );
+                }
                 
                 // Confirming the menu selection
                 selectedMenuObject = lastHitMenuObject;
@@ -655,9 +714,9 @@ public class StructureSelection : MonoBehaviour
                 int selectedIndex = miniBrain.info.IndexOf(temp);
 
                 // Getting the connected structure
-                GameObject other = miniBrain.info.Find(
-                    lastHitMenuObject.transform.parent.GetComponentInChildren<TMP_Text>().text
-                );
+                string otherName = lastHitMenuObject.transform.parent.GetComponentInChildren<TMP_Text>().text;
+                lastOtherName = otherName;
+                GameObject other = miniBrain.info.Find(otherName);
 
                 // Resetting the connection line visibility
                 SetLineRendererVisibility(temp, true);
@@ -763,10 +822,15 @@ public class StructureSelection : MonoBehaviour
 
                 structureInformation.ResetConnections();
                 
+                // Adding a new structure highlight in the diagram
+                completion.HighlightStructureInDiagram(GetCorrespondingGameObject(selectedObject).name, true);
+                
+                // Adding a new connection highlight in the diagram
                 completion.HighlightConnectionInDiagram(
                     miniBrain.info.Structures[selectedIndex].name,
-                    otherIndex,
-                    Color.white
+                    otherName,
+                    selectedMaterial,
+                    true
                 );
             }
         }
