@@ -2,13 +2,13 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.insideout.exe",
+      "app_key": "application.generated.unity.sonia.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\HealthX\\Documents\\GitHub\\Insideout\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\HealthX\\Documents\\GitHub\\SONIA\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
-          "name": "Insideout [Testing]"
+          "name": "SONIA [Testing]"
         }
       }
     }
