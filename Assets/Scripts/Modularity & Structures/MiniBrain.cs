@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -337,7 +336,7 @@ public class MiniBrain : MonoBehaviour
         transform.localScale = Vector3.one * (scale / bounds.Magnitude);
 
         // Making sure that the path to the extra structure is valid, and that it should be visualized somewhere
-        if (extraPath.IsNotNullOrEmpty() && (miniExtraStructures || bigExtraStructures))
+        if (!string.IsNullOrEmpty(extraPath) && (miniExtraStructures || bigExtraStructures))
         {
             // Creating the extra structures' offset
             extraOffset = new GameObject("Extra Structures").transform;
@@ -360,7 +359,7 @@ public class MiniBrain : MonoBehaviour
             }
 
             // Making sure that the connectivity path is valid, and that they should be visualized
-            if (extraConnectivityPath.IsNotNullOrEmpty() && showExtraConnectivity)
+            if (!string.IsNullOrEmpty(extraConnectivityPath) && showExtraConnectivity)
             {
                 // Getting the extra structures' threshold value
                 float extraThresholdValue = extraHighestValue * extraThresholdPercentage;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -323,11 +322,30 @@ public class AtlasInfo
     }
 
     /// <summary>
+    /// Returns the index of the given object in a GameObject array
+    /// </summary>
+    /// <param name="arr">The array to search through</param>
+    /// <param name="obj">The object being searched for</param>
+    /// <returns>The index that the object is at in the array (0-based) (-1 if not found)</returns>
+    public int IndexOf(GameObject[] arr, GameObject obj)
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i].Equals(obj))
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    /// <summary>
     /// Returns the index of the given object in the structure array
     /// </summary>
     /// <param name="obj">The object being searched for</param>
     /// <returns>The index that the object is at in the array (0-based) (-1 if not found)</returns>
-    public int IndexOf(GameObject obj) { return ArrayUtility.IndexOf(Structures, obj); }
+    public int IndexOf(GameObject obj) { return IndexOf(Structures, obj); }
     
     /// <summary>
     /// Returns the index of the object with the given name in the structure array

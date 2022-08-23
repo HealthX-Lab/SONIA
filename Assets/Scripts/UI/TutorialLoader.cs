@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using TextToSpeechApi;
 using TMPro;
-using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 
 /// <summary>
@@ -89,7 +88,7 @@ public class TutorialLoader : MonoBehaviour
         foreach (string i in split)
         {
             // Making sure that the current line isn't empty
-            if (i.Trim().IsNotNullOrEmpty())
+            if (!string.IsNullOrEmpty(i.Trim()))
             {
                 // Formatting the header and adding it to the list
                 if (isHeader)
