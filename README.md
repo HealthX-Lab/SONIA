@@ -1,3 +1,5 @@
+![SONIA logo](https://github.com/HealthX-Lab/SONIA/blob/main/Assets/Materials/SONIA.png)
+
 # SONIA
 
 *immer**S**ive m**O**dular **N**euro learn**I**ng pl**A**tform*
