@@ -48,6 +48,10 @@ If downloading for development, the following factors should be considered:
 - To run the scene with a newly added atlas, simply duplicate the active Mini Brain GameObject (making sure to disable it aftrwards), and set the required variables in the `MiniBrain.cs` script
 - All scripts are fully documented, and can provide useful information, should an error occurr
 
+## Script Diagram
+
+![SONIA script diagram](https://github.com/HealthX-Lab/SONIA/blob/main/Assets/Materials/SONIA_Script_Diagram.png)
+
 ## Extras
 
 In the `old` branch, code and scenes from previous iterations of the system can be found. They would most likely have errors, and would require careful debugging to fix the issues. That being said, they are also fully documented.
