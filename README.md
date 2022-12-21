@@ -61,6 +61,7 @@ If downloading for development, the following factors should be considered:
   - The inactive GameObject is loaded with the AAL atlas (may present errors, as it has only mildly been tested)
 - All scripts are fully documented, and can provide useful information, should an error occur
 - To run the system with a customized atlas of your own, please see the following section
+  - ***While the text for the optional tutorial is customizable, the in-code trigger points are not. For this reason, the use/customization of a tutorial is not recommended***
 
 
 
@@ -112,19 +113,12 @@ If downloading for development, the following factors should be considered:
    - **Extra Path:** The name of the ***extra structures*** folder you created in the `SONIA/Assets/Resources` folder
    - **Extra Connectivity Path:** The name of the extra structures connectivity file
 7. ***If you wish to include a tutorial***
-
    1. Navigate the the `Tutorial` GameObject
+   2. Enable the `Tutorial` GameObject
    2. Attached to the `Tutorial` GameObject is the `TutorialLoader.cs` script
    3. Fill the following fields in the `TutorialLoader.cs` script *(type only the name of the folder/file, not the full path)* *(do not include the file extension)*:
-
       - **Path:** The name of the folder you created in the `SONIA/Assets/Resources` folder
-
       - **Tutorial Path:** The name of the tutorial text file
-
-8. ***If you do not wish to include a tutorial***
-
-   1. Navigate the the `Tutorial` GameObject
-   2. Disable the `Tutorial` GameObject
 
 
 
