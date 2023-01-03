@@ -26,6 +26,7 @@ Customizable system for displaying and inspecting brain structures, connections,
 
 
 ### Development:
+- Basic knowledge of Unity scene and GameObject navigation
 - Unity version 2021 or later (though it would probably work with earlier versions back a couple years)
 - SteamVR
 - HTC VIVE Pro Eye HMD (though other VR headsets can theoretically also be used, I have not tested this)
