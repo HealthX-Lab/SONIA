@@ -4,6 +4,8 @@
 
 *immer**S**ive cust**O**mizable **N**euro learn**I**ng pl**A**tform*
 
+**Publication:** O. Hellum, C. Steele, Y. Xiao, “SONIA: an immersive customizable virtual reality system for the education and exploration of brain networks,” arXiv: 2301.09772, 2023.
+
 
 
 ## Description
