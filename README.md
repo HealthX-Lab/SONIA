@@ -3,7 +3,7 @@
 # SONIA (*immer**S**ive cust**O**mizable **N**euro learn**I**ng pl**A**tform*)
 
 **Please cite the following reference for the SONIA platform:**
-> O. Hellum, C. Steele, Y. Xiao, “SONIA: an immersive customizable virtual reality system for the education and exploration of brain networks,” arXiv: 2301.09772, 2023.
+> O. Hellum, C. Steele, Y. Xiao, “SONIA: an immersive customizable virtual reality system for the education and exploration of brain networks,” Frontiers in Virtual Reality, vol 4, doi: 10.3389/frvir.2023.1244096, 2024.
 
 
 
