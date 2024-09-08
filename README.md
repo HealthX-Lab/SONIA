@@ -2,7 +2,7 @@
 
 
 <p float="left">
-  <img src="https://github.com/HealthX-Lab/SONIA/blob/main/Assets/Materials/SONIA-demo.png" width="100%" />
+  <img src="https://github.com/HealthX-Lab/SONIA/blob/main/Assets/Materials/SONIA-demo.png" width="80%" />
 </p>
 
 # SONIA (*immer**S**ive cust**O**mizable **N**euro learn**I**ng pl**A**tform*)
